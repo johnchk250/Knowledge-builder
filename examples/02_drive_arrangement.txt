@@ -1,0 +1,9 @@
+TRAINING EXAMPLE ONLY — not actual plant data.
+Document: BC-04 drive arrangement, revision B.
+BC-04, also called BC4 and Belt Conveyor 04, is a belt conveyor.
+Motor M-04 drives Gearbox GB-04.
+GB-04 drives BC-04.
+ZSS-04 monitors BC-04.
+M-04 is part of BC-04.
+BC-04 rated capacity: 1000 t/h.
+This drawing does not state that the equipment register has been superseded.

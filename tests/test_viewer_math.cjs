@@ -1,0 +1,15 @@
+const assert=require('node:assert/strict');
+require('../dist/viewer3d.js');
+const {bounds,intersection}=globalThis.CHP3D;
+assert.equal(intersection([0,0,2],[0,0,-1],[-1,-1,0],[1,-1,0],[0,1,0]),2);
+assert.equal(intersection([5,5,2],[0,0,-1],[-1,-1,0],[1,-1,0],[0,1,0]),null);
+assert.equal(intersection([0,0,-2],[0,0,-1],[-1,-1,0],[1,-1,0],[0,1,0]),null);
+assert.deepEqual(bounds([{vertices:[[-2,-4,-6],[2,4,6]]}]).centre,[0,0,0]);
+assert.deepEqual(bounds([]).centre,[0,0,0]);
+const source=[{entity_id:'small',parameters:{'position.x':{value:100},'position.y':{value:2},'position.z':{value:20}},vertices:[[99,1,19],[101,3,21]]},{entity_id:'large',parameters:{'position.x':{value:0},'position.y':{value:0},'position.z':{value:0}},vertices:[[-100,-50,-100],[100,50,100]]}];
+const before=JSON.stringify(source),compact=globalThis.CHP3D.catalogLayout(source);
+assert.equal(JSON.stringify(source),before,'Catalog view must never mutate saved geometry');
+assert.equal(compact[0].entity_id,'small');
+assert.equal(compact[1].vertices[1][0]-compact[1].vertices[0][0],4);
+assert.notDeepEqual(compact[0].parameters['position.x'],source[0].parameters['position.x']);
+console.log('Viewer picking and bounding-box math passed. GPU/browser rendering not exercised.');

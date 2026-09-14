@@ -1,0 +1,4 @@
+TRAINING EXAMPLE ONLY — not actual plant data.
+Document: CHP equipment register, revision A.
+BC-04 is an item of equipment in the coal handling plant.
+BC-04 rated capacity: 800 t/h.

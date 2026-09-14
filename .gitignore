@@ -1,0 +1,45 @@
+# Local data and databases
+data/
+*.db
+*.sqlite
+*.sqlite3
+
+# Generated outputs and build artifacts
+output/
+dist/
+build/
+*.egg-info/
+
+# Generated/session workspaces
+triple_model_session/
+verification_gemini_38/
+sol_gemini_session/
+docs/archive-pre-operations/
+tests/archived_3d/
+
+# Local development/tool environments
+.venv/
+.venv-cad/
+.opencode/
+.env
+.env.*
+
+# Python/runtime caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Generated document artifacts
+*.pdf
+*.docx
+*.pptx
+*.xlsx
+*.xls
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

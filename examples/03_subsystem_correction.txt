@@ -1,0 +1,6 @@
+TRAINING EXAMPLE ONLY — not actual plant data.
+Document: BC-04 drive assembly clarification, revision C.
+DS-04 is the drive subsystem of BC-04.
+M-04 and GB-04 are components of DS-04.
+The previous direct parent assignment of M-04 to BC-04 is incomplete; use DS-04 as its immediate parent.
+This clarification does not resolve the conflicting rated capacities.
