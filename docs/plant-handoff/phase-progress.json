@@ -2,21 +2,21 @@
   "schema_version": 1,
   "updated_date": "2026-10-04",
   "baseline_version": 593,
-  "latest_verified_version": 634,
+  "latest_verified_version": 635,
   "status": "in_progress",
   "execution_mode": "breadth_first",
   "pass": "A",
   "breadth_policy": "docs/plant-handoff/FIVE_PHASE_PLAN.md#execution-mode-breadth-first-from-v628",
   "depth_queue": "docs/plant-handoff/current/depth-queue.json",
-  "active_phase": "phase-1",
-  "next_batch": "B05",
-  "next_action": "B05 boundary-only recheck: four old material edges through aggregate UEF1 create false1A-to2B and1B-to2A reachability. Review TP1 original and retire aggregate topology while preserving accepted direct lane/chute routes. Then advance Phase2/B06 EAC2A/B.",
+  "active_phase": "phase-2",
+  "next_batch": "B06",
+  "next_action": "Phase2 Pass A / B06: EAC-2A/B major drive, belt/pulley/takeup/protection and screening discharge assemblies from175012 GA pp1-2; reuse TP1 receiving chutes and existing AT/QB/EAT applicability. Headline ratings already present. Defer internals and detailed settings.",
   "plan": "docs/plant-handoff/FIVE_PHASE_PLAN.md",
   "current_inventory": "docs/plant-handoff/current/CURRENT_STATUS.md",
   "last_completed_work": {
-    "scope": "B04 Tier1 accepted v633-v634:14 drainage assemblies,6 pond/feedwater assemblies, correct Yard2/3/4 E/F,C/D,A/B pump assignments; TP13 outlets corrected from UEF1 to UEE2 intermediate sump; existing CRP pumps return through filter/MGV04 to SPDS compartment only.21 route checks and20 major-component browser checks pass.",
-    "version": 634,
-    "checkpoint": "output/plant-enrichment/B04/checkpoint.md"
+    "scope": "B05 boundary recheck completed at635 with one correction proposal: retire4 aggregate-building flow edges; preserve1A-to2A and1B-to2B direct/chute routes. Both false crossovers now absent. B02 supply and B04 drainage boundaries verified. No pilot detail expansion.",
+    "version": 635,
+    "checkpoint": "output/plant-enrichment/B05/checkpoint.md"
   },
   "accepted_reuse_batches": [
     "B30",
@@ -31,7 +31,7 @@
     {
       "id": "phase-1",
       "title": "Identities, common services and TP1",
-      "status": "in_progress",
+      "status": "breadth_complete",
       "batches": [
         "B00",
         "B01",
@@ -44,9 +44,9 @@
         "B00",
         "B01"
       ],
-      "current_batch": "B05",
+      "current_batch": null,
       "baseline_version": 593,
-      "latest_version": 634,
+      "latest_version": 635,
       "checkpoint": "output/plant-enrichment/B05/checkpoint.md",
       "open_evidence_gaps": [
         {
@@ -78,13 +78,14 @@
       "breadth_complete_batches": [
         "B02",
         "B03",
-        "B04"
+        "B04",
+        "B05"
       ]
     },
     {
       "id": "phase-2",
       "title": "Unloading, screening and distribution",
-      "status": "not_started",
+      "status": "in_progress",
       "batches": [
         "B06",
         "B07",
@@ -97,10 +98,10 @@
         "B14"
       ],
       "completed_batches": [],
-      "current_batch": null,
-      "baseline_version": null,
-      "latest_version": null,
-      "checkpoint": null,
+      "current_batch": "B06",
+      "baseline_version": 635,
+      "latest_version": 635,
+      "checkpoint": "output/plant-enrichment/B06/checkpoint.md",
       "open_evidence_gaps": [],
       "breadth_complete_batches": []
     },
@@ -446,6 +447,14 @@
       "status": "breadth_complete",
       "verification": "passed",
       "milestone": "B04 Tier1 accepted v633-v634:14 drainage assemblies,6 pond/feedwater assemblies, correct Yard2/3/4 E/F,C/D,A/B pump assignments; TP13 outlets corrected from UEF1 to UEE2 intermediate sump; existing CRP pumps return through filter/MGV04 to SPDS compartment only.21 route checks and20 major-component browser checks pass."
+    },
+    {
+      "date": "2026-10-04",
+      "batch": "B05",
+      "version": 635,
+      "status": "breadth_complete",
+      "verification": "passed",
+      "milestone": "B05 boundary recheck completed at635 with one correction proposal: retire4 aggregate-building flow edges; preserve1A-to2A and1B-to2B direct/chute routes. Both false crossovers now absent. B02 supply and B04 drainage boundaries verified. No pilot detail expansion."
     }
   ],
   "accepted_followup_queue": "docs/plant-handoff/current/accepted-followups.json",

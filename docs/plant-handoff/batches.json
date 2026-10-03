@@ -132,7 +132,7 @@
       ],
       "scope": "Use found TP1 GA to close stale gap, add supported place/hoist/tank detail; preserve pilot drive/protection/DFDS evidence.",
       "exit_check": "Pilot regressions pass; sources still open at deep parts and grouped counts.",
-      "status": "in_progress",
+      "status": "breadth_complete",
       "gates": [
         "G1",
         "G2",
@@ -144,7 +144,8 @@
         "G8"
       ],
       "checkpoint": "output/plant-enrichment/B05/checkpoint.md",
-      "baseline_version": 634
+      "baseline_version": 634,
+      "latest_version": 635
     },
     {
       "id": "B06",
@@ -155,7 +156,7 @@
       ],
       "scope": "Both conveyor 2 drive/protection/mechanical trees and head/tail interfaces; reuse TP1 receiving chutes.",
       "exit_check": "No copied1A ratings; source-supported path reaches PSH.",
-      "status": "not_started",
+      "status": "in_progress",
       "gates": [
         "G1",
         "G2",
@@ -166,7 +167,8 @@
         "G7",
         "G8"
       ],
-      "checkpoint": "output/plant-enrichment/B06/checkpoint.md"
+      "checkpoint": "output/plant-enrichment/B06/checkpoint.md",
+      "baseline_version": 635
     },
     {
       "id": "B07",

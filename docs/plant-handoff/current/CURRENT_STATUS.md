@@ -1,8 +1,8 @@
 # Current plant detail inventory
 
-Reviewed 2026-10-03 at model v634. Fresh read-only snapshot: `output/plant-enrichment/B04/accepted-v634.json`. All 179 targets and 47 batches reconciled. Integrity/FK checks pass. Counts describe records, not physical quantities or engineering completion.
+Reviewed 2026-10-03 at model v635. Fresh read-only snapshot: `output/plant-enrichment/B05/accepted-v635.json`. All 179 targets and 47 batches reconciled. Integrity/FK checks pass. Counts describe records, not physical quantities or engineering completion.
 
-9 batches accepted with qualifications; 3 further batches breadth-complete; 35 remain in Pass A. Phase 1: 5/6 batches. Finer work stays in [the depth queue](depth-queue.json).
+9 batches accepted with qualifications; 4 further batches breadth-complete; 34 remain in Pass A. Phase 1: 6/6 batches. Finer work stays in [the depth queue](depth-queue.json).
 
 ## Main conveyors
 
