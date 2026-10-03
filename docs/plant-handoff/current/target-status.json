@@ -2656,13 +2656,15 @@
     "canonical_id": "ent_18d771b5863a4f2685cd",
     "current_label": "EAE-2",
     "own_fact_count": 14,
-    "direct_children": 0,
-    "assembly_records": 1,
-    "located_records": [],
+    "direct_children": 1,
+    "assembly_records": 2,
+    "located_records": [
+      "ent_3db045e92ee54639b477"
+    ],
     "network_assertions": {
       "material": 1,
       "mechanical": 0,
-      "utility": 0,
+      "utility": 1,
       "electrical": 0,
       "control": 0
     },
@@ -2670,7 +2672,8 @@
     "evidence_documents": [
       "doc_9c169bf7536b4ebca236",
       "doc_9ea3e0c55ca347ae96a2",
-      "doc_4f2cd96c3b1e413ea4b5"
+      "doc_4f2cd96c3b1e413ea4b5",
+      "doc_5a36f2843d504d6e96de"
     ]
   },
   {
@@ -2910,13 +2913,15 @@
     "canonical_id": "ent_e1181f45e78e462cbc07",
     "current_label": "EAE-3",
     "own_fact_count": 14,
-    "direct_children": 0,
-    "assembly_records": 1,
-    "located_records": [],
+    "direct_children": 1,
+    "assembly_records": 2,
+    "located_records": [
+      "ent_945815f0479641398776"
+    ],
     "network_assertions": {
       "material": 1,
       "mechanical": 0,
-      "utility": 0,
+      "utility": 1,
       "electrical": 0,
       "control": 0
     },
@@ -2924,7 +2929,8 @@
     "evidence_documents": [
       "doc_9c169bf7536b4ebca236",
       "doc_9ea3e0c55ca347ae96a2",
-      "doc_4f2cd96c3b1e413ea4b5"
+      "doc_4f2cd96c3b1e413ea4b5",
+      "doc_5a36f2843d504d6e96de"
     ]
   },
   {
@@ -3164,13 +3170,15 @@
     "canonical_id": "ent_b74d44c57a034fe885c0",
     "current_label": "EAE-4",
     "own_fact_count": 14,
-    "direct_children": 0,
-    "assembly_records": 1,
-    "located_records": [],
+    "direct_children": 1,
+    "assembly_records": 2,
+    "located_records": [
+      "ent_60c3a04327534bd9b8fc"
+    ],
     "network_assertions": {
       "material": 1,
       "mechanical": 0,
-      "utility": 0,
+      "utility": 1,
       "electrical": 0,
       "control": 0
     },
@@ -3178,7 +3186,8 @@
     "evidence_documents": [
       "doc_9c169bf7536b4ebca236",
       "doc_9ea3e0c55ca347ae96a2",
-      "doc_4f2cd96c3b1e413ea4b5"
+      "doc_4f2cd96c3b1e413ea4b5",
+      "doc_5a36f2843d504d6e96de"
     ]
   },
   {

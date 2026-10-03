@@ -2,21 +2,21 @@
   "schema_version": 1,
   "updated_date": "2026-10-03",
   "baseline_version": 593,
-  "latest_verified_version": 630,
+  "latest_verified_version": 632,
   "status": "in_progress",
   "execution_mode": "breadth_first",
   "pass": "A",
   "breadth_policy": "docs/plant-handoff/FIVE_PHASE_PLAN.md#execution-mode-breadth-first-from-v628",
   "depth_queue": "docs/plant-handoff/current/depth-queue.json",
   "active_phase": "phase-1",
-  "next_batch": "B03",
-  "next_action": "Pass A / B03: implement common SPDS tank/filter/pump/header paths and all four yard boundary headers from 175255 pp1-2; preserve 115/124m head conflict and AP/sector/SV distinction. Then trace SW/PW from available principal sources; 175091 P&ID has references but no standalone document in the 266-document inventory.",
+  "next_batch": "B04",
+  "next_action": "Pass A / B04: complete source-specific sump/pump assignments and common runoff/feedwater return using175259 and175257; reuse accepted TP1/Yard1/silo/crusher/TP13 assets. Then boundary-only B05 and advance B06 main conveyors.",
   "plan": "docs/plant-handoff/FIVE_PHASE_PLAN.md",
   "current_inventory": "docs/plant-handoff/current/CURRENT_STATUS.md",
   "last_completed_work": {
-    "scope": "Reconciled pre-existing accepted v629/v630 (no replay): four DFDS utility edges connect common mains to TP1 and UEE-3/TP13; two TP1 feeder-size qualifications. Readable originals, source-return and narrow-width checks pass; four positive/three negative route checks, prior-fact preservation, integrity/FK, 46 scene tests and both pilot audits pass. Systems 1 and 2 remain distinct canonical sources.",
-    "version": 630,
-    "checkpoint": "output/plant-enrichment/B02/checkpoint.md"
+    "scope": "B03 Tier1 accepted v631-v632: SPDS common station and all four yard rings; SW1/SW2/PW filter/pump/header routes to30 CHP building boundaries.15 major components,126 assertions. Existing ratings, identities and conflicts retained; embedded175091 located. Water-system scene now exposes external pumps, tanks and consumers.",
+    "version": 632,
+    "checkpoint": "output/plant-enrichment/B03/checkpoint.md"
   },
   "accepted_reuse_batches": [
     "B30",
@@ -44,10 +44,10 @@
         "B00",
         "B01"
       ],
-      "current_batch": "B03",
+      "current_batch": "B04",
       "baseline_version": 593,
-      "latest_version": 630,
-      "checkpoint": "output/plant-enrichment/B03/checkpoint.md",
+      "latest_version": 632,
+      "checkpoint": "output/plant-enrichment/B04/checkpoint.md",
       "open_evidence_gaps": [
         {
           "scope": "UGA / DS Pump Houses",
@@ -76,7 +76,8 @@
         }
       ],
       "breadth_complete_batches": [
-        "B02"
+        "B02",
+        "B03"
       ]
     },
     {
@@ -347,7 +348,7 @@
       "batch": "B02",
       "version": 625,
       "proposal_id": "prop_f02d1ff3a20c4aa882e7",
-      "milestone": "The four existing DFDS pumps now expose 44 vendor-supported motor, rigid coupling, guard, shaft, impeller, seal, bearing-sleeve, stool, shroud, casing and spacer components. Twelve mechanical connections trace motor → coupling → shaft → impellers. Both motor-speed bases and distinct 14/16-stage quantities remain inspectable.",
+      "milestone": "The four existing DFDS pumps now expose 44 vendor-supported motor, rigid coupling, guard, shaft, impeller, seal, bearing-sleeve, stool, shroud, casing and spacer components. Twelve mechanical connections trace motor \u2192 coupling \u2192 shaft \u2192 impellers. Both motor-speed bases and distinct 14/16-stage quantities remain inspectable.",
       "verification": "Isolated rehearsal and preservation passed; actual browser gate pending."
     },
     {
@@ -422,6 +423,17 @@
         "prop_e65b0f9a27e940559e30",
         "prop_34e96d6864514f0fb7f5"
       ]
+    },
+    {
+      "date": "2026-10-03",
+      "batch": "B03",
+      "versions": [
+        631,
+        632
+      ],
+      "status": "breadth_complete",
+      "verification": "passed",
+      "milestone": "B03 Tier1 accepted v631-v632: SPDS common station and all four yard rings; SW1/SW2/PW filter/pump/header routes to30 CHP building boundaries.15 major components,126 assertions. Existing ratings, identities and conflicts retained; embedded175091 located. Water-system scene now exposes external pumps, tanks and consumers."
     }
   ],
   "accepted_followup_queue": "docs/plant-handoff/current/accepted-followups.json",

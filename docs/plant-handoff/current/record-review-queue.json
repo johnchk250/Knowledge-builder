@@ -278,7 +278,7 @@
     "classes": [
       "dust_suppression_system"
     ],
-    "own_fact_count": 21,
+    "own_fact_count": 23,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -533,7 +533,7 @@
     "classes": [
       "water_tank"
     ],
-    "own_fact_count": 15,
+    "own_fact_count": 16,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -544,7 +544,7 @@
     "classes": [
       "water_tank"
     ],
-    "own_fact_count": 15,
+    "own_fact_count": 18,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -1285,7 +1285,7 @@
     "classes": [
       "pump"
     ],
-    "own_fact_count": 31,
+    "own_fact_count": 32,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -1296,7 +1296,7 @@
     "classes": [
       "pump"
     ],
-    "own_fact_count": 31,
+    "own_fact_count": 32,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -4534,7 +4534,7 @@
     "classes": [
       "pump"
     ],
-    "own_fact_count": 15,
+    "own_fact_count": 16,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -4545,7 +4545,7 @@
     "classes": [
       "pump"
     ],
-    "own_fact_count": 15,
+    "own_fact_count": 16,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -4556,7 +4556,7 @@
     "classes": [
       "pump"
     ],
-    "own_fact_count": 15,
+    "own_fact_count": 16,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -4567,7 +4567,7 @@
     "classes": [
       "pump"
     ],
-    "own_fact_count": 15,
+    "own_fact_count": 16,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -4600,7 +4600,7 @@
     "classes": [
       "pump"
     ],
-    "own_fact_count": 20,
+    "own_fact_count": 21,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -4611,7 +4611,7 @@
     "classes": [
       "pump"
     ],
-    "own_fact_count": 20,
+    "own_fact_count": 21,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -4743,7 +4743,7 @@
     "classes": [
       "pressure_switch"
     ],
-    "own_fact_count": 12,
+    "own_fact_count": 13,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -4754,7 +4754,7 @@
     "classes": [
       "differential_pressure_switch"
     ],
-    "own_fact_count": 11,
+    "own_fact_count": 12,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5458,7 +5458,7 @@
     "classes": [
       "electric_motor"
     ],
-    "own_fact_count": 3,
+    "own_fact_count": 4,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5469,7 +5469,7 @@
     "classes": [
       "electric_motor"
     ],
-    "own_fact_count": 3,
+    "own_fact_count": 4,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -7021,6 +7021,138 @@
       "mechanical_component"
     ],
     "own_fact_count": 6,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_e0a57f5f61ab4f519b5f",
+    "label": "SPDS Common DUP-01 duplex suction filter",
+    "classes": [
+      "duplex_filter"
+    ],
+    "own_fact_count": 5,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_f6f7d5073a604628b166",
+    "label": "SPDS Common filtered suction header",
+    "classes": [
+      "utility_header"
+    ],
+    "own_fact_count": 6,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_fb47ee686a1541af812b",
+    "label": "SPDS Common pump discharge header",
+    "classes": [
+      "utility_header"
+    ],
+    "own_fact_count": 5,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_93c4d57c8e48417bb3ed",
+    "label": "SPDS Common distribution header",
+    "classes": [
+      "utility_header"
+    ],
+    "own_fact_count": 8,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_e5162d73936845399512",
+    "label": "SPDS Local pump starter panel",
+    "classes": [
+      "local_control_panel"
+    ],
+    "own_fact_count": 4,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_d11434eb3c124eb3842c",
+    "label": "SPDS Pressure-relief and recirculation assembly",
+    "classes": [
+      "functional_assembly"
+    ],
+    "own_fact_count": 5,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_34075ca4cefd4747a304",
+    "label": "SW1 Common DUP-01 duplex suction filter",
+    "classes": [
+      "duplex_filter"
+    ],
+    "own_fact_count": 5,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_f11d981ab351454da54a",
+    "label": "SW1 Common distribution header",
+    "classes": [
+      "utility_header"
+    ],
+    "own_fact_count": 10,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_ed862039c1834d43a5b5",
+    "label": "SW2 Common DUP-01 duplex suction filter",
+    "classes": [
+      "duplex_filter"
+    ],
+    "own_fact_count": 5,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_caf4450cf7e84df2862c",
+    "label": "SW2 Common distribution header",
+    "classes": [
+      "utility_header"
+    ],
+    "own_fact_count": 11,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_4e95ace8539b49a7af4d",
+    "label": "PW Common DUP-01 duplex suction filter",
+    "classes": [
+      "duplex_filter"
+    ],
+    "own_fact_count": 5,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_bfa9288d3b2b4e4eb84d",
+    "label": "PW Common distribution header",
+    "classes": [
+      "utility_header"
+    ],
+    "own_fact_count": 18,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []

@@ -72,6 +72,15 @@
       "source": "doc_bca09d68af9b43e3b633 pp1-2; local piping layouts in SOURCE_CATALOG.md",
       "priority": "P2",
       "status": "open"
+    },
+    {
+      "id": "DQ-B03-001",
+      "batch": "B03",
+      "target": "SPDS/SW1/SW2/PW local detail",
+      "missing": "AP/SC/SV mapping; detailed valve/recirculation, hose/tank/gallery assemblies; source head/name/control-table reconciliation. Main routes are breadth complete.",
+      "source": "175255 and embedded175091 in doc_e17edf6897d746fabe12 pp13-17; accepted B01 qualifications",
+      "priority": "P2",
+      "status": "open"
     }
   ]
 }
