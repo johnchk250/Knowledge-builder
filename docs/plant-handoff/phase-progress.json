@@ -2,21 +2,21 @@
   "schema_version": 1,
   "updated_date": "2026-10-04",
   "baseline_version": 593,
-  "latest_verified_version": 637,
+  "latest_verified_version": 639,
   "status": "in_progress",
   "execution_mode": "breadth_first",
   "pass": "A",
   "breadth_policy": "docs/plant-handoff/FIVE_PHASE_PLAN.md#execution-mode-breadth-first-from-v628",
   "depth_queue": "docs/plant-handoff/current/depth-queue.json",
   "active_phase": "phase-2",
-  "next_batch": "B07",
-  "next_action": "B07 Pass A: review jetty layout, Type1/Type2 main GAs and DBR applicability; retain SUL no-merge decision until numbered mapping is proven; implement first numbered unloader major motion/hopper/shuttle/service assemblies only.",
+  "next_batch": "B08",
+  "next_action": "B08 Pass A: apply reviewed175155 Type1 pp8-9 to SUL2 and Type2 pp10-11 to SUL3; reuse existing shuttles and shared jetty water boundary. Preserve dual coal/limestone and Type2 dry-fog/plain-water discrepancies. Finish major assemblies and selected outlets only.",
   "plan": "docs/plant-handoff/FIVE_PHASE_PLAN.md",
   "current_inventory": "docs/plant-handoff/current/CURRENT_STATUS.md",
   "last_completed_work": {
-    "scope": "B06 Tier1 accepted v636-v637:26 conveyor2A/B major components,110 new assertions,4 aggregate-building edges retired. Both1-to2-to3 lanes and all4 screening branches verified with no crossovers. Existing chutes,instruments,ratings and local PRU links reused.",
-    "version": 637,
-    "checkpoint": "output/plant-enrichment/B06/checkpoint.md"
+    "scope": "B07 Tier1 accepted v638-v639: three source-proven SUL/numbered identity merges; obsolete mapping gaps retired; first unloader22 major assemblies and shared jetty water boundary added. Existing shuttle and vendor ratings retained.23 components,82 assertions; grab-to-shuttle routes reach both jetty belts and both screening lanes.",
+    "version": 639,
+    "checkpoint": "output/plant-enrichment/B07/checkpoint.md"
   },
   "accepted_reuse_batches": [
     "B30",
@@ -98,13 +98,14 @@
         "B14"
       ],
       "completed_batches": [],
-      "current_batch": "B07",
+      "current_batch": "B08",
       "baseline_version": 635,
-      "latest_version": 637,
-      "checkpoint": "output/plant-enrichment/B07/checkpoint.md",
+      "latest_version": 639,
+      "checkpoint": "output/plant-enrichment/B08/checkpoint.md",
       "open_evidence_gaps": [],
       "breadth_complete_batches": [
-        "B06"
+        "B06",
+        "B07"
       ]
     },
     {
@@ -468,13 +469,23 @@
       "status": "breadth_complete",
       "verification": "passed",
       "milestone": "B06 Tier1 accepted v636-v637:26 conveyor2A/B major components,110 new assertions,4 aggregate-building edges retired. Both1-to2-to3 lanes and all4 screening branches verified with no crossovers. Existing chutes,instruments,ratings and local PRU links reused."
+    },
+    {
+      "date": "2026-10-04",
+      "batch": "B07",
+      "versions": [
+        638,
+        639
+      ],
+      "status": "breadth_complete",
+      "verification": "passed",
+      "milestone": "B07 Tier1 accepted v638-v639: three source-proven SUL/numbered identity merges; obsolete mapping gaps retired; first unloader22 major assemblies and shared jetty water boundary added. Existing shuttle and vendor ratings retained.23 components,82 assertions; grab-to-shuttle routes reach both jetty belts and both screening lanes."
     }
   ],
   "accepted_followup_queue": "docs/plant-handoff/current/accepted-followups.json",
   "last_accepted_work": {
-    "scope": "Reconciled pre-existing accepted v629/v630 (no replay): four DFDS utility edges connect common mains to TP1 and UEE-3/TP13; two TP1 feeder-size qualifications. Readable originals, source-return and narrow-width checks pass; four positive/three negative route checks, prior-fact preservation, integrity/FK, 46 scene tests and both pilot audits pass. Systems 1 and 2 remain distinct canonical sources.",
-    "version": 630,
-    "checkpoint": "output/plant-enrichment/B02/checkpoint.md",
-    "visual_gate": "passed sampled default width and 390x844"
+    "scope": "B07 Tier1 accepted v638-v639: three source-proven SUL/numbered identity merges; obsolete mapping gaps retired; first unloader22 major assemblies and shared jetty water boundary added. Existing shuttle and vendor ratings retained.23 components,82 assertions; grab-to-shuttle routes reach both jetty belts and both screening lanes.",
+    "version": 639,
+    "checkpoint": "output/plant-enrichment/B07/checkpoint.md"
   }
 }

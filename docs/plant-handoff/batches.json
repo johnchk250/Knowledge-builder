@@ -180,7 +180,7 @@
       ],
       "scope": "Prove SUL mapping and select first numbered machine; build its motion assemblies and applicability matrix.",
       "exit_check": "Type1/type2 distinctions and vendor references remain explicit.",
-      "status": "in_progress",
+      "status": "breadth_complete",
       "gates": [
         "G1",
         "G2",
@@ -192,7 +192,8 @@
         "G8"
       ],
       "checkpoint": "output/plant-enrichment/B07/checkpoint.md",
-      "baseline_version": 637
+      "baseline_version": 637,
+      "latest_version": 639
     },
     {
       "id": "B08",
@@ -203,7 +204,7 @@
       ],
       "scope": "Apply only proven common design, inspect per-machine differences and jetty/shuttle interfaces.",
       "exit_check": "All three unloaders navigable with their own or explicitly applicable sources.",
-      "status": "not_started",
+      "status": "in_progress",
       "gates": [
         "G1",
         "G2",
@@ -214,7 +215,8 @@
         "G7",
         "G8"
       ],
-      "checkpoint": "output/plant-enrichment/B08/checkpoint.md"
+      "checkpoint": "output/plant-enrichment/B08/checkpoint.md",
+      "baseline_version": 639
     },
     {
       "id": "B09",

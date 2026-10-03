@@ -180,30 +180,35 @@
     "family": "unloader",
     "primary_batch": "B07",
     "phase": "phase-2",
-    "batch_status": "in_progress",
-    "disposition": "remaining batch: inspect existing detail before adding",
+    "batch_status": "breadth_complete",
+    "disposition": "Tier 1 accepted; finer detail in depth queue",
     "prior_pilot": null,
     "card": "../targets/coal-ship-unloader-1.md",
     "present": true,
     "canonical_id": "ent_1a57e15407c145a19284",
     "current_label": "Coal Ship Unloader-1",
-    "own_fact_count": 7,
-    "direct_children": 0,
-    "assembly_records": 1,
+    "own_fact_count": 117,
+    "direct_children": 23,
+    "assembly_records": 24,
     "located_records": [],
     "network_assertions": {
-      "material": 2,
-      "mechanical": 0,
-      "utility": 0,
+      "material": 7,
+      "mechanical": 5,
+      "utility": 3,
       "electrical": 0,
       "control": 0
     },
     "qualifications": [
-      "fact_9969d3c7f98a40058ba6"
+      "fact_65cd26670d164ba1a65e",
+      "fact_626f2deab0ae446b9fef"
     ],
     "evidence_documents": [
       "doc_4f2cd96c3b1e413ea4b5",
-      "doc_cd1aae66b455491b8883"
+      "doc_cd1aae66b455491b8883",
+      "doc_0d848e40b9394c72810b",
+      "doc_36b7ccb722c941269b69",
+      "doc_1518e219127b4b0eaa3a",
+      "doc_ccdd8ca4dbaa45898d6c"
     ]
   },
   {
@@ -212,16 +217,16 @@
     "family": "unloader",
     "primary_batch": "B08",
     "phase": "phase-2",
-    "batch_status": "not_started",
+    "batch_status": "in_progress",
     "disposition": "remaining batch: inspect existing detail before adding",
     "prior_pilot": null,
     "card": "../targets/coal-ship-unloader-2.md",
     "present": true,
     "canonical_id": "ent_f319b7a72a2e4c85a617",
     "current_label": "Coal Ship Unloader-2",
-    "own_fact_count": 7,
-    "direct_children": 0,
-    "assembly_records": 1,
+    "own_fact_count": 115,
+    "direct_children": 1,
+    "assembly_records": 2,
     "located_records": [],
     "network_assertions": {
       "material": 2,
@@ -231,11 +236,15 @@
       "control": 0
     },
     "qualifications": [
-      "fact_b2b3bf92d80342599a62"
+      "fact_43cf2bbfa5f147538c66"
     ],
     "evidence_documents": [
       "doc_4f2cd96c3b1e413ea4b5",
-      "doc_cd1aae66b455491b8883"
+      "doc_cd1aae66b455491b8883",
+      "doc_0d848e40b9394c72810b",
+      "doc_36b7ccb722c941269b69",
+      "doc_1518e219127b4b0eaa3a",
+      "doc_ccdd8ca4dbaa45898d6c"
     ]
   },
   {
@@ -244,16 +253,16 @@
     "family": "unloader",
     "primary_batch": "B08",
     "phase": "phase-2",
-    "batch_status": "not_started",
+    "batch_status": "in_progress",
     "disposition": "remaining batch: inspect existing detail before adding",
     "prior_pilot": null,
     "card": "../targets/coal-ship-unloader-3.md",
     "present": true,
     "canonical_id": "ent_9b33c14cee7f4d749335",
     "current_label": "Coal Ship Unloader-3",
-    "own_fact_count": 7,
-    "direct_children": 0,
-    "assembly_records": 1,
+    "own_fact_count": 125,
+    "direct_children": 1,
+    "assembly_records": 2,
     "located_records": [],
     "network_assertions": {
       "material": 2,
@@ -262,12 +271,14 @@
       "electrical": 0,
       "control": 0
     },
-    "qualifications": [
-      "fact_54d0aac1d9b9414bbeb2"
-    ],
+    "qualifications": [],
     "evidence_documents": [
       "doc_4f2cd96c3b1e413ea4b5",
-      "doc_cd1aae66b455491b8883"
+      "doc_cd1aae66b455491b8883",
+      "doc_0d848e40b9394c72810b",
+      "doc_36b7ccb722c941269b69",
+      "doc_1518e219127b4b0eaa3a",
+      "doc_ccdd8ca4dbaa45898d6c"
     ]
   },
   {
@@ -601,32 +612,35 @@
     "family": "unloader",
     "primary_batch": "B07",
     "phase": "phase-2",
-    "batch_status": "in_progress",
-    "disposition": "remaining batch: inspect existing detail before adding",
+    "batch_status": "breadth_complete",
+    "disposition": "Tier 1 accepted; finer detail in depth queue",
     "prior_pilot": null,
     "card": "../targets/sul-1.md",
     "present": true,
-    "canonical_id": "ent_6ce9a6eadc884f239d2e",
-    "current_label": "SUL-1",
-    "own_fact_count": 108,
-    "direct_children": 1,
-    "assembly_records": 2,
+    "canonical_id": "ent_1a57e15407c145a19284",
+    "current_label": "Coal Ship Unloader-1",
+    "own_fact_count": 117,
+    "direct_children": 23,
+    "assembly_records": 24,
     "located_records": [],
     "network_assertions": {
-      "material": 0,
-      "mechanical": 0,
-      "utility": 0,
+      "material": 7,
+      "mechanical": 5,
+      "utility": 3,
       "electrical": 0,
       "control": 0
     },
     "qualifications": [
-      "fact_65cd26670d164ba1a65e"
+      "fact_65cd26670d164ba1a65e",
+      "fact_626f2deab0ae446b9fef"
     ],
     "evidence_documents": [
       "doc_0d848e40b9394c72810b",
       "doc_36b7ccb722c941269b69",
       "doc_1518e219127b4b0eaa3a",
-      "doc_cd1aae66b455491b8883"
+      "doc_cd1aae66b455491b8883",
+      "doc_4f2cd96c3b1e413ea4b5",
+      "doc_ccdd8ca4dbaa45898d6c"
     ]
   },
   {
@@ -635,19 +649,19 @@
     "family": "unloader",
     "primary_batch": "B08",
     "phase": "phase-2",
-    "batch_status": "not_started",
+    "batch_status": "in_progress",
     "disposition": "remaining batch: inspect existing detail before adding",
     "prior_pilot": null,
     "card": "../targets/sul-2.md",
     "present": true,
-    "canonical_id": "ent_63f51ca2fe4d40508384",
-    "current_label": "SUL-2",
-    "own_fact_count": 108,
+    "canonical_id": "ent_f319b7a72a2e4c85a617",
+    "current_label": "Coal Ship Unloader-2",
+    "own_fact_count": 115,
     "direct_children": 1,
     "assembly_records": 2,
     "located_records": [],
     "network_assertions": {
-      "material": 0,
+      "material": 2,
       "mechanical": 0,
       "utility": 0,
       "electrical": 0,
@@ -660,7 +674,9 @@
       "doc_0d848e40b9394c72810b",
       "doc_36b7ccb722c941269b69",
       "doc_1518e219127b4b0eaa3a",
-      "doc_cd1aae66b455491b8883"
+      "doc_cd1aae66b455491b8883",
+      "doc_4f2cd96c3b1e413ea4b5",
+      "doc_ccdd8ca4dbaa45898d6c"
     ]
   },
   {
@@ -669,19 +685,19 @@
     "family": "unloader",
     "primary_batch": "B08",
     "phase": "phase-2",
-    "batch_status": "not_started",
+    "batch_status": "in_progress",
     "disposition": "remaining batch: inspect existing detail before adding",
     "prior_pilot": null,
     "card": "../targets/sul-3.md",
     "present": true,
-    "canonical_id": "ent_f76d833417f8463d8647",
-    "current_label": "SUL-3",
-    "own_fact_count": 118,
+    "canonical_id": "ent_9b33c14cee7f4d749335",
+    "current_label": "Coal Ship Unloader-3",
+    "own_fact_count": 125,
     "direct_children": 1,
     "assembly_records": 2,
     "located_records": [],
     "network_assertions": {
-      "material": 0,
+      "material": 2,
       "mechanical": 0,
       "utility": 0,
       "electrical": 0,
@@ -692,7 +708,9 @@
       "doc_0d848e40b9394c72810b",
       "doc_36b7ccb722c941269b69",
       "doc_1518e219127b4b0eaa3a",
-      "doc_cd1aae66b455491b8883"
+      "doc_cd1aae66b455491b8883",
+      "doc_4f2cd96c3b1e413ea4b5",
+      "doc_ccdd8ca4dbaa45898d6c"
     ]
   },
   {

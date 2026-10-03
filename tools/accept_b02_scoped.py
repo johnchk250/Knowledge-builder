@@ -18,16 +18,32 @@ from tools.implement_b00_corrections import save
 def verify(before,after,pkg,out):
     facts={a['id']:a for a in after['assertions']}
     retired={o['assertion_id'] for o in pkg['body']['operations'] if o['op']=='retire'}
+    redirects={o['source']:o['target'] for o in pkg['body']['operations'] if o['op']=='merge'}
+    def canonical(id):
+        seen=set()
+        while id in redirects:
+            assert id not in seen,'Cyclic merge request'
+            seen.add(id);id=redirects[id]
+        return id
     for a in before['assertions']:
         actual=facts[a['id']]
+        expected={**a,'canonical_subject':canonical(a['canonical_subject']),
+                  'canonical_object':canonical(a['canonical_object'])}
         if a['id'] in retired:
             assert a['retirement'] is None and actual['retirement'] is not None
-            assert {k:v for k,v in a.items() if k!='retirement'}=={k:v for k,v in actual.items() if k!='retirement'}
+            assert {k:v for k,v in expected.items() if k!='retirement'}=={k:v for k,v in actual.items() if k!='retirement'}
         else:
-            assert a==actual
+            assert expected==actual
     aliases={a['id']:a for a in after['aliases']}
     assert all(a==aliases[a['id']] for a in before['aliases'])
-    assert before['conflicts']==after['conflicts'] and before['merges']==after['merges']
+    assert before['conflicts']==after['conflicts']
+    assert all(x in after['merges'] for x in before['merges'])
+    new_merges=[x for x in after['merges'] if x not in before['merges']]
+    assert len(new_merges)==len(redirects)
+    assert {(x['source'],x['target']) for x in new_merges}==set(redirects.items())
+    entities={e['id']:e for e in after['entities']}
+    for e in before['entities']:
+        assert entities[e['id']]['canonical_id']==canonical(e['canonical_id'])
     nodes=[e for e in after['entities'] if e['created_version']>before['version']]
     assert len(nodes)==pkg['expected_new_components']
     for e in nodes:
@@ -37,6 +53,7 @@ def verify(before,after,pkg,out):
                           'added_assertions':len(after['assertions'])-len(before['assertions']),
                           'all_prior_assertions_preserved':len(before['assertions'])-len(retired),
                           'explicitly_retired_assertions':sorted(retired),
+                          'explicit_canonical_redirects':redirects,
                           'all_prior_aliases_merges_conflicts_preserved':True})
 
 
