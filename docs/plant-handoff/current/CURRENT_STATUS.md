@@ -1,43 +1,43 @@
 # Current plant detail inventory
 
-Reviewed 2026-10-03 at model v635. Fresh read-only snapshot: `output/plant-enrichment/B05/accepted-v635.json`. All 179 targets and 47 batches reconciled. Integrity/FK checks pass. Counts describe records, not physical quantities or engineering completion.
+Reviewed 2026-10-04 at model v637. Fresh read-only snapshot: `output/plant-enrichment/B06/accepted-v637.json`. All 179 targets and 47 batches reconciled. Integrity/FK checks pass. Counts describe records, not physical quantities or engineering completion.
 
-9 batches accepted with qualifications; 4 further batches breadth-complete; 34 remain in Pass A. Phase 1: 6/6 batches. Finer work stays in [the depth queue](depth-queue.json).
+9 batches accepted with qualifications; 5 further batches breadth-complete; 33 remain in Pass A. Phase 1: 6/6 batches. Finer work stays in [the depth queue](depth-queue.json).
 
 ## Main conveyors
 
 | Conveyor | Owned records | Current work disposition | Batch / phase |
 |---|---:|---|---|
-| EAC-1A | 66 | Existing pilot; targeted follow-up | B05 / phase-1 |
-| EAC-1B | 66 | Existing pilot; targeted follow-up | B05 / phase-1 |
-| EAC-2A | 2 | Detailed work remains; reuse current facts | B06 / phase-2 |
-| EAC-2B | 2 | Detailed work remains; reuse current facts | B06 / phase-2 |
-| EAC-3A | 1 | Detailed work remains; reuse current facts | B10 / phase-2 |
-| EAC-3B | 1 | Detailed work remains; reuse current facts | B10 / phase-2 |
-| EAC-4A | 2 | Detailed work remains; reuse current facts | B12 / phase-2 |
-| EAC-4B | 2 | Detailed work remains; reuse current facts | B12 / phase-2 |
-| EAC-5A | 2 | Detailed work remains; reuse current facts | B13 / phase-2 |
-| EAC-5B | 2 | Detailed work remains; reuse current facts | B13 / phase-2 |
-| EBA-6A | 1 | Detailed work remains; reuse current facts | B14 / phase-2 |
-| EBA-6B | 1 | Detailed work remains; reuse current facts | B14 / phase-2 |
-| EAC-7 | 41 | Existing pilot; targeted follow-up | B16 / phase-3 |
-| EBA-8 | 42 | Existing pilot; targeted follow-up | B16 / phase-3 |
-| EAC-9 | 1 | Detailed work remains; reuse current facts | B17 / phase-3 |
-| EBA-10 | 1 | Detailed work remains; reuse current facts | B17 / phase-3 |
-| EAC-11 | 1 | Detailed work remains; reuse current facts | B20 / phase-3 |
-| EBA-12 | 1 | Detailed work remains; reuse current facts | B20 / phase-3 |
-| EAC-13 | 3 | Detailed work remains; reuse current facts | B23 / phase-3 |
-| EBA-14 | 1 | Detailed work remains; reuse current facts | B23 / phase-3 |
-| EBA-15A | 1 | Detailed work remains; reuse current facts | B28 / phase-3 |
-| EBA-15B | 1 | Detailed work remains; reuse current facts | B28 / phase-3 |
-| EBA-16A | 1 | Detailed work remains; reuse current facts | B29 / phase-3 |
-| EBA-16B | 1 | Detailed work remains; reuse current facts | B29 / phase-3 |
-| EBA-17A | 33 | Accepted with qualifications; reuse | B34 / accepted-reuse |
-| EBA-17B | 33 | Accepted with qualifications; reuse | B34 / accepted-reuse |
-| EBA-18A | 126 | Accepted with qualifications; reuse | B36 / accepted-reuse |
-| EBA-18B | 126 | Accepted with qualifications; reuse | B36 / accepted-reuse |
-| EBA-19A | 5 | Detailed work remains; reuse current facts | B38 / phase-4 |
-| EBA-19B | 5 | Detailed work remains; reuse current facts | B38 / phase-4 |
+| EAC-1A | 66 | Tier 1 accepted; finer detail in depth queue | B05 / phase-1 |
+| EAC-1B | 66 | Tier 1 accepted; finer detail in depth queue | B05 / phase-1 |
+| EAC-2A | 15 | Tier 1 accepted; finer detail in depth queue | B06 / phase-2 |
+| EAC-2B | 15 | Tier 1 accepted; finer detail in depth queue | B06 / phase-2 |
+| EAC-3A | 1 | remaining batch: inspect existing detail before adding | B10 / phase-2 |
+| EAC-3B | 1 | remaining batch: inspect existing detail before adding | B10 / phase-2 |
+| EAC-4A | 2 | remaining batch: inspect existing detail before adding | B12 / phase-2 |
+| EAC-4B | 2 | remaining batch: inspect existing detail before adding | B12 / phase-2 |
+| EAC-5A | 2 | remaining batch: inspect existing detail before adding | B13 / phase-2 |
+| EAC-5B | 2 | remaining batch: inspect existing detail before adding | B13 / phase-2 |
+| EBA-6A | 1 | remaining batch: inspect existing detail before adding | B14 / phase-2 |
+| EBA-6B | 1 | remaining batch: inspect existing detail before adding | B14 / phase-2 |
+| EAC-7 | 41 | remaining batch: inspect existing detail before adding | B16 / phase-3 |
+| EBA-8 | 42 | remaining batch: inspect existing detail before adding | B16 / phase-3 |
+| EAC-9 | 1 | remaining batch: inspect existing detail before adding | B17 / phase-3 |
+| EBA-10 | 1 | remaining batch: inspect existing detail before adding | B17 / phase-3 |
+| EAC-11 | 1 | remaining batch: inspect existing detail before adding | B20 / phase-3 |
+| EBA-12 | 1 | remaining batch: inspect existing detail before adding | B20 / phase-3 |
+| EAC-13 | 3 | remaining batch: inspect existing detail before adding | B23 / phase-3 |
+| EBA-14 | 1 | remaining batch: inspect existing detail before adding | B23 / phase-3 |
+| EBA-15A | 1 | remaining batch: inspect existing detail before adding | B28 / phase-3 |
+| EBA-15B | 1 | remaining batch: inspect existing detail before adding | B28 / phase-3 |
+| EBA-16A | 1 | remaining batch: inspect existing detail before adding | B29 / phase-3 |
+| EBA-16B | 1 | remaining batch: inspect existing detail before adding | B29 / phase-3 |
+| EBA-17A | 33 | remaining batch: inspect existing detail before adding | B34 / accepted-reuse |
+| EBA-17B | 33 | remaining batch: inspect existing detail before adding | B34 / accepted-reuse |
+| EBA-18A | 126 | accepted batch: reuse and recheck qualifications | B36 / accepted-reuse |
+| EBA-18B | 126 | accepted batch: reuse and recheck qualifications | B36 / accepted-reuse |
+| EBA-19A | 5 | remaining batch: inspect existing detail before adding | B38 / phase-4 |
+| EBA-19B | 5 | remaining batch: inspect existing detail before adding | B38 / phase-4 |
 
 ## Transfer points
 
