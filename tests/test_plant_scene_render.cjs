@@ -44,3 +44,19 @@ test('narrow transfer SVG switches chute and drive together with the selected la
     assert.ok(html.includes('aria-label="Inspect SNC-2"'));
   }
 });
+
+test('stockpile SVG retains owned sump and ring header alongside external machines',()=>{
+  const entities=[['pile','EAE-2'],['sump','Yard2 runoff sump'],['ring','Yard2 ring header'],['stacker','EAD-2']].map(([id,label])=>({id,label,canonical_id:id,aliases:[]}));
+  let n=0;const assertions=[];
+  const add=(s,p,o,extra={})=>assertions.push({id:'p'+(++n),canonical_subject:s,canonical_object:o,predicate:p,origin:'explicit',context:{kind:'classification'},evidence:[{evidence_id:'ev'}],...extra});
+  for(const [id,type] of Object.entries({pile:'coal_stockpile',sump:'sump',ring:'utility_header',stacker:'stacker'}))add(id,'instance_of',null,{value:type});
+  add('sump','part_of','pile');add('ring','part_of','pile');
+  add('stacker','material_flow_to','pile',{context:{kind:'connection',network:'material',verification:'documented'}});
+  const projection=PE.build({version:634,entities,assertions});
+  for(const narrow of [false,true]){
+    const context=vm.createContext({PlantSceneModel:S,PlantExplorerModel:PE,URLSearchParams,location:{hash:'#overview?equipment=pile'},window:{matchMedia:()=>({matches:narrow})},esc:s=>String(s)});
+    vm.runInContext(fs.readFileSync(require.resolve('../dist/plant-scene.js'),'utf8'),context);context.projection=projection;
+    const html=vm.runInContext('PlantScene.view(projection,{})',context);
+    for(const name of ['Yard2 runoff sump','Yard2 ring header','EAD-2'])assert.ok(html.includes('aria-label="Inspect '+name+'"'),name);
+  }
+});

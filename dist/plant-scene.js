@@ -393,7 +393,7 @@ const PlantScene=(()=>{
     }else if(s.kind==='pile'){
       if(self)place(self,405,210,390,230);
       const places={stacker:[120,160,210,140],reclaimer:[865,230,220,145],shed:[440,10,325,165]},used={};let water=0,extra=0;
-      outside.forEach(n=>{const count=used[n.kind]||0;used[n.kind]=count+1;const pos=n.kind==='water'?[85+(water++%3)*350,520+Math.floor((water-1)/3)*200,170,112]:!count&&places[n.kind]?places[n.kind]:[60+(extra++%5)*230,760+Math.floor((extra-1)/5)*200,160,110];place(n,...pos);});
+      [...parts,...outside].forEach(n=>{const count=used[n.kind]||0;used[n.kind]=count+1;const pos=n.kind==='water'?[85+(water++%3)*350,520+Math.floor((water-1)/3)*200,170,112]:!count&&places[n.kind]?places[n.kind]:[60+(extra++%5)*230,760+Math.floor((extra-1)/5)*200,160,110];place(n,...pos);});
     }else if(s.kind==='coupling'&&parts.some(n=>n.kind==='pump')){
       if(self)place(self,490,150,280,185);
       let extra=0,filterIndex=0;parts.forEach(n=>{const t=n.label.toLowerCase();let pos;

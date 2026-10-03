@@ -122,7 +122,7 @@
     "family": "measurement",
     "primary_batch": "B05",
     "phase": "phase-1",
-    "batch_status": "not_started",
+    "batch_status": "in_progress",
     "disposition": "remaining batch: inspect existing detail before adding",
     "prior_pilot": null,
     "card": "../targets/at-1.md",
@@ -151,7 +151,7 @@
     "family": "measurement",
     "primary_batch": "B05",
     "phase": "phase-1",
-    "batch_status": "not_started",
+    "batch_status": "in_progress",
     "disposition": "remaining batch: inspect existing detail before adding",
     "prior_pilot": null,
     "card": "../targets/at-2.md",
@@ -276,7 +276,7 @@
     "family": "conveyor",
     "primary_batch": "B05",
     "phase": "phase-1",
-    "batch_status": "not_started",
+    "batch_status": "in_progress",
     "disposition": "remaining batch: inspect existing detail before adding",
     "prior_pilot": "EQUIPMENT_PILOT_REPORT.md",
     "card": "../targets/eac-1a.md",
@@ -340,7 +340,7 @@
     "family": "conveyor",
     "primary_batch": "B05",
     "phase": "phase-1",
-    "batch_status": "not_started",
+    "batch_status": "in_progress",
     "disposition": "remaining batch: inspect existing detail before adding",
     "prior_pilot": "EQUIPMENT_PILOT_REPORT.md",
     "card": "../targets/eac-1b.md",
@@ -695,14 +695,14 @@
     "family": "transfer",
     "primary_batch": "B05",
     "phase": "phase-1",
-    "batch_status": "not_started",
+    "batch_status": "in_progress",
     "disposition": "remaining batch: inspect existing detail before adding",
     "prior_pilot": "EQUIPMENT_PILOT_REPORT.md",
     "card": "../targets/uef-1.md",
     "present": true,
     "canonical_id": "ent_108b99f6c64844df8cf8",
     "current_label": "UEF-1",
-    "own_fact_count": 11,
+    "own_fact_count": 12,
     "direct_children": 4,
     "assembly_records": 66,
     "located_records": [
@@ -727,7 +727,7 @@
     "network_assertions": {
       "material": 2,
       "mechanical": 0,
-      "utility": 40,
+      "utility": 42,
       "electrical": 0,
       "control": 4
     },
@@ -1314,9 +1314,9 @@
     "present": true,
     "canonical_id": "ent_92291cd617b04811bc28",
     "current_label": "UEE-1",
-    "own_fact_count": 12,
-    "direct_children": 4,
-    "assembly_records": 5,
+    "own_fact_count": 13,
+    "direct_children": 5,
+    "assembly_records": 6,
     "located_records": [
       "ent_19033595cbff415b9188",
       "ent_f8c18669e8c04706859b",
@@ -1331,12 +1331,13 @@
       "ent_18b389c8af96423ea39f",
       "ent_8aace4b4699d4d8189af",
       "ent_13ced5c3046a4471927b",
-      "ent_48314d4bdfb54e789ca7"
+      "ent_48314d4bdfb54e789ca7",
+      "ent_0f758fe88fa34fc798b0"
     ],
     "network_assertions": {
       "material": 6,
       "mechanical": 0,
-      "utility": 0,
+      "utility": 2,
       "electrical": 0,
       "control": 0
     },
@@ -1347,7 +1348,8 @@
       "doc_3eab668d697f4e4598c8",
       "doc_8d973a7544ef4a488e98",
       "doc_294aacf286d246769e32",
-      "doc_4f2cd96c3b1e413ea4b5"
+      "doc_4f2cd96c3b1e413ea4b5",
+      "doc_0453a0a014424f1cae06"
     ]
   },
   {
@@ -1363,20 +1365,22 @@
     "present": true,
     "canonical_id": "ent_d8d8763a4bc2400882b9",
     "current_label": "UEF-3",
-    "own_fact_count": 9,
-    "direct_children": 9,
-    "assembly_records": 19,
+    "own_fact_count": 10,
+    "direct_children": 10,
+    "assembly_records": 21,
     "located_records": [
       "ent_23d3e3f32d8249c1b793",
       "ent_6d0d953b7e804240a2e4",
       "ent_f5a76ee5d41549b5a6e4",
       "ent_13a6597186a24acf8e6a",
-      "ent_482e5dc73d524e21a681"
+      "ent_482e5dc73d524e21a681",
+      "ent_9fb50cc1b66343608662",
+      "ent_48ace7b370f04fc38adc"
     ],
     "network_assertions": {
       "material": 10,
       "mechanical": 0,
-      "utility": 0,
+      "utility": 3,
       "electrical": 0,
       "control": 0
     },
@@ -1387,7 +1391,8 @@
       "doc_883418b36ea44369adbe",
       "doc_5a3fa71dadb642b7910a",
       "doc_294aacf286d246769e32",
-      "doc_4f2cd96c3b1e413ea4b5"
+      "doc_4f2cd96c3b1e413ea4b5",
+      "doc_0453a0a014424f1cae06"
     ]
   },
   {
@@ -2071,7 +2076,7 @@
     "present": true,
     "canonical_id": "ent_560293ef23bd42ce8ff1",
     "current_label": "UEF-4",
-    "own_fact_count": 8,
+    "own_fact_count": 9,
     "direct_children": 0,
     "assembly_records": 1,
     "located_records": [
@@ -2082,7 +2087,7 @@
     "network_assertions": {
       "material": 0,
       "mechanical": 0,
-      "utility": 0,
+      "utility": 1,
       "electrical": 0,
       "control": 0
     },
@@ -2090,7 +2095,8 @@
     "evidence_documents": [
       "doc_9bd6e66e9fbb43468184",
       "doc_294aacf286d246769e32",
-      "doc_4f2cd96c3b1e413ea4b5"
+      "doc_4f2cd96c3b1e413ea4b5",
+      "doc_0453a0a014424f1cae06"
     ]
   },
   {
@@ -2106,7 +2112,7 @@
     "present": true,
     "canonical_id": "ent_ec4a66d4440444dcb00e",
     "current_label": "UEF-5",
-    "own_fact_count": 11,
+    "own_fact_count": 12,
     "direct_children": 0,
     "assembly_records": 1,
     "located_records": [
@@ -2119,7 +2125,7 @@
     "network_assertions": {
       "material": 3,
       "mechanical": 0,
-      "utility": 0,
+      "utility": 1,
       "electrical": 0,
       "control": 0
     },
@@ -2129,7 +2135,8 @@
       "doc_cd640b41256b4b288744",
       "doc_6d28742056e94651be04",
       "doc_294aacf286d246769e32",
-      "doc_4f2cd96c3b1e413ea4b5"
+      "doc_4f2cd96c3b1e413ea4b5",
+      "doc_0453a0a014424f1cae06"
     ]
   },
   {
@@ -2145,7 +2152,7 @@
     "present": true,
     "canonical_id": "ent_9d8aaa767de440b18a1a",
     "current_label": "UEF-6",
-    "own_fact_count": 12,
+    "own_fact_count": 13,
     "direct_children": 0,
     "assembly_records": 1,
     "located_records": [
@@ -2156,7 +2163,7 @@
     "network_assertions": {
       "material": 1,
       "mechanical": 0,
-      "utility": 0,
+      "utility": 1,
       "electrical": 0,
       "control": 0
     },
@@ -2165,7 +2172,8 @@
       "doc_2664b59a573b467eb166",
       "doc_eadc432afcad400192d0",
       "doc_294aacf286d246769e32",
-      "doc_4f2cd96c3b1e413ea4b5"
+      "doc_4f2cd96c3b1e413ea4b5",
+      "doc_0453a0a014424f1cae06"
     ]
   },
   {
@@ -2655,16 +2663,17 @@
     "present": true,
     "canonical_id": "ent_18d771b5863a4f2685cd",
     "current_label": "EAE-2",
-    "own_fact_count": 14,
-    "direct_children": 1,
-    "assembly_records": 2,
+    "own_fact_count": 15,
+    "direct_children": 2,
+    "assembly_records": 4,
     "located_records": [
-      "ent_3db045e92ee54639b477"
+      "ent_3db045e92ee54639b477",
+      "ent_0744d46111d74506a4ba"
     ],
     "network_assertions": {
       "material": 1,
       "mechanical": 0,
-      "utility": 1,
+      "utility": 4,
       "electrical": 0,
       "control": 0
     },
@@ -2673,7 +2682,8 @@
       "doc_9c169bf7536b4ebca236",
       "doc_9ea3e0c55ca347ae96a2",
       "doc_4f2cd96c3b1e413ea4b5",
-      "doc_5a36f2843d504d6e96de"
+      "doc_5a36f2843d504d6e96de",
+      "doc_0453a0a014424f1cae06"
     ]
   },
   {
@@ -2912,16 +2922,17 @@
     "present": true,
     "canonical_id": "ent_e1181f45e78e462cbc07",
     "current_label": "EAE-3",
-    "own_fact_count": 14,
-    "direct_children": 1,
-    "assembly_records": 2,
+    "own_fact_count": 15,
+    "direct_children": 2,
+    "assembly_records": 4,
     "located_records": [
-      "ent_945815f0479641398776"
+      "ent_945815f0479641398776",
+      "ent_7dc1164be0434d0db2c7"
     ],
     "network_assertions": {
       "material": 1,
       "mechanical": 0,
-      "utility": 1,
+      "utility": 4,
       "electrical": 0,
       "control": 0
     },
@@ -2930,7 +2941,8 @@
       "doc_9c169bf7536b4ebca236",
       "doc_9ea3e0c55ca347ae96a2",
       "doc_4f2cd96c3b1e413ea4b5",
-      "doc_5a36f2843d504d6e96de"
+      "doc_5a36f2843d504d6e96de",
+      "doc_0453a0a014424f1cae06"
     ]
   },
   {
@@ -3169,16 +3181,17 @@
     "present": true,
     "canonical_id": "ent_b74d44c57a034fe885c0",
     "current_label": "EAE-4",
-    "own_fact_count": 14,
-    "direct_children": 1,
-    "assembly_records": 2,
+    "own_fact_count": 15,
+    "direct_children": 2,
+    "assembly_records": 4,
     "located_records": [
-      "ent_60c3a04327534bd9b8fc"
+      "ent_60c3a04327534bd9b8fc",
+      "ent_1ec5019b965f44648eed"
     ],
     "network_assertions": {
       "material": 1,
       "mechanical": 0,
-      "utility": 1,
+      "utility": 4,
       "electrical": 0,
       "control": 0
     },
@@ -3187,7 +3200,8 @@
       "doc_9c169bf7536b4ebca236",
       "doc_9ea3e0c55ca347ae96a2",
       "doc_4f2cd96c3b1e413ea4b5",
-      "doc_5a36f2843d504d6e96de"
+      "doc_5a36f2843d504d6e96de",
+      "doc_0453a0a014424f1cae06"
     ]
   },
   {
@@ -3785,17 +3799,18 @@
     "present": true,
     "canonical_id": "ent_4df47dcfcd9d49b38e10",
     "current_label": "UEF-10",
-    "own_fact_count": 7,
-    "direct_children": 0,
-    "assembly_records": 1,
+    "own_fact_count": 8,
+    "direct_children": 1,
+    "assembly_records": 2,
     "located_records": [
       "ent_3594e27acabd4a0b96a6",
-      "ent_c0bd4ff445564990aa0f"
+      "ent_c0bd4ff445564990aa0f",
+      "ent_44eb813bc89b44c49b42"
     ],
     "network_assertions": {
       "material": 0,
       "mechanical": 0,
-      "utility": 0,
+      "utility": 2,
       "electrical": 0,
       "control": 0
     },
@@ -3803,7 +3818,8 @@
     "evidence_documents": [
       "doc_656eca05dd134be59050",
       "doc_294aacf286d246769e32",
-      "doc_4f2cd96c3b1e413ea4b5"
+      "doc_4f2cd96c3b1e413ea4b5",
+      "doc_0453a0a014424f1cae06"
     ]
   },
   {
@@ -3819,17 +3835,18 @@
     "present": true,
     "canonical_id": "ent_1e3c3d82602646559ecb",
     "current_label": "UEF-11",
-    "own_fact_count": 19,
-    "direct_children": 0,
-    "assembly_records": 1,
+    "own_fact_count": 20,
+    "direct_children": 1,
+    "assembly_records": 2,
     "located_records": [
       "ent_f3dcbac151be4c499338",
-      "ent_cc8da90c487c4381a4f2"
+      "ent_cc8da90c487c4381a4f2",
+      "ent_3817da96801c458aaa5c"
     ],
     "network_assertions": {
       "material": 0,
       "mechanical": 0,
-      "utility": 0,
+      "utility": 2,
       "electrical": 0,
       "control": 0
     },
@@ -3838,7 +3855,8 @@
       "doc_32f057233d514beeb052",
       "doc_59bdc7452eae4ac89663",
       "doc_294aacf286d246769e32",
-      "doc_4f2cd96c3b1e413ea4b5"
+      "doc_4f2cd96c3b1e413ea4b5",
+      "doc_0453a0a014424f1cae06"
     ]
   },
   {
@@ -3854,18 +3872,20 @@
     "present": true,
     "canonical_id": "ent_1e2add4bc52c4a5fb2f2",
     "current_label": "UEF-12",
-    "own_fact_count": 11,
-    "direct_children": 0,
-    "assembly_records": 1,
+    "own_fact_count": 12,
+    "direct_children": 1,
+    "assembly_records": 3,
     "located_records": [
       "ent_9c0f15ba7e4a406e928c",
       "ent_8965bb8afa584a4b9cbf",
-      "ent_72ba8652e84945e1b6e5"
+      "ent_72ba8652e84945e1b6e5",
+      "ent_a9dc8c54c4744a929fcd",
+      "ent_75585a0864b74b46a8de"
     ],
     "network_assertions": {
       "material": 0,
       "mechanical": 0,
-      "utility": 0,
+      "utility": 3,
       "electrical": 0,
       "control": 0
     },
@@ -3873,7 +3893,8 @@
     "evidence_documents": [
       "doc_90dd538dc5104f57884f",
       "doc_294aacf286d246769e32",
-      "doc_4f2cd96c3b1e413ea4b5"
+      "doc_4f2cd96c3b1e413ea4b5",
+      "doc_0453a0a014424f1cae06"
     ]
   },
   {
@@ -3889,17 +3910,18 @@
     "present": true,
     "canonical_id": "ent_db9090a8cc844adc935f",
     "current_label": "UEF-8",
-    "own_fact_count": 22,
-    "direct_children": 0,
-    "assembly_records": 1,
+    "own_fact_count": 23,
+    "direct_children": 1,
+    "assembly_records": 2,
     "located_records": [
       "ent_ec05cecfab5a4475bccb",
-      "ent_af5873389c5d48c48e64"
+      "ent_af5873389c5d48c48e64",
+      "ent_776d321351ba49c3921a"
     ],
     "network_assertions": {
       "material": 0,
       "mechanical": 0,
-      "utility": 0,
+      "utility": 2,
       "electrical": 0,
       "control": 0
     },
@@ -3908,7 +3930,8 @@
       "doc_154a209321644f80b5d7",
       "doc_4863af0b1e924ec2aacb",
       "doc_294aacf286d246769e32",
-      "doc_4f2cd96c3b1e413ea4b5"
+      "doc_4f2cd96c3b1e413ea4b5",
+      "doc_0453a0a014424f1cae06"
     ]
   },
   {
@@ -3924,17 +3947,18 @@
     "present": true,
     "canonical_id": "ent_c6b62e5f923a480cac36",
     "current_label": "UEF-9",
-    "own_fact_count": 20,
-    "direct_children": 0,
-    "assembly_records": 1,
+    "own_fact_count": 21,
+    "direct_children": 1,
+    "assembly_records": 2,
     "located_records": [
       "ent_1c7b5e0edc0646f0a02c",
-      "ent_daf13efbeeb2473ab8e3"
+      "ent_daf13efbeeb2473ab8e3",
+      "ent_e8e88d7a69374fe083f8"
     ],
     "network_assertions": {
       "material": 0,
       "mechanical": 0,
-      "utility": 0,
+      "utility": 2,
       "electrical": 0,
       "control": 0
     },
@@ -3943,7 +3967,8 @@
       "doc_7ee71cd6ae6a4371a0e6",
       "doc_44430e469f3b4e6fb45a",
       "doc_294aacf286d246769e32",
-      "doc_4f2cd96c3b1e413ea4b5"
+      "doc_4f2cd96c3b1e413ea4b5",
+      "doc_0453a0a014424f1cae06"
     ]
   },
   {
@@ -3959,9 +3984,9 @@
     "present": true,
     "canonical_id": "ent_5d8ffc4cfe6c4d8a92bb",
     "current_label": "Coal Blending Silo House",
-    "own_fact_count": 16,
+    "own_fact_count": 17,
     "direct_children": 13,
-    "assembly_records": 270,
+    "assembly_records": 271,
     "located_records": [
       "ent_d560a78f43a44d1e87e2",
       "ent_55e7674df8d54ac78d50",
@@ -3970,12 +3995,14 @@
       "ent_2386258cf7564b4cb443",
       "ent_c09702fd37fd4fb99613",
       "ent_0e8a63493a9c49f9b18c",
-      "ent_53246ebaddb64a0790e3"
+      "ent_53246ebaddb64a0790e3",
+      "ent_b673d33aa736404ab76f",
+      "ent_91ebdd9ff58546668756"
     ],
     "network_assertions": {
       "material": 16,
       "mechanical": 40,
-      "utility": 108,
+      "utility": 111,
       "electrical": 4,
       "control": 42
     },
@@ -4890,7 +4917,7 @@
     "network_assertions": {
       "material": 34,
       "mechanical": 58,
-      "utility": 84,
+      "utility": 85,
       "electrical": 0,
       "control": 33
     },

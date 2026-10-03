@@ -176,7 +176,7 @@ test('spray service overview exposes exact descendant supply boundaries without 
 });
 
 test('water system scenes expose their tank-pump-header-consumer route without adopting external assets',()=>{
-  for(const type of ['service_water_system','potable_water_system','dust_suppression_system']){
+  for(const type of ['service_water_system','potable_water_system','dust_suppression_system','feed_water_system']){
     const types={system:type,filter:'duplex_filter',header:'utility_header',pump:'pump',tank:'water_tank',consumer:'transfer_point'};
     const fs=Object.entries(types).map(([id,t])=>f(id,'instance_of',null,{value:t}));
     fs.push(f('filter','part_of','system'),f('header','part_of','system'),net('tank','filter','utility'),net('filter','pump','utility'),net('pump','header','utility'),net('header','consumer','utility'));

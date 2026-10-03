@@ -17,7 +17,14 @@ from tools.implement_b00_corrections import save
 
 def verify(before,after,pkg,out):
     facts={a['id']:a for a in after['assertions']}
-    assert all(a==facts[a['id']] for a in before['assertions'])
+    retired={o['assertion_id'] for o in pkg['body']['operations'] if o['op']=='retire'}
+    for a in before['assertions']:
+        actual=facts[a['id']]
+        if a['id'] in retired:
+            assert a['retirement'] is None and actual['retirement'] is not None
+            assert {k:v for k,v in a.items() if k!='retirement'}=={k:v for k,v in actual.items() if k!='retirement'}
+        else:
+            assert a==actual
     aliases={a['id']:a for a in after['aliases']}
     assert all(a==aliases[a['id']] for a in before['aliases'])
     assert before['conflicts']==after['conflicts'] and before['merges']==after['merges']
@@ -28,7 +35,8 @@ def verify(before,after,pkg,out):
         assert len(owners)==1,(e['label'],owners)
     save(out/'result.json',{'ok':True,'version':after['version'],'new_components':len(nodes),
                           'added_assertions':len(after['assertions'])-len(before['assertions']),
-                          'all_prior_assertions_preserved':len(before['assertions']),
+                          'all_prior_assertions_preserved':len(before['assertions'])-len(retired),
+                          'explicitly_retired_assertions':sorted(retired),
                           'all_prior_aliases_merges_conflicts_preserved':True})
 
 

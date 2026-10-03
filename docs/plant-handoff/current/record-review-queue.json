@@ -267,7 +267,7 @@
     "classes": [
       "runoff_pond"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 5,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -1318,7 +1318,7 @@
     "classes": [
       "pump"
     ],
-    "own_fact_count": 18,
+    "own_fact_count": 20,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -1329,7 +1329,7 @@
     "classes": [
       "pump"
     ],
-    "own_fact_count": 18,
+    "own_fact_count": 20,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3180,28 +3180,6 @@
     "related_target_batches": []
   },
   {
-    "id": "ent_48ace7b370f04fc38adc",
-    "label": "UEF-3 Sump Pumps SP-3A/3B",
-    "classes": [
-      "pump"
-    ],
-    "own_fact_count": 4,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_75585a0864b74b46a8de",
-    "label": "UEF-12 Sump Pumps SP-6A/6B",
-    "classes": [
-      "pump"
-    ],
-    "own_fact_count": 4,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
     "id": "ent_d3873343cde3400685b7",
     "label": "SUL-1/2/3 Lubrication Arrangement",
     "classes": [
@@ -4831,7 +4809,7 @@
     "classes": [
       "motorized_valve"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -7153,6 +7131,72 @@
       "utility_header"
     ],
     "own_fact_count": 18,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_7478078ef4e944f39a53",
+    "label": "CHP Runoff pond chamber 1",
+    "classes": [
+      "water_tank"
+    ],
+    "own_fact_count": 3,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_2172def7fe0f44eead2a",
+    "label": "CHP Runoff pond chamber 2",
+    "classes": [
+      "water_tank"
+    ],
+    "own_fact_count": 3,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_3a1588c278f74ad0a7d8",
+    "label": "CHP Runoff pond chamber 3",
+    "classes": [
+      "water_tank"
+    ],
+    "own_fact_count": 5,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_5ff4857593b740cdb915",
+    "label": "CHP Runoff feed-water common discharge header",
+    "classes": [
+      "utility_header"
+    ],
+    "own_fact_count": 4,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_cb918b819052443c9b37",
+    "label": "CHP Runoff feed-water DUP-01 duplex filter",
+    "classes": [
+      "duplex_filter"
+    ],
+    "own_fact_count": 5,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_a03cb06c5a70496e87e9",
+    "label": "CHP Runoff feed-water LCP-01 panel",
+    "classes": [
+      "local_control_panel"
+    ],
+    "own_fact_count": 4,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []

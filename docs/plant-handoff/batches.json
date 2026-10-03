@@ -106,7 +106,7 @@
       ],
       "scope": "Common runoff destination/treatment and source-specific local pit-pump branch map for consuming sections.",
       "exit_check": "Do not assign sump pair alphabetically; reviewed local branches and unknowns recorded.",
-      "status": "in_progress",
+      "status": "breadth_complete",
       "gates": [
         "G1",
         "G2",
@@ -118,7 +118,8 @@
         "G8"
       ],
       "checkpoint": "output/plant-enrichment/B04/checkpoint.md",
-      "baseline_version": 632
+      "baseline_version": 632,
+      "latest_version": 634
     },
     {
       "id": "B05",
@@ -131,7 +132,7 @@
       ],
       "scope": "Use found TP1 GA to close stale gap, add supported place/hoist/tank detail; preserve pilot drive/protection/DFDS evidence.",
       "exit_check": "Pilot regressions pass; sources still open at deep parts and grouped counts.",
-      "status": "not_started",
+      "status": "in_progress",
       "gates": [
         "G1",
         "G2",
@@ -142,7 +143,8 @@
         "G7",
         "G8"
       ],
-      "checkpoint": "output/plant-enrichment/B05/checkpoint.md"
+      "checkpoint": "output/plant-enrichment/B05/checkpoint.md",
+      "baseline_version": 634
     },
     {
       "id": "B06",

@@ -81,6 +81,15 @@
       "source": "175255 and embedded175091 in doc_e17edf6897d746fabe12 pp13-17; accepted B01 qualifications",
       "priority": "P2",
       "status": "open"
+    },
+    {
+      "id": "DQ-B04-001",
+      "batch": "B04",
+      "target": "Sump/runoff drainage and feedwater",
+      "missing": "Resolve5/10m3 pit-capacity review discrepancy; individual pump/mechanical/control/valve detail and civil chamber overflow construction. Main routes completed.",
+      "source": "175259 pp1-2 and175257 p1; available DBR175260,pond GA175520 and vendor sources",
+      "priority": "P2",
+      "status": "open"
     }
   ]
 }

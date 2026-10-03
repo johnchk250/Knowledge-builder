@@ -1,22 +1,22 @@
 {
   "schema_version": 1,
-  "updated_date": "2026-10-03",
+  "updated_date": "2026-10-04",
   "baseline_version": 593,
-  "latest_verified_version": 632,
+  "latest_verified_version": 634,
   "status": "in_progress",
   "execution_mode": "breadth_first",
   "pass": "A",
   "breadth_policy": "docs/plant-handoff/FIVE_PHASE_PLAN.md#execution-mode-breadth-first-from-v628",
   "depth_queue": "docs/plant-handoff/current/depth-queue.json",
   "active_phase": "phase-1",
-  "next_batch": "B04",
-  "next_action": "Pass A / B04: complete source-specific sump/pump assignments and common runoff/feedwater return using175259 and175257; reuse accepted TP1/Yard1/silo/crusher/TP13 assets. Then boundary-only B05 and advance B06 main conveyors.",
+  "next_batch": "B05",
+  "next_action": "B05 boundary-only recheck: four old material edges through aggregate UEF1 create false1A-to2B and1B-to2A reachability. Review TP1 original and retire aggregate topology while preserving accepted direct lane/chute routes. Then advance Phase2/B06 EAC2A/B.",
   "plan": "docs/plant-handoff/FIVE_PHASE_PLAN.md",
   "current_inventory": "docs/plant-handoff/current/CURRENT_STATUS.md",
   "last_completed_work": {
-    "scope": "B03 Tier1 accepted v631-v632: SPDS common station and all four yard rings; SW1/SW2/PW filter/pump/header routes to30 CHP building boundaries.15 major components,126 assertions. Existing ratings, identities and conflicts retained; embedded175091 located. Water-system scene now exposes external pumps, tanks and consumers.",
-    "version": 632,
-    "checkpoint": "output/plant-enrichment/B03/checkpoint.md"
+    "scope": "B04 Tier1 accepted v633-v634:14 drainage assemblies,6 pond/feedwater assemblies, correct Yard2/3/4 E/F,C/D,A/B pump assignments; TP13 outlets corrected from UEF1 to UEE2 intermediate sump; existing CRP pumps return through filter/MGV04 to SPDS compartment only.21 route checks and20 major-component browser checks pass.",
+    "version": 634,
+    "checkpoint": "output/plant-enrichment/B04/checkpoint.md"
   },
   "accepted_reuse_batches": [
     "B30",
@@ -44,10 +44,10 @@
         "B00",
         "B01"
       ],
-      "current_batch": "B04",
+      "current_batch": "B05",
       "baseline_version": 593,
-      "latest_version": 632,
-      "checkpoint": "output/plant-enrichment/B04/checkpoint.md",
+      "latest_version": 634,
+      "checkpoint": "output/plant-enrichment/B05/checkpoint.md",
       "open_evidence_gaps": [
         {
           "scope": "UGA / DS Pump Houses",
@@ -77,7 +77,8 @@
       ],
       "breadth_complete_batches": [
         "B02",
-        "B03"
+        "B03",
+        "B04"
       ]
     },
     {
@@ -434,6 +435,17 @@
       "status": "breadth_complete",
       "verification": "passed",
       "milestone": "B03 Tier1 accepted v631-v632: SPDS common station and all four yard rings; SW1/SW2/PW filter/pump/header routes to30 CHP building boundaries.15 major components,126 assertions. Existing ratings, identities and conflicts retained; embedded175091 located. Water-system scene now exposes external pumps, tanks and consumers."
+    },
+    {
+      "date": "2026-10-04",
+      "batch": "B04",
+      "versions": [
+        633,
+        634
+      ],
+      "status": "breadth_complete",
+      "verification": "passed",
+      "milestone": "B04 Tier1 accepted v633-v634:14 drainage assemblies,6 pond/feedwater assemblies, correct Yard2/3/4 E/F,C/D,A/B pump assignments; TP13 outlets corrected from UEF1 to UEE2 intermediate sump; existing CRP pumps return through filter/MGV04 to SPDS compartment only.21 route checks and20 major-component browser checks pass."
     }
   ],
   "accepted_followup_queue": "docs/plant-handoff/current/accepted-followups.json",
