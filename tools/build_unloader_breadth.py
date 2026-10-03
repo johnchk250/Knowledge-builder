@@ -80,7 +80,16 @@ def main():
         if n==3:
             lime=part('lime_grab','limestone grab assembly')
             fact(lime,'assembly_arrangement','Separate limestone grab13m3;Type2 table self weight15.1t versus weight block15t. Coal grab remains separate. Type2 GA supports both coal1700t/h and limestone1000t/h; DBR limestone column is not exclusive coal-operation prohibition.',ev,sch)
+            ops[-1]['evidence'].append(dict(evidence_id=ev,quote='',region=[.62,.12,.80,.23]))
             fact(dust,'source_discrepancy','Type2 schedule p10 calls dust suppression dry fog; p11 section E-E calls it plain-water suppression. Water supply is explicit; air supply and final nozzle mechanism require the unloader P&ID.',ev,sch)
+            ops[-1]['evidence'].append(dict(evidence_id=plan,quote='',region=[.40,.54,.64,.84]))
+            limestone=labels.get('LS-EAC-1')
+            if not limestone:
+                limestone=new('tmp_lseac1_boundary','LS-EAC-1','belt_conveyor',labels['Maitree Coal Handling Plant'],ev,[.28,.59,.49,.89])
+                fact(limestone,'located_at',JETTY,ev,[.28,.59,.49,.89],True)
+                fact(limestone,'equipment_role','Limestone conveyor receiving boundary drawn below SUL-3, separate from coal belts EAC-1A/B. Only this adjacent outlet interface is in CHP Tier1 scope; downstream LHP equipment is not represented.',ev,[.28,.59,.49,.89])
+            fact(lime,'material_flow_to',hopper,ev,whole,True,'material','Limestone handling mode with limestone grab fitted; alternative to coal grab.')
+            fact(shuttle,'material_flow_to',limestone,ev,[.28,.59,.49,.89],True,'material','Limestone handling mode with Type2 shuttle positioned/reversed for LS-EAC-1; distinct from selected coal outlets EAC-1A/B.')
         for a,b in [(hold,grab),(traverse,trolley),(hoist,boom),(belt_drive,shuttle),(shuttle_travel,shuttle)]:fact(a,'mechanically_drives',b,ev,whole,True,'mechanical','Documented motion/drive assembly relationship; no internal vendor mechanism inferred.')
         for a,b in [(grab,hopper),(hopper,feeder),(feeder,shuttle)]:fact(a,'material_flow_to',b,ev,whole,True,'material','Coal unloading design path from grab through hopper and vibro-feeder to shuttle.')
         for lane,b in [('A','ent_141f73b0a4ef460b9830'),('B','ent_8e0a39fb6e844f8a90d6')]:fact(shuttle,'material_flow_to',b,ev,whole,True,'material',f'Shuttle positioned for coal discharge to EAC-1{lane}; alternative outlets, not simultaneous routing.')

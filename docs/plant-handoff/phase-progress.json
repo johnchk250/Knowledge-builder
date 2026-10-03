@@ -2,21 +2,21 @@
   "schema_version": 1,
   "updated_date": "2026-10-04",
   "baseline_version": 593,
-  "latest_verified_version": 639,
+  "latest_verified_version": 640,
   "status": "in_progress",
   "execution_mode": "breadth_first",
   "pass": "A",
   "breadth_policy": "docs/plant-handoff/FIVE_PHASE_PLAN.md#execution-mode-breadth-first-from-v628",
   "depth_queue": "docs/plant-handoff/current/depth-queue.json",
   "active_phase": "phase-2",
-  "next_batch": "B08",
-  "next_action": "B08 Pass A: apply reviewed175155 Type1 pp8-9 to SUL2 and Type2 pp10-11 to SUL3; reuse existing shuttles and shared jetty water boundary. Preserve dual coal/limestone and Type2 dry-fog/plain-water discrepancies. Finish major assemblies and selected outlets only.",
+  "next_batch": "B09",
+  "next_action": "B09 Pass A: review PSH main GA175037, primary grizzly GA doc_b4cf0a76c954435aadd6 pp1-4 and UEE1 utility layout. Add EBD1-4 main screen/drive/support and gate/reject/hoist assemblies; reuse B06 lane chutes and existing gate/screen routes; defer internals/settings.",
   "plan": "docs/plant-handoff/FIVE_PHASE_PLAN.md",
   "current_inventory": "docs/plant-handoff/current/CURRENT_STATUS.md",
   "last_completed_work": {
-    "scope": "B07 Tier1 accepted v638-v639: three source-proven SUL/numbered identity merges; obsolete mapping gaps retired; first unloader22 major assemblies and shared jetty water boundary added. Existing shuttle and vendor ratings retained.23 components,82 assertions; grab-to-shuttle routes reach both jetty belts and both screening lanes.",
-    "version": 639,
-    "checkpoint": "output/plant-enrichment/B07/checkpoint.md"
+    "scope": "B08 Tier1 accepted v640:46 major components for SUL2/3 including separate limestone grab and LS-EAC1 receiving boundary. Shared jetty water and existing shuttles reused. Per-type drive/dust differences retained; all3 unloaders now have main motion/coal-transfer/service assemblies.",
+    "version": 640,
+    "checkpoint": "output/plant-enrichment/B08/checkpoint.md"
   },
   "accepted_reuse_batches": [
     "B30",
@@ -98,14 +98,15 @@
         "B14"
       ],
       "completed_batches": [],
-      "current_batch": "B08",
+      "current_batch": "B09",
       "baseline_version": 635,
-      "latest_version": 639,
-      "checkpoint": "output/plant-enrichment/B08/checkpoint.md",
+      "latest_version": 640,
+      "checkpoint": "output/plant-enrichment/B09/checkpoint.md",
       "open_evidence_gaps": [],
       "breadth_complete_batches": [
         "B06",
-        "B07"
+        "B07",
+        "B08"
       ]
     },
     {
@@ -480,12 +481,22 @@
       "status": "breadth_complete",
       "verification": "passed",
       "milestone": "B07 Tier1 accepted v638-v639: three source-proven SUL/numbered identity merges; obsolete mapping gaps retired; first unloader22 major assemblies and shared jetty water boundary added. Existing shuttle and vendor ratings retained.23 components,82 assertions; grab-to-shuttle routes reach both jetty belts and both screening lanes."
+    },
+    {
+      "date": "2026-10-04",
+      "batch": "B08",
+      "versions": [
+        640
+      ],
+      "status": "breadth_complete",
+      "verification": "passed",
+      "milestone": "B08 Tier1 accepted v640:46 major components for SUL2/3 including separate limestone grab and LS-EAC1 receiving boundary. Shared jetty water and existing shuttles reused. Per-type drive/dust differences retained; all3 unloaders now have main motion/coal-transfer/service assemblies."
     }
   ],
   "accepted_followup_queue": "docs/plant-handoff/current/accepted-followups.json",
   "last_accepted_work": {
-    "scope": "B07 Tier1 accepted v638-v639: three source-proven SUL/numbered identity merges; obsolete mapping gaps retired; first unloader22 major assemblies and shared jetty water boundary added. Existing shuttle and vendor ratings retained.23 components,82 assertions; grab-to-shuttle routes reach both jetty belts and both screening lanes.",
-    "version": 639,
-    "checkpoint": "output/plant-enrichment/B07/checkpoint.md"
+    "scope": "B08 Tier1 accepted v640:46 major components for SUL2/3 including separate limestone grab and LS-EAC1 receiving boundary. Shared jetty water and existing shuttles reused. Per-type drive/dust differences retained; all3 unloaders now have main motion/coal-transfer/service assemblies.",
+    "version": 640,
+    "checkpoint": "output/plant-enrichment/B08/checkpoint.md"
   }
 }

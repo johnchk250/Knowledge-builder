@@ -204,7 +204,7 @@
       ],
       "scope": "Apply only proven common design, inspect per-machine differences and jetty/shuttle interfaces.",
       "exit_check": "All three unloaders navigable with their own or explicitly applicable sources.",
-      "status": "in_progress",
+      "status": "breadth_complete",
       "gates": [
         "G1",
         "G2",
@@ -216,7 +216,8 @@
         "G8"
       ],
       "checkpoint": "output/plant-enrichment/B08/checkpoint.md",
-      "baseline_version": 639
+      "baseline_version": 639,
+      "latest_version": 640
     },
     {
       "id": "B09",
@@ -227,7 +228,7 @@
       ],
       "scope": "EBD-1\u00e2\u20ac\u201c4, RG/RPG gates, reject paths, local dust/access and drive assemblies.",
       "exit_check": "Primary screens remain separate from EBD-5/6; exact reject routes retained.",
-      "status": "not_started",
+      "status": "in_progress",
       "gates": [
         "G1",
         "G2",
@@ -238,7 +239,8 @@
         "G7",
         "G8"
       ],
-      "checkpoint": "output/plant-enrichment/B09/checkpoint.md"
+      "checkpoint": "output/plant-enrichment/B09/checkpoint.md",
+      "baseline_version": 640
     },
     {
       "id": "B10",

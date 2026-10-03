@@ -108,6 +108,15 @@
       "source": "175155 doc_1518e219127b4b0eaa3a pp2-12;175154 DBR pp2-3;175158 jetty layout pp3-11; specific drive/lube/DSS documents indexed under P02",
       "priority": "P1",
       "status": "open"
+    },
+    {
+      "id": "DQ-B08-001",
+      "batch": "B08",
+      "target": "ent_f319b7a72a2e4c85a617 / ent_9b33c14cee7f4d749335",
+      "missing": "Unit-specific drive/brake/protection internals; Type2 dry-fog versus plain-water reconciliation and limestone grab weight15/15.1t; detailed travel/anti-collision controls. LS-EAC1 modeled only as receiving boundary.",
+      "source": "175155 doc_1518e219127b4b0eaa3a pp8-12; Type2 dust tablep10 vs sectionE-Ep11; jetty175158 pp3-11; vendor DSS/drive sources P02",
+      "priority": "P1",
+      "status": "open"
     }
   ]
 }
