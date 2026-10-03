@@ -187,11 +187,19 @@ class Store:
             a['normalized_quantity'] = quantity(a['value'], a['unit'])
         for row in entities + aliases + ontology + merges:
             row['provenance'] = json.loads(row['provenance'])
+        aliases_by_entity = {}
+        for alias in aliases:
+            if alias['id'] not in retracted:
+                aliases_by_entity.setdefault(resolve(alias['entity_id']), []).append(alias['alias'])
+        classes_by_entity = {}
+        for fact in facts:
+            if not fact['retirement'] and fact['predicate'] == 'instance_of':
+                classes_by_entity.setdefault(fact['canonical_subject'], set()).add(fact['value'])
         for e in entities:
             e['canonical_id'] = resolve(e['id'])
             e['inactive'] = e['canonical_id'] in inactive or e['id'] in inactive
-            e['aliases'] = [a['alias'] for a in aliases if a['id'] not in retracted and resolve(a['entity_id']) == e['canonical_id'] and not e['inactive']]
-            classes={a['value'] for a in facts if not a['retirement'] and a['canonical_subject']==e['canonical_id'] and a['predicate']=='instance_of'}
+            e['aliases'] = list(aliases_by_entity.get(e['canonical_id'], ())) if not e['inactive'] else []
+            classes = classes_by_entity.get(e['canonical_id'], set())
             e['category']='document' if classes and classes<=DOCUMENT_TYPES else 'equipment' if classes else 'unclassified'
         for a in aliases:
             a['retracted'] = a['id'] in retracted

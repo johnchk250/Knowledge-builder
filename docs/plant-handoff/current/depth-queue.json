@@ -3,7 +3,12 @@
   "created": "2026-10-03",
   "model_version_at_creation": 628,
   "purpose": "Pass B depth work deferred by the breadth-first execution mode in FIVE_PHASE_PLAN.md. Each item names the target, what is missing, the source that would supply it and a priority (P1 operational drives/protections, P2 serviced auxiliaries/electrical, P3 vendor BOM/revision/thin targets). Items are not claims that the detail exists.",
-  "status_values": ["open", "in_progress", "done", "evidence_gap"],
+  "status_values": [
+    "open",
+    "in_progress",
+    "done",
+    "evidence_gap"
+  ],
   "items": [
     {
       "id": "DQ-B02-001",
@@ -56,6 +61,15 @@
       "target": "Yard 1 machines and local systems",
       "missing": "Residual machine safety/anchor/lube/onboard-DSS follow-ups from the Yard1 pilot",
       "source": "COAL_YARD_1_PILOT_REPORT.md follow-up list",
+      "priority": "P2",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B02-004",
+      "batch": "B02",
+      "target": "DFDS Systems 1/2 common distribution mains",
+      "missing": "Remaining trunk tees, intermediate isolation and branches to UEE-1/2 and UEF-3..12. Tier-1 consumer connections remain owned by each consuming batch; this depth item covers finer pipe decomposition only. Do not connect TP1 to System2 or collapse the two stations.",
+      "source": "doc_bca09d68af9b43e3b633 pp1-2; local piping layouts in SOURCE_CATALOG.md",
       "priority": "P2",
       "status": "open"
     }

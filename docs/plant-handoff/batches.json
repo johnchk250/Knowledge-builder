@@ -56,7 +56,7 @@
       ],
       "scope": "DFDS systems 1/2, pumps, air production/treatment, common headers and local consumer boundary contract.",
       "exit_check": "Two different TPs can trace to one common source without duplicated station.",
-      "status": "in_progress",
+      "status": "breadth_complete",
       "gates": [
         "G1",
         "G2",
@@ -69,8 +69,8 @@
       ],
       "checkpoint": "output/plant-enrichment/B02/checkpoint.md",
       "baseline_version": 620,
-      "latest_version": 628,
-      "next_action": "Pass A / B02 (last Tier-1 item): connect the existing common DFDS air/water outlet headers to the TP1 local mains and the TP13 inlet via UEE-3, using 175089 pp1-2 and corroborating 175286/175300 local originals (output/plant-enrichment/B02/review/headers has original renders and enlarged route crops). One source-scoped proposal per document. Then mark B02 breadth_complete, add any finer items to current/depth-queue.json, and continue to B03 (SPDS/service/potable water) at Tier 1 in the same run. Compressor internals/protection reconciliation, unit mapping and 180055 are depth items DQ-B02-001..003. Do not replay accepted packages through 628."
+      "latest_version": 630,
+      "next_action": "Pass A / B03: implement common SPDS tank/filter/pump/header paths and all four yard boundary headers from 175255 pp1-2; preserve 115/124m head conflict and AP/sector/SV distinction. Then trace SW/PW from available principal sources; 175091 P&ID has references but no standalone document in the 266-document inventory."
     },
     {
       "id": "B03",
@@ -81,7 +81,7 @@
       ],
       "scope": "Common stockpile pumping/control, SW/PW supplies and sector/application boundary conventions.",
       "exit_check": "Pump numbering/head contradictions preserved; AP/sector/SV distinction explicit.",
-      "status": "not_started",
+      "status": "in_progress",
       "gates": [
         "G1",
         "G2",
@@ -92,7 +92,10 @@
         "G7",
         "G8"
       ],
-      "checkpoint": "output/plant-enrichment/B03/checkpoint.md"
+      "checkpoint": "output/plant-enrichment/B03/checkpoint.md",
+      "baseline_version": 630,
+      "latest_version": 630,
+      "next_action": "Pass A / B03: implement common SPDS tank/filter/pump/header paths and all four yard boundary headers from 175255 pp1-2; preserve 115/124m head conflict and AP/sector/SV distinction. Then trace SW/PW from available principal sources; 175091 P&ID has references but no standalone document in the 266-document inventory."
     },
     {
       "id": "B04",

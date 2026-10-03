@@ -533,7 +533,7 @@
     "classes": [
       "water_tank"
     ],
-    "own_fact_count": 14,
+    "own_fact_count": 15,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -544,7 +544,7 @@
     "classes": [
       "water_tank"
     ],
-    "own_fact_count": 14,
+    "own_fact_count": 15,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -1263,7 +1263,7 @@
     "classes": [
       "pump"
     ],
-    "own_fact_count": 27,
+    "own_fact_count": 30,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -1274,7 +1274,7 @@
     "classes": [
       "pump"
     ],
-    "own_fact_count": 28,
+    "own_fact_count": 31,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3263,7 +3263,7 @@
       "dust_suppression_system",
       "dfds_system"
     ],
-    "own_fact_count": 28,
+    "own_fact_count": 35,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3274,7 +3274,7 @@
     "classes": [
       "dfds_system"
     ],
-    "own_fact_count": 30,
+    "own_fact_count": 37,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -4908,7 +4908,7 @@
     "classes": [
       "pump"
     ],
-    "own_fact_count": 18,
+    "own_fact_count": 21,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -4919,7 +4919,7 @@
     "classes": [
       "pump"
     ],
-    "own_fact_count": 19,
+    "own_fact_count": 22,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -4930,7 +4930,7 @@
     "classes": [
       "air_compressor"
     ],
-    "own_fact_count": 11,
+    "own_fact_count": 12,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -4941,7 +4941,7 @@
     "classes": [
       "air_compressor"
     ],
-    "own_fact_count": 11,
+    "own_fact_count": 12,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -4952,7 +4952,7 @@
     "classes": [
       "air_compressor"
     ],
-    "own_fact_count": 7,
+    "own_fact_count": 8,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -4963,7 +4963,7 @@
     "classes": [
       "air_compressor"
     ],
-    "own_fact_count": 7,
+    "own_fact_count": 8,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5392,7 +5392,7 @@
     "classes": [
       "pressure_switch"
     ],
-    "own_fact_count": 8,
+    "own_fact_count": 12,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5403,7 +5403,7 @@
     "classes": [
       "pressure_switch"
     ],
-    "own_fact_count": 8,
+    "own_fact_count": 12,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5425,7 +5425,7 @@
     "classes": [
       "differential_pressure_switch"
     ],
-    "own_fact_count": 10,
+    "own_fact_count": 14,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5436,7 +5436,7 @@
     "classes": [
       "differential_pressure_switch"
     ],
-    "own_fact_count": 10,
+    "own_fact_count": 14,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5623,7 +5623,7 @@
     "classes": [
       "utility_header"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5722,7 +5722,7 @@
     "classes": [
       "utility_header"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5865,7 +5865,7 @@
     "classes": [
       "utility_header"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5964,7 +5964,7 @@
     "classes": [
       "utility_header"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -6709,6 +6709,314 @@
   {
     "id": "ent_7df977c357f943b18eb0",
     "label": "DFDSP-2B Long spacer sleeve group",
+    "classes": [
+      "mechanical_component"
+    ],
+    "own_fact_count": 6,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_dec39c35461b40fdbbaf",
+    "label": "DFDSP-1A Vent plug",
+    "classes": [
+      "plug_group"
+    ],
+    "own_fact_count": 6,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_5b13726d791149449442",
+    "label": "DFDSP-1A Screwed plug group",
+    "classes": [
+      "plug_group"
+    ],
+    "own_fact_count": 6,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_cd91351a511341bbab91",
+    "label": "DFDSP-1A Pump cover",
+    "classes": [
+      "mechanical_component"
+    ],
+    "own_fact_count": 6,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_9db0b60e34ff4ff0b1b6",
+    "label": "DFDSP-1A O-ring group",
+    "classes": [
+      "mechanical_component"
+    ],
+    "own_fact_count": 5,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_ac56c4da0f74415eb85d",
+    "label": "DFDSP-1A Short spacer sleeve group",
+    "classes": [
+      "mechanical_component"
+    ],
+    "own_fact_count": 6,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_6dab37f84a434799b554",
+    "label": "DFDSP-1A Shaft-end spacer sleeve",
+    "classes": [
+      "mechanical_component"
+    ],
+    "own_fact_count": 6,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_550846a69a484bf0a51b",
+    "label": "DFDSP-1A Seal-side spacer sleeve",
+    "classes": [
+      "mechanical_component"
+    ],
+    "own_fact_count": 6,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_c997cc3362b448d7a4fc",
+    "label": "DFDSP-1B Vent plug",
+    "classes": [
+      "plug_group"
+    ],
+    "own_fact_count": 6,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_0a0d12aba1d64bf7af33",
+    "label": "DFDSP-1B Screwed plug group",
+    "classes": [
+      "plug_group"
+    ],
+    "own_fact_count": 6,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_42849417d1e9438faf18",
+    "label": "DFDSP-1B Pump cover",
+    "classes": [
+      "mechanical_component"
+    ],
+    "own_fact_count": 6,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_effcebee800741efa4ca",
+    "label": "DFDSP-1B O-ring group",
+    "classes": [
+      "mechanical_component"
+    ],
+    "own_fact_count": 5,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_8d55cd213a344333b1d8",
+    "label": "DFDSP-1B Short spacer sleeve group",
+    "classes": [
+      "mechanical_component"
+    ],
+    "own_fact_count": 6,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_27a410591f184bb2becb",
+    "label": "DFDSP-1B Shaft-end spacer sleeve",
+    "classes": [
+      "mechanical_component"
+    ],
+    "own_fact_count": 6,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_5bd3ee79e869407ab0ca",
+    "label": "DFDSP-1B Seal-side spacer sleeve",
+    "classes": [
+      "mechanical_component"
+    ],
+    "own_fact_count": 6,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_79781cb32fe44ed0b762",
+    "label": "DFDSP-2A Vent plug",
+    "classes": [
+      "plug_group"
+    ],
+    "own_fact_count": 6,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_dd11aeb3ed764323ad0e",
+    "label": "DFDSP-2A Screwed plug group",
+    "classes": [
+      "plug_group"
+    ],
+    "own_fact_count": 6,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_497eec5936f4458d909e",
+    "label": "DFDSP-2A Pump cover",
+    "classes": [
+      "mechanical_component"
+    ],
+    "own_fact_count": 6,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_16d2b3d27f0b4deaae94",
+    "label": "DFDSP-2A O-ring group",
+    "classes": [
+      "mechanical_component"
+    ],
+    "own_fact_count": 5,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_08dc39ab64ee45be9ea1",
+    "label": "DFDSP-2A Short spacer sleeve group",
+    "classes": [
+      "mechanical_component"
+    ],
+    "own_fact_count": 6,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_216024380daf4d71a1df",
+    "label": "DFDSP-2A Shaft-end spacer sleeve",
+    "classes": [
+      "mechanical_component"
+    ],
+    "own_fact_count": 6,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_d71f866966c44212a395",
+    "label": "DFDSP-2A Seal-side spacer sleeve",
+    "classes": [
+      "mechanical_component"
+    ],
+    "own_fact_count": 6,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_b1796ea385be478c8f48",
+    "label": "DFDSP-2B Vent plug",
+    "classes": [
+      "plug_group"
+    ],
+    "own_fact_count": 6,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_8efd2309aa7d408fa806",
+    "label": "DFDSP-2B Screwed plug group",
+    "classes": [
+      "plug_group"
+    ],
+    "own_fact_count": 6,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_d0636a9b72244e9b9817",
+    "label": "DFDSP-2B Pump cover",
+    "classes": [
+      "mechanical_component"
+    ],
+    "own_fact_count": 6,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_130b93782c0547a5a750",
+    "label": "DFDSP-2B O-ring group",
+    "classes": [
+      "mechanical_component"
+    ],
+    "own_fact_count": 5,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_c060cebd8e1947abb0e0",
+    "label": "DFDSP-2B Short spacer sleeve group",
+    "classes": [
+      "mechanical_component"
+    ],
+    "own_fact_count": 6,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_20f26a277474471cad18",
+    "label": "DFDSP-2B Shaft-end spacer sleeve",
+    "classes": [
+      "mechanical_component"
+    ],
+    "own_fact_count": 6,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_bf1640c5554340ce9b45",
+    "label": "DFDSP-2B Seal-side spacer sleeve",
     "classes": [
       "mechanical_component"
     ],

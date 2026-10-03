@@ -2,20 +2,20 @@
   "schema_version": 1,
   "updated_date": "2026-10-03",
   "baseline_version": 593,
-  "latest_verified_version": 628,
+  "latest_verified_version": 630,
   "status": "in_progress",
   "execution_mode": "breadth_first",
   "pass": "A",
   "breadth_policy": "docs/plant-handoff/FIVE_PHASE_PLAN.md#execution-mode-breadth-first-from-v628",
   "depth_queue": "docs/plant-handoff/current/depth-queue.json",
   "active_phase": "phase-1",
-  "next_batch": "B02",
-  "next_action": "Pass A / B02 (last Tier-1 item): connect the existing common DFDS air/water outlet headers to the TP1 local mains and the TP13 inlet via UEE-3, using 175089 pp1-2 and corroborating 175286/175300 local originals (output/plant-enrichment/B02/review/headers has original renders and enlarged route crops). One source-scoped proposal per document. Then mark B02 breadth_complete, add any finer items to current/depth-queue.json, and continue to B03 (SPDS/service/potable water) at Tier 1 in the same run. Compressor internals/protection reconciliation, unit mapping and 180055 are depth items DQ-B02-001..003. Do not replay accepted packages through 628.",
+  "next_batch": "B03",
+  "next_action": "Pass A / B03: implement common SPDS tank/filter/pump/header paths and all four yard boundary headers from 175255 pp1-2; preserve 115/124m head conflict and AP/sector/SV distinction. Then trace SW/PW from available principal sources; 175091 P&ID has references but no standalone document in the 266-document inventory.",
   "plan": "docs/plant-handoff/FIVE_PHASE_PLAN.md",
   "current_inventory": "docs/plant-handoff/current/CURRENT_STATUS.md",
   "last_completed_work": {
-    "scope": "Compressor reconciliation v628 verified:16 claims on six existing records pass1280x900 source/crop/return checks;12 system claims also pass390x844. Integrity/FK, prior-fact/alias/conflict preservation and both pilot audits pass. No equipment, physical connections or numerical settings added.",
-    "version": 628,
+    "scope": "Reconciled pre-existing accepted v629/v630 (no replay): four DFDS utility edges connect common mains to TP1 and UEE-3/TP13; two TP1 feeder-size qualifications. Readable originals, source-return and narrow-width checks pass; four positive/three negative route checks, prior-fact preservation, integrity/FK, 46 scene tests and both pilot audits pass. Systems 1 and 2 remain distinct canonical sources.",
+    "version": 630,
     "checkpoint": "output/plant-enrichment/B02/checkpoint.md"
   },
   "accepted_reuse_batches": [
@@ -44,10 +44,10 @@
         "B00",
         "B01"
       ],
-      "current_batch": "B02",
+      "current_batch": "B03",
       "baseline_version": 593,
-      "latest_version": 628,
-      "checkpoint": "output/plant-enrichment/B02/checkpoint.md",
+      "latest_version": 630,
+      "checkpoint": "output/plant-enrichment/B03/checkpoint.md",
       "open_evidence_gaps": [
         {
           "scope": "UGA / DS Pump Houses",
@@ -75,7 +75,9 @@
           "disposition": "progressive disposition; global closure not claimed"
         }
       ],
-      "breadth_complete_batches": []
+      "breadth_complete_batches": [
+        "B02"
+      ]
     },
     {
       "id": "phase-2",
@@ -406,13 +408,27 @@
       "version": 628,
       "milestone": "Execution switched to breadth-first (Pass A Tier 1 across all batches, Pass B depth queue). No model change. B02 compressor internals/protection reconciliation and 180055 moved to depth queue; header-to-TP1/TP13 connection is B02's last Tier-1 item.",
       "status": "in_progress"
+    },
+    {
+      "date": "2026-10-03",
+      "batch": "B02",
+      "versions": [
+        629,
+        630
+      ],
+      "status": "breadth_complete",
+      "milestone": "Reconciled pre-existing accepted v629/v630 (no replay): four DFDS utility edges connect common mains to TP1 and UEE-3/TP13; two TP1 feeder-size qualifications. Readable originals, source-return and narrow-width checks pass; four positive/three negative route checks, prior-fact preservation, integrity/FK, 46 scene tests and both pilot audits pass. Systems 1 and 2 remain distinct canonical sources.",
+      "proposals": [
+        "prop_e65b0f9a27e940559e30",
+        "prop_34e96d6864514f0fb7f5"
+      ]
     }
   ],
   "accepted_followup_queue": "docs/plant-handoff/current/accepted-followups.json",
   "last_accepted_work": {
-    "scope": "Sixteen compressor source qualifications accepted on two existing systems and four compressors: model applicability, staging, cooling, starter and S2-prime conflicts remain explicit; no installed internals or settings invented.",
-    "version": 628,
+    "scope": "Reconciled pre-existing accepted v629/v630 (no replay): four DFDS utility edges connect common mains to TP1 and UEE-3/TP13; two TP1 feeder-size qualifications. Readable originals, source-return and narrow-width checks pass; four positive/three negative route checks, prior-fact preservation, integrity/FK, 46 scene tests and both pilot audits pass. Systems 1 and 2 remain distinct canonical sources.",
+    "version": 630,
     "checkpoint": "output/plant-enrichment/B02/checkpoint.md",
-    "visual_gate": "passed desktop and narrow"
+    "visual_gate": "passed sampled default width and 390x844"
   }
 }

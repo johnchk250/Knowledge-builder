@@ -1,0 +1,46 @@
+/* Refresh current diagnostics only. Never rewrites the frozen inventory or plant. */
+const fs=require('node:fs'),path=require('node:path');
+const root=path.resolve(__dirname,'..'),base=path.join(root,'docs/plant-handoff');
+const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
+const save=(p,x)=>fs.writeFileSync(p,JSON.stringify(x,null,2)+'\n');
+const file=process.argv[2];if(!file)throw Error('Supply a fresh snapshot file');
+const snap=read(file),m=snap.model,p=require('../dist/plant-model.js').build(m);
+if(JSON.stringify(snap.integrity)!=='["ok"]'||snap.foreign_key_errors.length)throw Error('Snapshot integrity failed');
+const batches=read(path.join(base,'batches.json')).batches,bm=new Map(batches.map(x=>[x.id,x]));
+const progress=read(path.join(base,'phase-progress.json')),cur=path.join(base,'current');
+const ev=new Map(snap.evidence.map(e=>[e.id,e]));
+const targets=read(path.join(cur,'target-status.json'));
+const nets=facts=>Object.fromEntries(['material','mechanical','utility','electrical','control'].map(n=>[n,facts.filter(a=>a.context?.network===n).length]));
+for(const t of targets){
+ const raw=m.entities.find(e=>e.id===t.id),id=raw?.canonical_id,e=p.entities.get(id);
+ t.batch_status=bm.get(t.primary_batch).status;delete t.model_version;
+ t.disposition=t.batch_status==='breadth_complete'?'Tier 1 accepted; finer detail in depth queue':['complete','complete_with_gaps'].includes(t.batch_status)?'accepted batch: reuse and recheck qualifications':'remaining batch: inspect existing detail before adding';
+ t.present=!!e;if(!e)continue;
+ t.canonical_id=id;t.current_label=e.label;
+ const own=p.outgoing.get(id)||[],closure=new Set(p.assembly(id).map(x=>x.id));
+ t.own_fact_count=own.length;t.direct_children=new Set((p.children.get(id)||[]).map(a=>a.canonical_subject)).size;t.assembly_records=closure.size;
+ t.located_records=[...new Set(p.facts.filter(a=>a.predicate==='located_at'&&a.canonical_object===id).map(a=>a.canonical_subject))];
+ t.network_assertions=nets(p.networks.filter(a=>closure.has(a.canonical_subject)));
+ const assemblyFacts=p.facts.filter(a=>closure.has(a.canonical_subject));
+ const activeIds=new Set(assemblyFacts.map(a=>a.id));
+ t.qualifications=[...new Set([...t.qualifications.filter(id=>activeIds.has(id)),...assemblyFacts.filter(a=>/^source_(gap|discrepancy)$/.test(a.predicate)).map(a=>a.id)])];
+ const documents=[...new Set(assemblyFacts.flatMap(a=>a.evidence.map(r=>ev.get(r.evidence_id)?.document_id)).filter(Boolean))];
+ t.evidence_documents=[...new Set([...t.evidence_documents.filter(id=>documents.includes(id)),...documents])];
+}
+save(path.join(cur,'target-status.json'),targets);
+const main=read(path.join(cur,'main-equipment-status.json')),tm=new Map(targets.map(t=>[t.label,t]));
+for(const key of Object.keys(main))if(Array.isArray(main[key]))main[key]=main[key].map(t=>tm.get(t.label)||t);
+save(path.join(cur,'main-equipment-status.json'),main);
+const accepted=batches.filter(b=>['complete','complete_with_gaps','implemented_with_source_qualifications'].includes(b.status)).map(b=>b.id);
+const breadth=batches.filter(b=>b.status==='breadth_complete').map(b=>b.id),done=new Set([...accepted,...breadth]);
+const oldQueue=read(path.join(cur,'record-review-queue.json')),oldMap=new Map(oldQueue.map(e=>[e.id,e]));
+const unplaced=[...p.entities.values()].filter(e=>!p.refs.has(e.id)&&!p.memberships.has(e.id));
+save(path.join(cur,'record-review-queue.json'),unplaced.map(e=>({...oldMap.get(e.id),id:e.id,label:e.label,classes:p.classes.get(e.id)||[],own_fact_count:(p.outgoing.get(e.id)||[]).length,disposition:oldMap.get(e.id)?.disposition||'pending source review: unplaced does not mean physical asset missing',owner_batch:oldMap.get(e.id)?.owner_batch||'B45',related_target_batches:oldMap.get(e.id)?.related_target_batches||[]})));
+const summary={...read(path.join(cur,'summary.json')),review_date:'2026-10-03',version:m.version,snapshot:file.replaceAll('\\','/'),entity_records:m.entities.length,active_canonical_entities:p.entities.size,active_facts:p.facts.length,documents:snap.documents.length,evidence_blocks:snap.evidence.length,accepted_batches:accepted,breadth_complete_batches:breadth,remaining_batches:batches.filter(b=>!done.has(b.id)).map(b=>b.id),unplaced_nonreference_records:unplaced.length,network_assertions:nets(p.networks),phase_batch_counts:Object.fromEntries(progress.phases.map(ph=>[ph.id,ph.batches.filter(id=>!done.has(id)).length]))};
+save(path.join(cur,'summary.json'),summary);
+let text=fs.readFileSync(path.join(cur,'CURRENT_STATUS.md'),'utf8');
+const start=text.indexOf('## Main conveyors');
+text='# Current plant detail inventory\n\nReviewed 2026-10-03 at model v'+m.version+'. Fresh read-only snapshot: `'+summary.snapshot+'`. All 179 targets and 47 batches reconciled. Integrity/FK checks pass. Counts describe records, not physical quantities or engineering completion.\n\n'+accepted.length+' batches accepted with qualifications; '+breadth.length+' further batches breadth-complete; '+summary.remaining_batches.length+' remain in Pass A. Phase 1: '+progress.phases[0].batches.filter(id=>done.has(id)).length+'/6 batches. Finer work stays in [the depth queue](depth-queue.json).\n\n'+text.slice(start);
+text=text.replace(/- \d+ non-reference canonical records/,`- ${unplaced.length} non-reference canonical records`);
+fs.writeFileSync(path.join(cur,'CURRENT_STATUS.md'),text);
+console.log(JSON.stringify({version:m.version,accepted:accepted.length,breadth_complete:breadth.length,remaining:summary.remaining_batches.length,targets:targets.length}));

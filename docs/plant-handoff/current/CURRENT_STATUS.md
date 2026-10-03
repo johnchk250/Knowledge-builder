@@ -1,8 +1,8 @@
 # Current plant detail inventory
 
-Reviewed 2026-10-03 at model v625. This inventory reconciles all 179 named targets against the live graph and 47 batch definitions. Counts describe model records, not equipment quantities or completion percentages. **v626–v628 only changed DFDS common-service records (pump BOM groups, pump control links, compressor qualifications), so the conveyor and transfer-point counts below still hold at v628.** Integrity check at v628: 266 documents, 5,196 evidence blocks, 628 versions, no errors.
+Reviewed 2026-10-03 at model v630. Fresh read-only snapshot: `output/plant-enrichment/B02/accepted-v630.json`. All 179 targets and 47 batches reconciled. Integrity/FK checks pass. Counts describe records, not physical quantities or engineering completion.
 
-Acceptance remains source- and scope-dependent. 9 batch checkpoints are accepted with qualifications; 38 batches remain, including follow-ups to earlier pilots. From v628 execution is **breadth-first**: each remaining batch is first taken to Tier 1 (`breadth_complete`), with finer detail in [the depth queue](depth-queue.json). See [the five-phase plan](../FIVE_PHASE_PLAN.md).
+9 batches accepted with qualifications; 1 further batches breadth-complete; 37 remain in Pass A. Phase 1: 3/6 batches. Finer work stays in [the depth queue](depth-queue.json).
 
 ## Main conveyors
 
@@ -59,7 +59,7 @@ Acceptance remains source- and scope-dependent. 9 batch checkpoints are accepted
 ## Review limits and additional queues
 
 - Accepted-package targets without owned children: TP-16, TP-17, TP-18, UEF-2, CV-5, CV-6, FG-15A, FG-15B. See accepted-followups.json; B45 must review available detail and scope before closure.
-- 617 non-reference canonical records are outside the current process-area projection; some are legitimate shared services or design/identity candidates. Every row is recorded in record-review-queue.json for source-based disposition, not automatic placement.
+- 645 non-reference canonical records are outside the current process-area projection; some are legitimate shared services or design/identity candidates. Every row is recorded in record-review-queue.json for source-based disposition, not automatic placement.
 - Current documented electrical-network assertions: 10; the old v510 statement of zero electrical edges is historical. Plant-wide SLD/feeder closure remains B43.
 - target-status.json records every target, including reference boundaries and planned yard area identities. No missing target is silently created.
 - Existing pilot source gaps, unwritten source dispositions and unresolved identities remain work even when a root has many assertions.
