@@ -4,9 +4,13 @@
   "baseline_version": 593,
   "latest_verified_version": 628,
   "status": "in_progress",
+  "execution_mode": "breadth_first",
+  "pass": "A",
+  "breadth_policy": "docs/plant-handoff/FIVE_PHASE_PLAN.md#execution-mode-breadth-first-from-v628",
+  "depth_queue": "docs/plant-handoff/current/depth-queue.json",
   "active_phase": "phase-1",
   "next_batch": "B02",
-  "next_action": "B02: trace and connect existing common air/water outlet headers to TP1 local mains and TP13 inlet via UEE-3, using175089 pp1-2 and corroborating175286/175300 local originals. Review/headers has original renders and enlarged route crops. Then finish model-reference compressor internals/protection-table reconciliation; individual mapping and180055 remain evidence gaps. Do not replay accepted packages through628.",
+  "next_action": "Pass A / B02 (last Tier-1 item): connect the existing common DFDS air/water outlet headers to the TP1 local mains and the TP13 inlet via UEE-3, using 175089 pp1-2 and corroborating 175286/175300 local originals (output/plant-enrichment/B02/review/headers has original renders and enlarged route crops). One source-scoped proposal per document. Then mark B02 breadth_complete, add any finer items to current/depth-queue.json, and continue to B03 (SPDS/service/potable water) at Tier 1 in the same run. Compressor internals/protection reconciliation, unit mapping and 180055 are depth items DQ-B02-001..003. Do not replay accepted packages through 628.",
   "plan": "docs/plant-handoff/FIVE_PHASE_PLAN.md",
   "current_inventory": "docs/plant-handoff/current/CURRENT_STATUS.md",
   "last_completed_work": {
@@ -70,7 +74,8 @@
           "owner": "B45 and consuming batches",
           "disposition": "progressive disposition; global closure not claimed"
         }
-      ]
+      ],
+      "breadth_complete_batches": []
     },
     {
       "id": "phase-2",
@@ -92,7 +97,8 @@
       "baseline_version": null,
       "latest_version": null,
       "checkpoint": null,
-      "open_evidence_gaps": []
+      "open_evidence_gaps": [],
+      "breadth_complete_batches": []
     },
     {
       "id": "phase-3",
@@ -120,7 +126,8 @@
       "baseline_version": null,
       "latest_version": null,
       "checkpoint": null,
-      "open_evidence_gaps": []
+      "open_evidence_gaps": [],
+      "breadth_complete_batches": []
     },
     {
       "id": "phase-4",
@@ -139,7 +146,8 @@
       "baseline_version": null,
       "latest_version": null,
       "checkpoint": null,
-      "open_evidence_gaps": []
+      "open_evidence_gaps": [],
+      "breadth_complete_batches": []
     },
     {
       "id": "phase-5",
@@ -156,7 +164,8 @@
       "baseline_version": null,
       "latest_version": null,
       "checkpoint": null,
-      "open_evidence_gaps": []
+      "open_evidence_gaps": [],
+      "breadth_complete_batches": []
     }
   ],
   "run_history": [
@@ -390,6 +399,13 @@
       "version": 628,
       "milestone": "Compressor reconciliation v628 verified:16 claims on six existing records pass1280x900 source/crop/return checks;12 system claims also pass390x844. Integrity/FK, prior-fact/alias/conflict preservation and both pilot audits pass. No equipment, physical connections or numerical settings added.",
       "verification": "passed; B02 remains in_progress"
+    },
+    {
+      "date": "2026-10-03",
+      "batch": "B02",
+      "version": 628,
+      "milestone": "Execution switched to breadth-first (Pass A Tier 1 across all batches, Pass B depth queue). No model change. B02 compressor internals/protection reconciliation and 180055 moved to depth queue; header-to-TP1/TP13 connection is B02's last Tier-1 item.",
+      "status": "in_progress"
     }
   ],
   "accepted_followup_queue": "docs/plant-handoff/current/accepted-followups.json",

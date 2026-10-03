@@ -4,6 +4,8 @@ Reviewed **1 October 2026**, against the live database at **v593**. This is the 
 
 For a general “continue” request, use [FIVE_PHASE_PLAN.md](FIVE_PHASE_PLAN.md) and [phase-progress.json](phase-progress.json). The current resume point is Phase 1 / B02; reconcile the pointer and live state each time. See [the current inventory](current/CURRENT_STATUS.md). Use [READY_TO_PASTE_PROMPT.md](READY_TO_PASTE_PROMPT.md) to start a run. The desired result is a coherent, source-backed equipment model that people can explore from plant route to individual maintainable part. Record count, number of tabs and number of drawings searched are not quality targets.
 
+> **Breadth-first execution (from 3 October 2026, v628).** While `phase-progress.json` says `"pass": "A"`, every batch is taken only to the **Tier 1** definition in [FIVE_PHASE_PLAN.md](FIVE_PHASE_PLAN.md#execution-mode-breadth-first-from-v628): identity, route connections, major assemblies one level down, headline ratings, grouped protections, shared-service consumer links, visible scene. The recursive extraction in §5, the full family depth in §6 and exhaustive verification in §10 apply in **Pass B** (the [depth queue](current/depth-queue.json)) or to a batch the user explicitly names for full depth. In Pass A, record deeper items in the depth queue and move on to the next batch. Evidence rules (§7, §9) apply unchanged in both passes.
+
 ## 1. Establish what already exists
 
 | Accepted work | Historical acceptance | Read before touching it or its boundaries |

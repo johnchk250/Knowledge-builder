@@ -4,7 +4,9 @@ A local, single-user operations workspace built from reviewed plant evidence. Fi
 
 ## Continue the detailed plant implementation
 
-Read [the five-phase plan](docs/plant-handoff/FIVE_PHASE_PLAN.md) and [saved progress](docs/plant-handoff/phase-progress.json). A general “continue” resumes the indicated phase/batch. Current inventory and remaining scope are [here](docs/plant-handoff/current/CURRENT_STATUS.md).
+Read [the five-phase plan](docs/plant-handoff/FIVE_PHASE_PLAN.md) and [saved progress](docs/plant-handoff/phase-progress.json). A general “continue” resumes the indicated phase/batch. Since v628 (3 October 2026) execution is **breadth-first**: every remaining batch is first taken to a Tier-1 backbone across the whole plant, and finer detail is queued in [the depth queue](docs/plant-handoff/current/depth-queue.json) for a second pass. Current inventory and remaining scope are [here](docs/plant-handoff/current/CURRENT_STATUS.md).
+
+Live state on 3 October 2026: model **v628**, 266 source documents, 5,196 evidence blocks, integrity check clean. The v466 figures further down are historical.
 
 ## Start
 

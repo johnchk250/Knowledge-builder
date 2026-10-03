@@ -1,8 +1,8 @@
 # Current plant detail inventory
 
-Reviewed 2026-10-03 at model v625. This inventory reconciles all 179 named targets against the live graph and 47 batch definitions. Counts describe model records, not equipment quantities or completion percentages.
+Reviewed 2026-10-03 at model v625. This inventory reconciles all 179 named targets against the live graph and 47 batch definitions. Counts describe model records, not equipment quantities or completion percentages. **v626–v628 only changed DFDS common-service records (pump BOM groups, pump control links, compressor qualifications), so the conveyor and transfer-point counts below still hold at v628.** Integrity check at v628: 266 documents, 5,196 evidence blocks, 628 versions, no errors.
 
-Acceptance remains source- and scope-dependent. 9 batch checkpoints are accepted with qualifications; 38 batches remain, including follow-ups to earlier pilots. See [the five-phase plan](../FIVE_PHASE_PLAN.md).
+Acceptance remains source- and scope-dependent. 9 batch checkpoints are accepted with qualifications; 38 batches remain, including follow-ups to earlier pilots. From v628 execution is **breadth-first**: each remaining batch is first taken to Tier 1 (`breadth_complete`), with finer detail in [the depth queue](depth-queue.json). See [the five-phase plan](../FIVE_PHASE_PLAN.md).
 
 ## Main conveyors
 

@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "created": "2026-10-03",
+  "model_version_at_creation": 628,
+  "purpose": "Pass B depth work deferred by the breadth-first execution mode in FIVE_PHASE_PLAN.md. Each item names the target, what is missing, the source that would supply it and a priority (P1 operational drives/protections, P2 serviced auxiliaries/electrical, P3 vendor BOM/revision/thin targets). Items are not claims that the detail exists.",
+  "status_values": ["open", "in_progress", "done", "evidence_gap"],
+  "items": [
+    {
+      "id": "DQ-B02-001",
+      "batch": "B02",
+      "target": "DFDS common compressors (both systems)",
+      "missing": "Model-reference compressor internals and protection-table reconciliation against model applicability",
+      "source": "175103 compressor GA/PID/wiring pp4-8/11-16; see output/plant-enrichment/B02/review/compressor/findings.json",
+      "priority": "P2",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B02-002",
+      "batch": "B02",
+      "target": "DFDS compressors",
+      "missing": "Model-to-numbered-unit mapping and final motor source 180055",
+      "source": "180055 not located; vendor document doc_d91e9eef8a40479687cd comments",
+      "priority": "P3",
+      "status": "evidence_gap"
+    },
+    {
+      "id": "DQ-B02-003",
+      "batch": "B02",
+      "target": "DFDS pumps and filters",
+      "missing": "Tagged level/MGV mapping gap, PS polarity and filter trip/annunciation disagreements remain qualified",
+      "source": "output/plant-enrichment/B02/review/control/findings.json",
+      "priority": "P2",
+      "status": "open"
+    },
+    {
+      "id": "DQ-PILOT-001",
+      "batch": "B45",
+      "target": "CV-5, CV-6, FG-15A, FG-15B, TP-16/17/18, UEF-2",
+      "missing": "Accepted-package thin targets with no owned children; review available sources and scope",
+      "source": "docs/plant-handoff/current/accepted-followups.json",
+      "priority": "P3",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B05-001",
+      "batch": "B05",
+      "target": "UEF-1 / TP1",
+      "missing": "Hoist, access and tank detail from the found TP1 GA and review replies",
+      "source": "doc_71a0d8fc66304e93b9c1 pp1-2",
+      "priority": "P2",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B15-001",
+      "batch": "B15/B16",
+      "target": "Yard 1 machines and local systems",
+      "missing": "Residual machine safety/anchor/lube/onboard-DSS follow-ups from the Yard1 pilot",
+      "source": "COAL_YARD_1_PILOT_REPORT.md follow-up list",
+      "priority": "P2",
+      "status": "open"
+    }
+  ]
+}

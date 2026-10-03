@@ -6,7 +6,7 @@
   "reused_batches": 7,
   "scheduled_batches": 40,
   "targets": 179,
-  "checked_local_links": 27,
+  "checked_local_links": 18,
   "dependency_order_valid": true,
   "next_phase": "phase-1",
   "next_batch": "B02",

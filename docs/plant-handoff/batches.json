@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "baseline_version": 510,
-  "progress_note": "Planning baseline v510 with later accepted implementation status. Reconcile live model, pilot reports and batch checkpoints before selecting or replaying work. B30/B31 accepted at v527; B32-B35 at v558. Other not_started entries are not proof of empty model data. B36 accepted at v592 on 2026-10-01 with documented source gaps; B37 remains separate. Relevant B02/B04 local boundaries resolved, global batches remain open. B36 review corrections accepted at v593; default continuation follows FIVE_PHASE_PLAN.md and phase-progress.json.",
+  "progress_note": "Planning baseline v510 with later accepted implementation status. Reconcile live model, pilot reports and batch checkpoints before selecting or replaying work. B30/B31 accepted at v527; B32-B35 at v558. Other not_started entries are not proof of empty model data. B36 accepted at v592 on 2026-10-01 with documented source gaps; B37 remains separate. Relevant B02/B04 local boundaries resolved, global batches remain open. B36 review corrections accepted at v593; default continuation follows FIVE_PHASE_PLAN.md and phase-progress.json. From 2026-10-03 (v628) execution is breadth-first: status breadth_complete means Tier 1 reached per FIVE_PHASE_PLAN.md; deferred detail is in current/depth-queue.json.",
   "batches": [
     {
       "id": "B00",
@@ -70,7 +70,7 @@
       "checkpoint": "output/plant-enrichment/B02/checkpoint.md",
       "baseline_version": 620,
       "latest_version": 628,
-      "next_action": "B02: trace and connect existing common air/water outlet headers to TP1 local mains and TP13 inlet via UEE-3, using175089 pp1-2 and corroborating175286/175300 local originals. Review/headers has original renders and enlarged route crops. Then finish model-reference compressor internals/protection-table reconciliation; individual mapping and180055 remain evidence gaps. Do not replay accepted packages through628."
+      "next_action": "Pass A / B02 (last Tier-1 item): connect the existing common DFDS air/water outlet headers to the TP1 local mains and the TP13 inlet via UEE-3, using 175089 pp1-2 and corroborating 175286/175300 local originals (output/plant-enrichment/B02/review/headers has original renders and enlarged route crops). One source-scoped proposal per document. Then mark B02 breadth_complete, add any finer items to current/depth-queue.json, and continue to B03 (SPDS/service/potable water) at Tier 1 in the same run. Compressor internals/protection reconciliation, unit mapping and 180055 are depth items DQ-B02-001..003. Do not replay accepted packages through 628."
     },
     {
       "id": "B03",
