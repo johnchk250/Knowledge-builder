@@ -2,6 +2,10 @@
 
 A local, single-user operations workspace built from reviewed plant evidence. Find the applicable drawing, inspect equipment and documented connections, record shift observations and breakdowns, and retain actions and outcomes for later use.
 
+## Continue the detailed plant implementation
+
+Read [the five-phase plan](docs/plant-handoff/FIVE_PHASE_PLAN.md) and [saved progress](docs/plant-handoff/phase-progress.json). A general “continue” resumes the indicated phase/batch. Current inventory and remaining scope are [here](docs/plant-handoff/current/CURRENT_STATUS.md).
+
 ## Start
 
 On Windows, run `start.bat` from this folder. If dependencies are missing, run `setup.bat` first. The app opens at http://127.0.0.1:8765. Python command alternative:
@@ -38,9 +42,13 @@ The app and `triple_model_session/current_codex_commit.py` use the same validato
 
 ## Existing data
 
-Read [EXISTING_DATA_MIGRATION.md](EXISTING_DATA_MIGRATION.md). There is no need to re-upload the corpus or manually backfill operational context: the deterministic legacy migration is complete through model version 309. All 1,599 active legacy assertions now have operational context, the initial network-review queue is resolved, and supported legacy units are normalized without rewriting their original values/evidence.
+For detailed work on another plant section, start with [CONTINUATION_GUIDE.md](docs/plant-handoff/CONTINUATION_GUIDE.md) and the [ready-to-paste agent prompt](docs/plant-handoff/READY_TO_PASTE_PROMPT.md), reviewed 1 October 2026 against live **v558**. [PLANT_MODEL_IMPLEMENTATION_HANDOFF.md](PLANT_MODEL_IMPLEMENTATION_HANDOFF.md) links the section plans, source/target inventories, findings and implementation batches. Its inventories remain the historical **v510** baseline; the silo and crusher implementations are recorded in later reports/checkpoints. The v466 figures below are also historical. Inspect the live model for current counts.
 
-Residual review is intentionally selective: inspect the 30 identities without active facts, confirm the semantics of 49 dimensionless numeric properties, establish plant applicability and installed-asset identity where sources are ambiguous, and re-analyze only concrete source gaps. Future document ingestion already requires operational context and directed-network semantics, so new accepted assertions do not need this legacy backfill.
+Read [EXISTING_DATA_MIGRATION.md](EXISTING_DATA_MIGRATION.md). The deterministic legacy migration finished at model version 309; those counts are historical migration evidence, not the present plant inventory. There is no need to re-upload that corpus or manually backfill its operational context.
+
+As of **2026-09-18, model version 466**, the live store contains **266 source documents, 5,196 evidence blocks, 1,071 canonical identities and 7,655 active assertions**. Canonical identities currently project as **845 equipment, 171 document records and 55 unclassified records**. All active assertions have operational context. There are **516 active `part_of` relationships** and **517 documented network connections**: 212 material, 164 utility, 139 control and 2 mechanical; no documented electrical network edge is present yet. The deterministic model checker reports **0 formal conflicts** and the review queue has **0 pending proposals**. Integrity verification passes all 266 documents, 5,196 evidence blocks and 466 version records.
+
+Current review should therefore focus on semantic and coverage gaps rather than legacy context backfill: classify or resolve the 55 unclassified identities where evidence permits, inspect the 29 canonical identities with no active fact or relationship, establish installed-asset/applicability scope where generic and numbered identities coexist, reconcile explicitly retained source discrepancies, and expand mechanical/electrical and other sparse networks only from source-backed directed relationships. Network counts measure documented edges, not completeness of the physical plant.
 
 ## Storage and backup
 

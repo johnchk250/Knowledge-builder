@@ -6,7 +6,18 @@ data/
 
 # Generated outputs and build artifacts
 output/
-dist/
+dist/*
+# These browser files are source: the local server serves them without a build.
+!dist/index.html
+!dist/app.js
+!dist/style.css
+!dist/operations-ui.js
+!dist/plant-model.js
+!dist/plant-explorer.js
+!dist/plant-explorer.css
+!dist/plant-scene-model.js
+!dist/plant-scene.js
+!dist/plant-scene.css
 build/
 *.egg-info/
 
@@ -43,3 +54,6 @@ __pycache__/
 Thumbs.db
 .idea/
 .vscode/
+
+# Scratch/session workspace
+tmp/

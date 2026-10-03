@@ -1,0 +1,402 @@
+{
+  "schema_version": 1,
+  "updated_date": "2026-10-03",
+  "baseline_version": 593,
+  "latest_verified_version": 628,
+  "status": "in_progress",
+  "active_phase": "phase-1",
+  "next_batch": "B02",
+  "next_action": "B02: trace and connect existing common air/water outlet headers to TP1 local mains and TP13 inlet via UEE-3, using175089 pp1-2 and corroborating175286/175300 local originals. Review/headers has original renders and enlarged route crops. Then finish model-reference compressor internals/protection-table reconciliation; individual mapping and180055 remain evidence gaps. Do not replay accepted packages through628.",
+  "plan": "docs/plant-handoff/FIVE_PHASE_PLAN.md",
+  "current_inventory": "docs/plant-handoff/current/CURRENT_STATUS.md",
+  "last_completed_work": {
+    "scope": "Compressor reconciliation v628 verified:16 claims on six existing records pass1280x900 source/crop/return checks;12 system claims also pass390x844. Integrity/FK, prior-fact/alias/conflict preservation and both pilot audits pass. No equipment, physical connections or numerical settings added.",
+    "version": 628,
+    "checkpoint": "output/plant-enrichment/B02/checkpoint.md"
+  },
+  "accepted_reuse_batches": [
+    "B30",
+    "B31",
+    "B32",
+    "B33",
+    "B34",
+    "B35",
+    "B36"
+  ],
+  "phases": [
+    {
+      "id": "phase-1",
+      "title": "Identities, common services and TP1",
+      "status": "in_progress",
+      "batches": [
+        "B00",
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "B05"
+      ],
+      "completed_batches": [
+        "B00",
+        "B01"
+      ],
+      "current_batch": "B02",
+      "baseline_version": 593,
+      "latest_version": 628,
+      "checkpoint": "output/plant-enrichment/B02/checkpoint.md",
+      "open_evidence_gaps": [
+        {
+          "scope": "UGA / DS Pump Houses",
+          "owner": "B02",
+          "disposition": "Identity reconciliation accepted and verifiedB01 at620; common production/header detailB02."
+        },
+        {
+          "scope": "SUL versus numbered Coal Ship Unloaders",
+          "owner": "B07/B08",
+          "disposition": "explicit no-merge decision; DBR/shuttle conflict qualified; available GA/vendor/layout mapping remains work, not missing source"
+        },
+        {
+          "scope": "TP1 GA detail",
+          "owner": "B05",
+          "disposition": "drawing found; hoist/access/tank detail remains; field condition/certification not established"
+        },
+        {
+          "scope": "UEF-2 and TP16-18",
+          "owner": "B03",
+          "disposition": "utility reference interfaces; no extra coal-route topology"
+        },
+        {
+          "scope": "P00 record queue",
+          "owner": "B45 and consuming batches",
+          "disposition": "progressive disposition; global closure not claimed"
+        }
+      ]
+    },
+    {
+      "id": "phase-2",
+      "title": "Unloading, screening and distribution",
+      "status": "not_started",
+      "batches": [
+        "B06",
+        "B07",
+        "B08",
+        "B09",
+        "B10",
+        "B11",
+        "B12",
+        "B13",
+        "B14"
+      ],
+      "completed_batches": [],
+      "current_batch": null,
+      "baseline_version": null,
+      "latest_version": null,
+      "checkpoint": null,
+      "open_evidence_gaps": []
+    },
+    {
+      "id": "phase-3",
+      "title": "Stockyards and reclaim",
+      "status": "not_started",
+      "batches": [
+        "B15",
+        "B16",
+        "B17",
+        "B18",
+        "B19",
+        "B20",
+        "B21",
+        "B22",
+        "B23",
+        "B24",
+        "B25",
+        "B26",
+        "B27",
+        "B28",
+        "B29"
+      ],
+      "completed_batches": [],
+      "current_batch": null,
+      "baseline_version": null,
+      "latest_version": null,
+      "checkpoint": null,
+      "open_evidence_gaps": []
+    },
+    {
+      "id": "phase-4",
+      "title": "TP13 sampling and bunker delivery",
+      "status": "not_started",
+      "batches": [
+        "B37",
+        "B38",
+        "B39",
+        "B40",
+        "B41",
+        "B42"
+      ],
+      "completed_batches": [],
+      "current_batch": null,
+      "baseline_version": null,
+      "latest_version": null,
+      "checkpoint": null,
+      "open_evidence_gaps": []
+    },
+    {
+      "id": "phase-5",
+      "title": "Plant-wide systems and release",
+      "status": "not_started",
+      "batches": [
+        "B43",
+        "B44",
+        "B45",
+        "B46"
+      ],
+      "completed_batches": [],
+      "current_batch": null,
+      "baseline_version": null,
+      "latest_version": null,
+      "checkpoint": null,
+      "open_evidence_gaps": []
+    }
+  ],
+  "run_history": [
+    {
+      "date": "2026-10-02",
+      "batch": "B00",
+      "versions": [
+        594,
+        595,
+        596,
+        597,
+        598
+      ],
+      "status": "complete_with_gaps",
+      "proposals": [
+        "prop_52fe25003f254599a1a8",
+        "prop_8e9125dfac134c3b8c4e",
+        "prop_fb64a177d0b149049350",
+        "prop_5b226b587673471290b6",
+        "prop_2d1036fa4c7f411cbab9"
+      ]
+    },
+    {
+      "date": "2026-10-02",
+      "batch": "B01",
+      "milestone": "Proven house merges and eight DFDS locations",
+      "version": 599,
+      "status": "in_progress",
+      "proposal_id": "prop_060d5bc9677742f59538"
+    },
+    {
+      "date": "2026-10-02",
+      "batch": "B01",
+      "versions": [
+        600,
+        601,
+        602
+      ],
+      "status": "in_progress",
+      "proposals": [
+        "prop_806accad6bfb4af8a477",
+        "prop_30654f535cd54b029075",
+        "prop_86cbbf101b4e439d94a7"
+      ]
+    },
+    {
+      "date": "2026-10-02",
+      "batch": "B01",
+      "versions": [
+        603,
+        604,
+        605,
+        606
+      ],
+      "status": "in_progress",
+      "proposals": [
+        "prop_5458c47ed2094850aaee",
+        "prop_7d782a149a124fbca149",
+        "prop_1f0184a62f7b4e9d8837",
+        "prop_0887b7fc797d4124a5ad"
+      ]
+    },
+    {
+      "date": "2026-10-02",
+      "batch": "B01",
+      "versions": [
+        607,
+        608
+      ],
+      "status": "in_progress",
+      "proposals": [
+        "prop_08b65a0b4f6b448d9d6a",
+        "prop_870c02bcdd6348dc82c4"
+      ]
+    },
+    {
+      "date": "2026-10-02",
+      "batch": "B01",
+      "versions": [
+        609,
+        610,
+        611,
+        612
+      ],
+      "status": "in_progress",
+      "proposals": [
+        "prop_73ee213020bf4f42bc94",
+        "prop_c24e961dcf6442e69ee7",
+        "prop_118dc78848bd43b9a888",
+        "prop_12ccd0e346064b878b02"
+      ]
+    },
+    {
+      "date": "2026-10-02",
+      "batch": "B01",
+      "versions": [
+        613,
+        614,
+        615
+      ],
+      "status": "in_progress",
+      "proposals": [
+        "prop_cd07369860cc474d81f5",
+        "prop_b1c557d3d2914065af82",
+        "prop_2b7ca173dd2c49c7a505"
+      ]
+    },
+    {
+      "date": "2026-10-02",
+      "batch": "B01",
+      "milestone": "PWP schedule/control KKS reconciliation",
+      "version": 616,
+      "status": "in_progress",
+      "proposal_id": "prop_1845717d5403472f822b",
+      "verification": "passed"
+    },
+    {
+      "date": "2026-10-02",
+      "batch": "B01",
+      "versions": [
+        617,
+        618,
+        619,
+        620
+      ],
+      "status": "in_progress",
+      "proposals": [
+        "prop_41c16dcabe104052b8a3",
+        "prop_8f3046bfb6634e0ab76a",
+        "prop_704532fb8c534cdb8b3c",
+        "prop_66281f474d64403bb0e8"
+      ],
+      "verification": "passed"
+    },
+    {
+      "date": "2026-10-03",
+      "batch": "B01",
+      "version": 620,
+      "status": "complete_with_gaps",
+      "verification": "All17 source-return; integrity/FK; preservation; bothpilot audits;26-rowcontract; identity-acceptance-v620.json"
+    },
+    {
+      "date": "2026-10-03",
+      "batch": "B02",
+      "version": 621,
+      "proposal_id": "prop_c9325c882af745c89f73",
+      "status": "in_progress",
+      "verification": "passed at v622: integrity/FK, preservation, pilot audits, 106 distinct browser claims and 44/44 Node tests"
+    },
+    {
+      "date": "2026-10-03",
+      "batch": "B02",
+      "version": 622,
+      "proposal_id": "prop_722d1e6e2c6844e9aa43",
+      "status": "in_progress",
+      "verification": "passed at v622: integrity/FK, preservation, pilot audits, 106 distinct browser claims and 44/44 Node tests"
+    },
+    {
+      "date": "2026-10-03",
+      "batch": "B02",
+      "milestone": "DFDS32NBduplexfilterdetail",
+      "version": 623,
+      "proposal_id": "prop_5a82161ca67941438f8b",
+      "status": "in_progress",
+      "verification": "rehearsal/preservationpassed; livebrowser/integritypending"
+    },
+    {
+      "date": "2026-10-03",
+      "batch": "B02",
+      "version": 624,
+      "proposal_id": "prop_d4dc99328d1b48b2b685",
+      "milestone": "Both common air receivers now have separately sourced PRV, pressure gauge, gauge isolation valve and ADT drain components (eight total). Source P&ID sheets were reviewed independently; no relief setting, gauge range or automatic drain mechanism is invented.",
+      "verification": "Isolated rehearsal and preservation passed; actual browser gate pending."
+    },
+    {
+      "date": "2026-10-03",
+      "batch": "B02",
+      "version": 625,
+      "proposal_id": "prop_f02d1ff3a20c4aa882e7",
+      "milestone": "The four existing DFDS pumps now expose 44 vendor-supported motor, rigid coupling, guard, shaft, impeller, seal, bearing-sleeve, stool, shroud, casing and spacer components. Twelve mechanical connections trace motor → coupling → shaft → impellers. Both motor-speed bases and distinct 14/16-stage quantities remain inspectable.",
+      "verification": "Isolated rehearsal and preservation passed; actual browser gate pending."
+    },
+    {
+      "date": "2026-10-03",
+      "batch": "B02",
+      "version": 625,
+      "milestone": "Actual browser verification at v625: 68 new components, 462 distinct claims at desktop, 16 narrow source journeys. Every cited crop loaded from the expected immutable source/page and returned to the selected component.",
+      "verification": "passed; scope remains in_progress"
+    },
+    {
+      "date": "2026-10-03",
+      "batch": "B02",
+      "version": 626,
+      "proposal_id": "prop_bbef77375eeb47f6a8d6",
+      "milestone": "The four canonical DFDS pumps now expose 28 additional vendor BOM groups: cover, vent plug, screwed plugs, row-qualified O-rings and short/shaft-end/seal-side spacers. All prior facts, aliases, merges and four qualified conflicts are preserved.",
+      "verification": "Isolated rehearsal and preservation passed; actual browser gate pending."
+    },
+    {
+      "date": "2026-10-03",
+      "batch": "B02",
+      "version": 626,
+      "milestone": "Actual browser verification at v626: 28 new components, 164 distinct claims at default browser width, 16 narrow source journeys. Every cited crop loaded from the expected immutable source/page and returned to the selected component.",
+      "verification": "passed; scope remains in_progress"
+    },
+    {
+      "date": "2026-10-03",
+      "batch": "B02",
+      "version": 627,
+      "proposal_id": "prop_b94fcde5d1cb45d99a07",
+      "milestone": "Eight source-specific PS-01/DPS-01 signal links now reach all four existing DFDS pumps;24 grouping/role/qualification claims preserve the original individual conditions, H/HH/L wording and unresolved alarm/trip and polarity differences. No new equipment or numeric setting was introduced.",
+      "verification": "Isolated rehearsal and preservation passed; actual browser gate pending."
+    },
+    {
+      "date": "2026-10-03",
+      "batch": "B02",
+      "version": 627,
+      "milestone": "v627 controls verified:32 claims on12 existing records passed original-page/crop/source-return checks at explicit1280x900 desktop width and in the default app panel;8 narrow journeys passed. All8 same-system PS/DPS-to-pump signal links are drawn.46 Node tests, independent control semantics, integrity/FK, preservation and both pilot audits pass.",
+      "verification": "passed; B02 remains in_progress"
+    },
+    {
+      "date": "2026-10-03",
+      "batch": "B02",
+      "version": 628,
+      "proposal_id": "prop_9b63be4e39f04ac99b16",
+      "milestone": "Sixteen compressor source qualifications accepted on two existing systems and four compressors: model applicability, staging, cooling, starter and S2-prime conflicts remain explicit; no installed internals or settings invented.",
+      "verification": "Isolated rehearsal and preservation passed; actual browser gate pending."
+    },
+    {
+      "date": "2026-10-03",
+      "batch": "B02",
+      "version": 628,
+      "milestone": "Compressor reconciliation v628 verified:16 claims on six existing records pass1280x900 source/crop/return checks;12 system claims also pass390x844. Integrity/FK, prior-fact/alias/conflict preservation and both pilot audits pass. No equipment, physical connections or numerical settings added.",
+      "verification": "passed; B02 remains in_progress"
+    }
+  ],
+  "accepted_followup_queue": "docs/plant-handoff/current/accepted-followups.json",
+  "last_accepted_work": {
+    "scope": "Sixteen compressor source qualifications accepted on two existing systems and four compressors: model applicability, staging, cooling, starter and S2-prime conflicts remain explicit; no installed internals or settings invented.",
+    "version": 628,
+    "checkpoint": "output/plant-enrichment/B02/checkpoint.md",
+    "visual_gate": "passed desktop and narrow"
+  }
+}

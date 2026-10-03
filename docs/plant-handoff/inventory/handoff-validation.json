@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "baseline_version": 628,
+  "live_version": 628,
+  "target_cards": 179,
+  "main_conveyors_covered": 30,
+  "in_scope_tps_covered": 12,
+  "batches": 47,
+  "all_targets_have_one_primary_batch": true,
+  "canonical_records_queued": 2793,
+  "sources_resolve": 266,
+  "markdown_links_checked": 1415,
+  "explicit_identifiers_checked": 2642,
+  "current_containment_cycles": [],
+  "active_assertions_checked": 16528,
+  "source_supports_checked": 17424,
+  "assertions_with_pagewide_support": 5241,
+  "canonical_model_unchanged": true,
+  "documents_unchanged": true,
+  "evidence_unchanged": true,
+  "errors": [],
+  "limitation": "Structural consistency and preservation only; source semantics require the prescribed engineering review."
+}

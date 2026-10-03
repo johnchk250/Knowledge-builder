@@ -168,9 +168,12 @@ def make_handler(service,token,port,close_grace=CLIENT_CLOSE_GRACE,lease_ping=CL
                         rows=store.rows('SELECT image FROM evidence WHERE id=?',(path.rsplit('/',1)[1],))
                         if not rows or not rows[0]['image']: raise ValueError('Rendered evidence not found')
                         return self.send(200,(store.root/'renders'/rows[0]['image']).read_bytes(),'image/png')
+                    if path.startswith('/api/evidence-detail/'):
+                        from .evidence_view import detail_png
+                        return self.send(200,detail_png(store,path.rsplit('/',1)[1],query.get('region',[''])[0]),'image/png')
                     if path.startswith('/api/run/'):
                         return self.send(200,store.rows('SELECT * FROM run_steps WHERE run_id=? ORDER BY created',(path.rsplit('/',1)[1],)))
-                    if path in ('/','/index.html','/app.js','/style.css','/operations-ui.js'):
+                    if path in ('/','/index.html','/app.js','/style.css','/operations-ui.js','/plant-model.js','/plant-explorer.js','/plant-explorer.css','/plant-scene-model.js','/plant-scene.js','/plant-scene.css'):
                         file=STATIC/('index.html' if path=='/' else path[1:])
                         return self.send(200,file.read_bytes(),mimetypes.guess_type(str(file))[0] or 'text/plain')
                 else:

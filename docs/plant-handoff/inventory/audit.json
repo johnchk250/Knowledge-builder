@@ -1,0 +1,47 @@
+{
+  "version": 628,
+  "captured_at": "2026-10-03T05:42:52.987951+00:00",
+  "documents": 266,
+  "evidence_blocks": 5196,
+  "canonical_records": 2793,
+  "nonreference_records": 2579,
+  "unplaced_nonreference_records": 645,
+  "unplaced_local_name_records": 113,
+  "nonreference_records_without_own_assertions": 21,
+  "active_assertions": 16528,
+  "network_assertions": 1291,
+  "network_counts": {
+    "material": 247,
+    "utility": 524,
+    "mechanical": 176,
+    "control": 334,
+    "electrical": 10
+  },
+  "targets": 179,
+  "conveyor_targets": 30,
+  "in_scope_uef_targets": 12,
+  "explicit_gap_discrepancy_assertions": 306,
+  "review_package_counts": {
+    "P03": 60,
+    "P11": 488,
+    "P05": 483,
+    "P06": 11,
+    "P07": 11,
+    "P08": 13,
+    "P00": 185,
+    "P02": 250,
+    "P14": 19,
+    "P10": 272,
+    "P01": 210,
+    "P15": 35,
+    "P13": 14,
+    "P04": 78,
+    "P09": 56,
+    "P12": 394
+  },
+  "missing_evidence_references": [],
+  "sqlite_integrity": [
+    "ok"
+  ],
+  "foreign_key_errors": []
+}

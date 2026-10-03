@@ -85,6 +85,7 @@ class Service:
         for row in store.rows("SELECT run_id,json_extract(response,'$.intake_assessment') assessment FROM run_steps WHERE stage='propose' AND json_type(response,'$.intake_assessment')='object'"):
             intakes.setdefault(row['run_id'],[]).append(json.loads(row['assessment']))
         return {'workspace':workspace,'model':store.model(),'understanding':understanding.state(store),'events':operating_model.events(store), 'intake_policy':usage_intake.POLICY,'intakes':intakes,
+                'evidence_index':store.rows('SELECT id,document_id,page,locator FROM evidence ORDER BY document_id,page'),
                 'documents':store.rows('SELECT d.*,(SELECT count(*) FROM evidence e WHERE e.document_id=d.id) evidence_count FROM documents d ORDER BY created DESC'),
                 'proposals':[{**p,'body':json.loads(p['body']),'findings':json.loads(p['findings'])} for p in store.rows('SELECT * FROM proposals ORDER BY created DESC')],
                 'runs':store.rows('SELECT * FROM runs ORDER BY created DESC'),

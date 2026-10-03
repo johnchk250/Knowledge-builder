@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CHP Operations Helper</title><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/plant-explorer.css"><link rel="stylesheet" href="/plant-scene.css"></head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <a class="brand" href="#overview"><span class="brand-mark">CHP</span><span>Operations<br><strong>Helper</strong></span></a>
+    <div class="workspace-label">PLANT WORKSPACE</div>
+    <nav aria-label="Main navigation">
+      <a href="#overview" data-nav="overview"><span>◇</span> Plant overview</a>
+      <a href="#desk" data-nav="desk"><span>◫</span> Operations desk</a>
+      <a href="#documents" data-nav="documents"><span>▤</span> Documents <b id="doc-count"></b></a>
+      <a href="#review" data-nav="review"><span>✓</span> Review changes <b id="review-count"></b></a>
+      <a href="#knowledge" data-nav="knowledge"><span>◇</span> Equipment & evidence</a>
+      <a href="#sources" data-nav="sources"><span>⌕</span> Find source evidence</a>
+      <a href="#networks" data-nav="networks"><span>⇄</span> Connections</a>
+      <a href="#log" data-nav="log"><span>◷</span> Operating history</a>
+      <a href="#corrections" data-nav="corrections"><span>✎</span> Corrections</a>
+      <a href="#migration" data-nav="migration"><span>↗</span> Existing-data review</a>
+      <a href="#understanding" data-nav="understanding"><span>◎</span> Project understanding</a>
+      <a href="#ontology" data-nav="ontology"><span>⊞</span> Concepts</a>
+      <a href="#history" data-nav="history"><span>↶</span> Version history</a>
+    </nav>
+    <div class="sidebar-bottom"><a href="#settings" data-nav="settings">⚙ &nbsp; AI backends</a><div class="local-status"><span class="status-light"></span> Stored on this computer</div><button id="switch-workspace" class="workspace-switch">Open offline walkthrough ↗</button></div>
+  </aside>
+  <div class="main-shell"><header class="topbar"><div><span class="breadcrumb">COAL HANDLING PLANT</span><span id="workspace-badge" class="badge">Your plant</span></div><div class="top-actions"><span id="model-version">Version 0</span><button class="button small secondary" id="export">Export knowledge</button></div></header>
+  <main id="main" tabindex="-1"><div class="empty"><h1>Opening your workspace…</h1><p>If you opened this HTML file directly, launch start.bat or start.sh instead.</p></div></main>
+  <footer><span>CHP Operations Helper <span class="muted">/</span> v0.5</span><span>Evidence retained. Changes reviewed.</span></footer></div>
+</div>
+<dialog id="dialog"><div class="dialog-top"><h2 id="dialog-title"></h2><button id="close-dialog" class="icon-button" aria-label="Close dialog">×</button></div><div id="dialog-body"></div></dialog>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="/plant-model.js" defer></script>
+<script src="/plant-scene-model.js" defer></script>
+<script src="/plant-scene.js" defer></script>
+<script src="/plant-explorer.js" defer></script>
+<script src="/operations-ui.js" defer></script>
+<script src="/app.js" defer></script>
+</body></html>

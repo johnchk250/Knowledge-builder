@@ -1,0 +1,961 @@
+{
+  "B00": [
+    {
+      "label": "TP-16",
+      "id": "ent_8e70146c054347e69453",
+      "card": "tp-16.md"
+    },
+    {
+      "label": "TP-17",
+      "id": "ent_d84fa7d426944acbbfb2",
+      "card": "tp-17.md"
+    },
+    {
+      "label": "TP-18",
+      "id": "ent_15e37c80094c42a2b83d",
+      "card": "tp-18.md"
+    },
+    {
+      "label": "UEF-2",
+      "id": "ent_56e7a3ed39ed44749525",
+      "card": "uef-2.md"
+    }
+  ],
+  "B05": [
+    {
+      "label": "AT-1",
+      "id": "ent_bde70bf6c94a4ef2b17d",
+      "card": "at-1.md"
+    },
+    {
+      "label": "AT-2",
+      "id": "ent_bb3debedb7864dcba856",
+      "card": "at-2.md"
+    },
+    {
+      "label": "EAC-1A",
+      "id": "ent_141f73b0a4ef460b9830",
+      "card": "eac-1a.md"
+    },
+    {
+      "label": "EAC-1B",
+      "id": "ent_8e0a39fb6e844f8a90d6",
+      "card": "eac-1b.md"
+    },
+    {
+      "label": "UEF-1",
+      "id": "ent_108b99f6c64844df8cf8",
+      "card": "uef-1.md"
+    }
+  ],
+  "B06": [
+    {
+      "label": "EAC-2A",
+      "id": "ent_91dd763af7f4417ebaa6",
+      "card": "eac-2a.md"
+    },
+    {
+      "label": "EAC-2B",
+      "id": "ent_f4dc6c5b38d14bceb5e5",
+      "card": "eac-2b.md"
+    },
+    {
+      "label": "EAT-1",
+      "id": "ent_e73f74a7b55444a9be32",
+      "card": "eat-1.md"
+    },
+    {
+      "label": "EAT-2",
+      "id": "ent_bbdbd30ed03c4cdab5dc",
+      "card": "eat-2.md"
+    },
+    {
+      "label": "QB-1",
+      "id": "ent_faa15c3a2c4d4767b504",
+      "card": "qb-1.md"
+    },
+    {
+      "label": "QB-2",
+      "id": "ent_40505e696bb2429b99ef",
+      "card": "qb-2.md"
+    }
+  ],
+  "B07": [
+    {
+      "label": "Coal Ship Unloader-1",
+      "id": "ent_1a57e15407c145a19284",
+      "card": "coal-ship-unloader-1.md"
+    },
+    {
+      "label": "SUL-1",
+      "id": "ent_6ce9a6eadc884f239d2e",
+      "card": "sul-1.md"
+    }
+  ],
+  "B08": [
+    {
+      "label": "Coal Ship Unloader-2",
+      "id": "ent_f319b7a72a2e4c85a617",
+      "card": "coal-ship-unloader-2.md"
+    },
+    {
+      "label": "Coal Ship Unloader-3",
+      "id": "ent_9b33c14cee7f4d749335",
+      "card": "coal-ship-unloader-3.md"
+    },
+    {
+      "label": "SUL-2",
+      "id": "ent_63f51ca2fe4d40508384",
+      "card": "sul-2.md"
+    },
+    {
+      "label": "SUL-3",
+      "id": "ent_f76d833417f8463d8647",
+      "card": "sul-3.md"
+    }
+  ],
+  "B09": [
+    {
+      "label": "EBD-1",
+      "id": "ent_6d32d897d9f24094b563",
+      "card": "ebd-1.md"
+    },
+    {
+      "label": "EBD-2",
+      "id": "ent_3c6409c508c1406eafda",
+      "card": "ebd-2.md"
+    },
+    {
+      "label": "EBD-3",
+      "id": "ent_0ddac9566081464c9f15",
+      "card": "ebd-3.md"
+    },
+    {
+      "label": "EBD-4",
+      "id": "ent_13ced5c3046a4471927b",
+      "card": "ebd-4.md"
+    },
+    {
+      "label": "KB-RG-1",
+      "id": "ent_f8c18669e8c04706859b",
+      "card": "kb-rg-1.md"
+    },
+    {
+      "label": "KB-RG-2",
+      "id": "ent_f9ea137a64054493831b",
+      "card": "kb-rg-2.md"
+    },
+    {
+      "label": "KB-RG-3",
+      "id": "ent_59749a9fff4f4deaa1cc",
+      "card": "kb-rg-3.md"
+    },
+    {
+      "label": "KB-RG-4",
+      "id": "ent_18b389c8af96423ea39f",
+      "card": "kb-rg-4.md"
+    },
+    {
+      "label": "KB-RPG-1",
+      "id": "ent_9ceff5c8a3d041c6937f",
+      "card": "kb-rpg-1.md"
+    },
+    {
+      "label": "KB-RPG-2",
+      "id": "ent_9aacdcc62aa54e8ca31b",
+      "card": "kb-rpg-2.md"
+    },
+    {
+      "label": "KB-RPG-3",
+      "id": "ent_a340f40231154e2aaa9e",
+      "card": "kb-rpg-3.md"
+    },
+    {
+      "label": "KB-RPG-4",
+      "id": "ent_8aace4b4699d4d8189af",
+      "card": "kb-rpg-4.md"
+    },
+    {
+      "label": "UEE-1",
+      "id": "ent_92291cd617b04811bc28",
+      "card": "uee-1.md"
+    }
+  ],
+  "B10": [
+    {
+      "label": "EAC-3A",
+      "id": "ent_9f1ca0f604de4bdda3a5",
+      "card": "eac-3a.md"
+    },
+    {
+      "label": "EAC-3B",
+      "id": "ent_fb331701a6c04437842b",
+      "card": "eac-3b.md"
+    },
+    {
+      "label": "FG-1",
+      "id": "ent_6d0d953b7e804240a2e4",
+      "card": "fg-1.md"
+    },
+    {
+      "label": "FG-2",
+      "id": "ent_13a6597186a24acf8e6a",
+      "card": "fg-2.md"
+    },
+    {
+      "label": "KB-FD-1",
+      "id": "ent_23d3e3f32d8249c1b793",
+      "card": "kb-fd-1.md"
+    },
+    {
+      "label": "KB-FD-2",
+      "id": "ent_f5a76ee5d41549b5a6e4",
+      "card": "kb-fd-2.md"
+    },
+    {
+      "label": "UEF-3",
+      "id": "ent_d8d8763a4bc2400882b9",
+      "card": "uef-3.md"
+    }
+  ],
+  "B12": [
+    {
+      "label": "EAC-4A",
+      "id": "ent_0318ac225b5a4a0f9349",
+      "card": "eac-4a.md"
+    },
+    {
+      "label": "EAC-4B",
+      "id": "ent_b9df0d31870648d9ae39",
+      "card": "eac-4b.md"
+    },
+    {
+      "label": "FTR-1",
+      "id": "ent_b1b1f4dd0c114266a8f7",
+      "card": "ftr-1.md"
+    },
+    {
+      "label": "FTR-2",
+      "id": "ent_7c4ecd02c4a64449bf8e",
+      "card": "ftr-2.md"
+    },
+    {
+      "label": "KB-FD-3",
+      "id": "ent_4422b404f1bd4a739660",
+      "card": "kb-fd-3.md"
+    },
+    {
+      "label": "KB-FD-4",
+      "id": "ent_976e14bfec4e493f8aaa",
+      "card": "kb-fd-4.md"
+    },
+    {
+      "label": "UEF-4",
+      "id": "ent_560293ef23bd42ce8ff1",
+      "card": "uef-4.md"
+    }
+  ],
+  "B13": [
+    {
+      "label": "EAC-5A",
+      "id": "ent_58ba05055e8b44a983a5",
+      "card": "eac-5a.md"
+    },
+    {
+      "label": "EAC-5B",
+      "id": "ent_84e3b6b3057944c68607",
+      "card": "eac-5b.md"
+    },
+    {
+      "label": "FG-3",
+      "id": "ent_4fa0fff47e7740f0aa8a",
+      "card": "fg-3.md"
+    },
+    {
+      "label": "FG-4",
+      "id": "ent_bed20ef2e63f44c8aa87",
+      "card": "fg-4.md"
+    },
+    {
+      "label": "FTR-3",
+      "id": "ent_cf1d610e28654864aedc",
+      "card": "ftr-3.md"
+    },
+    {
+      "label": "FTR-4",
+      "id": "ent_a8896ea39a384633ae38",
+      "card": "ftr-4.md"
+    },
+    {
+      "label": "KB-FD-5",
+      "id": "ent_2ffd4ba14ecd4a468af1",
+      "card": "kb-fd-5.md"
+    },
+    {
+      "label": "KB-FD-6",
+      "id": "ent_cc057aae457e4c2cba76",
+      "card": "kb-fd-6.md"
+    },
+    {
+      "label": "KB-FD-7",
+      "id": "ent_87427a115a584daab803",
+      "card": "kb-fd-7.md"
+    },
+    {
+      "label": "KB-FD-8",
+      "id": "ent_51bf2d58520a4377b53c",
+      "card": "kb-fd-8.md"
+    },
+    {
+      "label": "UEF-5",
+      "id": "ent_ec4a66d4440444dcb00e",
+      "card": "uef-5.md"
+    },
+    {
+      "label": "UEF-6",
+      "id": "ent_9d8aaa767de440b18a1a",
+      "card": "uef-6.md"
+    }
+  ],
+  "B14": [
+    {
+      "label": "CV-1",
+      "id": "ent_6e587abc8b794b7586ea",
+      "card": "cv-1.md"
+    },
+    {
+      "label": "CV-2",
+      "id": "ent_ec08f608a2c44301ba7f",
+      "card": "cv-2.md"
+    },
+    {
+      "label": "EBA-6A",
+      "id": "ent_968579cda95c43f49626",
+      "card": "eba-6a.md"
+    },
+    {
+      "label": "EBA-6B",
+      "id": "ent_65034b526eed4b4dace9",
+      "card": "eba-6b.md"
+    },
+    {
+      "label": "FG-5",
+      "id": "ent_9edda357028642579a8d",
+      "card": "fg-5.md"
+    },
+    {
+      "label": "FG-6",
+      "id": "ent_b2f3d0335b8543d1ac64",
+      "card": "fg-6.md"
+    },
+    {
+      "label": "UEF-7",
+      "id": "ent_dfd925fdeb7f4275b5f5",
+      "card": "uef-7.md"
+    }
+  ],
+  "B15": [
+    {
+      "label": "EAD-1",
+      "id": "ent_838e4b6c7e0f4855962b",
+      "card": "ead-1.md"
+    },
+    {
+      "label": "EAF-1",
+      "id": "ent_45234a96c4714e14a638",
+      "card": "eaf-1.md"
+    }
+  ],
+  "B16": [
+    {
+      "label": "Coal Yard 1",
+      "id": "ent_e7f3c29cc0b842269ada",
+      "card": "coal-yard-1.md"
+    },
+    {
+      "label": "EAC-7",
+      "id": "ent_55a98320cca54b6bb644",
+      "card": "eac-7.md"
+    },
+    {
+      "label": "EAE-1",
+      "id": "ent_52adacf790fd4c449346",
+      "card": "eae-1.md"
+    },
+    {
+      "label": "EBA-8",
+      "id": "ent_97010a833b584e8d86c4",
+      "card": "eba-8.md"
+    },
+    {
+      "label": "UAX-1",
+      "id": "ent_b9c9c6487d3f4e39ae9c",
+      "card": "uax-1.md"
+    },
+    {
+      "label": "UAX-5",
+      "id": "ent_d8b5fcebaccf495bb061",
+      "card": "uax-5.md"
+    },
+    {
+      "label": "UEB-1",
+      "id": "ent_3f105c7bd8e24bd59a58",
+      "card": "ueb-1.md"
+    }
+  ],
+  "B17": [
+    {
+      "label": "Coal Yard 2",
+      "id": null,
+      "card": "coal-yard-2.md"
+    },
+    {
+      "label": "EAC-9",
+      "id": "ent_9a84798b364d4a14a404",
+      "card": "eac-9.md"
+    },
+    {
+      "label": "EAE-2",
+      "id": "ent_18d771b5863a4f2685cd",
+      "card": "eae-2.md"
+    },
+    {
+      "label": "EBA-10",
+      "id": "ent_2ce3b794b8ed4ae3b125",
+      "card": "eba-10.md"
+    },
+    {
+      "label": "UAX-2",
+      "id": "ent_5f7acdbd452c415aadd0",
+      "card": "uax-2.md"
+    },
+    {
+      "label": "UAX-6",
+      "id": "ent_1193f9627bbb415eb858",
+      "card": "uax-6.md"
+    },
+    {
+      "label": "UEB-2",
+      "id": "ent_c662d49238c142d5beac",
+      "card": "ueb-2.md"
+    }
+  ],
+  "B18": [
+    {
+      "label": "EAD-2",
+      "id": "ent_527fbb1d01ee4ad9b582",
+      "card": "ead-2.md"
+    },
+    {
+      "label": "EAF-2",
+      "id": "ent_5855200a67644d1f86a6",
+      "card": "eaf-2.md"
+    }
+  ],
+  "B20": [
+    {
+      "label": "Coal Yard 3",
+      "id": null,
+      "card": "coal-yard-3.md"
+    },
+    {
+      "label": "EAC-11",
+      "id": "ent_067d1133cfb64687acfb",
+      "card": "eac-11.md"
+    },
+    {
+      "label": "EAE-3",
+      "id": "ent_e1181f45e78e462cbc07",
+      "card": "eae-3.md"
+    },
+    {
+      "label": "EBA-12",
+      "id": "ent_e0cd946e46264ec89bdc",
+      "card": "eba-12.md"
+    },
+    {
+      "label": "UAX-3",
+      "id": "ent_59723091aa644200869b",
+      "card": "uax-3.md"
+    },
+    {
+      "label": "UAX-7",
+      "id": "ent_b4003921247b4347837c",
+      "card": "uax-7.md"
+    },
+    {
+      "label": "UEB-3",
+      "id": "ent_5e607807204042eb9a98",
+      "card": "ueb-3.md"
+    }
+  ],
+  "B21": [
+    {
+      "label": "EAD-3",
+      "id": "ent_74fe7db2cb3745e98849",
+      "card": "ead-3.md"
+    },
+    {
+      "label": "EAF-3",
+      "id": "ent_cede7b76cd274533933c",
+      "card": "eaf-3.md"
+    }
+  ],
+  "B23": [
+    {
+      "label": "Coal Yard 4",
+      "id": null,
+      "card": "coal-yard-4.md"
+    },
+    {
+      "label": "EAC-13",
+      "id": "ent_6cbfa68852d842138a13",
+      "card": "eac-13.md"
+    },
+    {
+      "label": "EAE-4",
+      "id": "ent_b74d44c57a034fe885c0",
+      "card": "eae-4.md"
+    },
+    {
+      "label": "EBA-14",
+      "id": "ent_9be823921c1744a6bd08",
+      "card": "eba-14.md"
+    },
+    {
+      "label": "UAX-4",
+      "id": "ent_fcd4613d69d24975a5fc",
+      "card": "uax-4.md"
+    },
+    {
+      "label": "UAX-8",
+      "id": "ent_1d049deaa9fe4eaf8f7d",
+      "card": "uax-8.md"
+    },
+    {
+      "label": "UEB-4",
+      "id": "ent_967d8555a84a42d0bde3",
+      "card": "ueb-4.md"
+    }
+  ],
+  "B24": [
+    {
+      "label": "EAD-4",
+      "id": "ent_3a4556fbadc34f9e83c2",
+      "card": "ead-4.md"
+    },
+    {
+      "label": "EAF-4",
+      "id": "ent_ae4487aa566944298c8a",
+      "card": "eaf-4.md"
+    }
+  ],
+  "B26": [
+    {
+      "label": "FG-7",
+      "id": "ent_ec05cecfab5a4475bccb",
+      "card": "fg-7.md"
+    },
+    {
+      "label": "FG-8",
+      "id": "ent_1c7b5e0edc0646f0a02c",
+      "card": "fg-8.md"
+    },
+    {
+      "label": "UEF-8",
+      "id": "ent_db9090a8cc844adc935f",
+      "card": "uef-8.md"
+    },
+    {
+      "label": "UEF-9",
+      "id": "ent_c6b62e5f923a480cac36",
+      "card": "uef-9.md"
+    }
+  ],
+  "B27": [
+    {
+      "label": "FG-10",
+      "id": "ent_f3dcbac151be4c499338",
+      "card": "fg-10.md"
+    },
+    {
+      "label": "FG-9",
+      "id": "ent_3594e27acabd4a0b96a6",
+      "card": "fg-9.md"
+    },
+    {
+      "label": "UEF-10",
+      "id": "ent_4df47dcfcd9d49b38e10",
+      "card": "uef-10.md"
+    },
+    {
+      "label": "UEF-11",
+      "id": "ent_1e3c3d82602646559ecb",
+      "card": "uef-11.md"
+    }
+  ],
+  "B28": [
+    {
+      "label": "AT-3",
+      "id": "ent_d0ef7a25782d4cff9150",
+      "card": "at-3.md"
+    },
+    {
+      "label": "AT-4",
+      "id": "ent_1c09b1f5e3a84d47a39c",
+      "card": "at-4.md"
+    },
+    {
+      "label": "EBA-15A",
+      "id": "ent_740cd63447054948a8ab",
+      "card": "eba-15a.md"
+    },
+    {
+      "label": "EBA-15B",
+      "id": "ent_3bfea8d78c08424894bf",
+      "card": "eba-15b.md"
+    },
+    {
+      "label": "FG-11",
+      "id": "ent_9c0f15ba7e4a406e928c",
+      "card": "fg-11.md"
+    },
+    {
+      "label": "FG-12",
+      "id": "ent_8965bb8afa584a4b9cbf",
+      "card": "fg-12.md"
+    },
+    {
+      "label": "UEF-12",
+      "id": "ent_1e2add4bc52c4a5fb2f2",
+      "card": "uef-12.md"
+    }
+  ],
+  "B29": [
+    {
+      "label": "CV-3",
+      "id": "ent_87336fe456b641fc905d",
+      "card": "cv-3.md"
+    },
+    {
+      "label": "CV-4",
+      "id": "ent_21fc4b3dcd254064af02",
+      "card": "cv-4.md"
+    },
+    {
+      "label": "EBA-16A",
+      "id": "ent_4e5b565b4958485eab95",
+      "card": "eba-16a.md"
+    },
+    {
+      "label": "EBA-16B",
+      "id": "ent_3875cf7b97514de495cf",
+      "card": "eba-16b.md"
+    }
+  ],
+  "B30": [
+    {
+      "label": "Coal Blending Silo House",
+      "id": "ent_5d8ffc4cfe6c4d8a92bb",
+      "card": "coal-blending-silo-house.md"
+    },
+    {
+      "label": "EBB-1",
+      "id": "ent_d560a78f43a44d1e87e2",
+      "card": "ebb-1.md"
+    },
+    {
+      "label": "EBB-2",
+      "id": "ent_30e0f002e2b64c92a2a7",
+      "card": "ebb-2.md"
+    }
+  ],
+  "B31": [
+    {
+      "label": "EBE-CES-1",
+      "id": "ent_c074f0959ae24f57a155",
+      "card": "ebe-ces-1.md"
+    },
+    {
+      "label": "EBE-CES-2",
+      "id": "ent_ac511cac04344c2596f0",
+      "card": "ebe-ces-2.md"
+    },
+    {
+      "label": "FG-13",
+      "id": "ent_584dfe004079420abe01",
+      "card": "fg-13.md"
+    },
+    {
+      "label": "FG-14",
+      "id": "ent_c09702fd37fd4fb99613",
+      "card": "fg-14.md"
+    },
+    {
+      "label": "KF-3",
+      "id": "ent_55e7674df8d54ac78d50",
+      "card": "kf-3.md"
+    },
+    {
+      "label": "KF-4",
+      "id": "ent_2386258cf7564b4cb443",
+      "card": "kf-4.md"
+    }
+  ],
+  "B32": [
+    {
+      "label": "EBD-5",
+      "id": "ent_1ff8c26276f2442380f1",
+      "card": "ebd-5.md"
+    },
+    {
+      "label": "EBD-6",
+      "id": "ent_b271faee021c4846abf4",
+      "card": "ebd-6.md"
+    },
+    {
+      "label": "FG-15A",
+      "id": "ent_a716de013647437b96ec",
+      "card": "fg-15a.md"
+    },
+    {
+      "label": "FG-15B",
+      "id": "ent_42d0dccdd5d9430ab212",
+      "card": "fg-15b.md"
+    },
+    {
+      "label": "UEE-3",
+      "id": "ent_f3a25812c42246d3b167",
+      "card": "uee-3.md"
+    }
+  ],
+  "B33": [
+    {
+      "label": "EBC-1",
+      "id": "ent_ddae1f83adae43b484cc",
+      "card": "ebc-1.md"
+    },
+    {
+      "label": "EBC-2",
+      "id": "ent_c86633387c0c4fd9b8d5",
+      "card": "ebc-2.md"
+    }
+  ],
+  "B34": [
+    {
+      "label": "CV-5",
+      "id": "ent_e9e1a311b1444d208b3f",
+      "card": "cv-5.md"
+    },
+    {
+      "label": "CV-6",
+      "id": "ent_504e690e195f449ba83d",
+      "card": "cv-6.md"
+    },
+    {
+      "label": "EBA-17A",
+      "id": "ent_706b09d6e5b042c8a159",
+      "card": "eba-17a.md"
+    },
+    {
+      "label": "EBA-17B",
+      "id": "ent_dc0fbe9086ef4edcaafa",
+      "card": "eba-17b.md"
+    },
+    {
+      "label": "FG-15",
+      "id": "ent_b1bb5b3fa7024154a68b",
+      "card": "fg-15.md"
+    },
+    {
+      "label": "FG-16",
+      "id": "ent_4b9daddd239a4a5fb932",
+      "card": "fg-16.md"
+    },
+    {
+      "label": "KF-1",
+      "id": "ent_291075dd820348b5aa77",
+      "card": "kf-1.md"
+    },
+    {
+      "label": "KF-2",
+      "id": "ent_cb2f76d5de0d48e8857e",
+      "card": "kf-2.md"
+    }
+  ],
+  "B36": [
+    {
+      "label": "EAT-3",
+      "id": "ent_4a488ec688364349809e",
+      "card": "eat-3.md"
+    },
+    {
+      "label": "EAT-4",
+      "id": "ent_40d3cea32dba4fef8428",
+      "card": "eat-4.md"
+    },
+    {
+      "label": "EBA-18A",
+      "id": "ent_72888cd70d86451dba02",
+      "card": "eba-18a.md"
+    },
+    {
+      "label": "EBA-18B",
+      "id": "ent_84fd0a2e8f3b47428767",
+      "card": "eba-18b.md"
+    },
+    {
+      "label": "FG-17",
+      "id": "ent_caf604d91f164afcb6f1",
+      "card": "fg-17.md"
+    },
+    {
+      "label": "FG-18",
+      "id": "ent_19f5d7b514b34a54a753",
+      "card": "fg-18.md"
+    },
+    {
+      "label": "QB-3",
+      "id": "ent_b86046eff65c4dafab32",
+      "card": "qb-3.md"
+    },
+    {
+      "label": "QB-4",
+      "id": "ent_4711dfdea7154b11b337",
+      "card": "qb-4.md"
+    },
+    {
+      "label": "UEF-13",
+      "id": "ent_1d5055a3fcb74ba6a593",
+      "card": "uef-13.md"
+    }
+  ],
+  "B38": [
+    {
+      "label": "EBA-19A",
+      "id": "ent_8c506662c0ec4ae1b2eb",
+      "card": "eba-19a.md"
+    },
+    {
+      "label": "EBA-19B",
+      "id": "ent_ac4c61eaffa54a2aaa72",
+      "card": "eba-19b.md"
+    }
+  ],
+  "B39": [
+    {
+      "label": "FG-19",
+      "id": "ent_0cf2e435a742461e9b12",
+      "card": "fg-19.md"
+    },
+    {
+      "label": "FG-21",
+      "id": "ent_00162f38775341ca9c15",
+      "card": "fg-21.md"
+    },
+    {
+      "label": "TT-1",
+      "id": "ent_1d27bb8853a2465cb6e5",
+      "card": "tt-1.md"
+    },
+    {
+      "label": "TT-3",
+      "id": "ent_89999d081bb4481e868e",
+      "card": "tt-3.md"
+    }
+  ],
+  "B40": [
+    {
+      "label": "FG-20",
+      "id": "ent_ed21e141f3b64c5880fa",
+      "card": "fg-20.md"
+    },
+    {
+      "label": "FG-22",
+      "id": "ent_25048e314d074778a2be",
+      "card": "fg-22.md"
+    },
+    {
+      "label": "TT-2",
+      "id": "ent_74f5dbea734c4393a696",
+      "card": "tt-2.md"
+    },
+    {
+      "label": "TT-4",
+      "id": "ent_a92d67acf15142a7827f",
+      "card": "tt-4.md"
+    }
+  ],
+  "B41": [
+    {
+      "label": "Bunker-A of Unit-1",
+      "id": "ent_c429d4449cc246c4a642",
+      "card": "bunker-a-of-unit-1.md"
+    },
+    {
+      "label": "Bunker-A of Unit-2",
+      "id": "ent_6536ebf2ebcd4884b28f",
+      "card": "bunker-a-of-unit-2.md"
+    },
+    {
+      "label": "Bunker-B of Unit-1",
+      "id": "ent_590f54eacc20444b9014",
+      "card": "bunker-b-of-unit-1.md"
+    },
+    {
+      "label": "Bunker-B of Unit-2",
+      "id": "ent_7dc174c72fb741238a67",
+      "card": "bunker-b-of-unit-2.md"
+    },
+    {
+      "label": "Bunker-C of Unit-1",
+      "id": "ent_4c06b25d5f574d999f7e",
+      "card": "bunker-c-of-unit-1.md"
+    },
+    {
+      "label": "Bunker-C of Unit-2",
+      "id": "ent_81f4c219f6924d9cac70",
+      "card": "bunker-c-of-unit-2.md"
+    },
+    {
+      "label": "Bunker-D of Unit-1",
+      "id": "ent_575a21d23cd24115a2f4",
+      "card": "bunker-d-of-unit-1.md"
+    },
+    {
+      "label": "Bunker-D of Unit-2",
+      "id": "ent_95242f86777444a286d1",
+      "card": "bunker-d-of-unit-2.md"
+    },
+    {
+      "label": "Bunker-E of Unit-1",
+      "id": "ent_79319290b85b45a5a9b2",
+      "card": "bunker-e-of-unit-1.md"
+    },
+    {
+      "label": "Bunker-E of Unit-2",
+      "id": "ent_823ecd36e68747649d2d",
+      "card": "bunker-e-of-unit-2.md"
+    },
+    {
+      "label": "Bunker-F of Unit-1",
+      "id": "ent_557018272d7a451e8528",
+      "card": "bunker-f-of-unit-1.md"
+    },
+    {
+      "label": "Bunker-F of Unit-2",
+      "id": "ent_d89caa89535643029f8c",
+      "card": "bunker-f-of-unit-2.md"
+    },
+    {
+      "label": "Unit-1 Coal Bunker Bay",
+      "id": "ent_862e744e8fb24d65901c",
+      "card": "unit-1-coal-bunker-bay.md"
+    },
+    {
+      "label": "Unit-2 Coal Bunker Bay",
+      "id": "ent_308f4cf4cc824463b5a0",
+      "card": "unit-2-coal-bunker-bay.md"
+    }
+  ]
+}

@@ -186,6 +186,48 @@ class HTTPTests(unittest.TestCase):
             with self.request('/api/models?provider=codex_session&refresh=1') as response:self.assertEqual(json.load(response),catalog)
         models.assert_called_once_with('codex_session',True)
 
+    def test_plant_explorer_assets_and_evidence_index_are_workspace_scoped(self):
+        uploaded=ingest(self.service.store('plant'),'plant-route.txt',b'Route evidence')
+        for path in ('/plant-model.js','/plant-explorer.js','/plant-explorer.css','/plant-scene-model.js','/plant-scene.js','/plant-scene.css'):
+            with self.request(path) as response:
+                self.assertEqual(response.status,200)
+                self.assertGreater(len(response.read()),100)
+        with self.request('/api/state') as response:
+            current=json.load(response)
+        self.assertEqual(current['model']['version'],0)
+        self.assertEqual(len(current['evidence_index']),1)
+        item=current['evidence_index'][0]
+        self.assertEqual(item['document_id'],uploaded['document']['id'])
+        self.assertEqual(set(item),{'id','document_id','page','locator'})
+        with self.request('/api/state',headers={'X-Workspace':'demo'}) as response:
+            self.assertEqual(json.load(response)['evidence_index'],[])
+
+    def test_pdf_detail_is_bounded_workspace_scoped_and_does_not_mutate_sources(self):
+        import fitz
+        from PIL import Image
+        with fitz.open() as pdf:
+            page=pdf.new_page(width=600,height=800)
+            page.draw_rect(fitz.Rect(300,400,600,800),fill=(1,0,0),color=(1,0,0))
+            original=pdf.tobytes()
+        store=self.service.store('plant')
+        uploaded=ingest(store,'drawing.pdf',original)
+        row=store.rows('SELECT * FROM evidence WHERE document_id=?',(uploaded['document']['id'],))[0]
+        before=store.model()
+        with self.request('/api/evidence-detail/'+row['id']+'?region=.5,.5,1,1') as response:
+            self.assertEqual(response.headers['Content-Type'],'image/png')
+            detail=Image.open(io.BytesIO(response.read()))
+            self.assertLessEqual(max(detail.size),1801)
+            self.assertEqual(detail.getpixel((detail.width//2,detail.height//2)),(255,0,0))
+        for region in ('NaN,0,1,1','0,0,2,1','0,0,0,1','0,0,1','0,0,.00001,1'):
+            with self.assertRaises(urllib.error.HTTPError) as failure:
+                self.request('/api/evidence-detail/'+row['id']+'?region='+region)
+            self.assertEqual(failure.exception.code,400)
+        with self.assertRaises(urllib.error.HTTPError) as failure:
+            self.request('/api/evidence-detail/'+row['id']+'?workspace=demo&region=0,0,1,1')
+        self.assertEqual(failure.exception.code,400)
+        self.assertEqual(store.model(),before)
+        self.assertEqual((store.root/'originals'/uploaded['document']['sha256']).read_bytes(),original)
+
 
     def test_client_refresh_cancels_pending_shutdown(self):
         with self.request('/api/client/close',{'client_id':'client-old-0001'}) as response:self.assertEqual(json.load(response)['status'],'closing')

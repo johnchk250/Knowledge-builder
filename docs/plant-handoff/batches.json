@@ -1,0 +1,1119 @@
+{
+  "schema_version": 1,
+  "baseline_version": 510,
+  "progress_note": "Planning baseline v510 with later accepted implementation status. Reconcile live model, pilot reports and batch checkpoints before selecting or replaying work. B30/B31 accepted at v527; B32-B35 at v558. Other not_started entries are not proof of empty model data. B36 accepted at v592 on 2026-10-01 with documented source gaps; B37 remains separate. Relevant B02/B04 local boundaries resolved, global batches remain open. B36 review corrections accepted at v593; default continuation follows FIVE_PHASE_PLAN.md and phase-progress.json.",
+  "batches": [
+    {
+      "id": "B00",
+      "section": "P00",
+      "title": "Critical identity and scope decisions",
+      "depends_on": [],
+      "scope": "Resolve F01/F02/F04 and establish SUL identity decisions for F03; record candidate dispositions and source-backed corrections.",
+      "exit_check": "No propagation of UGA label error, obsolete TP1 missing-source claim or unproven SUL merges.",
+      "status": "complete_with_gaps",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B00/checkpoint.md"
+    },
+    {
+      "id": "B01",
+      "section": "P01",
+      "title": "Shared-service identity and ownership",
+      "depends_on": [
+        "B00"
+      ],
+      "scope": "Reconcile UGA with DS pump houses; common tanks, grouped pump/compressor identities and local branch ownership.",
+      "exit_check": "One canonical identity per proven shared asset; unresolved number variants retained.",
+      "status": "complete_with_gaps",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B01/checkpoint.md",
+      "latest_version": 620,
+      "next_action": "B02: inspect DFDS P&ID175089 Rev1 pp1-2 original production/tank-suction/pump-discharge/air-treatment/header regions; reconcile existing component IDs and exact connections, then source-scoped rehearsal and guarded acceptance. Reuse B01 canonical identities and 26-row consumer ledger; do not replay accepted599-620."
+    },
+    {
+      "id": "B02",
+      "section": "P01",
+      "title": "DFDS common air and water systems",
+      "depends_on": [
+        "B01"
+      ],
+      "scope": "DFDS systems 1/2, pumps, air production/treatment, common headers and local consumer boundary contract.",
+      "exit_check": "Two different TPs can trace to one common source without duplicated station.",
+      "status": "in_progress",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B02/checkpoint.md",
+      "baseline_version": 620,
+      "latest_version": 628,
+      "next_action": "B02: trace and connect existing common air/water outlet headers to TP1 local mains and TP13 inlet via UEE-3, using175089 pp1-2 and corroborating175286/175300 local originals. Review/headers has original renders and enlarged route crops. Then finish model-reference compressor internals/protection-table reconciliation; individual mapping and180055 remain evidence gaps. Do not replay accepted packages through628."
+    },
+    {
+      "id": "B03",
+      "section": "P01",
+      "title": "SPDS, service and potable water",
+      "depends_on": [
+        "B01"
+      ],
+      "scope": "Common stockpile pumping/control, SW/PW supplies and sector/application boundary conventions.",
+      "exit_check": "Pump numbering/head contradictions preserved; AP/sector/SV distinction explicit.",
+      "status": "not_started",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B03/checkpoint.md"
+    },
+    {
+      "id": "B04",
+      "section": "P01",
+      "title": "Sumps, runoff pond and feed-water return",
+      "depends_on": [
+        "B01"
+      ],
+      "scope": "Common runoff destination/treatment and source-specific local pit-pump branch map for consuming sections.",
+      "exit_check": "Do not assign sump pair alphabetically; reviewed local branches and unknowns recorded.",
+      "status": "not_started",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B04/checkpoint.md"
+    },
+    {
+      "id": "B05",
+      "section": "P02",
+      "title": "EAC-1A/B and UEF-1 pilot corrections",
+      "depends_on": [
+        "B00",
+        "B02",
+        "B04"
+      ],
+      "scope": "Use found TP1 GA to close stale gap, add supported place/hoist/tank detail; preserve pilot drive/protection/DFDS evidence.",
+      "exit_check": "Pilot regressions pass; sources still open at deep parts and grouped counts.",
+      "status": "not_started",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B05/checkpoint.md"
+    },
+    {
+      "id": "B06",
+      "section": "P02",
+      "title": "EAC-2A/B receiving-to-screening assemblies",
+      "depends_on": [
+        "B05"
+      ],
+      "scope": "Both conveyor 2 drive/protection/mechanical trees and head/tail interfaces; reuse TP1 receiving chutes.",
+      "exit_check": "No copied1A ratings; source-supported path reaches PSH.",
+      "status": "not_started",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B06/checkpoint.md"
+    },
+    {
+      "id": "B07",
+      "section": "P02",
+      "title": "First unloader and vendor-family mapping",
+      "depends_on": [
+        "B00"
+      ],
+      "scope": "Prove SUL mapping and select first numbered machine; build its motion assemblies and applicability matrix.",
+      "exit_check": "Type1/type2 distinctions and vendor references remain explicit.",
+      "status": "not_started",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B07/checkpoint.md"
+    },
+    {
+      "id": "B08",
+      "section": "P02",
+      "title": "Other two unloaders",
+      "depends_on": [
+        "B07"
+      ],
+      "scope": "Apply only proven common design, inspect per-machine differences and jetty/shuttle interfaces.",
+      "exit_check": "All three unloaders navigable with their own or explicitly applicable sources.",
+      "status": "not_started",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B08/checkpoint.md"
+    },
+    {
+      "id": "B09",
+      "section": "P03",
+      "title": "UEE-1 primary screen/gate assemblies",
+      "depends_on": [
+        "B06"
+      ],
+      "scope": "EBD-1â€“4, RG/RPG gates, reject paths, local dust/access and drive assemblies.",
+      "exit_check": "Primary screens remain separate from EBD-5/6; exact reject routes retained.",
+      "status": "not_started",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B09/checkpoint.md"
+    },
+    {
+      "id": "B10",
+      "section": "P03",
+      "title": "EAC-3A/B and UEF-3 branch interfaces",
+      "depends_on": [
+        "B09",
+        "B02",
+        "B04"
+      ],
+      "scope": "Conveyor 3 trees; FD-1/2, FG-1/2 and Yard 4/onward interfaces, local services.",
+      "exit_check": "Partial/full flow conditions and existing local component reuse checked.",
+      "status": "not_started",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B10/checkpoint.md"
+    },
+    {
+      "id": "B11",
+      "section": "P03",
+      "title": "Sampling system1",
+      "depends_on": [
+        "B10"
+      ],
+      "scope": "EAU-1/UEF-3 primary/secondary sampler, feeder, crusher, collector, reject/bias path and controls.",
+      "exit_check": "Sample vs main material routes and return-conveyor conditions verified.",
+      "status": "not_started",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B11/checkpoint.md"
+    },
+    {
+      "id": "B12",
+      "section": "P04",
+      "title": "EAC-4A/B and UEF-4",
+      "depends_on": [
+        "B10",
+        "B02",
+        "B04"
+      ],
+      "scope": "Conveyor 4 trees, FTR-1/2 and FD-3/4 fixed-tripper diversion to Yard 3, local TP4 services.",
+      "exit_check": "Through-flow on same belt is not shown as recycle.",
+      "status": "not_started",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B12/checkpoint.md"
+    },
+    {
+      "id": "B13",
+      "section": "P04",
+      "title": "EAC-5A/B and UEF-5/6",
+      "depends_on": [
+        "B12",
+        "B02",
+        "B04"
+      ],
+      "scope": "TP5 selectors/dividers to Yard 2 and onward; conveyor 5/FTR-3/4/TP6 diversion to Yard 1.",
+      "exit_check": "Local TP5/6 source zones distinct; boundary with Yard 1 confirmed.",
+      "status": "not_started",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B13/checkpoint.md"
+    },
+    {
+      "id": "B14",
+      "section": "P04",
+      "title": "EBA-6A/B and UEF-7",
+      "depends_on": [
+        "B13",
+        "B02",
+        "B04"
+      ],
+      "scope": "TP7 gate crossover, conveyor 6 trees, CV-1/2 applicability and silo receiving interfaces.",
+      "exit_check": "6Aâ†’EBB-2 and 6Bâ†’EBB-1 regression preserved.",
+      "status": "not_started",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B14/checkpoint.md"
+    },
+    {
+      "id": "B15",
+      "section": "P05",
+      "title": "Yard 1 machine family and detail review",
+      "depends_on": [
+        "B03",
+        "B04",
+        "B13"
+      ],
+      "scope": "EAD-1/EAF-1 detailed drive/hoist/hydraulic/lube/anchor/fire references; common design applicability matrix for yards2â€“4.",
+      "exit_check": "Documented families qualified; discrepancies retained; no generic bucket-wheel template.",
+      "status": "not_started",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B15/checkpoint.md"
+    },
+    {
+      "id": "B16",
+      "section": "P05",
+      "title": "Yard 1 local systems and final pilot checkpoint",
+      "depends_on": [
+        "B15"
+      ],
+      "scope": "Recheck EAC-7/EBA-8/UAX-1/5, SPDS sectors/APs, runoff8G/H, onboard DSS and existing85 qualification inventory as applicable.",
+      "exit_check": "Yard 1 semantic audit and full visual journey pass; common/local ownership preserved.",
+      "status": "not_started",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B16/checkpoint.md"
+    },
+    {
+      "id": "B17",
+      "section": "P06",
+      "title": "Yard 2 conveyors and place structure",
+      "depends_on": [
+        "B15",
+        "B13"
+      ],
+      "scope": "Create area membership; EAC-9/EBA-10 drive/mechanical/protection, UAX-2/6, UEB-2 and EAE-2 place context.",
+      "exit_check": "Source-specific ratings/counts; no Yard 1 data cloning.",
+      "status": "not_started",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B17/checkpoint.md"
+    },
+    {
+      "id": "B18",
+      "section": "P06",
+      "title": "Yard 2 stacker and portal reclaimer",
+      "depends_on": [
+        "B17",
+        "B15"
+      ],
+      "scope": "EAD-2/EAF-2 motion assemblies, drives, lubrication, power/control boundaries and applicable detail drawings.",
+      "exit_check": "Two deep machine paths with explicit common-design applicability.",
+      "status": "not_started",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B18/checkpoint.md"
+    },
+    {
+      "id": "B19",
+      "section": "P06",
+      "title": "Yard 2 services and integration",
+      "depends_on": [
+        "B18",
+        "B03",
+        "B04"
+      ],
+      "scope": "Local SPDS, sector/AP/SV map, onboard DSS, drainage/fire gaps and TP5/10 interfaces.",
+      "exit_check": "All local quantities assigned from Yard 2 source branches.",
+      "status": "not_started",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B19/checkpoint.md"
+    },
+    {
+      "id": "B20",
+      "section": "P07",
+      "title": "Yard 3 conveyors and place structure",
+      "depends_on": [
+        "B15",
+        "B12"
+      ],
+      "scope": "Area membership, EAC-11/EBA-12, UAX-3/7, UEB-3, EAE-3 and TP4/9 interface proof.",
+      "exit_check": "Continuous upstream conveyor diversion retained.",
+      "status": "not_started",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B20/checkpoint.md"
+    },
+    {
+      "id": "B21",
+      "section": "P07",
+      "title": "Yard 3 machines",
+      "depends_on": [
+        "B20",
+        "B15"
+      ],
+      "scope": "EAD-3/EAF-3 assemblies and family/unit-specific differences.",
+      "exit_check": "No unqualified inheritance of Yard 1 motor/lube data.",
+      "status": "not_started",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B21/checkpoint.md"
+    },
+    {
+      "id": "B22",
+      "section": "P07",
+      "title": "Yard 3 services and integration",
+      "depends_on": [
+        "B21",
+        "B03",
+        "B04"
+      ],
+      "scope": "SPDS/onboard dust/refill/runoff/shared boundaries.",
+      "exit_check": "Yard 3 sector and pit mapping supported or explicitly unresolved.",
+      "status": "not_started",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B22/checkpoint.md"
+    },
+    {
+      "id": "B23",
+      "section": "P08",
+      "title": "Yard 4 conveyors and place structure",
+      "depends_on": [
+        "B15",
+        "B10"
+      ],
+      "scope": "Area membership, EAC-13/EBA-14, UAX-4/8, UEB-4, EAE-4; reuse existing13 parts.",
+      "exit_check": "TP3 sampling not wrongly owned by Yard 4.",
+      "status": "not_started",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B23/checkpoint.md"
+    },
+    {
+      "id": "B24",
+      "section": "P08",
+      "title": "Yard 4 machines",
+      "depends_on": [
+        "B23",
+        "B15"
+      ],
+      "scope": "EAD-4/EAF-4 assemblies and type-specific design applicability.",
+      "exit_check": "Deep drive/control/lube sources navigable.",
+      "status": "not_started",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B24/checkpoint.md"
+    },
+    {
+      "id": "B25",
+      "section": "P08",
+      "title": "Yard 4 services and integration",
+      "depends_on": [
+        "B24",
+        "B03",
+        "B04"
+      ],
+      "scope": "SPDS/onboard DSS/runoff and TP3/8 interfaces.",
+      "exit_check": "Local services and common source identity verified.",
+      "status": "not_started",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B25/checkpoint.md"
+    },
+    {
+      "id": "B26",
+      "section": "P09",
+      "title": "UEF-8/9 reclaim receiving places",
+      "depends_on": [
+        "B22",
+        "B25",
+        "B02",
+        "B04"
+      ],
+      "scope": "FG-7/8, chutes, local DFDS and drainage; yard 3/4 receiving interfaces to 15A/B.",
+      "exit_check": "Both selected return streams trace with exact source conditions.",
+      "status": "not_started",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B26/checkpoint.md"
+    },
+    {
+      "id": "B27",
+      "section": "P09",
+      "title": "UEF-10/11 reclaim receiving places",
+      "depends_on": [
+        "B16",
+        "B19",
+        "B02",
+        "B04"
+      ],
+      "scope": "FG-9/10, chutes, local DFDS and drainage; yard 1/2 interfaces.",
+      "exit_check": "No reused Yard 1 sump assumption for other TP.",
+      "status": "not_started",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B27/checkpoint.md"
+    },
+    {
+      "id": "B28",
+      "section": "P09",
+      "title": "EBA-15A/B and UEF-12",
+      "depends_on": [
+        "B26",
+        "B27"
+      ],
+      "scope": "Continuous multi-inlet conveyor 15 trees; TP12FG11/12, crossovers, AT 3/4 and local dust/sump.",
+      "exit_check": "One15 belt per stream with several placed receiving interfaces.",
+      "status": "not_started",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B28/checkpoint.md"
+    },
+    {
+      "id": "B29",
+      "section": "P09",
+      "title": "EBA-16A/B to silos",
+      "depends_on": [
+        "B28"
+      ],
+      "scope": "Drive/protection/mechanical trees, CV-3/4 and vessel inlet placement.",
+      "exit_check": "16Aâ†’EBB-1 and 16Bâ†’EBB-2 endpoints retained.",
+      "status": "not_started",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B29/checkpoint.md"
+    },
+    {
+      "id": "B30",
+      "section": "P10",
+      "title": "Silo house and vessel identities",
+      "depends_on": [
+        "B14",
+        "B29"
+      ],
+      "scope": "UEE-2/EBB-1/2 place structure; RE/CES identity decisions; vessel design vs extractor input scope.",
+      "exit_check": "Four inlet mappings and source-qualified vessel capacity established.",
+      "status": "implemented_with_source_qualifications",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B30/checkpoint.md",
+      "accepted_version": 527,
+      "completed_date": "2026-09-20",
+      "report": "COAL_BLENDING_SILO_PILOT_REPORT.md"
+    },
+    {
+      "id": "B31",
+      "section": "P10",
+      "title": "Extractors, KF-3/4 and outlet gates",
+      "depends_on": [
+        "B30"
+      ],
+      "scope": "Rotating blade/cone/chute, dual-drive/slew/lube, VFD/modes, KF-3/4, FG-13/14 and local dust/services.",
+      "exit_check": "Mode-specific conditions and actual dual-drive arrangement visible.",
+      "status": "implemented_with_source_qualifications",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B31/checkpoint.md",
+      "accepted_version": 527,
+      "completed_date": "2026-09-20",
+      "report": "COAL_BLENDING_SILO_PILOT_REPORT.md"
+    },
+    {
+      "id": "B32",
+      "section": "P11",
+      "title": "Crusher-house routes and screen identities",
+      "depends_on": [
+        "B31"
+      ],
+      "scope": "UEE-3, EBD-5/6, FG-15A/B, undersize/direct bypass and EBC interfaces; record control p5 tag conflict.",
+      "exit_check": "No EBD-1/2 merge; three distinct paths preserved.",
+      "status": "implemented_with_source_qualifications",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B32/checkpoint.md",
+      "accepted_version": 558,
+      "completed_date": "2026-09-29",
+      "report": "CRUSHER_HOUSE_PILOT_REPORT.md"
+    },
+    {
+      "id": "B33",
+      "section": "P11",
+      "title": "EBC-1/2 detailed crusher assemblies",
+      "depends_on": [
+        "B32"
+      ],
+      "scope": "Rotor/casing/doors/bearings/drive/scoop oil/hydraulic/vibration/lifting, crusher-specific controls.",
+      "exit_check": "Correct action target and crusher start sequence, not conveyor assumptions.",
+      "status": "implemented_with_source_qualifications",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B33/checkpoint.md",
+      "accepted_version": 558,
+      "completed_date": "2026-09-29",
+      "report": "CRUSHER_HOUSE_PILOT_REPORT.md"
+    },
+    {
+      "id": "B34",
+      "section": "P11",
+      "title": "EBA-17A/B and KF-1/2 mechanical detail",
+      "depends_on": [
+        "B32"
+      ],
+      "scope": "Conveyor 17 trees, feeder drives, FG-15/16 outlets, CV-5/6 and discharge interfaces.",
+      "exit_check": "Bypass and crushed/undersize feed share proper collection feeder.",
+      "status": "implemented_with_source_qualifications",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B34/checkpoint.md",
+      "accepted_version": 558,
+      "completed_date": "2026-09-29",
+      "report": "CRUSHER_HOUSE_PILOT_REPORT.md"
+    },
+    {
+      "id": "B35",
+      "section": "P11",
+      "title": "Crusher-house dust extraction and utilities",
+      "depends_on": [
+        "B33",
+        "B34",
+        "B02",
+        "B04"
+      ],
+      "scope": "Local DE pickup/duct/filter/fan/airlock/control, source-specific DFDS or water branches, access.",
+      "exit_check": "No Rihand dust-system substitution; common air/power boundaries explicit.",
+      "status": "implemented_with_source_qualifications",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B35/checkpoint.md",
+      "accepted_version": 558,
+      "completed_date": "2026-09-29",
+      "report": "CRUSHER_HOUSE_PILOT_REPORT.md"
+    },
+    {
+      "id": "B36",
+      "section": "P12",
+      "title": "EBA-18A/B and UEF-13",
+      "depends_on": [
+        "B35",
+        "B02",
+        "B04"
+      ],
+      "scope": "Conveyor 18 trees, QB-3/4, EAT-3/4, FG-17/18, TP13 local dust/drainage and downstream handoff.",
+      "exit_check": "Selected stream and measurement/control applicability checked.",
+      "status": "complete_with_gaps",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B36/checkpoint.md",
+      "accepted_version": 592,
+      "completed_date": "2026-10-01",
+      "report": "B36_CONVEYOR18_TP13_REPORT.md",
+      "dependency_resolution": "Relevant local B02 DFDS, B03 service/potable water and B04 drainage boundaries resolved or qualified in B36/boundaries.json. Global service batches remain unfinished; B37 sampling/access excluded.",
+      "correction_version": 593,
+      "correction_checkpoint": "output/plant-enrichment/B36-corrections/checkpoint.md"
+    },
+    {
+      "id": "B37",
+      "section": "P12",
+      "title": "Sampling2 and TP13 access",
+      "depends_on": [
+        "B36"
+      ],
+      "scope": "EAU-2/sampling branch, bias/reject slide gate, collector, elevator/SNC-2 identity and local place.",
+      "exit_check": "Open/closed gate return destination verified; no duplicated elevator.",
+      "status": "not_started",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B37/checkpoint.md"
+    },
+    {
+      "id": "B38",
+      "section": "P13",
+      "title": "EBA-19A/B base assemblies",
+      "depends_on": [
+        "B36"
+      ],
+      "scope": "Conveyor 19 drive/mechanical/protection, owned trippers, place interfaces, sealing-belt boundaries.",
+      "exit_check": "Two conveyor identities with correct TT ownership.",
+      "status": "not_started",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B38/checkpoint.md"
+    },
+    {
+      "id": "B39",
+      "section": "P13",
+      "title": "TT-1/3 Unit 1 tripper assemblies",
+      "depends_on": [
+        "B38"
+      ],
+      "scope": "First travel-range/handed arrangement, drive/clamps/limits/overspeed/chute/control/cable assembly.",
+      "exit_check": "Unit/stream context and actual local control remain explicit.",
+      "status": "not_started",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B39/checkpoint.md"
+    },
+    {
+      "id": "B40",
+      "section": "P13",
+      "title": "TT-2/4 Unit 2 tripper assemblies",
+      "depends_on": [
+        "B39"
+      ],
+      "scope": "Other travel range and unit-specific differences; head-end and cross-unit provision review.",
+      "exit_check": "No all-trippers-to-all-bunkers shortcut.",
+      "status": "not_started",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B40/checkpoint.md"
+    },
+    {
+      "id": "B41",
+      "section": "P14",
+      "title": "Both bunker bays and 12 vessels",
+      "depends_on": [
+        "B40"
+      ],
+      "scope": "Aâ€“F identities, design sizing applicability, liners/inlet/level/outlet interfaces and last-bunker mapping.",
+      "exit_check": "Design247 t/h/4 active/2 standby case not presented as live state.",
+      "status": "not_started",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B41/checkpoint.md"
+    },
+    {
+      "id": "B42",
+      "section": "P14",
+      "title": "Bunker DE and local service integration",
+      "depends_on": [
+        "B41",
+        "B02"
+      ],
+      "scope": "Bunker pickup/sealing/duct/filter/fan/pulse air and control; shared supplies.",
+      "exit_check": "Every bunker can reach the supported local service and own source.",
+      "status": "not_started",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B42/checkpoint.md"
+    },
+    {
+      "id": "B43",
+      "section": "P15",
+      "title": "Electrical and control supply mapping",
+      "depends_on": [
+        "B01",
+        "B31",
+        "B35",
+        "B42"
+      ],
+      "scope": "SLD/MCC/feeder/starter/VFD evidence, I/O references, control-room boundaries and electrical-layer UI if needed.",
+      "exit_check": "Actual documented electrical edges; voltage alone never implies supply or isolation.",
+      "status": "not_started",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B43/checkpoint.md"
+    },
+    {
+      "id": "B44",
+      "section": "P15",
+      "title": "Fire, HVAC, access and maintenance infrastructure",
+      "depends_on": [
+        "B16",
+        "B42"
+      ],
+      "scope": "Plant-specific fire evidence, HVAC, hoists/elevators, workshop/mobile equipment and remaining common-service records.",
+      "exit_check": "No invented maintenance intervals, fire cause-effect or certification.",
+      "status": "not_started",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B44/checkpoint.md"
+    },
+    {
+      "id": "B45",
+      "section": "P00",
+      "title": "Unplaced-record and reference disposition closure",
+      "depends_on": [
+        "B08",
+        "B11",
+        "B19",
+        "B22",
+        "B25",
+        "B37",
+        "B43",
+        "B44"
+      ],
+      "scope": "Review all remaining queue records; assign/reclassify/qualify/reuse or retain explicit unresolved reference status.",
+      "exit_check": "No silently orphaned accepted additions; every baseline record has disposition.",
+      "status": "not_started",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B45/checkpoint.md"
+    },
+    {
+      "id": "B46",
+      "section": "P15",
+      "title": "Whole-plant navigation and evidence release review",
+      "depends_on": [
+        "B45"
+      ],
+      "scope": "Cross-section journeys, all 30conveyors/12TPs/4yards/silos/crushers/TTs/bunkers, shared networks and source-return UX.",
+      "exit_check": "All gates G1â€“G8; completed, qualified and deferred scopes reported separately.",
+      "status": "not_started",
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "checkpoint": "output/plant-enrichment/B46/checkpoint.md"
+    }
+  ],
+  "continuation_plan": "docs/plant-handoff/FIVE_PHASE_PLAN.md",
+  "phase_progress": "docs/plant-handoff/phase-progress.json"
+}

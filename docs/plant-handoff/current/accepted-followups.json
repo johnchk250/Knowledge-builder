@@ -1,0 +1,74 @@
+[
+  {
+    "id": "ent_8e70146c054347e69453",
+    "label": "TP-16",
+    "accepted_batch": "B00",
+    "own_fact_count": 3,
+    "direct_children": 0,
+    "followup_batch": "B45",
+    "disposition": "Review original sources and accepted scope; count alone does not prove missing parts."
+  },
+  {
+    "id": "ent_d84fa7d426944acbbfb2",
+    "label": "TP-17",
+    "accepted_batch": "B00",
+    "own_fact_count": 3,
+    "direct_children": 0,
+    "followup_batch": "B45",
+    "disposition": "Review original sources and accepted scope; count alone does not prove missing parts."
+  },
+  {
+    "id": "ent_15e37c80094c42a2b83d",
+    "label": "TP-18",
+    "accepted_batch": "B00",
+    "own_fact_count": 3,
+    "direct_children": 0,
+    "followup_batch": "B45",
+    "disposition": "Review original sources and accepted scope; count alone does not prove missing parts."
+  },
+  {
+    "id": "ent_56e7a3ed39ed44749525",
+    "label": "UEF-2",
+    "accepted_batch": "B00",
+    "own_fact_count": 4,
+    "direct_children": 0,
+    "followup_batch": "B45",
+    "disposition": "Review original sources and accepted scope; count alone does not prove missing parts."
+  },
+  {
+    "id": "ent_e9e1a311b1444d208b3f",
+    "label": "CV-5",
+    "accepted_batch": "B34",
+    "own_fact_count": 5,
+    "direct_children": 0,
+    "followup_batch": "B45",
+    "disposition": "Review original sources and accepted scope; count alone does not prove missing parts."
+  },
+  {
+    "id": "ent_504e690e195f449ba83d",
+    "label": "CV-6",
+    "accepted_batch": "B34",
+    "own_fact_count": 5,
+    "direct_children": 0,
+    "followup_batch": "B45",
+    "disposition": "Review original sources and accepted scope; count alone does not prove missing parts."
+  },
+  {
+    "id": "ent_a716de013647437b96ec",
+    "label": "FG-15A",
+    "accepted_batch": "B32",
+    "own_fact_count": 12,
+    "direct_children": 0,
+    "followup_batch": "B45",
+    "disposition": "Review original sources and accepted scope; count alone does not prove missing parts."
+  },
+  {
+    "id": "ent_42d0dccdd5d9430ab212",
+    "label": "FG-15B",
+    "accepted_batch": "B32",
+    "own_fact_count": 12,
+    "direct_children": 0,
+    "followup_batch": "B45",
+    "disposition": "Review original sources and accepted scope; count alone does not prove missing parts."
+  }
+]

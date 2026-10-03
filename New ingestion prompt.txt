@@ -1,0 +1,512 @@
+Start the maximum-accuracy triple-review operations ingestion workflow.
+
+SOURCE_FOLDER: <D:\Materials\CHP Drawing\01_CHP_Core\03_GPT_5.6_Sol>
+COMMIT_MODE: commit_reviewed
+
+Read and follow OPERATIONS_INGESTION_WORKFLOW.md and TRIPLE_MODEL_INGESTION_WORKFLOW.md in full.
+
+The source folder contains original source documents plus two challenger-review subfolders:
+- <SOURCE_FOLDER>\gemini
+- <SOURCE_FOLDER>\muse
+
+Treat gemini and muse strictly as challenger-output folders. Never ingest files inside those folders as original source documents.
+
+PRIMARY OBJECTIVE
+Produce the most complete source-supported operational/design knowledge ingestion possible without inventing plant state.
+
+Accuracy AND completeness are required.
+A conservative interpretation MUST NOT become an excuse for incomplete ingestion.
+
+CRITICAL DISTINCTION
+A document being:
+- FIO / For Information Only
+- AOC / Approved on Conditions
+- approved design
+- technical review sheet
+- GA drawing
+- calculation
+- specification
+- vendor engineering package
+
+does NOT mean its explicit engineering information should remain only as a source note.
+
+Such documents may contain valid structured:
+- equipment identities
+- classifications
+- design specifications
+- dimensional requirements
+- capacities
+- speeds
+- loads
+- clearances
+- access requirements
+- maintenance requirements
+- safety requirements
+- materials
+- component relationships
+- equipment membership/part-of relationships
+- documented connections
+- design topology
+- control/instrument requirements
+- review-approved requirements
+- calculation/design values
+
+Ingest those facts when explicitly supported, but qualify them correctly as design/specification/review/documented information rather than live/as-built/measured plant state.
+
+DO NOT equate:
+"not proven live/as-built"
+with:
+"do not ingest."
+
+SOURCE-FIRST LOCK — MANDATORY
+For every document:
+
+1. Locate the exact original source.
+
+2. Independently inspect the ORIGINAL SOURCE before reading Gemini or Muse conclusions.
+
+3. Create/freeze your own source-first candidate interpretation before opening challenger findings.
+
+Your source-first candidate list must include, where present:
+- equipment identities and tags
+- subsystem identities
+- part-of relationships
+- explicit material/process/mechanical/electrical/control/utility connections
+- upstream/downstream and driving/driven relationships
+- ports/endpoints
+- continuation references
+- operating/design conditions
+- capacities
+- powers
+- speeds
+- dimensions
+- clearances
+- weights/loads
+- pulley/idler/belt/rope/sheave data
+- equipment schedules
+- maintenance/handling requirements
+- access/headroom/walkway requirements
+- guards and safety provisions
+- monorails/hoists/lifting arrangements
+- instrumentation/switches/sensors
+- chute/flow-divider arrangements
+- review-mandated revisions
+- approved calculations
+- explicit numerical constraints
+- drawing revision/applicability information
+- unresolved ambiguities
+
+Do not let Gemini, Muse, previous model contents, filenames, previous intake decisions or earlier summaries bias this initial interpretation.
+
+DENSE DRAWING REQUIREMENT
+Dense engineering drawings must receive deep visual inspection at sufficient resolution.
+
+Do not rely only on extracted text/OCR/title blocks.
+
+Inspect:
+- plan views
+- elevations
+- sections
+- enlarged details
+- schedules
+- technical-specification tables
+- notes
+- BOMs
+- legends
+- load tables
+- equipment callouts
+- dimensions
+- revision clouds/triangles
+- routing
+- interfaces
+- small detail drawings
+- multi-sheet relationships
+
+If necessary, render and inspect individual pages/crops.
+
+A visually dense document MUST NOT be routed to superficial reference-only ingestion merely because detailed extraction is time-consuming.
+
+MULTI-DOCUMENT / VENDOR PACKAGE REQUIREMENT
+For large packages containing several equipment-specific drawings, calculations or catalog sections:
+
+Do not treat the outer filename as the equipment identity.
+
+Inspect the internal sheets.
+
+If internal sheets explicitly identify separate plant equipment such as BC-01, BC-02, BC-03, pumps, drives, chutes, samplers, gearboxes, etc., reconcile those identities individually.
+
+Separate:
+A) project/equipment-specific engineering data
+from
+B) generic vendor catalog/reference data.
+
+Generic catalog capability must not become a plant-specific fact unless applicability is explicit.
+
+However, equipment-specific GA/specification/calculation data inside the same package must not be discarded merely because generic catalog pages are also present.
+
+CHALLENGER REVIEW
+Only after freezing your own source-first interpretation:
+
+4. Locate the corresponding Gemini and Muse reviews.
+
+Use:
+- source_manifest.json
+- review_jobs.json
+- document keys
+- source-relative paths
+- SHA-256 hashes
+
+to establish exact correspondence.
+
+5. Validate each challenger review against the exact source:
+- source hash
+- document identity
+- declared coverage
+- cited pages/regions
+- review structure
+
+Do not match reviews merely by similar filenames.
+
+6. Compare your independent interpretation, Gemini and Muse candidate-by-candidate.
+
+7. Investigate EVERY material:
+- disagreement
+- omission
+- minority finding
+- numerical difference
+- identity mismatch
+- topology difference
+- applicability difference
+
+against the original source.
+
+Challenger consensus is not proof.
+
+A source-supported finding may be accepted even if neither challenger found it.
+
+An unsupported finding must be rejected even if both challengers agree.
+If challengers disagree, do your own source review to finalize the facts
+
+CURRENT MODEL RECONCILIATION
+Only after the independent source review and challenger adjudication:
+
+8. Reconcile candidates against the actual current plant model.
+
+Check narrowly for:
+- canonical equipment identity
+- aliases
+- duplicate identities
+- existing assertions
+- existing specifications
+- current accepted topology
+- revision conflicts
+- applicability
+- previous source coverage
+- operational history
+
+DUPLICATE-AVOIDANCE RULE — CRITICAL
+Existing equipment identity is NOT a reason to suppress new facts.
+
+If the entity already exists:
+- reuse/reconcile the canonical entity;
+- add new non-duplicative source-supported properties/relationships to it.
+
+Duplicate avoidance applies to duplicate IDENTITIES and duplicate ASSERTIONS.
+
+It must NEVER mean:
+"the entity already exists, therefore ingest nothing."
+
+If the source provides a new specification, constraint, design requirement, relationship or review-qualified fact that is not already represented, ingest it.
+
+ROUTING POLICY
+9. Choose reference, register, network, operations or mixed FACT-BY-FACT according to source content.
+
+Do not route an entire document to "reference" merely because:
+- it is FIO;
+- it is a review sheet;
+- it is a GA;
+- it contains design data;
+- it contains calculations;
+- current installation is not verified;
+- some pages are generic vendor literature.
+
+A document may legitimately be MIXED:
+- structured design/specification facts
+plus
+- reference-only catalog/history material.
+
+SOURCE-NOTE RULE
+source_note is useful for:
+- document context
+- unresolved review history
+- caveats
+- document-control inconsistencies
+- information unsuitable for ontology
+
+But source_note MUST NOT substitute for structured ingestion of explicit operationally useful facts.
+
+Before accepting a source-note-only document, explicitly answer:
+
+"What concrete equipment identities, relationships, numerical values, requirements, schedules or constraints exist in this source that could safely be represented as qualified structured facts?"
+
+If the answer is non-empty, source-note-only ingestion is incomplete.
+
+NUMERIC / REQUIREMENT EXTRACTION GATE
+For every reviewed document, actively search for explicit:
+- capacities
+- powers
+- speeds
+- belt widths
+- diameters
+- lengths
+- heights
+- headrooms
+- clearances
+- walkway widths
+- weights
+- load values
+- idler spacing
+- pulley dimensions
+- chute angles
+- safety distances
+- tank capacities
+- hoist capacities
+- motor ratings
+- design margins
+- structural/mechanical requirements
+- quantities/counts
+- material grades
+- sensor/switch requirements
+
+Do not leave an explicit operationally useful numerical requirement buried only inside a source note unless the ontology genuinely cannot represent it safely.
+
+REVIEW COMMENT HANDLING
+For TCS/review packages distinguish carefully between:
+- reviewer request only
+- contractor reply
+- revised/incorporated/confirmed design
+- unresolved request
+- rejected proposal
+- historical superseded value
+
+Do not blindly ingest every reviewer comment as a final specification.
+
+Where the source explicitly records that a requirement was:
+- incorporated
+- revised
+- provided
+- confirmed
+- maintained
+- shown in drawing
+- accepted
+
+it may be promoted as qualified design/review evidence when appropriate.
+
+Where status remains unresolved, preserve it as review history/gap rather than a final fact.
+
+LIVE STATE PROTECTION
+Never convert design/review/specification evidence into:
+- current measurement
+- current equipment condition
+- current availability
+- current operating state
+- current alignment
+- current wear
+- current switch health
+- current gate position
+- current live flow
+
+unless the source actually establishes that state.
+
+Use explicit context such as:
+- specification
+- classification
+- documented connection
+- approved design
+- review requirement
+- calculation/design basis
+
+as supported by the ingestion schema.
+
+EVIDENCE
+10. Register/preserve original source evidence as required.
+
+Map challenger citations to actual registered:
+- evidence IDs
+- quotes
+- pages
+- visual regions
+
+Never copy fabricated or unverifiable challenger references.
+
+Every structured claim must be traceable to source evidence.
+
+INTAKE CONTRACT
+11. Produce one authoritative current-model reconciliation for each document using:
+
+summary
++ operations
++ intake_assessment
+
+Every structured claim must satisfy current:
+- provenance
+- context
+- network
+- unit
+- time
+- applicability
+- evidence
+
+rules.
+
+MANDATORY COMPLETENESS AUDIT BEFORE VALIDATION
+Before staging any document, perform an explicit omission audit.
+
+Compare:
+A) everything operationally/design-relevant found during source-first review
+B) challenger-supported findings
+C) proposed structured operations
+D) facts already present in the current model
+E) facts intentionally left reference-only
+
+For every candidate finding, it must end in exactly one disposition:
+
+1. already represented in current model
+2. accepted into this proposal
+3. rejected as unsupported
+4. intentionally reference-only, with reason
+5. unresolved gap, with reason
+
+NO candidate may silently disappear.
+
+Before commit, explicitly verify:
+
+- Did I ingest every explicit equipment identity that is safe to identify?
+- Did I reconcile rather than duplicate existing entities?
+- Did I add new facts to existing entities where appropriate?
+- Did I inspect technical-specification tables?
+- Did I inspect schedules?
+- Did I inspect numerical design values?
+- Did I inspect review replies, not just reviewer comments?
+- Did I inspect each internal equipment-specific sheet of large packages?
+- Did I distinguish generic vendor catalog data from project-specific data?
+- Did I accidentally use "FIO", "AOC", "design", or "not as-built" as a reason to suppress valid specifications?
+- Is any operationally useful explicit fact present only in source_note when it could safely be structured?
+- Is any zero-operation or source-note-only result genuinely justified?
+
+If any answer indicates possible omission, STOP and rereview the source before commit.
+
+ZERO-OPERATION / REFERENCE-ONLY SAFETY GATE
+A document with zero structured operations or only source notes is HIGH RISK.
+
+Before accepting such an intake, perform a second independent source inspection and document why:
+- no new identity,
+- no new specification,
+- no new relationship,
+- no new design constraint,
+- no new operationally useful structured fact
+
+can safely be added.
+
+For dense engineering drawings, calculations, GA packages, schedules or review packages, zero structured operations should be exceptional.
+
+VERSION RECONCILIATION
+12. Reconcile against the actual current model version immediately before staging.
+
+If plant state changed during review:
+- refresh the relevant model comparison;
+- do not merely update expected-version.
+
+VALIDATION
+13. Validate every proposal through the normal CHP validators.
+
+Never bypass:
+- chp.reviewed_ingestion.stage
+- policy checks
+- patches.validate
+- evidence/visual checks
+
+COMMIT
+14. Gemini and Muse never authorize database operations.
+
+COMMIT_MODE: commit_reviewed
+
+Commit only after YOU have personally completed:
+- independent source review
+- challenger adjudication
+- current-model reconciliation
+- completeness/omission audit
+- validator checks
+
+Never commit merely because Gemini and Muse agree.
+
+POST-COMMIT STATE CHECK — MANDATORY
+After EACH individual commit:
+
+Run the normal plant-state check.
+
+Require:
+- pending proposals = 0
+- active conflicts = 0
+
+Do not continue to the next document while the model is dirty or conflicted.
+
+If the commit changed canonical identities or ontology relevant to subsequent documents, use the updated model state for later reconciliation.
+
+PROCESSED-FOLDER REQUIREMENT
+After a document has been successfully:
+- independently reviewed
+- challenger-adjudicated
+- reconciled
+- validated
+- committed
+- clean-state verified
+
+move/archive the ORIGINAL source document into the workflow's required processed folder according to the repository workflow.
+
+Do not leave successfully processed originals in the incoming source folder.
+
+Do not move:
+- blocked documents
+- unresolved documents
+- challenger files
+
+into the normal processed-original location unless the workflow explicitly requires it.
+
+Verify the move actually occurred.
+
+CONTINUATION
+15. Continue document-by-document until all supplied originals are processed unless a genuine ambiguity prevents safe ingestion.
+
+Do not stop merely because a document is difficult, dense, image-heavy, large, or contains mixed vendor/design material.
+
+Report genuine blockers precisely rather than guessing.
+
+COMPLETION REPORT
+At completion report, for every document:
+
+- source independently reviewed: yes/no
+- challenger correspondence validated: Gemini/Muse status
+- selected intake route
+- number/type of structured facts accepted
+- major accepted challenger findings
+- major rejected challenger findings
+- important source-only findings missed by challengers
+- facts intentionally left reference-only and why
+- unresolved gaps
+- validation result
+- commit version/result
+- post-commit pending/conflict state
+- processed-folder move verified
+
+Also report:
+- starting model version
+- ending model version
+- total documents processed
+- documents with zero structured operations and explicit justification
+- blocked/skipped documents
+- processed-folder count/status
+
+Begin immediately from SOURCE_FOLDER.
+
+Do not launch Gemini or Muse again, if their review isn't sufficient, do your own source review only, don't start challengers.
