@@ -3,10 +3,14 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from triple_model_session.build_precomputed_challenger_package import build
-from triple_model_session.validate_precomputed_challengers import validate_package
+try:
+    from triple_model_session.build_precomputed_challenger_package import build
+    from triple_model_session.validate_precomputed_challengers import validate_package
+except ModuleNotFoundError:  # triple_model_session/ is a gitignored local workspace
+    build = validate_package = None
 
 
+@unittest.skipIf(build is None, "triple_model_session workspace not present")
 class PrecomputedChallengerTests(unittest.TestCase):
     def review(self, job, reviewer):
         return {
