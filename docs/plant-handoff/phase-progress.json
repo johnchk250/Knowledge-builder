@@ -9,14 +9,14 @@
   "breadth_policy": "docs/plant-handoff/FIVE_PHASE_PLAN.md#execution-mode-breadth-first-from-v628",
   "depth_queue": "docs/plant-handoff/current/depth-queue.json",
   "active_phase": "phase-3",
-  "next_batch": "B15",
-  "next_action": "B15/B16 Pass A: current Yard1 identity/boundary recheck against B03/B04/B13, numbered-machine applicability matrix and source-return journeys only. Preserve accepted pilot depth; queue residual details. Then advance immediately to B17 Yard2 conveyors and place structure using its own principal sources.",
+  "next_batch": "B16",
+  "next_action": "B16 PassA: finish local SPDS/runoff source-return and EAC7/EBA8 boundary journeys; zero/one correction only. Then B17 own-source Yard2 conveyor/place work.",
   "plan": "docs/plant-handoff/FIVE_PHASE_PLAN.md",
   "current_inventory": "docs/plant-handoff/current/CURRENT_STATUS.md",
   "last_completed_work": {
-    "scope": "B14 Tier1 accepted v658-v661: 55 major components, 289 assertions and 11 retired aggregate/duplicate-owner or generic-instance facts. Conveyor6 main assemblies, TP7 gate actuators/chutes, three hoists, access/drain/tank, local DFDS and CV1/2 analyser assemblies. Exact6A-toEBB2 and6B-toEBB1 retained.",
+    "scope": "B15 Tier1 boundary review complete atv661 with zero canonical changes. Yard1 machine identities and B13 inlet/FG10 outlet boundaries pass; numbered-machine applicability matrix records qualified common design and per-unit exclusions.",
     "version": 661,
-    "checkpoint": "output/plant-enrichment/B14/checkpoint.md"
+    "checkpoint": "output/plant-enrichment/B15/checkpoint.md"
   },
   "accepted_reuse_batches": [
     "B30",
@@ -148,12 +148,14 @@
         "B29"
       ],
       "completed_batches": [],
-      "current_batch": "B15",
+      "current_batch": "B16",
       "baseline_version": 661,
       "latest_version": 661,
-      "checkpoint": "output/plant-enrichment/B15/checkpoint.md",
+      "checkpoint": "output/plant-enrichment/B16/checkpoint.md",
       "open_evidence_gaps": [],
-      "breadth_complete_batches": []
+      "breadth_complete_batches": [
+        "B15"
+      ]
     },
     {
       "id": "phase-4",
@@ -583,6 +585,16 @@
       "status": "breadth_complete",
       "verification": "55/55 new components drawn/selectable; four original crop/source-return checks (175016p4 at390x844,175039p1,175292p2,175330p1).28 route/integrity checks,52 Node tests,proposal preservation and both pilot audits pass. Silo projection follows chute interfaces without duplicate inlet conveyors; browser confirms four correct inlet belts.",
       "milestone": "B14 Tier1 accepted v658-v661: 55 major components, 289 assertions and 11 retired aggregate/duplicate-owner or generic-instance facts. Conveyor6 main assemblies, TP7 gate actuators/chutes, three hoists, access/drain/tank, local DFDS and CV1/2 analyser assemblies. Exact6A-toEBB2 and6B-toEBB1 retained."
+    },
+    {
+      "date": "2026-10-04",
+      "batch": "B15",
+      "versions": [
+        661
+      ],
+      "status": "breadth_complete",
+      "verification": "Current Yard1 semantic audit passes:413 records,1959 active claims with resolvable evidence. Stacker and portal-reclaimer major scenes and two crop/source-return journeys pass. No historical migration-preservation claim from this semantic audit.",
+      "milestone": "B15 Tier1 boundary review complete atv661 with zero canonical changes. Yard1 machine identities and B13 inlet/FG10 outlet boundaries pass; numbered-machine applicability matrix records qualified common design and per-unit exclusions."
     }
   ],
   "accepted_followup_queue": "docs/plant-handoff/current/accepted-followups.json",

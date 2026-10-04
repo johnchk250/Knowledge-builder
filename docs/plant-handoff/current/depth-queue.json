@@ -225,6 +225,15 @@
       "source": "doc_740734a151bd4c00b655 pp1-5;doc_b5c8e30f4e3d475b8cf2;doc_c29985298e9c4a338bbb",
       "priority": "P2",
       "status": "open"
+    },
+    {
+      "id": "DQ-B15-001",
+      "batch": "B15",
+      "target": "EAD1/EAF1 and machine family",
+      "missing": "Safety/interlock,storm anchor,rail clamp,lube/fire detailed references and commissioned settings. Later-yard unit-specific sources must be reviewed before reuse.",
+      "source": "Yard1 source-manifest;current/yard-machine-applicability.md",
+      "priority": "P2",
+      "status": "open"
     }
   ]
 }
