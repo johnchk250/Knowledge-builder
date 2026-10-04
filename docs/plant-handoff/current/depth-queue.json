@@ -153,6 +153,15 @@
       "source": "doc_883418b36ea44369adbe pp1-5;doc_bca09d68af9b43e3b633 p1",
       "priority": "P2",
       "status": "open"
+    },
+    {
+      "id": "DQ-B11-001",
+      "batch": "B11",
+      "target": "ent_037e08c0c8134297a954 and EAU1 units",
+      "missing": "Resolve GA/control drive ratings and BSS disagreement, screw capacity and gate actuator alternatives; control21 endpoint/interlock labels. Detailed timers,protection logic and vendor internals remain deferred.",
+      "source": "doc_404c8747ba8047ab8f12 pp1,3-8,10-11;doc_4f2cd96c3b1e413ea4b5 pp19-21; sampling calculation source retained on system",
+      "priority": "P1",
+      "status": "open"
     }
   ]
 }

@@ -278,7 +278,7 @@
       ],
       "scope": "EAU-1/UEF-3 primary/secondary sampler, feeder, crusher, collector, reject/bias path and controls.",
       "exit_check": "Sample vs main material routes and return-conveyor conditions verified.",
-      "status": "in_progress",
+      "status": "breadth_complete",
       "gates": [
         "G1",
         "G2",
@@ -290,7 +290,8 @@
         "G8"
       ],
       "checkpoint": "output/plant-enrichment/B11/checkpoint.md",
-      "baseline_version": 647
+      "baseline_version": 647,
+      "latest_version": 649
     },
     {
       "id": "B12",
@@ -303,7 +304,7 @@
       ],
       "scope": "Conveyor 4 trees, FTR-1/2 and FD-3/4 fixed-tripper diversion to Yard 3, local TP4 services.",
       "exit_check": "Through-flow on same belt is not shown as recycle.",
-      "status": "not_started",
+      "status": "in_progress",
       "gates": [
         "G1",
         "G2",
@@ -314,7 +315,8 @@
         "G7",
         "G8"
       ],
-      "checkpoint": "output/plant-enrichment/B12/checkpoint.md"
+      "checkpoint": "output/plant-enrichment/B12/checkpoint.md",
+      "baseline_version": 649
     },
     {
       "id": "B13",

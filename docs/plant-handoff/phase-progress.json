@@ -2,21 +2,21 @@
   "schema_version": 1,
   "updated_date": "2026-10-04",
   "baseline_version": 593,
-  "latest_verified_version": 647,
+  "latest_verified_version": 649,
   "status": "in_progress",
   "execution_mode": "breadth_first",
   "pass": "A",
   "breadth_policy": "docs/plant-handoff/FIVE_PHASE_PLAN.md#execution-mode-breadth-first-from-v628",
   "depth_queue": "docs/plant-handoff/current/depth-queue.json",
   "active_phase": "phase-2",
-  "next_batch": "B11",
-  "next_action": "B11 Pass A: review175072 sampling GA doc_404c8747ba8047ab8f12 principal pp1-8 and control175001 pp19-21. Reuse canonical UEF3 sampling system and nine EAU1 components; remove redundant plant owner if source-confirmed. Complete major drive/chute/protection groups and exact sample,bias,reject-return paths; no vendor internals.",
+  "next_batch": "B12",
+  "next_action": "B12 Pass A: review conveyor4A/B GA doc_a02d56b879734b5db189 and TP4 GA doc_9bd6e66e9fbb43468184. Reuse FTR1/2 and FD3/4; add major belt/drive/protection assemblies and TP4 local services. Preserve fixed-tripper through-flow on the same EAC4 belt and conditional Yard3/EAC11 diversion; distinguish TP5 head interfaces.",
   "plan": "docs/plant-handoff/FIVE_PHASE_PLAN.md",
   "current_inventory": "docs/plant-handoff/current/CURRENT_STATUS.md",
   "last_completed_work": {
-    "scope": "B10 Tier1 accepted v645-v647:63 major components,287 assertions and4 retired aggregate route edges. Both conveyor3 main assemblies,TP3 divider/selector chutes,7 hoists,access,potable tank and18 DFDS local components connected to System1. Sampling remains B11.",
-    "version": 647,
-    "checkpoint": "output/plant-enrichment/B10/checkpoint.md"
+    "scope": "B11 Tier1 accepted v648-v649:25 major sampling assemblies,135 new assertions and1 redundant plant owner retired. Existing system and9 EAU1 units reused. Eight drives,seven process assembly groups,nine chutes andone PLC/protection group. Sample,bias and reject-return routes stay separate from main coal.",
+    "version": 649,
+    "checkpoint": "output/plant-enrichment/B11/checkpoint.md"
   },
   "accepted_reuse_batches": [
     "B30",
@@ -98,15 +98,20 @@
         "B14"
       ],
       "completed_batches": [],
-      "current_batch": "B11",
+      "current_batch": "B12",
       "baseline_version": 635,
-      "latest_version": 647,
-      "checkpoint": "output/plant-enrichment/B11/checkpoint.md",
+      "latest_version": 649,
+      "checkpoint": "output/plant-enrichment/B12/checkpoint.md",
       "open_evidence_gaps": [
         {
           "scope": "UEE1 local utility routing labels",
           "owner": "B09",
           "disposition": "Three principal source packages plus one corrective proposal (4 total): v643 corrected800mm access clearance transcription, not a new depth expansion. Utility175287 incoming Pump House2 label conflicts with accepted DFDS1/UGA1 assignment; common system serves UEE1 remains, but no new cross-system physical pipe is asserted. SW/PW local branch extensions are explicitly inferred/unverified. PRU8A/10A and duplicated3B outlet labels stay qualified. Internals/settings deferred."
+        },
+        {
+          "scope": "Sampling1 source disagreements",
+          "owner": "B11",
+          "disposition": "GA/control motor disagreements,feeder BSS disagreement,screw3000/5100kg/h capacity and control21 reject labels are explicit qualifications. Physical reject destination4A/B is corroborated by GA and control20; gate closed-to4A/open-to4B comes from20. No source-implied upstream return or installed rating is invented. Common services remain atTP3; no unsupported sampler-specific dust branch."
         }
       ],
       "breadth_complete_batches": [
@@ -114,7 +119,8 @@
         "B07",
         "B08",
         "B09",
-        "B10"
+        "B10",
+        "B11"
       ]
     },
     {
@@ -524,6 +530,17 @@
       "status": "breadth_complete",
       "verification": "63/63 new major components drawn/selectable; original cropped-source/return checks for175013p2,175035p1 and175089p1;390x844 motor journey.16 positive/negative route checks,50 Node tests,integrity/FK,preservation and both pilot audits with reviewed conflict manifest pass. Transfer selector now follows divider-to-selector chains and exposes EAC4A/B alongside EAC13.",
       "milestone": "B10 Tier1 accepted v645-v647:63 major components,287 assertions and4 retired aggregate route edges. Both conveyor3 main assemblies,TP3 divider/selector chutes,7 hoists,access,potable tank and18 DFDS local components connected to System1. Sampling remains B11."
+    },
+    {
+      "date": "2026-10-04",
+      "batch": "B11",
+      "versions": [
+        648,
+        649
+      ],
+      "status": "breadth_complete",
+      "verification": "25/25 major components drawn/selectable; source/crop/return for175072p8 at390x844 and175001p19. Both3A/B inlets and4A/B returns visibly navigable.16 route checks and50 Node tests pass; fresh integrity/FK and exact preservation pass. Shared scene code unchanged inB11; B10 pilot audits remain applicable.",
+      "milestone": "B11 Tier1 accepted v648-v649:25 major sampling assemblies,135 new assertions and1 redundant plant owner retired. Existing system and9 EAU1 units reused. Eight drives,seven process assembly groups,nine chutes andone PLC/protection group. Sample,bias and reject-return routes stay separate from main coal."
     }
   ],
   "accepted_followup_queue": "docs/plant-handoff/current/accepted-followups.json",
