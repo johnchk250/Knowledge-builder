@@ -162,6 +162,24 @@
       "source": "doc_404c8747ba8047ab8f12 pp1,3-8,10-11;doc_4f2cd96c3b1e413ea4b5 pp19-21; sampling calculation source retained on system",
       "priority": "P1",
       "status": "open"
+    },
+    {
+      "id": "DQ-B12-001",
+      "batch": "B12",
+      "target": "ent_0318ac225b5a4a0f9349 / ent_b9df0d31870648d9ae39",
+      "missing": "Conveyor4 drive internals,protection settings and EBTF/EBTM brake model wording; fixed-tripper/divider detailed control.",
+      "source": "doc_a02d56b879734b5db189 pp3-4; existing power/brake calculation and control175001 pp27-29,36-43",
+      "priority": "P1",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B12-002",
+      "batch": "B12",
+      "target": "ent_560293ef23bd42ce8ff1",
+      "missing": "Hoist EH2 3.5/2.5t,tank250/300L,local drainage endpoint andSW/PW branches; nozzle/valve detail and hoist/civil certification.",
+      "source": "doc_9bd6e66e9fbb43468184 pp1-5;doc_492c079544304e2da177 pp1-3",
+      "priority": "P2",
+      "status": "open"
     }
   ]
 }

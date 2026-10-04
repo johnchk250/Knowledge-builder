@@ -76,3 +76,24 @@ test('primary screens use an assembly view while accepted secondary screens reta
     for(const e of entities.slice(1))assert.ok(html.includes('aria-label="Inspect '+e.label+'"'),e.label);
   }
 });
+
+test('fixed tripper renders same-belt continuation without a recycle arc and keeps local services',()=>{
+ const labels={tp:'UEF-4',a:'EAC-4A',b:'EAC-4B',t1:'FTR-1',t2:'FTR-2',g1:'KB-FD-3',g2:'KB-FD-4',yard:'EAC-11',water:'UEF-4 local water'};
+ const entities=Object.entries(labels).map(([id,label])=>({id,label,canonical_id:id,aliases:[]}));let n=0;const assertions=[];
+ const add=(s,p,o,value,context={kind:'classification'})=>assertions.push({id:'ft'+(++n),canonical_subject:s,canonical_object:o,predicate:p,value,origin:'explicit',context,evidence:[{evidence_id:'ev'}]});
+ for(const [id,t] of Object.entries({tp:'transfer_point',a:'belt_conveyor',b:'belt_conveyor',t1:'tripper',t2:'tripper',g1:'diverter_gate',g2:'diverter_gate',yard:'belt_conveyor',water:'utility_header'}))add(id,'instance_of',null,t);
+ add('water','part_of','tp');
+ for(const [belt,t,g] of [['a','t1','g1'],['b','t2','g2']]){
+  add(t,'part_of',belt);add(t,'located_at','tp');add(g,'part_of','tp');add(g,'located_at','tp');
+  for(const [a,b] of [[belt,t],[t,g],[g,belt],[g,'yard']])add(a,'material_flow_to',b,null,{kind:'connection',network:'material',verification:'documented',condition:b===belt?'Through-flow on same continuous belt':'Yard diversion'});
+ }
+ const projection=PE.build({version:652,entities,assertions});assert.equal(S.fixedTripperColumns(projection,'tp').length,2);
+ for(const narrow of [false,true])for(const mode of ['through','yard']){
+  const context=vm.createContext({PlantSceneModel:S,PlantExplorerModel:PE,URLSearchParams,location:{hash:'#overview?equipment=tp&fixedmode='+mode},window:{matchMedia:()=>({matches:narrow})},esc:s=>String(s)});
+  vm.runInContext(fs.readFileSync(require.resolve('../dist/plant-scene.js'),'utf8'),context);context.projection=projection;
+  const html=vm.runInContext('PlantScene.view(projection,{})',context);
+  for(const label of ['EAC-4A continues','EAC-4B continues','SAME CONTINUOUS BELT','UEF-4 local water','Fixed-tripper branch'])assert.ok(html.includes(label),label);
+  assert.equal((html.match(/aria-label="Inspect EAC-11"/g)||[]).length,2);
+  assert.ok(html.includes('ps-route-inactive'));
+ }
+});

@@ -351,6 +351,7 @@ const PlantScene=(()=>{
     return decor.join('')+edgeMarkup(edges,pos)+[...drawn.values()].map(d=>hotspot(d.n,d.x,d.y,d.w,d.h,{label:d.title})).join('');
   }
   function equipmentScene(){
+    if(s.kind==='transfer'&&M.fixedTripperColumns(p,s.id).length)return fixedTripperScene();
     if(s.kind==='transfer'&&M.transferColumns(p,s.id).length)return transferHouseScene();
     if(s.kind==='conveyor'&&s.nodes.some(n=>n.kind==='weigher'||n.kind==='detector'))return measuredConveyorScene();
     if(s.kind==='crusher-house')return crusherHouseScene();
@@ -443,6 +444,8 @@ const PlantScene=(()=>{
     return {columns,index,column,outlet:column?.outlets.includes(q().get('transferoutlet'))?q().get('transferoutlet'):column?.outlets[0]};
   }
   function transferRouteGuide(){
+    const fixed=M.fixedTripperColumns(p,s.id);
+    if(fixed.length&&q().get('scene')!=='connections')return `<div class="ps-crusher-guide"><nav aria-label="Fixed-tripper branch">${[['through','Same-belt continuation'],['yard','Yard diversion']].map(([key,name])=>`<a href="${safe(url({fixedmode:key,pick:null,edge:null}))}" ${(q().get('fixedmode')||'through')===key?'aria-current="true"':''}>${name}</a>`).join('')}</nav><small>Fixed trippers divert coal to the yard or pass it onward on the same continuous belt. The two views of each belt show its entry and continuation, not a return loop. Illustrative selection; partial splitting remains a documented alternative.</small>${fixed.map(c=>`<p>${safe(p.entities.get(c.inlet).label)} → ${safe(p.entities.get(c.tripper).label)} → ${safe(p.entities.get(c.gate).label)}${c.edges.filter(a=>a.canonical_subject===c.gate).map(a=>`<br>${safe(p.entities.get(a.canonical_object).label)}: ${safe(a.context?.condition||'Source-drawn branch')} ${source(a,'Route source ↗')}`).join('')}</p>`).join('')}</div>`;
     if(s.kind!=='transfer'||!M.transferColumns(p,s.id).length||q().get('scene')==='connections')return '';
     const v=transferSelection(),group=(title,items,key,sel)=>`<div><span>${title}</span><nav aria-label="${title}">${items.map(([id,name])=>`<a href="${safe(url({[key]:id,pick:null,edge:null}))}" ${String(id)===String(sel)?'aria-current="true"':''}>${safe(name)}</a>`).join('')}</nav></div>`;
     const selected=M.transferRoute(p,v.column,v.outlet).filter(a=>v.column?.gates.includes(a.canonical_subject));
@@ -483,6 +486,30 @@ const PlantScene=(()=>{
     s.width=narrow?550:1200;s.height=bottom+120+Math.ceil(other.length/(narrow?2:5))*205;s.initialHeight=870;
     if(narrow){decor.length=0;decor.push(`<rect x="25" y="180" width="225" height="620" rx="8" class="ps-building-frame"/>`,text(140,24,'SELECTED TRANSFER ROUTE','ps-zone-label'),`<path d="M40 410H235M40 640H235" class="ps-floor"/>`,text(275,bottom+25,'OTHER LOCATED EQUIPMENT & CONNECTIONS','ps-zone-label'));}
     return decor.join('')+`<g class="ps-route-inactive">${edgeMarkup(relevant.filter(a=>!keys.has(a.canonical_subject+'>'+a.canonical_object)),positions,routes)}</g>`+edgeMarkup(active,positions,routes)+[...drawn.values()].map(n=>hotspot(n.n,n.x,n.y,n.w,n.h,{label:n.title,max:n.w<=135?16:26})).join('');
+  }
+  function fixedTripperScene(){
+    const columns=M.fixedTripperColumns(p,s.id),positions=new Map(),drawn=new Map(),byId=new Map(s.nodes.map(n=>[n.id,n]));
+    const narrow=window.matchMedia('(max-width:760px)').matches,lanes=new Set(columns.flatMap(c=>[c.inlet,c.tripper,c.gate,...c.outlets]));
+    const put=(id,x,y,w=165,h=90,title)=>{const n=byId.get(id);if(n){positions.set(id,{x,y,w,h});drawn.set(id,{n,x,y,w,h,title});}};
+    const routes=new Map(),continuations=[],decor=[];
+    columns.forEach((c,i)=>{
+      const x=narrow?50:100+i*550,top=narrow?i*700:0;
+      put(c.inlet,x,top+55,180,90);put(c.tripper,x,top+210);put(c.gate,x,top+365);
+      continuations.push(hotspot(byId.get(c.inlet),x,top+535,180,90,{label:p.entities.get(c.inlet).label+' continues'}));
+      decor.push(text(x+90,top+25,'SAME CONTINUOUS BELT','ps-zone-label'),text(x+90,top+685,'ONWARD TO NEXT TRANSFER','ps-caption'));
+      c.outlets.filter(id=>id!==c.inlet).forEach((id,j)=>{put(id,x+250,top+530+j*140,180,90);continuations.push(hotspot(byId.get(id),x+250,top+530+j*140,180,90));drawn.delete(id);});
+      c.edges.forEach(a=>{
+        const f=positions.get(a.canonical_subject),t=a.canonical_object===c.inlet?{x,y:top+535,w:180}:positions.get(a.canonical_object);
+        if(f&&t)routes.set(a.canonical_subject+'>'+a.canonical_object,`M${f.x+f.w/2} ${f.y+f.h}L${t.x+t.w/2} ${t.y}`);
+      });
+    });
+    const base=narrow?columns.length*700:740,other=s.nodes.filter(n=>n.role!=='self'&&!lanes.has(n.id));
+    other.forEach((n,i)=>put(n.id,50+i%(narrow?2:5)*225,base+85+Math.floor(i/(narrow?2:5))*185));
+    decor.push(text(narrow?275:600,base+35,'LOCAL ASSEMBLIES & SHARED SERVICES','ps-zone-label'));
+    s.width=narrow?550:1200;s.height=base+170+Math.ceil(other.length/(narrow?2:5))*185;s.initialHeight=narrow?740:900;
+    const selected=[],inactive=[],yard=q().get('fixedmode')==='yard';
+    columns.forEach(c=>c.edges.forEach(a=>(a.canonical_subject!==c.gate||(a.canonical_object!==c.inlet)===yard?selected:inactive).push(a)));
+    return decor.join('')+`<g class="ps-route-inactive">${edgeMarkup(inactive,positions,routes)}</g>`+edgeMarkup(selected,positions,routes)+[...drawn.values()].map(n=>hotspot(n.n,n.x,n.y,n.w,n.h,{label:n.title})).join('')+continuations.join('');
   }
   function measuredConveyorScene(){
     const positions=new Map(),drawn=[],parts=s.nodes.filter(n=>n.role==='part'),self=s.nodes.find(n=>n.role==='self');

@@ -2,21 +2,21 @@
   "schema_version": 1,
   "updated_date": "2026-10-04",
   "baseline_version": 593,
-  "latest_verified_version": 649,
+  "latest_verified_version": 652,
   "status": "in_progress",
   "execution_mode": "breadth_first",
   "pass": "A",
   "breadth_policy": "docs/plant-handoff/FIVE_PHASE_PLAN.md#execution-mode-breadth-first-from-v628",
   "depth_queue": "docs/plant-handoff/current/depth-queue.json",
   "active_phase": "phase-2",
-  "next_batch": "B12",
-  "next_action": "B12 Pass A: review conveyor4A/B GA doc_a02d56b879734b5db189 and TP4 GA doc_9bd6e66e9fbb43468184. Reuse FTR1/2 and FD3/4; add major belt/drive/protection assemblies and TP4 local services. Preserve fixed-tripper through-flow on the same EAC4 belt and conditional Yard3/EAC11 diversion; distinguish TP5 head interfaces.",
+  "next_batch": "B13",
+  "next_action": "B13 Pass A: implement conveyor5A/B GA doc_b74a01e57a2b4792883c,TP5 doc_6d28742056e94651be04,TP6 doc_eadc432afcad400192d0 and local piping doc_e91d806d942243248e18/doc_f9f96af6a25e47179881. Preserve TP5 FD5/6 toYard2/EAC9 orFG3/4 to either5 lane; FTR3/4 andFD7/8 atTP6 toYard1/EAC7 orsame-belt continuation. Reuse existing identities and Yard1 pilot.",
   "plan": "docs/plant-handoff/FIVE_PHASE_PLAN.md",
   "current_inventory": "docs/plant-handoff/current/CURRENT_STATUS.md",
   "last_completed_work": {
-    "scope": "B11 Tier1 accepted v648-v649:25 major sampling assemblies,135 new assertions and1 redundant plant owner retired. Existing system and9 EAU1 units reused. Eight drives,seven process assembly groups,nine chutes andone PLC/protection group. Sample,bias and reject-return routes stay separate from main coal.",
-    "version": 649,
-    "checkpoint": "output/plant-enrichment/B11/checkpoint.md"
+    "scope": "B12 Tier1 accepted v650-v652:52 major components,272 assertions and6 retired aggregate/duplicate-owner facts. Both conveyor4 assembly trees,TP4 fixed-tripper/divider branches,4 hoists,access,tank,drain group andlocal DFDS groups.12 existing FAS/PRUs reused and placed underTP4.",
+    "version": 652,
+    "checkpoint": "output/plant-enrichment/B12/checkpoint.md"
   },
   "accepted_reuse_batches": [
     "B30",
@@ -98,10 +98,10 @@
         "B14"
       ],
       "completed_batches": [],
-      "current_batch": "B12",
+      "current_batch": "B13",
       "baseline_version": 635,
-      "latest_version": 649,
-      "checkpoint": "output/plant-enrichment/B12/checkpoint.md",
+      "latest_version": 652,
+      "checkpoint": "output/plant-enrichment/B13/checkpoint.md",
       "open_evidence_gaps": [
         {
           "scope": "UEE1 local utility routing labels",
@@ -120,7 +120,8 @@
         "B08",
         "B09",
         "B10",
-        "B11"
+        "B11",
+        "B12"
       ]
     },
     {
@@ -541,6 +542,18 @@
       "status": "breadth_complete",
       "verification": "25/25 major components drawn/selectable; source/crop/return for175072p8 at390x844 and175001p19. Both3A/B inlets and4A/B returns visibly navigable.16 route checks and50 Node tests pass; fresh integrity/FK and exact preservation pass. Shared scene code unchanged inB11; B10 pilot audits remain applicable.",
       "milestone": "B11 Tier1 accepted v648-v649:25 major sampling assemblies,135 new assertions and1 redundant plant owner retired. Existing system and9 EAU1 units reused. Eight drives,seven process assembly groups,nine chutes andone PLC/protection group. Sample,bias and reject-return routes stay separate from main coal."
+    },
+    {
+      "date": "2026-10-04",
+      "batch": "B12",
+      "versions": [
+        650,
+        651,
+        652
+      ],
+      "status": "breadth_complete",
+      "verification": "52/52 major additions drawn/selectable; three original crop/return journeys for175014p4,175036p1,175289p1 (390x844).18 route checks,51 Node tests,integrity/FK,preservation and both pilot audits pass. Fixed-tripper view shows entry and onward portions of the same belt,selected through/yard branches and local services.",
+      "milestone": "B12 Tier1 accepted v650-v652:52 major components,272 assertions and6 retired aggregate/duplicate-owner facts. Both conveyor4 assembly trees,TP4 fixed-tripper/divider branches,4 hoists,access,tank,drain group andlocal DFDS groups.12 existing FAS/PRUs reused and placed underTP4."
     }
   ],
   "accepted_followup_queue": "docs/plant-handoff/current/accepted-followups.json",

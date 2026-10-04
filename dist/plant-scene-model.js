@@ -227,5 +227,16 @@
     const route=new Set(column.paths.filter(x=>x.outlet===outlet).flatMap(x=>x.edges));
     return p.material.filter(a=>column.inlets.includes(a.canonical_subject)&&a.canonical_object===column.gate||route.has(a));
   }
-  return {kind,closestParents,breadcrumbs,scene,groupEdges,siloColumns,modeFacts,crusherColumns,crusherRoute,driveSymbol,areaEntry,transferColumns,transferRoute};
+  function fixedTripperColumns(p,id){
+    const located=new Set((p.incoming.get(id)||[]).filter(a=>a.predicate==='located_at').map(a=>a.canonical_subject));
+    return [...located].filter(x=>(p.classes.get(x)||[]).includes('tripper')).sort((a,b)=>label(p,a).localeCompare(label(p,b))).flatMap(tripper=>{
+      const inlet=p.material.find(a=>a.canonical_object===tripper&&kind(p,a.canonical_subject)==='conveyor')?.canonical_subject;
+      const gate=p.material.find(a=>a.canonical_subject===tripper&&located.has(a.canonical_object)&&kind(p,a.canonical_object)==='gate')?.canonical_object;
+      if(!inlet||!gate)return [];
+      const edges=p.material.filter(a=>a.canonical_subject===inlet&&a.canonical_object===tripper||a.canonical_subject===tripper&&a.canonical_object===gate||a.canonical_subject===gate&&kind(p,a.canonical_object)==='conveyor');
+      if(!edges.some(a=>a.canonical_subject===gate&&a.canonical_object===inlet))return [];
+      return [{inlet,tripper,gate,edges,outlets:unique(edges.filter(a=>a.canonical_subject===gate).map(a=>a.canonical_object))}];
+    });
+  }
+  return {kind,closestParents,breadcrumbs,scene,groupEdges,siloColumns,modeFacts,crusherColumns,crusherRoute,driveSymbol,areaEntry,transferColumns,transferRoute,fixedTripperColumns};
 });

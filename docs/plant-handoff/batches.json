@@ -304,7 +304,7 @@
       ],
       "scope": "Conveyor 4 trees, FTR-1/2 and FD-3/4 fixed-tripper diversion to Yard 3, local TP4 services.",
       "exit_check": "Through-flow on same belt is not shown as recycle.",
-      "status": "in_progress",
+      "status": "breadth_complete",
       "gates": [
         "G1",
         "G2",
@@ -316,7 +316,8 @@
         "G8"
       ],
       "checkpoint": "output/plant-enrichment/B12/checkpoint.md",
-      "baseline_version": 649
+      "baseline_version": 649,
+      "latest_version": 652
     },
     {
       "id": "B13",
@@ -329,7 +330,7 @@
       ],
       "scope": "TP5 selectors/dividers to Yard 2 and onward; conveyor 5/FTR-3/4/TP6 diversion to Yard 1.",
       "exit_check": "Local TP5/6 source zones distinct; boundary with Yard 1 confirmed.",
-      "status": "not_started",
+      "status": "in_progress",
       "gates": [
         "G1",
         "G2",
@@ -340,7 +341,8 @@
         "G7",
         "G8"
       ],
-      "checkpoint": "output/plant-enrichment/B13/checkpoint.md"
+      "checkpoint": "output/plant-enrichment/B13/checkpoint.md",
+      "baseline_version": 652
     },
     {
       "id": "B14",
