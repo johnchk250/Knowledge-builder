@@ -228,7 +228,7 @@
       ],
       "scope": "EBD-1\u00e2\u20ac\u201c4, RG/RPG gates, reject paths, local dust/access and drive assemblies.",
       "exit_check": "Primary screens remain separate from EBD-5/6; exact reject routes retained.",
-      "status": "in_progress",
+      "status": "breadth_complete",
       "gates": [
         "G1",
         "G2",
@@ -240,7 +240,8 @@
         "G8"
       ],
       "checkpoint": "output/plant-enrichment/B09/checkpoint.md",
-      "baseline_version": 640
+      "baseline_version": 640,
+      "latest_version": 644
     },
     {
       "id": "B10",
@@ -253,7 +254,7 @@
       ],
       "scope": "Conveyor 3 trees; FD-1/2, FG-1/2 and Yard 4/onward interfaces, local services.",
       "exit_check": "Partial/full flow conditions and existing local component reuse checked.",
-      "status": "not_started",
+      "status": "in_progress",
       "gates": [
         "G1",
         "G2",
@@ -264,7 +265,8 @@
         "G7",
         "G8"
       ],
-      "checkpoint": "output/plant-enrichment/B10/checkpoint.md"
+      "checkpoint": "output/plant-enrichment/B10/checkpoint.md",
+      "baseline_version": 644
     },
     {
       "id": "B11",

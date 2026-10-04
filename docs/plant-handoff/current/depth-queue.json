@@ -117,6 +117,24 @@
       "source": "175155 doc_1518e219127b4b0eaa3a pp8-12; Type2 dust tablep10 vs sectionE-Ep11; jetty175158 pp3-11; vendor DSS/drive sources P02",
       "priority": "P1",
       "status": "open"
+    },
+    {
+      "id": "DQ-B09-001",
+      "batch": "B09",
+      "target": "EBD1-4 / ent_6d32d897d9f24094b563,ent_3c6409c508c1406eafda,ent_0ddac9566081464c9f15,ent_13ced5c3046a4471927b",
+      "missing": "Exciter/shaft/spring/liner vendor detail,stroke/weight settings,torque basis and detailed gate control/protection logic.",
+      "source": "doc_b4cf0a76c954435aadd6 pp1-4;175001 control pp13-14,19-21; gate/actuator GAs P03",
+      "priority": "P1",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B09-002",
+      "batch": "B09",
+      "target": "UEE1 ent_92291cd617b04811bc28",
+      "missing": "Reconcile layout incoming Pump House2 versus DFDS1/UGA1; PRU8A/10A and both PRU11/12 outlet3B labels; verify local SW/PW extensions; detailed hoist/rail/nozzle/piping BOM and bin count.",
+      "source": "doc_c0ce31dea65b4d4caef4 pp1-3; doc_bca09d68af9b43e3b633 p1; doc_8d973a7544ef4a488e98 pp1-3",
+      "priority": "P2",
+      "status": "open"
     }
   ]
 }

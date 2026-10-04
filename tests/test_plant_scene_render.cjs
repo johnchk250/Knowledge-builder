@@ -60,3 +60,19 @@ test('stockpile SVG retains owned sump and ring header alongside external machin
     for(const name of ['Yard2 runoff sump','Yard2 ring header','EAD-2'])assert.ok(html.includes('aria-label="Inspect '+name+'"'),name);
   }
 });
+
+test('primary screens use an assembly view while accepted secondary screens retain their layout',()=>{
+  for(const [label,body,secondary] of [['EBD-1','screen body and grizzly deck',false],['EBD-5','Screen body and deck',true]]){
+    const entities=[['screen',label],['body',label+' '+body],['motor',label+' screen drive motor'],['chute',label+' undersize discharge chute']].map(([id,label])=>({id,label,canonical_id:id,aliases:[]}));
+    const assertions=[];let n=0;
+    const add=(s,p,o,value)=>assertions.push({id:'s'+(++n),canonical_subject:s,canonical_object:o,predicate:p,value,origin:'explicit',context:{kind:'classification'},evidence:[{evidence_id:'ev'}]});
+    for(const [id,type] of Object.entries({screen:'vibrating_screen',body:'functional_assembly',motor:'electric_motor',chute:'chute_interface'}))add(id,'instance_of',null,type);
+    for(const id of ['body','motor','chute'])add(id,'part_of','screen');
+    const projection=PE.build({version:644,entities,assertions});
+    const context=vm.createContext({PlantSceneModel:S,PlantExplorerModel:PE,URLSearchParams,location:{hash:'#overview?equipment=screen'},window:{matchMedia:()=>({matches:false})},esc:s=>String(s)});
+    vm.runInContext(fs.readFileSync(require.resolve('../dist/plant-scene.js'),'utf8'),context);context.projection=projection;
+    const html=vm.runInContext('PlantScene.view(projection,{})',context);
+    assert.equal(html.includes('SECONDARY GRIZZLY'),secondary);
+    for(const e of entities.slice(1))assert.ok(html.includes('aria-label="Inspect '+e.label+'"'),e.label);
+  }
+});

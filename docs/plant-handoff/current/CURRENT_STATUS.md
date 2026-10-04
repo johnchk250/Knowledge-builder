@@ -1,8 +1,8 @@
 # Current plant detail inventory
 
-Reviewed 2026-10-04 at model v640. Fresh read-only snapshot: `output/plant-enrichment/B08/accepted-v640.json`. All 179 targets and 47 batches reconciled. Integrity/FK checks pass. Counts describe records, not physical quantities or engineering completion.
+Reviewed 2026-10-04 at model v644. Fresh read-only snapshot: `output/plant-enrichment/B09/accepted-v644.json`. All 179 targets and 47 batches reconciled. Integrity/FK checks pass. Counts describe records, not physical quantities or engineering completion.
 
-9 batches accepted with qualifications; 7 further batches breadth-complete; 31 remain in Pass A. Phase 1: 6/6 batches. Finer work stays in [the depth queue](depth-queue.json).
+9 batches accepted with qualifications; 8 further batches breadth-complete; 30 remain in Pass A. Phase 1: 6/6 batches. Finer work stays in [the depth queue](depth-queue.json).
 
 ## Main conveyors
 
@@ -59,7 +59,7 @@ Reviewed 2026-10-04 at model v640. Fresh read-only snapshot: `output/plant-enric
 ## Review limits and additional queues
 
 - Accepted-package targets without owned children: TP-16, TP-17, TP-18, UEF-2, CV-5, CV-6, FG-15A, FG-15B. See accepted-followups.json; B45 must review available detail and scope before closure.
-- 655 non-reference canonical records are outside the current process-area projection; some are legitimate shared services or design/identity candidates. Every row is recorded in record-review-queue.json for source-based disposition, not automatic placement.
+- 635 non-reference canonical records are outside the current process-area projection; some are legitimate shared services or design/identity candidates. Every row is recorded in record-review-queue.json for source-based disposition, not automatic placement.
 - Current documented electrical-network assertions: 10; the old v510 statement of zero electrical edges is historical. Plant-wide SLD/feeder closure remains B43.
 - target-status.json records every target, including reference boundaries and planned yard area identities. No missing target is silently created.
 - Existing pilot source gaps, unwritten source dispositions and unresolved identities remain work even when a root has many assertions.

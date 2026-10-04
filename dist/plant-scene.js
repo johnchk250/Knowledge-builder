@@ -354,7 +354,10 @@ const PlantScene=(()=>{
     if(s.kind==='transfer'&&M.transferColumns(p,s.id).length)return transferHouseScene();
     if(s.kind==='conveyor'&&s.nodes.some(n=>n.kind==='weigher'||n.kind==='detector'))return measuredConveyorScene();
     if(s.kind==='crusher-house')return crusherHouseScene();
-    if(['crusher','screen'].includes(s.kind)&&s.nodes.some(n=>n.role==='part'))return crusherMachineScene();
+    // The secondary-screen layout expects the accepted crusher-package assemblies.
+    // Other screen families use the general assembly view rather than an empty
+    // secondary-screen frame with their parts pushed below it.
+    if((s.kind==='crusher'||s.kind==='screen'&&s.nodes.some(n=>/Screen body and deck$/.test(n.label)))&&s.nodes.some(n=>n.role==='part'))return crusherMachineScene();
     if(['de-house','de-stream'].includes(s.kind))return dustExtractionScene();
     if(['silo-house','extractor'].includes(s.kind)||s.kind==='silo'&&(p.classes.get(s.id)||[]).includes('coal_silo'))return siloScene();
     if(s.kind==='spray-system'){const drawing=sprayScene();if(drawing)return drawing;}
