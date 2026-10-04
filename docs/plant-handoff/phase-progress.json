@@ -9,14 +9,14 @@
   "breadth_policy": "docs/plant-handoff/FIVE_PHASE_PLAN.md#execution-mode-breadth-first-from-v628",
   "depth_queue": "docs/plant-handoff/current/depth-queue.json",
   "active_phase": "phase-3",
-  "next_batch": "B16",
-  "next_action": "B16 PassA: finish local SPDS/runoff source-return and EAC7/EBA8 boundary journeys; zero/one correction only. Then B17 own-source Yard2 conveyor/place work.",
+  "next_batch": "B17",
+  "next_action": "B17 PassA: build Yard2 descriptive area/membership and EAC9/EBA10 major conveyor assemblies from own GAs175019/175020, UAX2/6 and UEB2/EAE2 context. Preserve FD5/6-toEAC9 and EBA10-toFG9-to15A/B. Originals fetched underB17/review; principal five sheets each still require visual review. Machines B18 and local services B19 follow.",
   "plan": "docs/plant-handoff/FIVE_PHASE_PLAN.md",
   "current_inventory": "docs/plant-handoff/current/CURRENT_STATUS.md",
   "last_completed_work": {
-    "scope": "B15 Tier1 boundary review complete atv661 with zero canonical changes. Yard1 machine identities and B13 inlet/FG10 outlet boundaries pass; numbered-machine applicability matrix records qualified common design and per-unit exclusions.",
+    "scope": "B16 Tier1 boundary review complete atv661 with zero canonical changes. EAC7/stacker/stockpile/reclaimer/EBA8 and TP6/TP11 boundaries retained; local SPDS and SP8G/H runoff remain connected to common services with distinct ownership.",
     "version": 661,
-    "checkpoint": "output/plant-enrichment/B15/checkpoint.md"
+    "checkpoint": "output/plant-enrichment/B16/checkpoint.md"
   },
   "accepted_reuse_batches": [
     "B30",
@@ -148,13 +148,14 @@
         "B29"
       ],
       "completed_batches": [],
-      "current_batch": "B16",
+      "current_batch": "B17",
       "baseline_version": 661,
       "latest_version": 661,
-      "checkpoint": "output/plant-enrichment/B16/checkpoint.md",
+      "checkpoint": "output/plant-enrichment/B17/checkpoint.md",
       "open_evidence_gaps": [],
       "breadth_complete_batches": [
-        "B15"
+        "B15",
+        "B16"
       ]
     },
     {
@@ -595,6 +596,16 @@
       "status": "breadth_complete",
       "verification": "Current Yard1 semantic audit passes:413 records,1959 active claims with resolvable evidence. Stacker and portal-reclaimer major scenes and two crop/source-return journeys pass. No historical migration-preservation claim from this semantic audit.",
       "milestone": "B15 Tier1 boundary review complete atv661 with zero canonical changes. Yard1 machine identities and B13 inlet/FG10 outlet boundaries pass; numbered-machine applicability matrix records qualified common design and per-unit exclusions."
+    },
+    {
+      "date": "2026-10-04",
+      "batch": "B16",
+      "versions": [
+        661
+      ],
+      "status": "breadth_complete",
+      "verification": "Current Yard1 audit:413 records,1959 evidenced claims. Browser checks pass for both conveyors,SPDS sectors/local header/shared pumps and runoff pit/common pond. Two crop/source-return journeys pass:SPDS DBRp3 and sumpP&IDp1. Existing BSS/PCS,scoop,wind and AP/SV qualifications preserved.",
+      "milestone": "B16 Tier1 boundary review complete atv661 with zero canonical changes. EAC7/stacker/stockpile/reclaimer/EBA8 and TP6/TP11 boundaries retained; local SPDS and SP8G/H runoff remain connected to common services with distinct ownership."
     }
   ],
   "accepted_followup_queue": "docs/plant-handoff/current/accepted-followups.json",

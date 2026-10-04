@@ -2,7 +2,7 @@
 
 Reviewed 2026-10-04 at model v661. Fresh read-only snapshot: `output/plant-enrichment/B14/accepted-v661.json`. All 179 targets and 47 batches reconciled. Integrity/FK checks pass. Counts describe records, not physical quantities or engineering completion.
 
-9 batches accepted with qualifications; 14 further batches breadth-complete; 24 remain in Pass A. Phase 1: 6/6 batches. Finer work stays in [the depth queue](depth-queue.json).
+9 batches accepted with qualifications; 15 further batches breadth-complete; 23 remain in Pass A. Phase 1: 6/6 batches. Finer work stays in [the depth queue](depth-queue.json).
 
 ## Main conveyors
 
@@ -20,8 +20,8 @@ Reviewed 2026-10-04 at model v661. Fresh read-only snapshot: `output/plant-enric
 | EAC-5B | 16 | Tier 1 accepted; finer detail in depth queue | B13 / phase-2 |
 | EBA-6A | 20 | Tier 1 accepted; finer detail in depth queue | B14 / phase-2 |
 | EBA-6B | 20 | Tier 1 accepted; finer detail in depth queue | B14 / phase-2 |
-| EAC-7 | 41 | remaining batch: inspect existing detail before adding | B16 / phase-3 |
-| EBA-8 | 42 | remaining batch: inspect existing detail before adding | B16 / phase-3 |
+| EAC-7 | 41 | Tier 1 accepted; finer detail in depth queue | B16 / phase-3 |
+| EBA-8 | 42 | Tier 1 accepted; finer detail in depth queue | B16 / phase-3 |
 | EAC-9 | 1 | remaining batch: inspect existing detail before adding | B17 / phase-3 |
 | EBA-10 | 1 | remaining batch: inspect existing detail before adding | B17 / phase-3 |
 | EAC-11 | 1 | remaining batch: inspect existing detail before adding | B20 / phase-3 |

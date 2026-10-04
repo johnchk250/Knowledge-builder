@@ -234,6 +234,15 @@
       "source": "Yard1 source-manifest;current/yard-machine-applicability.md",
       "priority": "P2",
       "status": "open"
+    },
+    {
+      "id": "DQ-B16-001",
+      "batch": "B16",
+      "target": "Yard1 local systems",
+      "missing": "Existing qualification inventory:PCS count units,scoop model,AP/SV unique mapping,SC01 count,pump-head choice and field coordinates. Detailed onboard and local utility controls remain deferred.",
+      "source": "COAL_YARD_1_PILOT_REPORT.md;Yard1 manifest;B03/B04 boundaries",
+      "priority": "P2",
+      "status": "open"
     }
   ]
 }

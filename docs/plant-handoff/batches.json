@@ -409,7 +409,7 @@
       ],
       "scope": "Recheck EAC-7/EBA-8/UAX-1/5, SPDS sectors/APs, runoff8G/H, onboard DSS and existing85 qualification inventory as applicable.",
       "exit_check": "Yard 1 semantic audit and full visual journey pass; common/local ownership preserved.",
-      "status": "in_progress",
+      "status": "breadth_complete",
       "gates": [
         "G1",
         "G2",
@@ -421,7 +421,9 @@
         "G8"
       ],
       "checkpoint": "output/plant-enrichment/B16/checkpoint.md",
-      "baseline_version": 661
+      "baseline_version": 661,
+      "latest_version": 661,
+      "verification": "Current Yard1 audit:413 records,1959 evidenced claims. Browser checks pass for both conveyors,SPDS sectors/local header/shared pumps and runoff pit/common pond. Two crop/source-return journeys pass:SPDS DBRp3 and sumpP&IDp1. Existing BSS/PCS,scoop,wind and AP/SV qualifications preserved."
     },
     {
       "id": "B17",
@@ -433,7 +435,7 @@
       ],
       "scope": "Create area membership; EAC-9/EBA-10 drive/mechanical/protection, UAX-2/6, UEB-2 and EAE-2 place context.",
       "exit_check": "Source-specific ratings/counts; no Yard 1 data cloning.",
-      "status": "not_started",
+      "status": "in_progress",
       "gates": [
         "G1",
         "G2",
@@ -444,7 +446,8 @@
         "G7",
         "G8"
       ],
-      "checkpoint": "output/plant-enrichment/B17/checkpoint.md"
+      "checkpoint": "output/plant-enrichment/B17/checkpoint.md",
+      "baseline_version": 661
     },
     {
       "id": "B18",

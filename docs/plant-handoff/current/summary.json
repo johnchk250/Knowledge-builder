@@ -22,7 +22,6 @@
     "B36"
   ],
   "remaining_batches": [
-    "B16",
     "B17",
     "B18",
     "B19",
@@ -58,7 +57,7 @@
   "phase_batch_counts": {
     "phase-1": 0,
     "phase-2": 0,
-    "phase-3": 14,
+    "phase-3": 13,
     "phase-4": 6,
     "phase-5": 4
   },
@@ -76,6 +75,7 @@
     "B12",
     "B13",
     "B14",
-    "B15"
+    "B15",
+    "B16"
   ]
 }
