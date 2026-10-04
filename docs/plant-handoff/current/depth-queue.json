@@ -135,6 +135,24 @@
       "source": "doc_c0ce31dea65b4d4caef4 pp1-3; doc_bca09d68af9b43e3b633 p1; doc_8d973a7544ef4a488e98 pp1-3",
       "priority": "P2",
       "status": "open"
+    },
+    {
+      "id": "DQ-B10-001",
+      "batch": "B10",
+      "target": "ent_9f1ca0f604de4bdda3a5 / ent_fb331701a6c04437842b",
+      "missing": "Conveyor3 drive internals,pulley/idler BOM and protection settings; FD1/2 and FG1/2 detailed sequence logic.",
+      "source": "doc_3eab668d697f4e4598c8 pp1-2;doc_4f2cd96c3b1e413ea4b5 pp19-21",
+      "priority": "P1",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B10-002",
+      "batch": "B10",
+      "target": "ent_d8d8763a4bc2400882b9",
+      "missing": "Local nozzle/valve internals,hoist rail/detail and structural/access review; no certification inferred.",
+      "source": "doc_883418b36ea44369adbe pp1-5;doc_bca09d68af9b43e3b633 p1",
+      "priority": "P2",
+      "status": "open"
     }
   ]
 }

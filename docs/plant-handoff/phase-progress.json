@@ -2,21 +2,21 @@
   "schema_version": 1,
   "updated_date": "2026-10-04",
   "baseline_version": 593,
-  "latest_verified_version": 644,
+  "latest_verified_version": 647,
   "status": "in_progress",
   "execution_mode": "breadth_first",
   "pass": "A",
   "breadth_policy": "docs/plant-handoff/FIVE_PHASE_PLAN.md#execution-mode-breadth-first-from-v628",
   "depth_queue": "docs/plant-handoff/current/depth-queue.json",
   "active_phase": "phase-2",
-  "next_batch": "B10",
-  "next_action": "B10 Pass A: review conveyor3A/B GA doc_3eab668d697f4e4598c8 pp1-2 and TP3 GA; add both main conveyor trees and FD1/2,FG1/2 branch assemblies. Preserve partial/full diversion to EAC13 and either onward EAC4 lane; reuse UEE1 receiving chutes and local utilities. Sampling1 remains B11.",
+  "next_batch": "B11",
+  "next_action": "B11 Pass A: review175072 sampling GA doc_404c8747ba8047ab8f12 principal pp1-8 and control175001 pp19-21. Reuse canonical UEF3 sampling system and nine EAU1 components; remove redundant plant owner if source-confirmed. Complete major drive/chute/protection groups and exact sample,bias,reject-return paths; no vendor internals.",
   "plan": "docs/plant-handoff/FIVE_PHASE_PLAN.md",
   "current_inventory": "docs/plant-handoff/current/CURRENT_STATUS.md",
   "last_completed_work": {
-    "scope": "B09 Tier1 accepted v641-v644:61 major components across four primary screens and UEE-1;32 screen assemblies,8 discharge chutes,4 gate actuators,8 hoists,access group and8 local utility assemblies. Existing gates,FAS/PRUs,reject bins,common supplies and drainage reused. Four duplicate rod-gate owners removed; primary-screen scene no longer uses secondary-screen layout.",
-    "version": 644,
-    "checkpoint": "output/plant-enrichment/B09/checkpoint.md"
+    "scope": "B10 Tier1 accepted v645-v647:63 major components,287 assertions and4 retired aggregate route edges. Both conveyor3 main assemblies,TP3 divider/selector chutes,7 hoists,access,potable tank and18 DFDS local components connected to System1. Sampling remains B11.",
+    "version": 647,
+    "checkpoint": "output/plant-enrichment/B10/checkpoint.md"
   },
   "accepted_reuse_batches": [
     "B30",
@@ -98,10 +98,10 @@
         "B14"
       ],
       "completed_batches": [],
-      "current_batch": "B10",
+      "current_batch": "B11",
       "baseline_version": 635,
-      "latest_version": 644,
-      "checkpoint": "output/plant-enrichment/B10/checkpoint.md",
+      "latest_version": 647,
+      "checkpoint": "output/plant-enrichment/B11/checkpoint.md",
       "open_evidence_gaps": [
         {
           "scope": "UEE1 local utility routing labels",
@@ -113,7 +113,8 @@
         "B06",
         "B07",
         "B08",
-        "B09"
+        "B09",
+        "B10"
       ]
     },
     {
@@ -361,7 +362,7 @@
       "batch": "B02",
       "version": 625,
       "proposal_id": "prop_f02d1ff3a20c4aa882e7",
-      "milestone": "The four existing DFDS pumps now expose 44 vendor-supported motor, rigid coupling, guard, shaft, impeller, seal, bearing-sleeve, stool, shroud, casing and spacer components. Twelve mechanical connections trace motor \u2192 coupling \u2192 shaft \u2192 impellers. Both motor-speed bases and distinct 14/16-stage quantities remain inspectable.",
+      "milestone": "The four existing DFDS pumps now expose 44 vendor-supported motor, rigid coupling, guard, shaft, impeller, seal, bearing-sleeve, stool, shroud, casing and spacer components. Twelve mechanical connections trace motor → coupling → shaft → impellers. Both motor-speed bases and distinct 14/16-stage quantities remain inspectable.",
       "verification": "Isolated rehearsal and preservation passed; actual browser gate pending."
     },
     {
@@ -511,6 +512,18 @@
       "status": "breadth_complete",
       "verification": "passed",
       "milestone": "B09 Tier1 accepted v641-v644:61 major components across four primary screens and UEE-1;32 screen assemblies,8 discharge chutes,4 gate actuators,8 hoists,access group and8 local utility assemblies. Existing gates,FAS/PRUs,reject bins,common supplies and drainage reused. Four duplicate rod-gate owners removed; primary-screen scene no longer uses secondary-screen layout."
+    },
+    {
+      "date": "2026-10-04",
+      "batch": "B10",
+      "versions": [
+        645,
+        646,
+        647
+      ],
+      "status": "breadth_complete",
+      "verification": "63/63 new major components drawn/selectable; original cropped-source/return checks for175013p2,175035p1 and175089p1;390x844 motor journey.16 positive/negative route checks,50 Node tests,integrity/FK,preservation and both pilot audits with reviewed conflict manifest pass. Transfer selector now follows divider-to-selector chains and exposes EAC4A/B alongside EAC13.",
+      "milestone": "B10 Tier1 accepted v645-v647:63 major components,287 assertions and4 retired aggregate route edges. Both conveyor3 main assemblies,TP3 divider/selector chutes,7 hoists,access,potable tank and18 DFDS local components connected to System1. Sampling remains B11."
     }
   ],
   "accepted_followup_queue": "docs/plant-handoff/current/accepted-followups.json",

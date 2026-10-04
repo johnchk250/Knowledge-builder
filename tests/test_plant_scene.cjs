@@ -122,6 +122,17 @@ test('transfer routes use located gates and one selected receiving conveyor with
   const scene=S.scene(p,'tp');assert.ok(scene.nodes.some(n=>n.id==='drive'&&n.role==='located'));assert.equal(scene.nodes.find(n=>n.id==='a').role,'connected');assert.ok(!p.assembly('tp').some(e=>e.id==='shared'));
 });
 
+test('transfer divider follows its own downstream selector and stops at receiving belts',()=>{
+  const types={tp:'transfer_point',a:'belt_conveyor',b:'belt_conveyor',x:'belt_conveyor',y:'belt_conveyor',yard:'belt_conveyor',beyond:'belt_conveyor',d1:'diverter_gate',d2:'diverter_gate',g1:'diverter_gate',g2:'diverter_gate'};
+  const fs=Object.entries(types).map(([id,t])=>f(id,'instance_of',null,{value:t}));
+  for(const id of ['d1','d2','g1','g2'])fs.push(f(id,'located_at','tp'));
+  for(const [a,b]of [['a','d1'],['b','d2'],['d1','yard'],['d2','yard'],['d1','g1'],['d2','g2'],['g1','x'],['g1','y'],['g2','x'],['g2','y'],['x','beyond'],['g1','d1']])fs.push(net(a,b));
+  const p=project(Object.keys(types).map(x=>e(x)),fs),cols=S.transferColumns(p,'tp');
+  assert.equal(cols.length,2);assert.deepEqual(cols[0].outlets,['x','y','yard']);
+  assert.deepEqual(S.transferRoute(p,cols[0],'x').map(a=>[a.canonical_subject,a.canonical_object]),[['a','d1'],['d1','g1'],['g1','x']]);
+  assert.deepEqual(S.transferRoute(p,cols[0],'yard').map(a=>[a.canonical_subject,a.canonical_object]),[['a','d1'],['d1','yard']]);
+});
+
 test('measurement, oil valves and maintainable subparts retain physical symbols under long inherited labels',()=>{
   const types={q:'metal_detector',e:'belt_weigher',v:'isolation_valve',r:'pressure_regulator',m:'electric_motor',part:'mechanical_component',marker:'mechanical_component',pipe:'utility_header',stand:'functional_assembly'};
   const p=project([e('q','QB-3'),e('e','EAT-3'),e('v','EBA-18A Scoop coupling Oil isolation valve'),e('r','UEF-13 PRU-11 Air regulator'),e('m','Scoop coupling Oil circulation pump Motor'),e('part','Scoop coupling Fusible plug'),e('marker','QB-3 Sandbag marker'),e('pipe','Sump Pumps SP-2B Self-water lubrication line'),e('stand','Sump Pumps SP-2B Thrust stand')],Object.entries(types).map(([id,t])=>f(id,'instance_of',null,{value:t})));
@@ -201,4 +212,5 @@ test('pump seal and receiver drain keep their physical forms under parent labels
   assert.equal(S.kind(p,'seal'),'seal');
   assert.equal(S.kind(p,'drain'),'valve');
 });
+
 

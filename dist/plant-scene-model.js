@@ -209,14 +209,23 @@
   }
   function transferColumns(p,id){
     const gates=unique((p.incoming.get(id)||[]).filter(a=>a.predicate==='located_at'&&kind(p,a.canonical_subject)==='gate').map(a=>a.canonical_subject));
-    return gates.sort((a,b)=>label(p,a).localeCompare(label(p,b))).map(gate=>({gate,
-      inlets:unique(p.material.filter(a=>a.canonical_object===gate&&kind(p,a.canonical_subject)==='conveyor').map(a=>a.canonical_subject)),
-      outlets:unique(p.material.filter(a=>a.canonical_subject===gate&&kind(p,a.canonical_object)==='conveyor').map(a=>a.canonical_object)).sort((a,b)=>label(p,a).localeCompare(label(p,b)))
-    })).filter(c=>c.inlets.length&&c.outlets.length);
+    return gates.sort((a,b)=>label(p,a).localeCompare(label(p,b))).map(gate=>{
+      const paths=[];
+      const walk=(from,path,seen)=>p.material.filter(a=>a.canonical_subject===from).forEach(a=>{
+        const to=a.canonical_object;
+        if(kind(p,to)==='conveyor')paths.push({outlet:to,edges:[...path,a]});
+        else if(gates.includes(to)&&!seen.has(to))walk(to,[...path,a],new Set([...seen,to]));
+      });
+      walk(gate,[],new Set([gate]));
+      return {gate,paths,gates:unique([gate,...paths.flatMap(x=>x.edges.map(a=>a.canonical_subject))]),
+        inlets:unique(p.material.filter(a=>a.canonical_object===gate&&kind(p,a.canonical_subject)==='conveyor').map(a=>a.canonical_subject)),
+        outlets:unique(paths.map(x=>x.outlet)).sort((a,b)=>label(p,a).localeCompare(label(p,b)))};
+    }).filter(c=>c.inlets.length&&c.outlets.length);
   }
   function transferRoute(p,column,outlet){
     if(!column||!column.outlets.includes(outlet))return [];
-    return p.material.filter(a=>column.inlets.includes(a.canonical_subject)&&a.canonical_object===column.gate||a.canonical_subject===column.gate&&a.canonical_object===outlet);
+    const route=new Set(column.paths.filter(x=>x.outlet===outlet).flatMap(x=>x.edges));
+    return p.material.filter(a=>column.inlets.includes(a.canonical_subject)&&a.canonical_object===column.gate||route.has(a));
   }
   return {kind,closestParents,breadcrumbs,scene,groupEdges,siloColumns,modeFacts,crusherColumns,crusherRoute,driveSymbol,areaEntry,transferColumns,transferRoute};
 });

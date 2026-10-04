@@ -445,7 +445,7 @@ const PlantScene=(()=>{
   function transferRouteGuide(){
     if(s.kind!=='transfer'||!M.transferColumns(p,s.id).length||q().get('scene')==='connections')return '';
     const v=transferSelection(),group=(title,items,key,sel)=>`<div><span>${title}</span><nav aria-label="${title}">${items.map(([id,name])=>`<a href="${safe(url({[key]:id,pick:null,edge:null}))}" ${String(id)===String(sel)?'aria-current="true"':''}>${safe(name)}</a>`).join('')}</nav></div>`;
-    const selected=M.transferRoute(p,v.column,v.outlet).filter(a=>a.canonical_subject===v.column?.gate);
+    const selected=M.transferRoute(p,v.column,v.outlet).filter(a=>v.column?.gates.includes(a.canonical_subject));
     const locations=(p.outgoing.get(s.id)||[]).filter(a=>a.predicate==='location_description'&&typeof a.value==='string');
     return `<div class="ps-crusher-guide">${group('Follow incoming conveyor',v.columns.map((c,i)=>[i,c.inlets.map(id=>p.entities.get(id).label).join(' / ')]),'transferstream',v.index)}${group('Selected receiving conveyor',(v.column?.outlets||[]).map(id=>[id,p.entities.get(id).label]),'transferoutlet',v.outlet)}<small>${safe(selected.map(a=>a.context?.condition||'').filter(Boolean).join(' · '))} · illustrative selection, no live status</small>${locations.map(a=>`<p class="ps-transfer-location">${safe(a.value)} ${source(a,'Location source ↗')}</p>`).join('')}</div>`;
   }
@@ -457,9 +457,10 @@ const PlantScene=(()=>{
     v.columns.forEach((c,i)=>{
       const located=s.nodes.filter(n=>n.role==='located'&&M.closestParents(p,n.id).some(id=>c.inlets.includes(id)));
       const drive=located.find(n=>n.kind==='drive'),chutes=located.filter(n=>n.kind==='chute');
-      laneParts.add(c.gate);if(drive)laneParts.add(drive.id);chutes.forEach(n=>laneParts.add(n.id));
+      c.gates.forEach(id=>laneParts.add(id));if(drive)laneParts.add(drive.id);chutes.forEach(n=>laneParts.add(n.id));
       if(narrow&&i!==v.index)return;
       const x=narrow?50:305+i*340;c.inlets.forEach((id,j)=>put(id,x+j*175,58,180,95));put(c.gate,x+23,425,135,83);
+      c.gates.filter(id=>id!==c.gate).forEach((id,j)=>put(id,x+23+j*150,545,135,83));
       if(drive)put(drive.id,narrow?325:x-125,narrow?65:225,130,70,'Head drive · '+c.inlets.map(id=>p.entities.get(id).label).join(' / '));
       chutes.forEach((n,j)=>put(n.id,x+23+j*150,230,135,65,'Discharge chute · '+c.inlets.map(id=>p.entities.get(id).label).join(' / ')));
     });
@@ -472,7 +473,7 @@ const PlantScene=(()=>{
       put(n.id,narrow?325:950,(narrow?255:70)+i*187,175,90,title);
     });
     const active=M.transferRoute(p,v.column,v.outlet),keys=new Set(active.map(a=>a.canonical_subject+'>'+a.canonical_object));
-    const relevant=v.columns.flatMap(c=>p.material.filter(a=>(c.inlets.includes(a.canonical_subject)&&a.canonical_object===c.gate||a.canonical_subject===c.gate&&c.outlets.includes(a.canonical_object))&&positions.has(a.canonical_subject)&&positions.has(a.canonical_object)));
+    const relevant=[...new Set(v.columns.flatMap(c=>c.outlets.flatMap(outlet=>M.transferRoute(p,c,outlet))))].filter(a=>positions.has(a.canonical_subject)&&positions.has(a.canonical_object));
     const routes=new Map(relevant.map(a=>{const f=positions.get(a.canonical_subject),t=positions.get(a.canonical_object);return [a.canonical_subject+'>'+a.canonical_object,`M${f.x+f.w/2} ${f.y+f.h}C${f.x+f.w/2} ${f.y+f.h+45} ${t.x+t.w/2} ${t.y-45} ${t.x+t.w/2} ${t.y}`];}));
     // Keep other located assets discoverable without drawing the unselected lane on narrow screens.
     const other=s.nodes.filter(n=>!drawn.has(n.id)&&(n.role==='connected'||n.role==='located'&&!laneParts.has(n.id)));

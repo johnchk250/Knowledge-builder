@@ -5309,7 +5309,7 @@
     "classes": [
       "utility_header"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 8,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5408,7 +5408,7 @@
     "classes": [
       "utility_header"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 8,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
