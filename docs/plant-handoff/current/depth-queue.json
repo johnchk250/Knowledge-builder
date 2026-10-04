@@ -180,6 +180,24 @@
       "source": "doc_9bd6e66e9fbb43468184 pp1-5;doc_492c079544304e2da177 pp1-3",
       "priority": "P2",
       "status": "open"
+    },
+    {
+      "id": "DQ-B13-001",
+      "batch": "B13",
+      "target": "ent_58ba05055e8b44a983a5 / ent_84e3b6b3057944c68607",
+      "missing": "Drive internals/settings,HT versus415V motor wording and one/two cleaner quantities; detailed FD/FG control clauses.",
+      "source": "doc_b74a01e57a2b4792883c pp3-6;control175001 pp27-29,36-43,49-52",
+      "priority": "P1",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B13-002",
+      "batch": "B13",
+      "target": "ent_ec4a66d4440444dcb00e / ent_9d8aaa767de440b18a1a",
+      "missing": "TP6 tank250/300L and UAF/UEF continuation wording; detailed SW/PW/local drainage,hoist rails and pipe/nozzle BOM. No field lifting certification asserted.",
+      "source": "doc_6d28742056e94651be04 pp1-3;doc_eadc432afcad400192d0 pp1-6;doc_e91d806d942243248e18 pp1-3;doc_f9f96af6a25e47179881 pp1-3",
+      "priority": "P2",
+      "status": "open"
     }
   ]
 }

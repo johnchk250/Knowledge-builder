@@ -2,21 +2,21 @@
   "schema_version": 1,
   "updated_date": "2026-10-04",
   "baseline_version": 593,
-  "latest_verified_version": 652,
+  "latest_verified_version": 657,
   "status": "in_progress",
   "execution_mode": "breadth_first",
   "pass": "A",
   "breadth_policy": "docs/plant-handoff/FIVE_PHASE_PLAN.md#execution-mode-breadth-first-from-v628",
   "depth_queue": "docs/plant-handoff/current/depth-queue.json",
   "active_phase": "phase-2",
-  "next_batch": "B13",
-  "next_action": "B13 Pass A: implement conveyor5A/B GA doc_b74a01e57a2b4792883c,TP5 doc_6d28742056e94651be04,TP6 doc_eadc432afcad400192d0 and local piping doc_e91d806d942243248e18/doc_f9f96af6a25e47179881. Preserve TP5 FD5/6 toYard2/EAC9 orFG3/4 to either5 lane; FTR3/4 andFD7/8 atTP6 toYard1/EAC7 orsame-belt continuation. Reuse existing identities and Yard1 pilot.",
+  "next_batch": "B14",
+  "next_action": "B14 Pass A: implement EBA6A/B major assemblies,TP7 selector crossover and local utilities; reconcile existing CV1/2 analyser applicability from principal GA/data sources. Preserve exact6A-toEBB2 and6B-toEBB1 silo crossovers. Principal TP7 doc_f6e89f3b3d3b40eb8d80 and piping doc_d157f03e84e84c068b06 located; B14/review contains these plus analyser sources. Locate conveyor6 GA and inspect all principal pages before proposals.",
   "plan": "docs/plant-handoff/FIVE_PHASE_PLAN.md",
   "current_inventory": "docs/plant-handoff/current/CURRENT_STATUS.md",
   "last_completed_work": {
-    "scope": "B12 Tier1 accepted v650-v652:52 major components,272 assertions and6 retired aggregate/duplicate-owner facts. Both conveyor4 assembly trees,TP4 fixed-tripper/divider branches,4 hoists,access,tank,drain group andlocal DFDS groups.12 existing FAS/PRUs reused and placed underTP4.",
-    "version": 652,
-    "checkpoint": "output/plant-enrichment/B12/checkpoint.md"
+    "scope": "B13 Tier1 accepted v653-v657: 85 major components, 486 assertions and 14 retired aggregate/duplicate-owner facts. Conveyor5 drive/belt/takeup/protection assemblies,TP5 divider-selector crossovers,TP6 fixed-tripper branches,13 hoist groups,access,drains and local services. Existing28 FAS/PRUs and Yard1/2 boundary identities reused.",
+    "version": 657,
+    "checkpoint": "output/plant-enrichment/B13/checkpoint.md"
   },
   "accepted_reuse_batches": [
     "B30",
@@ -98,10 +98,10 @@
         "B14"
       ],
       "completed_batches": [],
-      "current_batch": "B13",
+      "current_batch": "B14",
       "baseline_version": 635,
-      "latest_version": 652,
-      "checkpoint": "output/plant-enrichment/B13/checkpoint.md",
+      "latest_version": 657,
+      "checkpoint": "output/plant-enrichment/B14/checkpoint.md",
       "open_evidence_gaps": [
         {
           "scope": "UEE1 local utility routing labels",
@@ -121,7 +121,8 @@
         "B09",
         "B10",
         "B11",
-        "B12"
+        "B12",
+        "B13"
       ]
     },
     {
@@ -369,7 +370,7 @@
       "batch": "B02",
       "version": 625,
       "proposal_id": "prop_f02d1ff3a20c4aa882e7",
-      "milestone": "The four existing DFDS pumps now expose 44 vendor-supported motor, rigid coupling, guard, shaft, impeller, seal, bearing-sleeve, stool, shroud, casing and spacer components. Twelve mechanical connections trace motor → coupling → shaft → impellers. Both motor-speed bases and distinct 14/16-stage quantities remain inspectable.",
+      "milestone": "The four existing DFDS pumps now expose 44 vendor-supported motor, rigid coupling, guard, shaft, impeller, seal, bearing-sleeve, stool, shroud, casing and spacer components. Twelve mechanical connections trace motor \u2192 coupling \u2192 shaft \u2192 impellers. Both motor-speed bases and distinct 14/16-stage quantities remain inspectable.",
       "verification": "Isolated rehearsal and preservation passed; actual browser gate pending."
     },
     {
@@ -554,6 +555,20 @@
       "status": "breadth_complete",
       "verification": "52/52 major additions drawn/selectable; three original crop/return journeys for175014p4,175036p1,175289p1 (390x844).18 route checks,51 Node tests,integrity/FK,preservation and both pilot audits pass. Fixed-tripper view shows entry and onward portions of the same belt,selected through/yard branches and local services.",
       "milestone": "B12 Tier1 accepted v650-v652:52 major components,272 assertions and6 retired aggregate/duplicate-owner facts. Both conveyor4 assembly trees,TP4 fixed-tripper/divider branches,4 hoists,access,tank,drain group andlocal DFDS groups.12 existing FAS/PRUs reused and placed underTP4."
+    },
+    {
+      "date": "2026-10-04",
+      "batch": "B13",
+      "versions": [
+        653,
+        654,
+        655,
+        656,
+        657
+      ],
+      "status": "breadth_complete",
+      "verification": "85/85 major additions drawn/selectable; five original crop/source-return journeys (175015p3 at390x844,175037p1,175038p1,175290p2,175291p1). TP5 shows5A/5B/9 alternatives; TP6 through/yard controls show same-belt continuation.32 route/integrity checks,51 Node tests,all proposal preservation checks and both pilot audits pass.",
+      "milestone": "B13 Tier1 accepted v653-v657: 85 major components, 486 assertions and 14 retired aggregate/duplicate-owner facts. Conveyor5 drive/belt/takeup/protection assemblies,TP5 divider-selector crossovers,TP6 fixed-tripper branches,13 hoist groups,access,drains and local services. Existing28 FAS/PRUs and Yard1/2 boundary identities reused."
     }
   ],
   "accepted_followup_queue": "docs/plant-handoff/current/accepted-followups.json",

@@ -226,7 +226,7 @@
       "depends_on": [
         "B06"
       ],
-      "scope": "EBD-1â€“4, RG/RPG gates, reject paths, local dust/access and drive assemblies.",
+      "scope": "EBD-1\u00e2\u20ac\u201c4, RG/RPG gates, reject paths, local dust/access and drive assemblies.",
       "exit_check": "Primary screens remain separate from EBD-5/6; exact reject routes retained.",
       "status": "breadth_complete",
       "gates": [
@@ -330,7 +330,7 @@
       ],
       "scope": "TP5 selectors/dividers to Yard 2 and onward; conveyor 5/FTR-3/4/TP6 diversion to Yard 1.",
       "exit_check": "Local TP5/6 source zones distinct; boundary with Yard 1 confirmed.",
-      "status": "in_progress",
+      "status": "breadth_complete",
       "gates": [
         "G1",
         "G2",
@@ -342,7 +342,9 @@
         "G8"
       ],
       "checkpoint": "output/plant-enrichment/B13/checkpoint.md",
-      "baseline_version": 652
+      "baseline_version": 652,
+      "latest_version": 657,
+      "verification": "85/85 major additions drawn/selectable; five original crop/source-return journeys (175015p3 at390x844,175037p1,175038p1,175290p2,175291p1). TP5 shows5A/5B/9 alternatives; TP6 through/yard controls show same-belt continuation.32 route/integrity checks,51 Node tests,all proposal preservation checks and both pilot audits pass."
     },
     {
       "id": "B14",
@@ -354,8 +356,8 @@
         "B04"
       ],
       "scope": "TP7 gate crossover, conveyor 6 trees, CV-1/2 applicability and silo receiving interfaces.",
-      "exit_check": "6Aâ†’EBB-2 and 6Bâ†’EBB-1 regression preserved.",
-      "status": "not_started",
+      "exit_check": "6A\u00e2\u2020\u2019EBB-2 and 6B\u00e2\u2020\u2019EBB-1 regression preserved.",
+      "status": "in_progress",
       "gates": [
         "G1",
         "G2",
@@ -366,7 +368,8 @@
         "G7",
         "G8"
       ],
-      "checkpoint": "output/plant-enrichment/B14/checkpoint.md"
+      "checkpoint": "output/plant-enrichment/B14/checkpoint.md",
+      "baseline_version": 657
     },
     {
       "id": "B15",
@@ -377,7 +380,7 @@
         "B04",
         "B13"
       ],
-      "scope": "EAD-1/EAF-1 detailed drive/hoist/hydraulic/lube/anchor/fire references; common design applicability matrix for yards2â€“4.",
+      "scope": "EAD-1/EAF-1 detailed drive/hoist/hydraulic/lube/anchor/fire references; common design applicability matrix for yards2\u00e2\u20ac\u201c4.",
       "exit_check": "Documented families qualified; discrepancies retained; no generic bucket-wheel template.",
       "status": "not_started",
       "gates": [
@@ -705,7 +708,7 @@
         "B28"
       ],
       "scope": "Drive/protection/mechanical trees, CV-3/4 and vessel inlet placement.",
-      "exit_check": "16Aâ†’EBB-1 and 16Bâ†’EBB-2 endpoints retained.",
+      "exit_check": "16A\u00e2\u2020\u2019EBB-1 and 16B\u00e2\u2020\u2019EBB-2 endpoints retained.",
       "status": "not_started",
       "gates": [
         "G1",
@@ -998,7 +1001,7 @@
       "depends_on": [
         "B40"
       ],
-      "scope": "Aâ€“F identities, design sizing applicability, liners/inlet/level/outlet interfaces and last-bunker mapping.",
+      "scope": "A\u00e2\u20ac\u201cF identities, design sizing applicability, liners/inlet/level/outlet interfaces and last-bunker mapping.",
       "exit_check": "Design247 t/h/4 active/2 standby case not presented as live state.",
       "status": "not_started",
       "gates": [
@@ -1121,7 +1124,7 @@
         "B45"
       ],
       "scope": "Cross-section journeys, all 30conveyors/12TPs/4yards/silos/crushers/TTs/bunkers, shared networks and source-return UX.",
-      "exit_check": "All gates G1â€“G8; completed, qualified and deferred scopes reported separately.",
+      "exit_check": "All gates G1\u00e2\u20ac\u201cG8; completed, qualified and deferred scopes reported separately.",
       "status": "not_started",
       "gates": [
         "G1",
