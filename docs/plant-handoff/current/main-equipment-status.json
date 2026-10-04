@@ -413,32 +413,38 @@
       "family": "conveyor",
       "primary_batch": "B14",
       "phase": "phase-2",
-      "batch_status": "in_progress",
-      "disposition": "remaining batch: inspect existing detail before adding",
+      "batch_status": "breadth_complete",
+      "disposition": "Tier 1 accepted; finer detail in depth queue",
       "prior_pilot": null,
       "card": "../targets/eba-6a.md",
       "present": true,
       "canonical_id": "ent_968579cda95c43f49626",
       "current_label": "EBA-6A",
       "own_fact_count": 57,
-      "direct_children": 0,
-      "assembly_records": 1,
+      "direct_children": 14,
+      "assembly_records": 20,
       "located_records": [
-        "ent_6e587abc8b794b7586ea"
+        "ent_6e587abc8b794b7586ea",
+        "ent_f1f8f6f20d6e45cbb6d6",
+        "ent_64f09e265d304af4ae3e",
+        "ent_85931508cf11404186ff",
+        "ent_f917c2849280494c9e44",
+        "ent_eb7ad88135df4371bd9e"
       ],
       "network_assertions": {
-        "material": 2,
-        "mechanical": 0,
+        "material": 3,
+        "mechanical": 5,
         "utility": 0,
         "electrical": 0,
-        "control": 0
+        "control": 1
       },
       "qualifications": [],
       "evidence_documents": [
         "doc_9ea3e0c55ca347ae96a2",
         "doc_c91eac5d4c104264801f",
         "doc_0ed3cc8247ed4484ac8f",
-        "doc_4f2cd96c3b1e413ea4b5"
+        "doc_4f2cd96c3b1e413ea4b5",
+        "doc_740734a151bd4c00b655"
       ]
     },
     {
@@ -447,32 +453,38 @@
       "family": "conveyor",
       "primary_batch": "B14",
       "phase": "phase-2",
-      "batch_status": "in_progress",
-      "disposition": "remaining batch: inspect existing detail before adding",
+      "batch_status": "breadth_complete",
+      "disposition": "Tier 1 accepted; finer detail in depth queue",
       "prior_pilot": null,
       "card": "../targets/eba-6b.md",
       "present": true,
       "canonical_id": "ent_65034b526eed4b4dace9",
       "current_label": "EBA-6B",
       "own_fact_count": 57,
-      "direct_children": 0,
-      "assembly_records": 1,
+      "direct_children": 14,
+      "assembly_records": 20,
       "located_records": [
-        "ent_ec08f608a2c44301ba7f"
+        "ent_ec08f608a2c44301ba7f",
+        "ent_4dadae750d714e95baea",
+        "ent_a7bed96fd5d04e57827d",
+        "ent_5c13b4dbdb8e4a09a2b6",
+        "ent_78bf6eaba21d4f08af1a",
+        "ent_b58f6b6924574bfdaa7a"
       ],
       "network_assertions": {
-        "material": 2,
-        "mechanical": 0,
+        "material": 3,
+        "mechanical": 5,
         "utility": 0,
         "electrical": 0,
-        "control": 0
+        "control": 1
       },
       "qualifications": [],
       "evidence_documents": [
         "doc_9ea3e0c55ca347ae96a2",
         "doc_c91eac5d4c104264801f",
         "doc_0ed3cc8247ed4484ac8f",
-        "doc_4f2cd96c3b1e413ea4b5"
+        "doc_4f2cd96c3b1e413ea4b5",
+        "doc_740734a151bd4c00b655"
       ]
     },
     {
@@ -1639,7 +1651,7 @@
       "network_assertions": {
         "material": 14,
         "mechanical": 2,
-        "utility": 37,
+        "utility": 39,
         "electrical": 0,
         "control": 0
       },
@@ -1650,7 +1662,8 @@
         "doc_4f2cd96c3b1e413ea4b5",
         "doc_0453a0a014424f1cae06",
         "doc_4a75d7803f1e4c7eb11a",
-        "doc_f9f96af6a25e47179881"
+        "doc_f9f96af6a25e47179881",
+        "doc_d157f03e84e84c068b06"
       ]
     },
     {
@@ -1659,16 +1672,16 @@
       "family": "transfer",
       "primary_batch": "B14",
       "phase": "phase-2",
-      "batch_status": "in_progress",
-      "disposition": "remaining batch: inspect existing detail before adding",
+      "batch_status": "breadth_complete",
+      "disposition": "Tier 1 accepted; finer detail in depth queue",
       "prior_pilot": null,
       "card": "../targets/uef-7.md",
       "present": true,
       "canonical_id": "ent_dfd925fdeb7f4275b5f5",
       "current_label": "UEF-7",
-      "own_fact_count": 28,
-      "direct_children": 0,
-      "assembly_records": 1,
+      "own_fact_count": 26,
+      "direct_children": 29,
+      "assembly_records": 34,
       "located_records": [
         "ent_9edda357028642579a8d",
         "ent_b2f3d0335b8543d1ac64",
@@ -1686,22 +1699,53 @@
         "ent_522e583d2cdb43b5912c",
         "ent_1a81cd96069141da9ea2",
         "ent_f0c5e4f6e23443b79b00",
-        "ent_82dba09e47744f4f8472"
+        "ent_82dba09e47744f4f8472",
+        "ent_f226ecaabdd547758a13",
+        "ent_41dda030cec34b778f1c",
+        "ent_0ed55b68059648feba20",
+        "ent_45d64564d91a451983d2",
+        "ent_6b4c9729f1304e829ecd",
+        "ent_aee3150c39834cc8a624",
+        "ent_0c8940be85164bb7b21d",
+        "ent_d1c14dd825ac4a4e9fb7",
+        "ent_44dd9138ce3a425a88e6",
+        "ent_7ff6c7303d834d9a817d",
+        "ent_32438d99634a47d28491",
+        "ent_aca95ff90b914abebb84",
+        "ent_db98134b50c04e17b349",
+        "ent_f67b7d514ba04fa687a2",
+        "ent_5fae11854aa447fda01a",
+        "ent_8f56eeb209bb4f6c91ad",
+        "ent_d0451e319c74427588e8",
+        "ent_30463f8afa97466393b5",
+        "ent_90422c0e567944d18579",
+        "ent_016f1b156a6b4542af75",
+        "ent_75021d139544469098fa",
+        "ent_6208e50d63d44cc98be6",
+        "ent_a305123f1ded4a1983df",
+        "ent_1eaa5aeef3d24d969e15",
+        "ent_c0be582a8f2741558841",
+        "ent_3b2d39b4a69441c0b9f1",
+        "ent_4e96bc2cbfbe40538734",
+        "ent_f1a1e6402a0e49088e1c",
+        "ent_b0da70d89d494f15894d",
+        "ent_bd6bbc0c68bd45e59a12",
+        "ent_9544c9393a3a458a8014"
       ],
       "network_assertions": {
-        "material": 2,
-        "mechanical": 0,
-        "utility": 0,
+        "material": 10,
+        "mechanical": 2,
+        "utility": 36,
         "electrical": 0,
         "control": 0
       },
       "qualifications": [],
       "evidence_documents": [
-        "doc_c91eac5d4c104264801f",
         "doc_f6e89f3b3d3b40eb8d80",
         "doc_d157f03e84e84c068b06",
         "doc_294aacf286d246769e32",
-        "doc_4f2cd96c3b1e413ea4b5"
+        "doc_4f2cd96c3b1e413ea4b5",
+        "doc_9258f527621741938b79"
       ]
     },
     {

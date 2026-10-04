@@ -357,7 +357,7 @@
       ],
       "scope": "TP7 gate crossover, conveyor 6 trees, CV-1/2 applicability and silo receiving interfaces.",
       "exit_check": "6A\u00e2\u2020\u2019EBB-2 and 6B\u00e2\u2020\u2019EBB-1 regression preserved.",
-      "status": "in_progress",
+      "status": "breadth_complete",
       "gates": [
         "G1",
         "G2",
@@ -369,7 +369,9 @@
         "G8"
       ],
       "checkpoint": "output/plant-enrichment/B14/checkpoint.md",
-      "baseline_version": 657
+      "baseline_version": 657,
+      "latest_version": 661,
+      "verification": "55/55 new components drawn/selectable; four original crop/source-return checks (175016p4 at390x844,175039p1,175292p2,175330p1).28 route/integrity checks,52 Node tests,proposal preservation and both pilot audits pass. Silo projection follows chute interfaces without duplicate inlet conveyors; browser confirms four correct inlet belts."
     },
     {
       "id": "B15",
@@ -382,7 +384,7 @@
       ],
       "scope": "EAD-1/EAF-1 detailed drive/hoist/hydraulic/lube/anchor/fire references; common design applicability matrix for yards2\u00e2\u20ac\u201c4.",
       "exit_check": "Documented families qualified; discrepancies retained; no generic bucket-wheel template.",
-      "status": "not_started",
+      "status": "in_progress",
       "gates": [
         "G1",
         "G2",
@@ -393,7 +395,8 @@
         "G7",
         "G8"
       ],
-      "checkpoint": "output/plant-enrichment/B15/checkpoint.md"
+      "checkpoint": "output/plant-enrichment/B15/checkpoint.md",
+      "baseline_version": 661
     },
     {
       "id": "B16",

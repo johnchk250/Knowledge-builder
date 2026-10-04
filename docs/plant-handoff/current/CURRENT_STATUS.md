@@ -1,8 +1,8 @@
 # Current plant detail inventory
 
-Reviewed 2026-10-04 at model v657. Fresh read-only snapshot: `output/plant-enrichment/B13/accepted-v657.json`. All 179 targets and 47 batches reconciled. Integrity/FK checks pass. Counts describe records, not physical quantities or engineering completion.
+Reviewed 2026-10-04 at model v661. Fresh read-only snapshot: `output/plant-enrichment/B14/accepted-v661.json`. All 179 targets and 47 batches reconciled. Integrity/FK checks pass. Counts describe records, not physical quantities or engineering completion.
 
-9 batches accepted with qualifications; 12 further batches breadth-complete; 26 remain in Pass A. Phase 1: 6/6 batches. Finer work stays in [the depth queue](depth-queue.json).
+9 batches accepted with qualifications; 13 further batches breadth-complete; 25 remain in Pass A. Phase 1: 6/6 batches. Finer work stays in [the depth queue](depth-queue.json).
 
 ## Main conveyors
 
@@ -18,8 +18,8 @@ Reviewed 2026-10-04 at model v657. Fresh read-only snapshot: `output/plant-enric
 | EAC-4B | 16 | Tier 1 accepted; finer detail in depth queue | B12 / phase-2 |
 | EAC-5A | 16 | Tier 1 accepted; finer detail in depth queue | B13 / phase-2 |
 | EAC-5B | 16 | Tier 1 accepted; finer detail in depth queue | B13 / phase-2 |
-| EBA-6A | 1 | remaining batch: inspect existing detail before adding | B14 / phase-2 |
-| EBA-6B | 1 | remaining batch: inspect existing detail before adding | B14 / phase-2 |
+| EBA-6A | 20 | Tier 1 accepted; finer detail in depth queue | B14 / phase-2 |
+| EBA-6B | 20 | Tier 1 accepted; finer detail in depth queue | B14 / phase-2 |
 | EAC-7 | 41 | remaining batch: inspect existing detail before adding | B16 / phase-3 |
 | EBA-8 | 42 | remaining batch: inspect existing detail before adding | B16 / phase-3 |
 | EAC-9 | 1 | remaining batch: inspect existing detail before adding | B17 / phase-3 |
@@ -59,7 +59,7 @@ Reviewed 2026-10-04 at model v657. Fresh read-only snapshot: `output/plant-enric
 ## Review limits and additional queues
 
 - Accepted-package targets without owned children: TP-16, TP-17, TP-18, UEF-2, CV-5, CV-6, FG-15A, FG-15B. See accepted-followups.json; B45 must review available detail and scope before closure.
-- 595 non-reference canonical records are outside the current process-area projection; some are legitimate shared services or design/identity candidates. Every row is recorded in record-review-queue.json for source-based disposition, not automatic placement.
+- 581 non-reference canonical records are outside the current process-area projection; some are legitimate shared services or design/identity candidates. Every row is recorded in record-review-queue.json for source-based disposition, not automatic placement.
 - Current documented electrical-network assertions: 10; the old v510 statement of zero electrical edges is historical. Plant-wide SLD/feeder closure remains B43.
 - target-status.json records every target, including reference boundaries and planned yard area identities. No missing target is silently created.
 - Existing pilot source gaps, unwritten source dispositions and unresolved identities remain work even when a root has many assertions.

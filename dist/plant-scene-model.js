@@ -167,7 +167,15 @@
     const owned=new Set(p.assembly(id).map(n=>n.id));
     const vessels=[...owned].filter(x=>(p.classes.get(x)||[]).includes('coal_silo')).sort((a,b)=>label(p,a).localeCompare(label(p,b)));
     const next=(from,type)=>unique(p.material.filter(a=>a.canonical_subject===from&&owned.has(a.canonical_object)&&(p.classes.get(a.canonical_object)||[]).includes(type)).map(a=>a.canonical_object));
-    return vessels.map(vessel=>{const extractors=next(vessel,'silo_extractor'),feeders=extractors.flatMap(x=>next(x,'belt_feeder')),gates=feeders.flatMap(x=>next(x,'diverter_gate'));return {vessel,extractors,feeders,gates,inlets:unique(p.material.filter(a=>a.canonical_object===vessel&&!owned.has(a.canonical_subject)).map(a=>a.canonical_subject))};});
+    // A detailed discharge chute is an interface of its incoming stream, not
+    // another conveyor. Follow only chute links; stop at the first equipment.
+    const inletSources=(id,seen=new Set())=>{
+      if(seen.has(id))return [];
+      if(!(p.classes.get(id)||[]).includes('chute_interface'))return [id];
+      const upstream=p.material.filter(a=>a.canonical_object===id).map(a=>a.canonical_subject);
+      return upstream.length?upstream.flatMap(x=>inletSources(x,new Set([...seen,id]))):[id];
+    };
+    return vessels.map(vessel=>{const extractors=next(vessel,'silo_extractor'),feeders=extractors.flatMap(x=>next(x,'belt_feeder')),gates=feeders.flatMap(x=>next(x,'diverter_gate'));return {vessel,extractors,feeders,gates,inlets:unique(p.material.filter(a=>a.canonical_object===vessel&&!owned.has(a.canonical_subject)).flatMap(a=>inletSources(a.canonical_subject)))};});
   }
   function modeFacts(facts,requested){
     const mode=a=>/^Mode: ([^(;]+)/i.exec(a.context?.condition||'')?.[1].trim();

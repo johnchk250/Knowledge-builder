@@ -2,21 +2,21 @@
   "schema_version": 1,
   "updated_date": "2026-10-04",
   "baseline_version": 593,
-  "latest_verified_version": 657,
+  "latest_verified_version": 661,
   "status": "in_progress",
   "execution_mode": "breadth_first",
   "pass": "A",
   "breadth_policy": "docs/plant-handoff/FIVE_PHASE_PLAN.md#execution-mode-breadth-first-from-v628",
   "depth_queue": "docs/plant-handoff/current/depth-queue.json",
-  "active_phase": "phase-2",
-  "next_batch": "B14",
-  "next_action": "B14 Pass A: implement EBA6A/B major assemblies,TP7 selector crossover and local utilities; reconcile existing CV1/2 analyser applicability from principal GA/data sources. Preserve exact6A-toEBB2 and6B-toEBB1 silo crossovers. Principal TP7 doc_f6e89f3b3d3b40eb8d80 and piping doc_d157f03e84e84c068b06 located; B14/review contains these plus analyser sources. Locate conveyor6 GA and inspect all principal pages before proposals.",
+  "active_phase": "phase-3",
+  "next_batch": "B15",
+  "next_action": "B15/B16 Pass A: current Yard1 identity/boundary recheck against B03/B04/B13, numbered-machine applicability matrix and source-return journeys only. Preserve accepted pilot depth; queue residual details. Then advance immediately to B17 Yard2 conveyors and place structure using its own principal sources.",
   "plan": "docs/plant-handoff/FIVE_PHASE_PLAN.md",
   "current_inventory": "docs/plant-handoff/current/CURRENT_STATUS.md",
   "last_completed_work": {
-    "scope": "B13 Tier1 accepted v653-v657: 85 major components, 486 assertions and 14 retired aggregate/duplicate-owner facts. Conveyor5 drive/belt/takeup/protection assemblies,TP5 divider-selector crossovers,TP6 fixed-tripper branches,13 hoist groups,access,drains and local services. Existing28 FAS/PRUs and Yard1/2 boundary identities reused.",
-    "version": 657,
-    "checkpoint": "output/plant-enrichment/B13/checkpoint.md"
+    "scope": "B14 Tier1 accepted v658-v661: 55 major components, 289 assertions and 11 retired aggregate/duplicate-owner or generic-instance facts. Conveyor6 main assemblies, TP7 gate actuators/chutes, three hoists, access/drain/tank, local DFDS and CV1/2 analyser assemblies. Exact6A-toEBB2 and6B-toEBB1 retained.",
+    "version": 661,
+    "checkpoint": "output/plant-enrichment/B14/checkpoint.md"
   },
   "accepted_reuse_batches": [
     "B30",
@@ -85,7 +85,7 @@
     {
       "id": "phase-2",
       "title": "Unloading, screening and distribution",
-      "status": "in_progress",
+      "status": "breadth_complete",
       "batches": [
         "B06",
         "B07",
@@ -98,9 +98,9 @@
         "B14"
       ],
       "completed_batches": [],
-      "current_batch": "B14",
+      "current_batch": null,
       "baseline_version": 635,
-      "latest_version": 657,
+      "latest_version": 661,
       "checkpoint": "output/plant-enrichment/B14/checkpoint.md",
       "open_evidence_gaps": [
         {
@@ -122,13 +122,14 @@
         "B10",
         "B11",
         "B12",
-        "B13"
+        "B13",
+        "B14"
       ]
     },
     {
       "id": "phase-3",
       "title": "Stockyards and reclaim",
-      "status": "not_started",
+      "status": "in_progress",
       "batches": [
         "B15",
         "B16",
@@ -147,10 +148,10 @@
         "B29"
       ],
       "completed_batches": [],
-      "current_batch": null,
-      "baseline_version": null,
-      "latest_version": null,
-      "checkpoint": null,
+      "current_batch": "B15",
+      "baseline_version": 661,
+      "latest_version": 661,
+      "checkpoint": "output/plant-enrichment/B15/checkpoint.md",
       "open_evidence_gaps": [],
       "breadth_complete_batches": []
     },
@@ -569,6 +570,19 @@
       "status": "breadth_complete",
       "verification": "85/85 major additions drawn/selectable; five original crop/source-return journeys (175015p3 at390x844,175037p1,175038p1,175290p2,175291p1). TP5 shows5A/5B/9 alternatives; TP6 through/yard controls show same-belt continuation.32 route/integrity checks,51 Node tests,all proposal preservation checks and both pilot audits pass.",
       "milestone": "B13 Tier1 accepted v653-v657: 85 major components, 486 assertions and 14 retired aggregate/duplicate-owner facts. Conveyor5 drive/belt/takeup/protection assemblies,TP5 divider-selector crossovers,TP6 fixed-tripper branches,13 hoist groups,access,drains and local services. Existing28 FAS/PRUs and Yard1/2 boundary identities reused."
+    },
+    {
+      "date": "2026-10-04",
+      "batch": "B14",
+      "versions": [
+        658,
+        659,
+        660,
+        661
+      ],
+      "status": "breadth_complete",
+      "verification": "55/55 new components drawn/selectable; four original crop/source-return checks (175016p4 at390x844,175039p1,175292p2,175330p1).28 route/integrity checks,52 Node tests,proposal preservation and both pilot audits pass. Silo projection follows chute interfaces without duplicate inlet conveyors; browser confirms four correct inlet belts.",
+      "milestone": "B14 Tier1 accepted v658-v661: 55 major components, 289 assertions and 11 retired aggregate/duplicate-owner or generic-instance facts. Conveyor6 main assemblies, TP7 gate actuators/chutes, three hoists, access/drain/tank, local DFDS and CV1/2 analyser assemblies. Exact6A-toEBB2 and6B-toEBB1 retained."
     }
   ],
   "accepted_followup_queue": "docs/plant-handoff/current/accepted-followups.json",

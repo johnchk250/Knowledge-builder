@@ -79,6 +79,18 @@ test('extractor drive children retain their own symbols and exact electrical end
   assert.deepEqual(S.closestParents(p,'motor'),['drive']);
 });
 
+test('silo inlets follow chute interfaces without duplicating conveyors or crossing upstream gates',()=>{
+  const types={house:'coal_blending_silo_house',v1:'coal_silo',v2:'coal_silo',a:'belt_conveyor',b:'belt_conveyor',gate:'diverter_gate',ca:'chute_interface',cb:'chute_interface',cycle:'chute_interface',unresolved:'chute_interface'};
+  const fs=Object.entries(types).map(([id,type])=>f(id,'instance_of',null,{value:type}));
+  fs.push(f('v1','part_of','house'),f('v2','part_of','house'),f('ca','part_of','a'),f('cb','part_of','b'));
+  for(const [a,b] of [['gate','a'],['a','ca'],['ca','v2'],['a','v2'],['b','cb'],['cb','v1'],['cb','cycle'],['cycle','cb'],['unresolved','v1']])fs.push(net(a,b));
+  const p=project(Object.keys(types).map(x=>e(x)),fs),cols=S.siloColumns(p,'house');
+  assert.deepEqual(cols[0].inlets,['b','unresolved']);
+  assert.deepEqual(cols[1].inlets,['a']);
+  assert.deepEqual(S.closestParents(p,'ca'),['a']);
+  assert.ok(S.scene(p,'a').nodes.some(n=>n.id==='ca'));
+});
+
 test('operating mode reference separates Remote, Local and Maintenance without borrowing permissives',()=>{
   const facts=['Remote','Local','Maintenance'].map(mode=>f('x','start_permissive',null,{value:mode+' conditions',context:{kind:'specification',condition:'Mode: '+mode}}));
   facts.push(f('x','rated_capacity',null,{value:1250}));

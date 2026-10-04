@@ -198,6 +198,33 @@
       "source": "doc_6d28742056e94651be04 pp1-3;doc_eadc432afcad400192d0 pp1-6;doc_e91d806d942243248e18 pp1-3;doc_f9f96af6a25e47179881 pp1-3",
       "priority": "P2",
       "status": "open"
+    },
+    {
+      "id": "DQ-B14-001",
+      "batch": "B14",
+      "target": "EBA-6A/B",
+      "missing": "Drive internals/settings, idler/BOM and gallery detail. Preserve A/B protection-count and belt-length differences.",
+      "source": "doc_c91eac5d4c104264801f pp1-8",
+      "priority": "P2",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B14-002",
+      "batch": "B14",
+      "target": "UEF-7",
+      "missing": "Local pipe/nozzle and hoist/civil details; copied UAF/EAC labels and1700/2000 clearance qualification.",
+      "source": "doc_f6e89f3b3d3b40eb8d80 pp1-2;doc_d157f03e84e84c068b06 pp1-3",
+      "priority": "P2",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B14-003",
+      "batch": "B14",
+      "target": "CV-1/2",
+      "missing": "Catalogue, calibration, electronics, QAP and source-holder detail; do not infer isotope, activity or loaded-source status.",
+      "source": "doc_740734a151bd4c00b655 pp1-5;doc_b5c8e30f4e3d475b8cf2;doc_c29985298e9c4a338bbb",
+      "priority": "P2",
+      "status": "open"
     }
   ]
 }
