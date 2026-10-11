@@ -449,7 +449,7 @@
       "checkpoint": "output/plant-enrichment/B17/checkpoint.md",
       "baseline_version": 661,
       "latest_version": 664,
-      "verification": "26/26 new components are scene nodes; 31 route/assembly checks, 33 headless scene checks, 52 Node tests, integrity/FK, preservation and both pilot audits pass; Yard1 audit shows zero changes. Interactive browser journeys not performed; all GA sheets visually reviewed."
+      "verification": "26/26 new components are scene nodes with navigation and specific drive symbols; 31 route/assembly checks (FD-5/6 inlet, EAC-9-to-EAD-2, EBA-10-to-FG-9-to-15A/B, no flow into UAX-2). 52 Node tests, integrity/FK, proposal preservation and both pilot audits pass; Yard1 audit shows zero changes. Visual pass 10/10 PNG + 2 source journeys, 0 console errors (desktop-1440 + mobile-480); all GA sheets visually reviewed."
     },
     {
       "id": "B18",

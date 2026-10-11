@@ -617,7 +617,7 @@
         664
       ],
       "status": "breadth_complete",
-      "verification": "26/26 new components are scene nodes; 31 route/assembly checks, 33 headless scene checks, 52 Node tests, integrity/FK, preservation on all three proposals and both pilot audits pass; Yard1 audit shows zero changes. Interactive browser journeys not performed (no browser tool); all GA sheets visually reviewed.",
+      "verification": "26/26 new components are scene nodes; 31 route/assembly checks, 33 headless scene checks, 52 Node tests, integrity/FK, preservation on all three proposals and both pilot audits pass; Yard1 audit shows zero changes. Visual pass 10/10 PNG + 2 source journeys, 0 console errors (desktop-1440 + mobile-480); all GA sheets visually reviewed.",
       "milestone": "B17 Tier1 accepted v662-v664: Yard2 area/membership, EAC-9/EBA-10 assemblies from own GAs, FD-5/6 inlet and FG-9-to-15A/B outlet preserved; brake DS/I and weigher 2% corrections.",
       "proposals": [
         "prop_be3dbb150ec14902ab00",
