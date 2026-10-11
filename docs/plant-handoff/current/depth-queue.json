@@ -243,6 +243,24 @@
       "source": "COAL_YARD_1_PILOT_REPORT.md;Yard1 manifest;B03/B04 boundaries",
       "priority": "P2",
       "status": "open"
+    },
+    {
+      "id": "DQ-B17-001",
+      "batch": "B17",
+      "target": "EAC-9 / EBA-10 drive and protection detail",
+      "missing": "Vendor drive internals, brake setting/calculation reconciliation, protection numeric settings, idler/cleaner row-level BOM reconciliation and head-pulley table/detail-face wording. PCS schedule quantity without explicit pair-unit stays qualified.",
+      "source": "doc_cd640b41256b4b288744 (175019) and doc_229dddc0f5ab4d77bbf0 (175020) schedule/detail sheets; vendor drive/lube sources",
+      "priority": "P1",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B17-002",
+      "batch": "B17",
+      "target": "Yard2 civil, access and foundation detail",
+      "missing": "Take-up/HGT tower, head-frame, gallery and foundation load-table detail; coasting-calculation 1400mm width versus GA 2000mm review qualification; sheet-1 copied UAX1/UEF6 notes disposition.",
+      "source": "doc_cd640b41256b4b288744 and doc_229dddc0f5ab4d77bbf0 pp1-5; review replies",
+      "priority": "P2",
+      "status": "open"
     }
   ]
 }

@@ -570,20 +570,20 @@
       "family": "conveyor",
       "primary_batch": "B17",
       "phase": "phase-3",
-      "batch_status": "in_progress",
-      "disposition": "remaining batch: inspect existing detail before adding",
+      "batch_status": "breadth_complete",
+      "disposition": "Tier 1 accepted; finer detail in depth queue",
       "prior_pilot": null,
       "card": "../targets/eac-9.md",
       "present": true,
       "canonical_id": "ent_9a84798b364d4a14a404",
       "current_label": "EAC-9",
       "own_fact_count": 49,
-      "direct_children": 0,
-      "assembly_records": 1,
+      "direct_children": 12,
+      "assembly_records": 13,
       "located_records": [],
       "network_assertions": {
-        "material": 2,
-        "mechanical": 0,
+        "material": 1,
+        "mechanical": 5,
         "utility": 0,
         "electrical": 0,
         "control": 0
@@ -602,20 +602,20 @@
       "family": "conveyor",
       "primary_batch": "B17",
       "phase": "phase-3",
-      "batch_status": "in_progress",
-      "disposition": "remaining batch: inspect existing detail before adding",
+      "batch_status": "breadth_complete",
+      "disposition": "Tier 1 accepted; finer detail in depth queue",
       "prior_pilot": null,
       "card": "../targets/eba-10.md",
       "present": true,
       "canonical_id": "ent_2ce3b794b8ed4ae3b125",
       "current_label": "EBA-10",
       "own_fact_count": 40,
-      "direct_children": 0,
-      "assembly_records": 1,
+      "direct_children": 13,
+      "assembly_records": 14,
       "located_records": [],
       "network_assertions": {
         "material": 1,
-        "mechanical": 0,
+        "mechanical": 5,
         "utility": 0,
         "electrical": 0,
         "control": 0
@@ -1563,7 +1563,8 @@
         "ent_38ce10fd2b0e46d5b9a8",
         "ent_b1abbbeeab3d48b4857c",
         "ent_82cc4616f5c4430aadea",
-        "ent_0864740fa37748c9885f"
+        "ent_0864740fa37748c9885f",
+        "ent_2c478cdfd9b94fddac9c"
       ],
       "network_assertions": {
         "material": 22,
@@ -1767,7 +1768,14 @@
       "located_records": [
         "ent_3594e27acabd4a0b96a6",
         "ent_c0bd4ff445564990aa0f",
-        "ent_44eb813bc89b44c49b42"
+        "ent_44eb813bc89b44c49b42",
+        "ent_049c588d903f411d9020",
+        "ent_cb44886625104e2da839",
+        "ent_a8d9fb18515f400b9916",
+        "ent_c0a3b82e4f89443f9902",
+        "ent_3a3b97e084d446a09e0a",
+        "ent_e3997a6925c04a29933a",
+        "ent_c3fdb6f21f634fdba538"
       ],
       "network_assertions": {
         "material": 0,

@@ -435,7 +435,7 @@
       ],
       "scope": "Create area membership; EAC-9/EBA-10 drive/mechanical/protection, UAX-2/6, UEB-2 and EAE-2 place context.",
       "exit_check": "Source-specific ratings/counts; no Yard 1 data cloning.",
-      "status": "in_progress",
+      "status": "breadth_complete",
       "gates": [
         "G1",
         "G2",
@@ -447,7 +447,9 @@
         "G8"
       ],
       "checkpoint": "output/plant-enrichment/B17/checkpoint.md",
-      "baseline_version": 661
+      "baseline_version": 661,
+      "latest_version": 664,
+      "verification": "26/26 new components are scene nodes; 31 route/assembly checks, 33 headless scene checks, 52 Node tests, integrity/FK, preservation and both pilot audits pass; Yard1 audit shows zero changes. Interactive browser journeys not performed; all GA sheets visually reviewed."
     },
     {
       "id": "B18",
