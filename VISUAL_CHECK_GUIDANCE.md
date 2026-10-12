@@ -23,17 +23,51 @@ All green before Tier 2. (`start.bat` uses `.venv` then falls back to `py -3`;
 
 ## Tier 2 — browser sweep (visual pass)
 
+Two routes satisfy the visual pass. Prefer Route A whenever a browser-driving
+tool is available; otherwise Route B is the required fallback ("no browser
+tool" is never an excuse on its own).
+
+- **Route A — interactive browser journeys.** Drive the running app directly:
+  overview → each tagged equipment → subpart → individual fact/source modal →
+  Escape returns to the same assembly; tag search; neighbouring equipment;
+  shared-service boundary; narrow-panel and desktop widths. Screenshot each
+  leg into `tmp/visual-checks/<batch>/` and review against the checklist below.
+- **Route B — `tools/visual_sweep.cjs`.** Scripted equivalent of Route A:
+  per viewport it captures overview, each tagged equipment with inspector
+  open, connections view and operations desk; then one source-open/return
+  journey per tag (first `pe-source` button → evidence modal screenshot →
+  Escape → inspector retained). Results and console/page errors land in
+  `<out>/manifest.json`.
+
 One-time setup (stays inside gitignored `tmp/`, repo stays clean):
 
 ```powershell
 cd tmp/visual-checks; npm init -y; npm i -D playwright@1.64.0; npx playwright install chromium; cd ..\..
 ```
 
-Per batch (app must be running, e.g. `start.bat` on port 8765):
+Per batch — start the server and sweep back-to-back **in the same run**:
 
 ```powershell
+python -m chp.launcher
 node tools/visual_sweep.cjs --port 8765 --out tmp/visual-checks/<batch> --tags <TAG1>,<TAG2>
 ```
+
+Rules learned the hard way (B17):
+
+- Start with `python -m chp.launcher` (or `start.bat`). It retires a verified
+  orphan on 8765 and uses the correct `--data data`, so workspace `plant`
+  serves the live model. **Never pass `--data data/plant`** — that serves a
+  stale workspace whose `Documented model` badge stays at v0 and every tag
+  search fails.
+- Background servers may be reaped between runs. Start, verify the listener,
+  then sweep immediately in the same run; stop your server process when done
+  (the next launcher run retires verified orphans).
+- The sweep waits for the `Documented model · v<live>` badge before touching
+  anything. If it never flips from v0, the server is on the wrong data dir.
+- Inspector source buttons are `button.pe-source` (explorer cite helper);
+  `button.ps-source` is a different helper used elsewhere. Expand `<details>`
+  with real summary clicks only — setting `.open` via evaluate wedges the page.
+- Viewport screenshots for modals (centered, fast); full-page for scenes.
 
 Tags are the batch's equipment labels (e.g. B17: `--tags EAC-9,EBA-10`).
 The script captures, per viewport (`desktop-1440`, `mobile-480`): overview,
@@ -57,9 +91,21 @@ plus console/page errors into `<out>/manifest.json`.
 
 `manifest.json` has no step `error`, no console/page errors, and every checklist
 item holds at both widths. Record one line in the batch checkpoint, e.g.
-`Visual pass: 10/10 PNG, 0 console errors (desktop-1440 + mobile-480).`
+`Visual pass: 10/10 PNG + 2/2 source journeys, 0 console errors (desktop-1440 + mobile-480).`
+Route A records the same line with its journey legs instead of PNG counts.
 Interactive browser journeys are never skipped for batches that touch scenes —
-"no browser tool" is not an excuse; this sweep is the tool.
+use Route A when a browser tool exists, Route B otherwise; this sweep is the tool.
+
+## Troubleshooting
+
+| Symptom | Cause | Fix |
+|---|---|---|
+| Badge stays at `Documented model · v0`, every tag search times out | Server started with `--data data/plant` (stale workspace) | Restart via `python -m chp.launcher` (correct `--data data`) |
+| `ERR_CONNECTION_REFUSED` at sweep start | Server reaped between runs | Start the server and sweep back-to-back in the same run; verify the 8765 listener first |
+| Model badge flips but search finds nothing | Interaction raced the async `/api/state` load | `waitForModel` gate in the script; do not remove it |
+| Script wedges expanding inspector sections | `.open` set via evaluate | Expand with real summary clicks only (baked into the script) |
+| Source-button locator finds nothing | Wrong class: scene uses `ps-source`, inspector uses `pe-source` | Locator in the script targets `button.pe-source`; keep it so |
+| Full-page scene shots take minutes | Huge SVG DOM on assembly scenes | Expected; viewport shots are used for modals |
 
 ## Worked example (B17, v664)
 
@@ -67,10 +113,12 @@ Interactive browser journeys are never skipped for batches that touch scenes —
 node tools/visual_sweep.cjs --port 8765 --out tmp/visual-checks/B17-auto --tags EAC-9,EBA-10
 ```
 
-10/10 PNG, 0 errors. EAC-9: Yard2 membership, KB-FD-5/6 → EAD-2 inlets,
+10/10 PNG + 2/2 source journeys, 0 errors. EAC-9: Yard2 membership, KB-FD-5/6 → EAD-2 inlets,
 Rated 3400 / Design 3740 t/h / 3.5 m/s (Page 5), 49 facts, 17 connections.
 EBA-10: EAF-2 → FG-9 outlet, weigher, 2.7 m/s / 270 kW / 1375 T/hr
 (Page 2 text block 1), 40 facts, 12 connections. Desk: 3116 identities, 266 docs.
+Source journeys: control write-up p29 and GA 175020 p5 modals open with
+correct document/page/SHA-256; Escape returns to the same inspector.
 
 ## Notes
 
