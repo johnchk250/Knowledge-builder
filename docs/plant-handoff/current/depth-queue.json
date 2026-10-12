@@ -261,6 +261,24 @@
       "source": "doc_cd640b41256b4b288744 and doc_229dddc0f5ab4d77bbf0 pp1-5; review replies",
       "priority": "P2",
       "status": "open"
+    },
+    {
+      "id": "DQ-B18-001",
+      "batch": "B18",
+      "target": "EAD-2 stacker drive and protection detail",
+      "missing": "Vendor motor/gearbox/coupling/brake internals below assembly level; travel/slew/luff protection numeric settings and PLC/collision/travel-limit/storm-parking logic; commissioned speeds/pressures and per-unit serials. Assembly notes only assert family design.",
+      "source": "Stacker BOD doc_78bebe6773984d59b013 pp2-3; stacker GA doc_d69ffd4c7c2241018323 pp1-4; drive/lube/DSS vendor sources P06",
+      "priority": "P1",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B18-002",
+      "batch": "B18",
+      "target": "EAF-2 reclaimer drive and protection detail",
+      "missing": "Scraper chain/blade/take-up detail; hoist rope/drum/brake internals; travel clamp/buffer selections; cable-reel feeder/starter/VFD mapping; safety-instrument 179103 loops and wind-trip reconciliation; lube/DSS/fire and commissioned settings. Assembly notes only assert family design.",
+      "source": "Reclaimer GA doc_3e81ea1c32df4215968d p3 spec table + pp4-6 replies; reclaimer BOD doc_498f70490d294542b8b0; lube/DSS/safety sources P06",
+      "priority": "P1",
+      "status": "open"
     }
   ]
 }

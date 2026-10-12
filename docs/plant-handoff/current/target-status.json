@@ -3031,16 +3031,16 @@
     "family": "stacker",
     "primary_batch": "B18",
     "phase": "phase-3",
-    "batch_status": "not_started",
-    "disposition": "remaining batch: inspect existing detail before adding",
+    "batch_status": "breadth_complete",
+    "disposition": "Tier 1 accepted; finer detail in depth queue",
     "prior_pilot": null,
     "card": "../targets/ead-2.md",
     "present": true,
     "canonical_id": "ent_527fbb1d01ee4ad9b582",
     "current_label": "EAD-2",
-    "own_fact_count": 4,
-    "direct_children": 1,
-    "assembly_records": 2,
+    "own_fact_count": 10,
+    "direct_children": 7,
+    "assembly_records": 8,
     "located_records": [],
     "network_assertions": {
       "material": 1,
@@ -3049,9 +3049,12 @@
       "electrical": 0,
       "control": 1
     },
-    "qualifications": [],
+    "qualifications": [
+      "fact_5063b44ce5704113b8f8"
+    ],
     "evidence_documents": [
-      "doc_4f2cd96c3b1e413ea4b5"
+      "doc_4f2cd96c3b1e413ea4b5",
+      "doc_78bebe6773984d59b013"
     ]
   },
   {
@@ -3096,16 +3099,16 @@
     "family": "reclaimer",
     "primary_batch": "B18",
     "phase": "phase-3",
-    "batch_status": "not_started",
-    "disposition": "remaining batch: inspect existing detail before adding",
+    "batch_status": "breadth_complete",
+    "disposition": "Tier 1 accepted; finer detail in depth queue",
     "prior_pilot": null,
     "card": "../targets/eaf-2.md",
     "present": true,
     "canonical_id": "ent_5855200a67644d1f86a6",
     "current_label": "EAF-2",
-    "own_fact_count": 4,
-    "direct_children": 0,
-    "assembly_records": 1,
+    "own_fact_count": 10,
+    "direct_children": 6,
+    "assembly_records": 7,
     "located_records": [],
     "network_assertions": {
       "material": 1,
@@ -3114,9 +3117,13 @@
       "electrical": 0,
       "control": 1
     },
-    "qualifications": [],
+    "qualifications": [
+      "fact_324065a825994c7d9a69",
+      "fact_d23827d8c7ff4e23b224"
+    ],
     "evidence_documents": [
-      "doc_4f2cd96c3b1e413ea4b5"
+      "doc_4f2cd96c3b1e413ea4b5",
+      "doc_3e81ea1c32df4215968d"
     ]
   },
   {

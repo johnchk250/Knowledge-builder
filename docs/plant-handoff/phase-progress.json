@@ -2,21 +2,21 @@
   "schema_version": 1,
   "updated_date": "2026-10-12",
   "baseline_version": 593,
-  "latest_verified_version": 664,
+  "latest_verified_version": 666,
   "status": "in_progress",
   "execution_mode": "breadth_first",
   "pass": "A",
   "breadth_policy": "docs/plant-handoff/FIVE_PHASE_PLAN.md#execution-mode-breadth-first-from-v628",
   "depth_queue": "docs/plant-handoff/current/depth-queue.json",
   "active_phase": "phase-3",
-  "next_batch": "B18",
-  "next_action": "B18 PassA: EAD-2/EAF-2 motion assemblies (travel, hoist/trolley, drives, lube) from unit-specific sources against the B15 applicability matrix. Do not inherit Yard1 motor/lube data without per-unit proof. Machines first, local services B19 follow.",
+  "next_batch": "B19",
+  "next_action": "B19 PassA: Yard2 local SPDS sector/AP/SV map, onboard DSS refill boundaries, drainage/fire gaps and TP5/10 interfaces from Yard2 source branches. Do not copy Yard1 SP-8G/H or AP/SV mapping.",
   "plan": "docs/plant-handoff/FIVE_PHASE_PLAN.md",
   "current_inventory": "docs/plant-handoff/current/CURRENT_STATUS.md",
   "last_completed_work": {
-    "scope": "B17 Tier1 accepted v662-v664: 26 major components, 123 assertions, 12 retired aggregate/duplicate-owner or transcription facts. Yard2 area/membership and EAC-9/EBA-10 assemblies from own GAs 175019/175020; FD-5/6 inlet and FG-9-to-15A/B outlet preserved. Brake DS/I and weigher (+/-)2% corrections with explicit retirements.",
-    "version": 664,
-    "checkpoint": "output/plant-enrichment/B17/checkpoint.md"
+    "scope": "B18 Tier1 accepted v665-v666: 12 new major components, 65 assertions, 0 retirements (1 weigher reused). Yard2 EAD-2/EAF-2 motion assemblies from unit-specific family BOD/GA against B15 matrix; crushed-coal and wind-unit conflicts preserved.",
+    "version": 666,
+    "checkpoint": "output/plant-enrichment/B18/checkpoint.md"
   },
   "accepted_reuse_batches": [
     "B30",
@@ -148,15 +148,16 @@
         "B29"
       ],
       "completed_batches": [],
-      "current_batch": "B18",
+      "current_batch": "B19",
       "baseline_version": 661,
-      "latest_version": 664,
-      "checkpoint": "output/plant-enrichment/B17/checkpoint.md",
+      "latest_version": 666,
+      "checkpoint": "output/plant-enrichment/B18/checkpoint.md",
       "open_evidence_gaps": [],
       "breadth_complete_batches": [
         "B15",
         "B16",
-        "B17"
+        "B17",
+        "B18"
       ]
     },
     {
@@ -623,6 +624,21 @@
         "prop_be3dbb150ec14902ab00",
         "prop_291c7feac09a4ed69961",
         "prop_25ae01c9a5ae45508e47"
+      ]
+    },
+    {
+      "date": "2026-10-12",
+      "batch": "B18",
+      "versions": [
+        665,
+        666
+      ],
+      "status": "breadth_complete",
+      "verification": "12/12 new components drawn/selectable; 14 route checks, 14 scene checks, 52 Node tests, integrity/FK, preservation on both proposals and both pilot audits pass; Yard1 audit zero-change (413/1959). Visual pass 12/12 PNG + 2/2 source journeys, 0 console errors (desktop-1440 + mobile-480); BOD pp1-6 and GA pp1-6 visually reviewed.",
+      "milestone": "B18 Tier1 accepted v665-v666: Yard2 EAD-2/EAF-2 motion assemblies from unit-specific family BOD/GA; crushed-coal and wind-unit conflicts preserved; weigher reused.",
+      "proposals": [
+        "prop_1e61b9e95839403d9508",
+        "prop_39fd6bdfab2f4c9c9ee4"
       ]
     }
   ],
