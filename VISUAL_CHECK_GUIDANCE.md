@@ -69,10 +69,16 @@ Rules learned the hard way (B17):
   with real summary clicks only — setting `.open` via evaluate wedges the page.
 - Viewport screenshots for modals (centered, fast); full-page for scenes.
 
-Tags are the batch's equipment labels (e.g. B17: `--tags EAC-9,EBA-10`).
-The script captures, per viewport (`desktop-1440`, `mobile-480`): overview,
-each tagged equipment with inspector open, connections view, operations desk —
-plus console/page errors into `<out>/manifest.json`.
+Tags are the batch's equipment labels (e.g. B17: `--tags EAC-9,EBA-10`;
+a machine batch might pass `--tags EAD-2,EAF-2`). The script captures,
+per viewport (`desktop-1440`, `mobile-480`): overview, each tagged equipment
+with inspector open, connections view, operations desk — plus console/page
+errors into `<out>/manifest.json`. Shot counts scale with the tag list, they
+are not a fixed target: per viewport the sweep takes overview + one shot per
+tag + connections + desk, and one source journey per tag. A 1-tag batch
+yields 8 PNGs, 2 tags yield 10, 3 tags yield 12. The run prints a totals line
+(`Screenshots: N/N steps; source journeys: M/M clean`) — copy those actuals
+into the checkpoint one-liner.
 
 ## Review checklist (every PNG)
 
@@ -90,7 +96,8 @@ plus console/page errors into `<out>/manifest.json`.
 ## Acceptance
 
 `manifest.json` has no step `error`, no console/page errors, and every checklist
-item holds at both widths. Record one line in the batch checkpoint, e.g.
+item holds at both widths. Record one line in the batch checkpoint with the
+run's actual totals, e.g.
 `Visual pass: 10/10 PNG + 2/2 source journeys, 0 console errors (desktop-1440 + mobile-480).`
 Route A records the same line with its journey legs instead of PNG counts.
 Interactive browser journeys are never skipped for batches that touch scenes —

@@ -225,10 +225,16 @@ async function runSourceJourneys(browser) {
   } finally {
     await browser.close().catch(() => {});
   }
-  const fail = [
+  const allSteps = [
     ...manifest.viewports.flatMap(v => v.results),
     ...manifest.sourceJourneys,
-  ].filter(r => r.error);
+  ];
+  const fail = allSteps.filter(r => r.error);
+  // Counts are dynamic, not fixed: per viewport the sweep captures overview +
+  // one equipment shot per --tags entry + connections + desk, and one source
+  // journey per tag. Report actuals (a 1-tag batch yields 8 PNGs, not 10).
+  const shots = allSteps.filter(r => r.file);
+  const journeys = manifest.sourceJourneys.filter(r => !r.error);
   fs.writeFileSync(path.join(OUT, 'manifest.json'), JSON.stringify(manifest, null, 2));
   console.log(`Done -> ${OUT}`);
   for (const v of manifest.viewports)
@@ -236,10 +242,8 @@ async function runSourceJourneys(browser) {
       console.log(`- ${v.viewport}/${r.step}: ${r.file || r.error}`);
   for (const r of manifest.sourceJourneys)
     console.log(`- source/${r.step}: ${r.error || `${r.button} -> returned to ${r.returned}`}`);
-  const errs = [
-    ...manifest.viewports.flatMap(v => v.results),
-    ...manifest.sourceJourneys,
-  ].flatMap(r => [...(r.consoleErrors || []), ...(r.pageErrors || [])]);
+  console.log(`Screenshots: ${shots.length}/${allSteps.length} steps; source journeys: ${journeys.length}/${manifest.sourceJourneys.length} clean`);
+  const errs = allSteps.flatMap(r => [...(r.consoleErrors || []), ...(r.pageErrors || [])]);
   console.log(errs.length ? `Console/page errors: ${errs.length} (see manifest.json)` : 'Console/page errors: none');
   process.exit(fail.length ? 1 : 0);
 })().catch(e => { console.error(e); process.exit(1); });
