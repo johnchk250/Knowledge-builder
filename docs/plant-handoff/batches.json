@@ -488,7 +488,7 @@
       ],
       "scope": "Local SPDS, sector/AP/SV map, onboard DSS, drainage/fire gaps and TP5/10 interfaces.",
       "exit_check": "All local quantities assigned from Yard 2 source branches.",
-      "status": "not_started",
+      "status": "breadth_complete",
       "gates": [
         "G1",
         "G2",
@@ -499,7 +499,10 @@
         "G7",
         "G8"
       ],
-      "checkpoint": "output/plant-enrichment/B19/checkpoint.md"
+      "checkpoint": "output/plant-enrichment/B19/checkpoint.md",
+      "baseline_version": 666,
+      "latest_version": 670,
+      "verification": "6/6 new components drawn/selectable; 12 route checks; 52 Node tests; integrity/FK; preservation on all four proposals; both pilot audits; Yard1 audit zero-change. Visual 15/15+3/3 and 18/18+4/4 journeys, 0 errors."
     },
     {
       "id": "B20",

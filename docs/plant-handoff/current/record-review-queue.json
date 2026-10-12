@@ -3593,7 +3593,7 @@
     "classes": [
       "control_system"
     ],
-    "own_fact_count": 3,
+    "own_fact_count": 4,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []

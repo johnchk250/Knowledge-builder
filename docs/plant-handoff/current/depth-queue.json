@@ -279,6 +279,42 @@
       "source": "Reclaimer GA doc_3e81ea1c32df4215968d p3 spec table + pp4-6 replies; reclaimer BOD doc_498f70490d294542b8b0; lube/DSS/safety sources P06",
       "priority": "P1",
       "status": "open"
+    },
+    {
+      "id": "DQ-B19-001",
+      "batch": "B19",
+      "target": "Yard2 machine fire protection",
+      "missing": "Per-machine fire detection/suppression applicability for EAD-2/EAF-2; vendor package scope versus installed coverage unverified.",
+      "source": "doc_4d488fd685284c408297 Fire detection and extinguishon system of Stacker (50pp, scope to verify); reclaimer-side fire source to locate",
+      "priority": "P2",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B19-002",
+      "batch": "B19",
+      "target": "EAD-2/EAF-2 onboard service internals",
+      "missing": "Machine lube (central grease, chain oil); onboard DSS pump/nozzle internals, commissioned set points, skid serials; duplex/simplex filter wording reconciliation for the coal sections.",
+      "source": "doc_0f52c77514a74773ae30 control/calculation sections; doc_a6a2fa82944f4d12b8aa pump schedule and P&ID 3778-02-T-01; vendor nameplates",
+      "priority": "P2",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B19-003",
+      "batch": "B19",
+      "target": "Yard2 AP-to-SV cross-reference",
+      "missing": "Unique AP-29..56 to SV-29..56 cross-reference and surveyed riser coordinates; per-riser valve/nozzle tag detail.",
+      "source": "doc_e17edf6897d746fabe12 sector tables; doc_7244e891263a4e6d8214 stockpile DS piping layout pp1-3",
+      "priority": "P3",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B19-004",
+      "batch": "B19",
+      "target": "Yard2 QRC count and routing",
+      "missing": "Per-yard share of the 92 BOM QRC positions; installed QRC routing and hose-connection detail for EAD-2/EAF-2 tanks.",
+      "source": "doc_5a36f2843d504d6e96de BOM item 19 and note 9; field routing records",
+      "priority": "P3",
+      "status": "open"
     }
   ]
 }

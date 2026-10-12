@@ -1,11 +1,11 @@
 {
   "review_date": "2026-10-12",
-  "version": 666,
-  "snapshot": "output/plant-enrichment/B18/accepted-v666.json",
+  "version": 670,
+  "snapshot": "output/plant-enrichment/B19/accepted-v670.json",
   "scope": "Current graph inventory and recorded acceptance; not a full original-document re-audit or completion score.",
-  "entity_records": 3337,
-  "active_canonical_entities": 3299,
-  "active_facts": 19001,
+  "entity_records": 3343,
+  "active_canonical_entities": 3305,
+  "active_facts": 19041,
   "documents": 266,
   "evidence_blocks": 5196,
   "targets": 179,
@@ -22,7 +22,6 @@
     "B36"
   ],
   "remaining_batches": [
-    "B19",
     "B20",
     "B21",
     "B22",
@@ -48,14 +47,14 @@
   "network_assertions": {
     "material": 353,
     "mechanical": 295,
-    "utility": 829,
+    "utility": 832,
     "electrical": 10,
-    "control": 341
+    "control": 342
   },
   "phase_batch_counts": {
     "phase-1": 0,
     "phase-2": 0,
-    "phase-3": 11,
+    "phase-3": 10,
     "phase-4": 6,
     "phase-5": 4
   },
@@ -76,6 +75,7 @@
     "B15",
     "B16",
     "B17",
-    "B18"
+    "B18",
+    "B19"
   ]
 }

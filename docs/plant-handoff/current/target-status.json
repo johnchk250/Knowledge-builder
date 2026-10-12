@@ -3039,8 +3039,8 @@
     "canonical_id": "ent_527fbb1d01ee4ad9b582",
     "current_label": "EAD-2",
     "own_fact_count": 10,
-    "direct_children": 7,
-    "assembly_records": 8,
+    "direct_children": 8,
+    "assembly_records": 9,
     "located_records": [],
     "network_assertions": {
       "material": 1,
@@ -3050,11 +3050,13 @@
       "control": 1
     },
     "qualifications": [
-      "fact_5063b44ce5704113b8f8"
+      "fact_5063b44ce5704113b8f8",
+      "fact_6946b532c61241cab6fc"
     ],
     "evidence_documents": [
       "doc_4f2cd96c3b1e413ea4b5",
-      "doc_78bebe6773984d59b013"
+      "doc_78bebe6773984d59b013",
+      "doc_0f52c77514a74773ae30"
     ]
   },
   {
@@ -3107,8 +3109,8 @@
     "canonical_id": "ent_5855200a67644d1f86a6",
     "current_label": "EAF-2",
     "own_fact_count": 10,
-    "direct_children": 6,
-    "assembly_records": 7,
+    "direct_children": 7,
+    "assembly_records": 8,
     "located_records": [],
     "network_assertions": {
       "material": 1,
@@ -3119,11 +3121,13 @@
     },
     "qualifications": [
       "fact_324065a825994c7d9a69",
-      "fact_d23827d8c7ff4e23b224"
+      "fact_d23827d8c7ff4e23b224",
+      "fact_85793ebf7b784a378cf1"
     ],
     "evidence_documents": [
       "doc_4f2cd96c3b1e413ea4b5",
-      "doc_3e81ea1c32df4215968d"
+      "doc_3e81ea1c32df4215968d",
+      "doc_a6a2fa82944f4d12b8aa"
     ]
   },
   {

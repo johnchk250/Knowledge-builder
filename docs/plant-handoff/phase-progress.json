@@ -2,21 +2,21 @@
   "schema_version": 1,
   "updated_date": "2026-10-12",
   "baseline_version": 593,
-  "latest_verified_version": 666,
+  "latest_verified_version": 670,
   "status": "in_progress",
   "execution_mode": "breadth_first",
   "pass": "A",
   "breadth_policy": "docs/plant-handoff/FIVE_PHASE_PLAN.md#execution-mode-breadth-first-from-v628",
   "depth_queue": "docs/plant-handoff/current/depth-queue.json",
   "active_phase": "phase-3",
-  "next_batch": "B19",
-  "next_action": "B19 PassA: Yard2 local SPDS sector/AP/SV map, onboard DSS refill boundaries, drainage/fire gaps and TP5/10 interfaces from Yard2 source branches. Do not copy Yard1 SP-8G/H or AP/SV mapping.",
+  "next_batch": "B20",
+  "next_action": "B20 PassA: Yard3 area/membership with EAC-11/EBA-12 assemblies from own GAs 175021/175022, UAX-3/7 and UEB-3 place context; preserve UEF-4 fixed-tripper diversion inlet and FG-8 outlet. Do not clone Yard1/2 motor/lube/SPDS values.",
   "plan": "docs/plant-handoff/FIVE_PHASE_PLAN.md",
   "current_inventory": "docs/plant-handoff/current/CURRENT_STATUS.md",
   "last_completed_work": {
-    "scope": "B18 Tier1 accepted v665-v666: 12 new major components, 65 assertions, 0 retirements (1 weigher reused). Yard2 EAD-2/EAF-2 motion assemblies from unit-specific family BOD/GA against B15 matrix; crushed-coal and wind-unit conflicts preserved.",
-    "version": 666,
-    "checkpoint": "output/plant-enrichment/B18/checkpoint.md"
+    "scope": "B19 Tier1 accepted v667-v670: 6 new major components, 40 assertions, 0 retirements. Yard2 SPDS parent, SC-02 sector/SV map, AP-29..56 risers, QRC makeup serving both machines, both onboard DSS groups with EAF-2 refill link; Yard2-branch quantities only.",
+    "version": 670,
+    "checkpoint": "output/plant-enrichment/B19/checkpoint.md"
   },
   "accepted_reuse_batches": [
     "B30",
@@ -148,16 +148,17 @@
         "B29"
       ],
       "completed_batches": [],
-      "current_batch": "B19",
+      "current_batch": "B20",
       "baseline_version": 661,
-      "latest_version": 666,
-      "checkpoint": "output/plant-enrichment/B18/checkpoint.md",
+      "latest_version": 670,
+      "checkpoint": "output/plant-enrichment/B19/checkpoint.md",
       "open_evidence_gaps": [],
       "breadth_complete_batches": [
         "B15",
         "B16",
         "B17",
-        "B18"
+        "B18",
+        "B19"
       ]
     },
     {
@@ -639,6 +640,25 @@
       "proposals": [
         "prop_1e61b9e95839403d9508",
         "prop_39fd6bdfab2f4c9c9ee4"
+      ]
+    },
+    {
+      "date": "2026-10-12",
+      "batch": "B19",
+      "versions": [
+        667,
+        668,
+        669,
+        670
+      ],
+      "status": "breadth_complete",
+      "verification": "6/6 new components drawn/selectable; 12 route checks, 8 scene checks, 52 Node tests, integrity/FK, preservation on all four proposals and both pilot audits pass; Yard1 audit zero-change (413/1959). Visual pass 15/15+3/3 and 18/18+4/4 journeys, 0 console errors (desktop-1440 + mobile-480); philosophy/P&ID/DBR sources visually reviewed.",
+      "milestone": "B19 Tier1 accepted v667-v670: Yard2 SPDS parent, SC-02 sector/SV map, AP-29..56 risers, QRC makeup serving both machines, both onboard DSS groups with EAF-2 refill link; 4 proposals with recorded budget reason.",
+      "proposals": [
+        "prop_e1e676c2d1f64b08a5b8",
+        "prop_2d0a37167ea04931b755",
+        "prop_317c61e6c1d543bab2bd",
+        "prop_7ccba9d51ec242709041"
       ]
     }
   ],
