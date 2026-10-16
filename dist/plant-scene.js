@@ -350,10 +350,252 @@ const PlantScene=(()=>{
     s.width=narrow?570:1200;s.height=Math.max(bottom+140,...[...drawn.values()].map(d=>d.y+d.h+100));s.initialHeight=narrow?820:950;
     return decor.join('')+edgeMarkup(edges,pos)+[...drawn.values()].map(d=>hotspot(d.n,d.x,d.y,d.w,d.h,{label:d.title})).join('');
   }
+  function conveyorScene(){
+    const narrow=window.matchMedia('(max-width:760px)').matches;
+    const positions=new Map(),routes=new Map(),drawn=[],decor=[];
+    const parts=s.nodes.filter(n=>n.role==='part'||n.role==='located');
+    const outside=s.nodes.filter(n=>n.role==='connected');
+    const self=s.nodes.find(n=>n.role==='self');
+    const byId=new Map(s.nodes.map(n=>[n.id,n]));
+    const put=(n,x,y,w=126,h=74,title)=>{if(!n||positions.has(n.id))return;positions.set(n.id,{x,y,w,h});drawn.push({n,x,y,w,h,title});};
+
+    // Classify internal parts into clean architectural bands (matching Silo House & Crusher House)
+    const isDrivePart=n=>['motor','coupling','gearbox','brake','drive'].includes(n.kind)||/pulley/i.test(n.label)&&/head|drive/i.test(n.label);
+    const isTopInline=n=>['weigher','detector'].includes(n.kind);
+    const isProtectionOrClean=n=>['sensor','protection','scraper','marker'].includes(n.kind)||/cleaner|scraper|pcs|bss|zss|protection/i.test(n.label);
+    const isDischargeInterface=n=>!isProtectionOrClean(n)&&(['chute','gate','tripper','stacker','reclaimer'].includes(n.kind)||/tripper|ftr-/i.test(n.label));
+
+    const topInline=parts.filter(isTopInline);
+    const driveParts=parts.filter(n=>!topInline.includes(n)&&isDrivePart(n));
+    const dischargeParts=parts.filter(n=>!topInline.includes(n)&&!driveParts.includes(n)&&isDischargeInterface(n));
+    const protParts=parts.filter(n=>!topInline.includes(n)&&!driveParts.includes(n)&&!dischargeParts.includes(n)&&isProtectionOrClean(n));
+    const loopParts=parts.filter(n=>!topInline.includes(n)&&!driveParts.includes(n)&&!dischargeParts.includes(n)&&!protParts.includes(n));
+
+    // Order drive parts strictly along the mechanical power-transmission shaft:
+    // motor -> fluid/scoop coupling -> gearbox -> low-speed coupling -> head drive pulley -> service brake
+    const driveOrder=n=>{
+      const l=n.label.toLowerCase();
+      if(n.kind==='drive')return 0;
+      if(n.kind==='motor')return 1;
+      if(n.kind==='coupling'&&!/low.speed/i.test(l))return 2;
+      if(n.kind==='gearbox')return 3;
+      if(n.kind==='coupling'&&/low.speed/i.test(l))return 4;
+      if(n.kind==='pulley')return 5;
+      if(n.kind==='brake')return 6;
+      return 7;
+    };
+    driveParts.sort((a,b)=>driveOrder(a)-driveOrder(b)||a.label.localeCompare(b.label));
+
+    const ownSet=new Set([s.id,...parts.map(n=>n.id)]);
+    const matEdges=s.edges.filter(a=>a.context?.network==='material');
+    const isSubChuteOfVisible=n=>{
+      if(n.kind!=='chute')return false;
+      const parents=M.closestParents(p,n.id);
+      return parents.some(pid=>byId.has(pid)&&pid!==s.id);
+    };
+    const inlets=[],outlets=[],services=[];
+    for(const n of outside){
+      const feedsUs=matEdges.some(a=>a.canonical_subject===n.id&&ownSet.has(a.canonical_object));
+      const fedByUs=matEdges.some(a=>ownSet.has(a.canonical_subject)&&a.canonical_object===n.id);
+      if(isSubChuteOfVisible(n)){
+        services.push(n);
+        continue;
+      }
+      if(feedsUs&&!fedByUs)inlets.push(n);
+      else if(fedByUs)outlets.push(n);
+      else services.push(n);
+    }
+    inlets.sort((a,b)=>a.label.localeCompare(b.label,undefined,{numeric:true}));
+    outlets.sort((a,b)=>a.label.localeCompare(b.label,undefined,{numeric:true}));
+    services.sort((a,b)=>a.label.localeCompare(b.label,undefined,{numeric:true}));
+
+    // Align dischargeParts horizontally with the downstream outlets they feed so bottom arrows never cross!
+    dischargeParts.sort((a,b)=>{
+      const outA=outlets.findIndex(o=>matEdges.some(e=>e.canonical_subject===a.id&&e.canonical_object===o.id));
+      const outB=outlets.findIndex(o=>matEdges.some(e=>e.canonical_subject===b.id&&e.canonical_object===o.id));
+      if(outA!==-1&&outB!==-1&&outA!==outB)return outA-outB;
+      return a.label.localeCompare(b.label,undefined,{numeric:true});
+    });
+
+    const frameX=narrow?20:185,frameW=narrow?520:725;
+    const centerX=frameX+frameW/2;
+    const rowH=165;
+
+    // 1. Top Band: UPSTREAM / RECEIVING (above frame)
+    let curY=42;
+    if(inlets.length){
+      decor.push(text(centerX,22,'RECEIVING FROM UPSTREAM EQUIPMENT','ps-zone-label'));
+      const cols=Math.min(inlets.length,narrow?3:4);
+      const spacing=168,boxW=132;
+      inlets.forEach((n,i)=>{
+        const r=Math.floor(i/cols),c=i%cols,rowCount=Math.min(cols,inlets.length-r*cols);
+        const startX=centerX-(rowCount*spacing)/2+(spacing-boxW)/2;
+        put(n,startX+c*spacing,curY+r*152,boxW,72);
+      });
+      curY+=Math.ceil(inlets.length/cols)*152+32;
+    }else{
+      curY=55;
+    }
+
+    const frameTop=curY;
+    const bands=[];
+
+    // 2. Band A inside frame: CONVEYOR & INLINE WEIGHER / DETECTOR
+    const beltY=curY+36;
+    bands.push([beltY-12,'CONVEYOR']);
+    if(topInline.length===0){
+      put(self,centerX-130,beltY,260,86);
+    }else if(topInline.length===1){
+      put(topInline[0],centerX-220,beltY,150,82);
+      put(self,centerX-30,beltY,250,86);
+    }else{
+      put(topInline[0],frameX+30,beltY,145,82);
+      put(self,centerX-115,beltY,230,86);
+      put(topInline[1],frameX+frameW-175,beltY,145,82);
+    }
+    curY=beltY+160;
+
+    // 3. Band B inside frame: HEAD DRIVE TRAIN (left-to-right shaft order)
+    if(driveParts.length){
+      bands.push([curY,'HEAD DRIVE']);
+      const rowY=curY+22;
+      const mainChain=driveParts.filter(n=>n.kind!=='brake');
+      const brakes=driveParts.filter(n=>n.kind==='brake');
+      const cols=Math.min(mainChain.length,narrow?3:5);
+      const spacing=narrow?165:140,boxW=narrow?135:114;
+      mainChain.forEach((n,i)=>{
+        const r=Math.floor(i/cols),c=i%cols,rowCount=Math.min(cols,mainChain.length-r*cols);
+        const startX=centerX-(rowCount*spacing)/2+(spacing-boxW)/2;
+        put(n,startX+c*spacing,rowY+r*rowH,boxW,72);
+      });
+      const chainRows=Math.max(1,Math.ceil(mainChain.length/cols));
+      if(brakes.length){
+        if(mainChain.length+brakes.length<=cols&&!narrow){
+          const lastPos=mainChain.length?positions.get(mainChain[mainChain.length-1].id):{x:centerX-60};
+          brakes.forEach((n,i)=>put(n,lastPos.x+spacing+i*spacing,rowY,boxW,72));
+        }else{
+          loopParts.unshift(...brakes);
+        }
+      }
+      curY=rowY+chainRows*rowH;
+    }
+
+    // 4. Band C inside frame: BELT LOOP, PULLEYS, TAKE-UP & PROTECTION
+    const mechAndProt=[...loopParts,...protParts];
+    if(mechAndProt.length){
+      bands.push([curY,'BELT & SUPPORT']);
+      const rowY=curY+22;
+      const cols=narrow?3:(mechAndProt.length===6?3:4);
+      const spacing=narrow?168:175,boxW=narrow?138:138;
+      mechAndProt.forEach((n,i)=>{
+        const r=Math.floor(i/cols),c=i%cols,rowCount=Math.min(cols,mechAndProt.length-r*cols);
+        const startX=centerX-(rowCount*spacing)/2+(spacing-boxW)/2;
+        put(n,startX+c*spacing,rowY+r*rowH,boxW,74);
+      });
+      curY=rowY+Math.ceil(mechAndProt.length/cols)*rowH;
+    }
+
+    // 5. Band D inside frame: DISCHARGE CHUTES & FIXED TRIPPERS
+    if(dischargeParts.length){
+      bands.push([curY,'DISCHARGE & TRIPPER']);
+      const rowY=curY+22;
+      const cols=Math.min(dischargeParts.length,narrow?3:4);
+      const spacing=narrow?168:175,boxW=narrow?138:140;
+      dischargeParts.forEach((n,i)=>{
+        const r=Math.floor(i/cols),c=i%cols,rowCount=Math.min(cols,dischargeParts.length-r*cols);
+        const startX=centerX-(rowCount*spacing)/2+(spacing-boxW)/2;
+        put(n,startX+c*spacing,rowY+r*rowH,boxW,74);
+      });
+      curY=rowY+Math.ceil(dischargeParts.length/cols)*rowH;
+    }
+
+    const frameH=Math.max(240,curY-frameTop+8);
+    decor.unshift(`<rect x="${frameX}" y="${frameTop}" width="${frameW}" height="${frameH}" rx="10" class="ps-building-frame"/>`,
+      text(frameX+20,frameTop+22,s.title.toUpperCase()+' · CONVEYOR & DRIVE ASSEMBLY','ps-zone-label','start'));
+    for(const [y,label] of bands.slice(1)){
+      decor.push(`<path d="M${frameX+14} ${y}H${frameX+frameW-14}" class="ps-floor"/>`);
+      if(!narrow)decor.push(text(frameX-14,y+55,label,'ps-zone-label','end'));
+    }
+    if(!narrow&&bands.length)decor.push(text(frameX-14,bands[0][0]+52,bands[0][1],'ps-zone-label','end'));
+
+    // 6. Bottom Band below frame: DOWNSTREAM / DISCHARGE RECEIVERS
+    let bottomY=frameTop+frameH+54;
+    if(outlets.length){
+      decor.push(text(centerX,bottomY-18,'DISCHARGE TO DOWNSTREAM ROUTE','ps-zone-label'));
+      const cols=Math.min(outlets.length,narrow?3:4);
+      const spacing=175,boxW=140;
+      outlets.forEach((n,i)=>{
+        const r=Math.floor(i/cols),c=i%cols,rowCount=Math.min(cols,outlets.length-r*cols);
+        const startX=centerX-(rowCount*spacing)/2+(spacing-boxW)/2;
+        put(n,startX+c*spacing,bottomY+r*155,boxW,74);
+      });
+      bottomY+=Math.ceil(outlets.length/cols)*155+25;
+    }
+
+    // 7. Right-Hand Sidebar: SHARED SERVICES, SPRAY HEADERS & CONTROLS
+    if(services.length){
+      if(!narrow){
+        const sideX=940,sideCols=services.length>5?2:1;
+        decor.push(text(sideX+(sideCols===2?140:70),frameTop+10,'SHARED SERVICES & INTERFACES','ps-zone-label'));
+        services.forEach((n,i)=>{
+          const c=i%sideCols,r=Math.floor(i/sideCols);
+          put(n,sideX+c*150,frameTop+30+r*155,130,72);
+        });
+      }else{
+        decor.push(text(centerX,bottomY+15,'SHARED SERVICES & INTERFACES','ps-zone-label'));
+        services.forEach((n,i)=>put(n,30+(i%3)*175,bottomY+35+Math.floor(i/3)*155,145,74));
+        bottomY+=45+Math.ceil(services.length/3)*155;
+      }
+    }
+
+    const sidebarSet=new Set(services.map(n=>n.id));
+    const inletSet=new Set(inlets.map(n=>n.id));
+    const outletSet=new Set(outlets.map(n=>n.id));
+    const dischargeSet=new Set(dischargeParts.map(n=>n.id));
+    const driveSet=new Set(driveParts.map(n=>n.id));
+
+    const cleanEdges=s.edges.filter(a=>{
+      const u=a.canonical_subject,v=a.canonical_object;
+      if(!positions.has(u)||!positions.has(v)||positions.get(u)===positions.get(v))return false;
+      if(sidebarSet.has(u)||sidebarSet.has(v))return false;
+      if(a.context?.network==='mechanical'){
+        return driveSet.has(u)&&driveSet.has(v)&&Math.abs(positions.get(u).y-positions.get(v).y)<30;
+      }
+      if(a.context?.network==='material'){
+        if(inletSet.has(u)&&(v===s.id||topInline.some(x=>x.id===v)))return true;
+        if(dischargeSet.has(u)&&outletSet.has(v))return true;
+        if(u===s.id&&outletSet.has(v)&&!dischargeParts.length)return true;
+        return false;
+      }
+      return false;
+    });
+
+    for(const a of cleanEdges){
+      const f=positions.get(a.canonical_subject),t=positions.get(a.canonical_object);
+      const k=a.canonical_subject+'>'+a.canonical_object;
+      if(Math.abs(f.y-t.y)<25&&t.x>f.x){
+        const y=f.y+f.h/2;
+        routes.set(k,`M${f.x+f.w} ${y}L${t.x} ${y}`);
+      }else if(a.canonical_subject===s.id&&outletSet.has(a.canonical_object)&&!dischargeParts.length){
+        // Route from the bottom edge of the assembly frame so the arrow never cuts through HEAD DRIVE or BELT & SUPPORT!
+        const x1=centerX,y1=frameTop+frameH,x2=t.x+t.w/2,y2=t.y-6;
+        routes.set(k,`M${x1} ${y1}C${x1} ${(y1+y2)/2} ${x2} ${(y1+y2)/2} ${x2} ${y2}`);
+      }else if(t.y>f.y){
+        const x1=f.x+f.w/2,y1=f.y+f.h+42,x2=t.x+t.w/2,y2=t.y-6;
+        routes.set(k,`M${x1} ${y1}C${x1} ${(y1+y2)/2} ${x2} ${(y1+y2)/2} ${x2} ${y2}`);
+      }
+    }
+
+    const sideBottom=services.length&&!narrow?frameTop+50+Math.ceil(services.length/(services.length>5?2:1))*155:0;
+    s.width=narrow?570:(services.length>5?1250:1200);
+    s.height=Math.max(780,bottomY+45,sideBottom+45);
+    s.initialHeight=Math.min(s.height,920);
+    return decor.join('')+edgeMarkup(cleanEdges,positions,routes)+drawn.map(d=>hotspot(d.n,d.x,d.y,d.w,d.h,{label:d.title,max:d.w<=132?18:24})).join('');
+  }
   function equipmentScene(){
     if(s.kind==='transfer'&&M.fixedTripperColumns(p,s.id).length)return fixedTripperScene();
     if(s.kind==='transfer'&&M.transferColumns(p,s.id).length)return transferHouseScene();
-    if(s.kind==='conveyor'&&s.nodes.some(n=>n.kind==='weigher'||n.kind==='detector'))return measuredConveyorScene();
+    if(s.kind==='conveyor'||s.kind==='feeder')return conveyorScene();
     if(s.kind==='crusher-house')return crusherHouseScene();
     // The secondary-screen layout expects the accepted crusher-package assemblies.
     // Other screen families use the general assembly view rather than an empty
@@ -378,7 +620,7 @@ const PlantScene=(()=>{
       const order=n=>/low.speed/i.test(n.label)?3:({motor:0,coupling:1,gearbox:2,pulley:4,bearing:4,'crusher-rotor':4,brake:5}[n.kind]??6),sorted=[...parts,...outside.filter(n=>['pulley','bearing','crusher-rotor'].includes(n.kind))].sort((a,b)=>order(a)-order(b));
       let i=0;sorted.forEach(n=>{if(n.kind==='brake')place(n,750,465,165,120);else{place(n,55+(i%5)*230,230+Math.floor(i/5)*245,165,120);i++;}});
       decor.push(text(600,145,'OPEN DRIVE ASSEMBLY','ps-zone-label'),text(600,178,'Follow the shaft connections. Open a component to see its auxiliaries.','ps-caption'));
-    }else if(s.kind==='conveyor'||s.kind==='feeder'||s.kind==='mechanical'){
+    }else if(s.kind==='mechanical'){
       if(self)place(self,285,245,620,270);
       const spread=q().get('spread')==='1';
       const anchors=spread?[[860,95],[100,85],[525,65],[925,440],[165,480],[655,505]]:[[790,200],[135,460],[360,80],[920,415],[80,245],[655,505]];
@@ -414,7 +656,16 @@ const PlantScene=(()=>{
       const anchors=[[/ Motor$/,[520,45]], [/Flexible coupling$/,[525,230]], [/Thrust stand$/,[520,415]], [/Shaft and sleeves$/,[525,605]], [/impeller$/,[525,795]], [/Suction strainer$/,[525,980]], [/casing$/,[860,795]], [/Gland packing$/,[860,415]], [/rubber bushes$/,[160,605]], [/Self-water lubrication line$/,[160,795]]];
       let extra=0;for(const n of parts){const a=anchors.find(([pattern])=>pattern.test(n.label));place(n,...(a?a[1]:[55+(extra++%5)*230,1200]),170,110);}
       decor.push(text(600,25,'VERTICAL PUMP · MOTOR TO IMPELLER','ps-zone-label'),`<path d="M610 180V1055" class="ps-shaft"/>`,text(180,500,'LUBRICATION & COLUMN SUPPORT','ps-zone-label'));
-    }else if(['stacker','reclaimer','silo','crusher','screen','ship','building','shed'].includes(s.kind)){
+    }else if(['stacker','reclaimer'].includes(s.kind)){
+      // Structured machine house frame for Stackers & Reclaimers
+      decor.push(`<rect x="190" y="155" width="680" height="460" rx="10" class="ps-building-frame"/>`,
+        text(210,178,s.title.toUpperCase()+' · MACHINE SUB-ASSEMBLIES','ps-zone-label','start'));
+      if(self)place(self,410,20,240,115);
+      parts.forEach((n,i)=>{
+        const r=Math.floor(i/3),c=i%3;
+        place(n,225+c*215,205+r*135,175,92);
+      });
+    }else if(['silo','crusher','screen','ship','building','shed'].includes(s.kind)){
       if(self)place(self,405,215,390,230);
       const anchors=[[70,75],[485,20],[935,85],[55,345],[930,345],[130,570],[490,585],[870,570]];
       parts.forEach((n,i)=>place(n,...(anchors[i]||[45+(i%5)*235,810+Math.floor((i-8)/5)*175]),160,105));
@@ -428,16 +679,16 @@ const PlantScene=(()=>{
     let maxY=Math.max(720,...nodes.map(n=>n.y+n.height+105));
     const parentPos=self?positions.get(self.id):null;
     let leaders='';
-    if(parentPos)for(const item of nodes.filter(n=>n.n.role==='part'||n.n.role==='located')){
+    if(parentPos&&!['stacker','reclaimer'].includes(s.kind))for(const item of nodes.filter(n=>n.n.role==='part'||n.n.role==='located')){
       const from={x:parentPos.x+parentPos.w/2,y:parentPos.y+parentPos.h/2},to={x:item.x+item.w/2,y:item.y+item.height/2};
       leaders+=`<path class="ps-assembly-leader ${item.n.role==='located'?'ps-location-leader':''}" d="M${from.x} ${from.y}L${to.x} ${to.y}"/>`;
     }
-    // Every external boundary node is navigable; previous layouts omitted these
-    // nodes even though the model included their directed connections.
     boundaryNodes.forEach((n,i)=>place(n,55+(i%5)*230,maxY+45+Math.floor(i/5)*205,165,100));
     if(boundaryNodes.length)decor.push(text(600,maxY+10,'CONNECTED EQUIPMENT & SHARED SERVICES','ps-zone-label'));
+    const boundarySet=new Set(boundaryNodes.map(n=>n.id));
+    const drawnEdges=s.edges.filter(a=>!(boundarySet.has(a.canonical_subject)&&a.canonical_object===s.id&&a.context?.network==='utility'));
     s.height=Math.max(maxY,...nodes.map(n=>n.y+n.height+105));s.initialHeight=720;
-    return decor.join('')+leaders+edgeMarkup(s.edges,positions)+nodes.map(({n,x,y,w,height})=>hotspot(n,x,y,w,height)).join('');
+    return decor.join('')+leaders+edgeMarkup(drawnEdges,positions)+nodes.map(({n,x,y,w,height})=>hotspot(n,x,y,w,height)).join('');
   }
   function transferSelection(){
     const columns=M.transferColumns(p,s.id),index=Math.max(0,Math.min(columns.length-1,Number(q().get('transferstream'))||0)),column=columns[index];
@@ -456,34 +707,39 @@ const PlantScene=(()=>{
     const v=transferSelection(),positions=new Map(),drawn=new Map(),byId=new Map(s.nodes.map(n=>[n.id,n]));
     const narrow=window.matchMedia('(max-width:760px)').matches;
     const put=(id,x,y,w=160,h=90,title)=>{const n=byId.get(id);if(n){positions.set(id,{x,y,w,h});drawn.set(id,{n,x,y,w,h,title});}};
-    const laneParts=new Set(),decor=[`<rect x="245" y="180" width="640" height="620" rx="8" class="ps-building-frame"/>`,text(600,24,'INCOMING CONVEYORS · OPEN TO EXPLORE THEIR PARTS','ps-zone-label')];
+    const colCount=Math.max(2,v.columns.length);
+    const colStep=colCount>2?Math.min(260,Math.floor(720/colCount)):340;
+    const frameW=Math.max(640,colCount*colStep+80);
+    const laneParts=new Set(),decor=[`<rect x="245" y="180" width="${frameW}" height="620" rx="8" class="ps-building-frame"/>`,text(245+frameW/2,24,'INCOMING CONVEYORS · OPEN TO EXPLORE THEIR PARTS','ps-zone-label')];
     v.columns.forEach((c,i)=>{
       const located=s.nodes.filter(n=>n.role==='located'&&M.closestParents(p,n.id).some(id=>c.inlets.includes(id)));
       const drive=located.find(n=>n.kind==='drive'),chutes=located.filter(n=>n.kind==='chute');
       c.gates.forEach(id=>laneParts.add(id));if(drive)laneParts.add(drive.id);chutes.forEach(n=>laneParts.add(n.id));
       if(narrow&&i!==v.index)return;
-      const x=narrow?50:305+i*340;c.inlets.forEach((id,j)=>put(id,x+j*175,58,180,95));put(c.gate,x+23,425,135,83);
-      c.gates.filter(id=>id!==c.gate).forEach((id,j)=>put(id,x+23+j*150,545,135,83));
+      const x=narrow?50:305+i*colStep;c.inlets.forEach((id,j)=>put(id,x+j*175,58,Math.min(180,colStep-25),95));put(c.gate,x+15,425,135,83);
+      c.gates.filter(id=>id!==c.gate).forEach((id,j)=>put(id,x+15+j*145,545,135,83));
       if(drive)put(drive.id,narrow?325:x-125,narrow?65:225,130,70,'Head drive · '+c.inlets.map(id=>p.entities.get(id).label).join(' / '));
-      chutes.forEach((n,j)=>put(n.id,x+23+j*150,230,135,65,'Discharge chute · '+c.inlets.map(id=>p.entities.get(id).label).join(' / ')));
+      chutes.forEach((n,j)=>put(n.id,x+15+j*145,230,135,65,'Discharge chute · '+c.inlets.map(id=>p.entities.get(id).label).join(' / ')));
     });
-    const outlets=narrow?[v.outlet]:[...new Set(v.columns.flatMap(c=>c.outlets))];outlets.forEach((id,i)=>put(id,narrow?50:300+i*340,665,180,88));
-    decor.push(`<path d="M263 410H865M263 640H865" class="ps-floor"/>`,text(220,469,'DIVERT','ps-zone-label','end'),text(220,710,'RECEIVE','ps-zone-label','end'));
+    const outlets=narrow?[v.outlet]:[...new Set(v.columns.flatMap(c=>c.outlets))];
+    const outStep=outlets.length>2?Math.floor((frameW-80)/outlets.length):340;
+    outlets.forEach((id,i)=>put(id,narrow?50:300+i*outStep,665,Math.min(180,outStep-20),88));
+    decor.push(`<path d="M263 410H${245+frameW-18}M263 640H${245+frameW-18}" class="ps-floor"/>`,text(220,469,'DIVERT','ps-zone-label','end'),text(220,710,'RECEIVE','ps-zone-label','end'));
     const services=s.nodes.filter(n=>n.role==='part'&&!drawn.has(n.id));
+    const svcX=narrow?325:(245+frameW+55);
     services.forEach((n,i)=>{
       const applications=p.assembly(n.id).filter(e=>(p.classes.get(e.id)||[]).includes('spray_application_point')).length;
       const title=applications?`DFDS · ${applications} application points`:/Sump Pumps/.test(n.label)?'Drainage · '+short(n):/Service and drinking/.test(n.label)?'Service & drinking water':short(n);
-      put(n.id,narrow?325:950,(narrow?255:70)+i*187,175,90,title);
+      put(n.id,svcX,(narrow?255:70)+i*187,175,90,title);
     });
     const active=M.transferRoute(p,v.column,v.outlet),keys=new Set(active.map(a=>a.canonical_subject+'>'+a.canonical_object));
     const relevant=[...new Set(v.columns.flatMap(c=>c.outlets.flatMap(outlet=>M.transferRoute(p,c,outlet))))].filter(a=>positions.has(a.canonical_subject)&&positions.has(a.canonical_object));
     const routes=new Map(relevant.map(a=>{const f=positions.get(a.canonical_subject),t=positions.get(a.canonical_object);return [a.canonical_subject+'>'+a.canonical_object,`M${f.x+f.w/2} ${f.y+f.h}C${f.x+f.w/2} ${f.y+f.h+45} ${t.x+t.w/2} ${t.y-45} ${t.x+t.w/2} ${t.y}`];}));
-    // Keep other located assets discoverable without drawing the unselected lane on narrow screens.
     const other=s.nodes.filter(n=>!drawn.has(n.id)&&(n.role==='connected'||n.role==='located'&&!laneParts.has(n.id)));
     const bottom=Math.max(880,(narrow?280:95)+services.length*187);
     other.forEach((n,i)=>put(n.id,65+i%(narrow?2:5)*230,bottom+60+Math.floor(i/(narrow?2:5))*205,165,95));
     if(other.length)decor.push(text(600,bottom+25,'OTHER LOCATED EQUIPMENT & CONNECTIONS','ps-zone-label'));
-    s.width=narrow?550:1200;s.height=bottom+120+Math.ceil(other.length/(narrow?2:5))*205;s.initialHeight=870;
+    s.width=narrow?550:Math.max(1200,svcX+230);s.height=bottom+120+Math.ceil(other.length/(narrow?2:5))*205;s.initialHeight=870;
     if(narrow){decor.length=0;decor.push(`<rect x="25" y="180" width="225" height="620" rx="8" class="ps-building-frame"/>`,text(140,24,'SELECTED TRANSFER ROUTE','ps-zone-label'),`<path d="M40 410H235M40 640H235" class="ps-floor"/>`,text(275,bottom+25,'OTHER LOCATED EQUIPMENT & CONNECTIONS','ps-zone-label'));}
     return decor.join('')+`<g class="ps-route-inactive">${edgeMarkup(relevant.filter(a=>!keys.has(a.canonical_subject+'>'+a.canonical_object)),positions,routes)}</g>`+edgeMarkup(active,positions,routes)+[...drawn.values()].map(n=>hotspot(n.n,n.x,n.y,n.w,n.h,{label:n.title,max:n.w<=135?16:26})).join('');
   }
@@ -492,12 +748,13 @@ const PlantScene=(()=>{
     const narrow=window.matchMedia('(max-width:760px)').matches,lanes=new Set(columns.flatMap(c=>[c.inlet,c.tripper,c.gate,...c.outlets]));
     const put=(id,x,y,w=165,h=90,title)=>{const n=byId.get(id);if(n){positions.set(id,{x,y,w,h});drawn.set(id,{n,x,y,w,h,title});}};
     const routes=new Map(),continuations=[],decor=[];
+    if(!narrow)decor.push(`<rect x="65" y="15" width="1060" height="700" rx="10" class="ps-building-frame"/>`);
     columns.forEach((c,i)=>{
-      const x=narrow?50:100+i*550,top=narrow?i*700:0;
+      const x=narrow?50:120+i*520,top=narrow?i*700:0;
       put(c.inlet,x,top+55,180,90);put(c.tripper,x,top+210);put(c.gate,x,top+365);
       continuations.push(hotspot(byId.get(c.inlet),x,top+535,180,90,{label:p.entities.get(c.inlet).label+' continues'}));
-      decor.push(text(x+90,top+25,'SAME CONTINUOUS BELT','ps-zone-label'),text(x+90,top+685,'ONWARD TO NEXT TRANSFER','ps-caption'));
-      c.outlets.filter(id=>id!==c.inlet).forEach((id,j)=>{put(id,x+250,top+530+j*140,180,90);continuations.push(hotspot(byId.get(id),x+250,top+530+j*140,180,90));drawn.delete(id);});
+      decor.push(text(x+90,top+35,'SAME CONTINUOUS BELT','ps-zone-label'),text(x+90,top+685,'ONWARD TO NEXT TRANSFER','ps-caption'));
+      c.outlets.filter(id=>id!==c.inlet).forEach((id,j)=>{put(id,x+235,top+530+j*140,180,90);continuations.push(hotspot(byId.get(id),x+235,top+530+j*140,180,90));drawn.delete(id);});
       c.edges.forEach(a=>{
         const f=positions.get(a.canonical_subject),t=a.canonical_object===c.inlet?{x,y:top+535,w:180}:positions.get(a.canonical_object);
         if(f&&t)routes.set(a.canonical_subject+'>'+a.canonical_object,`M${f.x+f.w/2} ${f.y+f.h}L${t.x+t.w/2} ${t.y}`);
@@ -512,17 +769,7 @@ const PlantScene=(()=>{
     return decor.join('')+`<g class="ps-route-inactive">${edgeMarkup(inactive,positions,routes)}</g>`+edgeMarkup(selected,positions,routes)+[...drawn.values()].map(n=>hotspot(n.n,n.x,n.y,n.w,n.h,{label:n.title})).join('')+continuations.join('');
   }
   function measuredConveyorScene(){
-    const positions=new Map(),drawn=[],parts=s.nodes.filter(n=>n.role==='part'),self=s.nodes.find(n=>n.role==='self');
-    const narrow=window.matchMedia('(max-width:760px)').matches;
-    const put=(n,x,y,w=165,h=105,title)=>{if(n){positions.set(n.id,{x,y,w,h});drawn.push({n,x,y,w,h,title});}};
-    put(self,narrow?65:205,295,narrow?400:790,narrow?190:230);
-    const slots=narrow?{drive:[365,65],weigher:[200,135],detector:[25,165],gate:[380,355],mechanical:[45,535],protection:[225,560],chute:[390,605]}:{drive:[820,100],weigher:[395,170],detector:[110,200],gate:[1015,315],mechanical:[310,525],protection:[690,535],chute:[960,560]};
-    let extra=0;parts.forEach(n=>{const slot=slots[n.kind];if(slot){put(n,...slot);delete slots[n.kind];}else put(n,65+extra%5*230,835+Math.floor(extra++/5)*205);});
-    const outside=s.nodes.filter(n=>n.role==='connected');const base=Math.max(835,...drawn.map(n=>n.y+n.h+120));
-    outside.forEach((n,i)=>put(n,65+i%(narrow?2:5)*230,base+60+Math.floor(i/(narrow?2:5))*205));
-    s.width=narrow?570:1200;s.height=base+120+Math.ceil(outside.length/(narrow?2:5))*205;s.initialHeight=815;
-    const leaders=drawn.filter(n=>n.n.role==='part').map(n=>`<path class="ps-assembly-leader" d="M${n.x+n.w/2} ${n.y+n.h/2}L${narrow?285:600} 432"/>`).join('');
-    return text(narrow?285:600,35,narrow?'MEASUREMENT · BELT · DRIVE · DISCHARGE':'TAIL · MEASUREMENT · BELT · HEAD DRIVE · DISCHARGE','ps-zone-label')+leaders+edgeMarkup(s.edges,positions)+drawn.map(n=>hotspot(n.n,n.x,n.y,n.w,n.h,{label:n.title})).join('')+text(narrow?285:600,base+20,'UPSTREAM, DOWNSTREAM & SHARED EQUIPMENT','ps-zone-label');
+    return conveyorScene();
   }
   function connectionsScene(){
     const positions=new Map(),self=s.nodes.find(n=>n.id===s.id),edges=s.edges,layer=q().get('layer')||'all';
@@ -544,9 +791,199 @@ const PlantScene=(()=>{
     const edges=p.material.filter(a=>inside.has(a.canonical_subject)!==inside.has(a.canonical_object)),other=[...new Set(edges.map(a=>inside.has(a.canonical_subject)?a.canonical_object:a.canonical_subject))];
     return `<div class="ps-route-context"><span>In the plant</span>${other.slice(0,8).map(id=>{const incoming=edges.some(a=>a.canonical_subject===id&&inside.has(a.canonical_object));return `<a href="${safe(openURL(id))}">${incoming?'← from':'to →'} <strong>${safe(p.entities.get(id)?.label)}</strong></a>`;}).join('')}<a class="ps-context-more" href="${safe(url({scene:q().get('scene')==='connections'?null:'connections',pick:null,edge:null}))}">${q().get('scene')==='connections'?'↶ Back to assembly':'View connections ↗'}</a></div>`;
   }
+  function structuredAreaScene(){
+    const positions=new Map(),routes=new Map(),drawn=new Map(),decor=[];
+    const members=new Map(s.nodes.map(n=>[n.id,n]));
+    const byLabel=new Map(s.nodes.map(n=>[n.label.toUpperCase().trim(),n]));
+    const put=(n,x,y,w=150,h=76,title)=>{if(!n||drawn.has(n.id))return;positions.set(n.id,{x,y,w,h});drawn.set(n.id,{n,x,y,w,h,title});};
+    const putLabel=(lbl,x,y,w=150,h=76,title)=>{const n=byLabel.get(lbl.toUpperCase());if(n)put(n,x,y,w,h,title);};
+
+    const chuteOwner=new Map();
+    for(const n of s.nodes){
+      if(n.kind==='chute'||(p.classes.get(n.id)||[]).includes('chute_interface')){
+        const owner=M.closestParents(p,n.id).find(pid=>members.has(pid)&&pid!==n.id);
+        if(owner)chuteOwner.set(n.id,owner);
+      }
+    }
+
+    if(s.area==='distribution'){
+      const frameX=190,frameY=55,frameW=735,frameH=1660;
+      decor.push(`<rect x="${frameX}" y="${frameY}" width="${frameW}" height="${frameH}" rx="10" class="ps-building-frame"/>`,
+        text(frameX+20,frameY+24,'UEF-3 → UEF-7 · TWIN-STREAM STACKING & SILO-FEED CORRIDOR','ps-zone-label','start'),
+        text(555,28,'FROM PRIMARY SCREENHOUSE (EAC-3A / EAC-3B)','ps-zone-label'),
+        text(1055,75,'TRANSFER HOUSES & ANALYSERS','ps-zone-label'));
+      const bands=[
+        [95,'UEF-3 · DIVIDERS',[['KB-FD-1',285],['KB-FD-2',615]]],
+        [255,'UEF-3 · SELECTORS',[['FG-1',285],['FG-2',615]]],
+        [415,'CONVEYORS 4A / 4B',[['EAC-4A',285],['EAC-4B',615]]],
+        [575,'UEF-4 · TRIPPERS',[['FTR-1',210],['KB-FD-3',385],['FTR-2',570],['KB-FD-4',745]]],
+        [735,'UEF-5 · DIVIDERS',[['KB-FD-5',285],['KB-FD-6',615]]],
+        [895,'UEF-5 · SELECTORS',[['FG-3',285],['FG-4',615]]],
+        [1055,'CONVEYORS 5A / 5B',[['EAC-5A',285],['EAC-5B',615]]],
+        [1215,'UEF-6 · TRIPPERS',[['FTR-3',210],['KB-FD-7',385],['FTR-4',570],['KB-FD-8',745]]],
+        [1375,'UEF-7 · SELECTORS',[['FG-5',285],['FG-6',615]]],
+        [1535,'SILO-FEED BELTS',[['EBA-6A',285],['EBA-6B',615]]]
+      ];
+      bands.forEach(([y,title,items],idx)=>{
+        if(idx>0)decor.push(`<path d="M${frameX+14} ${y-18}H${frameX+frameW-14}" class="ps-floor"/>`);
+        decor.push(text(frameX-14,y+42,title,'ps-zone-label','end'));
+        const w=items.length>2?132:165;
+        items.forEach(([lbl,x])=>putLabel(lbl,x,y,w,74));
+      });
+      ['UEF-3','UEF-4','UEF-5','UEF-6','UEF-7','CV-1','CV-2'].forEach((lbl,i)=>putLabel(lbl,965,95+i*158,160,74));
+      s.width=1200;s.height=1760;s.initialHeight=980;
+    }else if(s.area==='reclaim'){
+      const frameX=190,frameY=65,frameW=735,frameH=675;
+      decor.push(`<rect x="${frameX}" y="${frameY}" width="${frameW}" height="${frameH}" rx="10" class="ps-building-frame"/>`,
+        text(frameX+20,frameY+24,'UEF-8 TO UEF-12 · RECLAIM COLLECTION & SILO-FEED CORRIDOR','ps-zone-label','start'),
+        text(555,34,'FROM STOCKYARD RECLAIM CONVEYORS (EBA-8 / 10 / 12 / 14)','ps-zone-label'),
+        text(1070,85,'TRANSFER HOUSES & WEIGHERS','ps-zone-label'));
+      const bands=[
+        [110,'YARD RECLAIM GATES',[['FG-7',210],['FG-8',385],['FG-9',560],['FG-10',735]]],
+        [275,'COLLECTOR BELTS',[['EBA-15A',290],['EBA-15B',610]]],
+        [440,'UEF-12 · SELECTORS',[['FG-11',290],['FG-12',610]]],
+        [605,'SILO-FEED BELTS',[['EBA-16A',290],['EBA-16B',610]]]
+      ];
+      bands.forEach(([y,title,items],idx)=>{
+        if(idx>0)decor.push(`<path d="M${frameX+14} ${y-20}H${frameX+frameW-14}" class="ps-floor"/>`);
+        decor.push(text(frameX-14,y+42,title,'ps-zone-label','end'));
+        const w=items.length>2?135:170;
+        items.forEach(([lbl,x])=>putLabel(lbl,x,y,w,74));
+      });
+      ['UEF-8','UEF-9','UEF-10','UEF-11','UEF-12','AT-3','AT-4','CV-3','CV-4'].forEach((lbl,i)=>{
+        putLabel(lbl,955+(i%2)*148,105+Math.floor(i/2)*152,130,72);
+      });
+      s.width=1250;s.height=820;s.initialHeight=820;
+    }else if(s.area==='unloading'){
+      const frameX=190,frameY=65,frameW=735,frameH=675;
+      decor.push(`<rect x="${frameX}" y="${frameY}" width="${frameW}" height="${frameH}" rx="10" class="ps-building-frame"/>`,
+        text(frameX+20,frameY+24,'COAL JETTY · UNLOADING & WEIGHING CORRIDOR','ps-zone-label','start'),
+        text(1070,85,'FACILITIES & DETECTORS','ps-zone-label'));
+      const bands=[
+        [110,'SHIP UNLOADERS',[['Coal Ship Unloader-1',220],['Coal Ship Unloader-2',470],['Coal Ship Unloader-3',720]]],
+        [275,'JETTY CONVEYORS',[['EAC-1A',290],['EAC-1B',610]]],
+        [440,'TRANSFER HOUSE',[['UEF-1',450]]],
+        [605,'PLANT APPROACH',[['EAC-2A',290],['EAC-2B',610]]]
+      ];
+      bands.forEach(([y,title,items],idx)=>{
+        if(idx>0)decor.push(`<path d="M${frameX+14} ${y-20}H${frameX+frameW-14}" class="ps-floor"/>`);
+        decor.push(text(frameX-14,y+42,title,'ps-zone-label','end'));
+        items.forEach(([lbl,x])=>putLabel(lbl,x,y,165,74));
+      });
+      ['Coal Jetty','AT-1','AT-2','EAT-1','EAT-2','QB-1','QB-2'].forEach((lbl,i)=>{
+        putLabel(lbl,955+(i%2)*148,105+Math.floor(i/2)*152,130,72);
+      });
+      s.width=1250;s.height=820;s.initialHeight=820;
+    }else if(s.area==='screening'){
+      const frameX=190,frameY=65,frameW=735,frameH=675;
+      decor.push(`<rect x="${frameX}" y="${frameY}" width="${frameW}" height="${frameH}" rx="10" class="ps-building-frame"/>`,
+        text(frameX+20,frameY+24,'UEE-1 · PRIMARY SCREENHOUSE','ps-zone-label','start'),
+        text(1055,85,'HOUSE & SAMPLING','ps-zone-label'));
+      const bands=[
+        [110,'ROD GATES',[['KB-RG-1',210],['KB-RG-2',385],['KB-RG-3',560],['KB-RG-4',735]]],
+        [275,'BYPASS GATES',[['KB-RPG-1',210],['KB-RPG-2',385],['KB-RPG-3',560],['KB-RPG-4',735]]],
+        [440,'PRIMARY SCREENS',[['EBD-1',210],['EBD-2',385],['EBD-3',560],['EBD-4',735]]],
+        [605,'ONWARD CONVEYORS',[['EAC-3A',290],['EAC-3B',610]]]
+      ];
+      bands.forEach(([y,title,items],idx)=>{
+        if(idx>0)decor.push(`<path d="M${frameX+14} ${y-20}H${frameX+frameW-14}" class="ps-floor"/>`);
+        decor.push(text(frameX-14,y+42,title,'ps-zone-label','end'));
+        const w=items.length>2?135:170;
+        items.forEach(([lbl,x])=>putLabel(lbl,x,y,w,74));
+      });
+      ['UEE-1','UEE-1 Oversize Reject Bins','EAU-1','UEF-3 Coal Sampling System'].forEach((lbl,i)=>putLabel(lbl,960,105+i*155,165,76));
+      s.width=1220;s.height=820;s.initialHeight=820;
+    }else if(s.area==='stockyard'){
+      const gateways=s.nodes.filter(n=>n.kind==='yard');
+      const bodyGateways=gateways.map((n,i)=>`<a class="ps-area-gateway" href="${safe(openURL(n.id))}"><g transform="translate(${45+i*240} 15)"><rect class="ps-halo" x="-5" y="0" width="215" height="175" rx="18"/>${symbol('yard',15,0,165,110)}${text(100,132,n.label,'ps-stage-title')}${text(100,155,'Open yard assembly →','ps-node-hint')}</g></a>`).join('');
+      const frameX=150,frameY=225,frameW=1035,frameH=670;
+      decor.push(bodyGateways,`<rect x="${frameX}" y="${frameY}" width="${frameW}" height="${frameH}" rx="10" class="ps-building-frame"/>`,
+        text(frameX+20,frameY+24,'COAL STOCKYARDS 1–4 · STACKING → STORAGE → RECLAIMING LANES','ps-zone-label','start'));
+      for(let yIdx=0;yIdx<4;yIdx++){
+        const n=yIdx+1,rowY=268+yIdx*156;
+        if(yIdx>0)decor.push(`<path d="M${frameX+14} ${rowY-16}H${frameX+frameW-14}" class="ps-floor"/>`);
+        decor.push(text(frameX-14,rowY+42,`YARD ${n}`,'ps-zone-label','end'));
+        const rowItems=[[f=>`EAC-${5+2*f}`,175],[f=>`EAD-${f}`,380],[f=>`EAE-${f}`,585],[f=>`EAF-${f}`,790],[f=>`EBA-${6+2*f}`,995]];
+        rowItems.forEach(([fn,x])=>putLabel(fn(n),x,rowY,150,74));
+      }
+      s.width=1220;s.height=940;s.initialHeight=940;
+    }else if(s.area==='bunkers'){
+      const frameX=155,frameY=55,frameW=1025,frameH=795;
+      decor.push(`<rect x="${frameX}" y="${frameY}" width="${frameW}" height="${frameH}" rx="10" class="ps-building-frame"/>`,
+        text(frameX+20,frameY+24,'UNIT-1 & UNIT-2 BOILER COAL BUNKER BAYS (TT-1–4 · BUNKERS A–F)','ps-zone-label','start'),
+        `<path d="M668 ${frameY+40}V${frameY+frameH-15}" class="ps-floor"/>`);
+      const bands=[
+        [95,'TRIPPERS',[['TT-1',215],['TT-3',435],['TT-2',720],['TT-4',940]]],
+        [255,'GATES',[['FG-19',215],['FG-21',435],['FG-20',720],['FG-22',940]]],
+        [415,'BUNKER BAYS',[['Unit-1 Coal Bunker Bay',325],['Unit-2 Coal Bunker Bay',830]]]
+      ];
+      bands.forEach(([y,title,items],idx)=>{
+        if(idx>0)decor.push(`<path d="M${frameX+14} ${y-18}H${frameX+frameW-14}" class="ps-floor"/>`);
+        decor.push(text(frameX-14,y+40,title,'ps-zone-label','end'));
+        items.forEach(([lbl,x])=>putLabel(lbl,x,y,160,74));
+      });
+      decor.push(`<path d="M${frameX+14} 555H${frameX+frameW-14}" class="ps-floor"/>`,text(frameX-14,620,'MILL BUNKERS','ps-zone-label','end'));
+      ['A','B','C','D','E','F'].forEach((let_,i)=>{
+        const r=Math.floor(i/3),c=i%3;
+        putLabel(`Bunker-${let_} of Unit-1`,185+c*158,572+r*145,134,70);
+        putLabel(`Bunker-${let_} of Unit-2`,695+c*158,572+r*145,134,70);
+      });
+      s.width=1220;s.height=890;s.initialHeight=890;
+    }else{
+      return null;
+    }
+
+    for(const [cid,owner] of chuteOwner){
+      if(!positions.has(cid)&&positions.has(owner))positions.set(cid,positions.get(owner));
+    }
+
+    const gatewaysSet=new Set(s.nodes.filter(n=>n.kind==='yard').map(n=>n.id));
+    const extra=s.nodes.filter(n=>!drawn.has(n.id)&&!chuteOwner.has(n.id)&&!gatewaysSet.has(n.id));
+    if(extra.length){
+      const base=s.height+30;
+      decor.push(text(190,base-12,'ADDITIONAL AREA EQUIPMENT & SERVICES','ps-zone-label','start'));
+      extra.forEach((n,i)=>put(n,190+(i%5)*198,base+8+Math.floor(i/5)*152,160,74));
+      s.height=base+40+Math.ceil(extra.length/5)*152;
+    }
+
+    const continuationFrom=new Map();
+    for(const [beltLbl,gateLbl] of [['EAC-4A','KB-FD-3'],['EAC-4B','KB-FD-4'],['EAC-5A','KB-FD-7'],['EAC-5B','KB-FD-8']]){
+      const bNode=byLabel.get(beltLbl),gNode=byLabel.get(gateLbl);
+      if(bNode&&gNode&&positions.has(gNode.id))continuationFrom.set(bNode.id,positions.get(gNode.id));
+    }
+    function pv_from(u,v){
+      const pu=positions.get(u),pv=positions.get(v);
+      if(pu&&pv&&pv.y-pu.y>200&&continuationFrom.has(u))return continuationFrom.get(u);
+      return pu;
+    }
+
+    const activeEdges=s.edges.filter(a=>{
+      const u=a.canonical_subject,v=a.canonical_object;
+      if(!positions.has(u)||!positions.has(v)||positions.get(u)===positions.get(v))return false;
+      const pu=pv_from(u,v),pv=positions.get(v);
+      if(s.area!=='stockyard'&&s.area!=='bunkers'&&(pu.x>=930||pv.x>=930))return false;
+      if(pv.y<pu.y-10||pv.y-pu.y>190)return false;
+      return true;
+    });
+
+    for(const a of activeEdges){
+      const f=pv_from(a.canonical_subject,a.canonical_object),t=positions.get(a.canonical_object);
+      const k=a.canonical_subject+'>'+a.canonical_object;
+      if(t.y>f.y+20&&t.y-f.y<=240){
+        const x1=f.x+f.w/2,y1=f.y+f.h+40,x2=t.x+t.w/2,y2=t.y-5;
+        routes.set(k,`M${x1} ${y1}C${x1} ${(y1+y2)/2} ${x2} ${(y1+y2)/2} ${x2} ${y2}`);
+      }else if(Math.abs(t.y-f.y)<=20&&t.x>f.x){
+        const y=f.y+f.h/2;
+        routes.set(k,`M${f.x+f.w+10} ${y}L${t.x-10} ${y}`);
+      }
+    }
+
+    return decor.join('')+edgeMarkup(activeEdges,positions,routes)+[...drawn.values()].map(d=>hotspot(d.n,d.x,d.y,d.w,d.h,{label:d.title,max:d.w<=140?18:24})).join('');
+  }
   function areaScene(){
-    // Use the existing directed layout for actual route nodes; area entries remain
-    // separate exploration gateways rather than fictitious extra flow steps.
+    const structured=structuredAreaScene();
+    if(structured)return structured;
+    // Fallback for custom/synthetic test graphs
     const graph=PlantExplorerModel.areaGraph(p,s.area),positions=new Map();
     const members=new Map(s.nodes.map(n=>[n.id,n]));
     const gateways=s.nodes.filter(n=>n.kind==='yard');

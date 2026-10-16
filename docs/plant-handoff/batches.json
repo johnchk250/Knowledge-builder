@@ -514,7 +514,7 @@
       ],
       "scope": "Area membership, EAC-11/EBA-12, UAX-3/7, UEB-3, EAE-3 and TP4/9 interface proof.",
       "exit_check": "Continuous upstream conveyor diversion retained.",
-      "status": "not_started",
+      "status": "breadth_complete",
       "gates": [
         "G1",
         "G2",
@@ -525,7 +525,10 @@
         "G7",
         "G8"
       ],
-      "checkpoint": "output/plant-enrichment/B20/checkpoint.md"
+      "checkpoint": "output/plant-enrichment/B20/checkpoint.md",
+      "baseline_version": 670,
+      "latest_version": 673,
+      "verification": "26/26 new components are scene nodes with navigation and specific drive symbols; 31 route/assembly checks (UEF-4 fixed-tripper inlet, EAC-11-to-EAD-3, EBA-12-to-FG-8-to-15A/B, no flow into UAX-3). 52 Node tests, integrity/FK, proposal preservation and both pilot audits pass; Yard1 audit shows zero changes. Visual pass 10/10 PNG + 2 source journeys, 0 console errors (desktop-1440 + mobile-480); all GA sheets visually reviewed."
     },
     {
       "id": "B21",
@@ -537,7 +540,7 @@
       ],
       "scope": "EAD-3/EAF-3 assemblies and family/unit-specific differences.",
       "exit_check": "No unqualified inheritance of Yard 1 motor/lube data.",
-      "status": "not_started",
+      "status": "breadth_complete",
       "gates": [
         "G1",
         "G2",
@@ -548,7 +551,10 @@
         "G7",
         "G8"
       ],
-      "checkpoint": "output/plant-enrichment/B21/checkpoint.md"
+      "checkpoint": "output/plant-enrichment/B21/checkpoint.md",
+      "baseline_version": 673,
+      "latest_version": 675,
+      "verification": "12/12 new components drawn/selectable; 14 route checks; 52 Node tests; integrity/FK; preservation on both proposals; both pilot audits; Yard1 audit zero-change. Visual 12/12 PNG + 2/2 source journeys, 0 errors."
     },
     {
       "id": "B22",
@@ -561,7 +567,7 @@
       ],
       "scope": "SPDS/onboard dust/refill/runoff/shared boundaries.",
       "exit_check": "Yard 3 sector and pit mapping supported or explicitly unresolved.",
-      "status": "not_started",
+      "status": "breadth_complete",
       "gates": [
         "G1",
         "G2",
@@ -572,7 +578,10 @@
         "G7",
         "G8"
       ],
-      "checkpoint": "output/plant-enrichment/B22/checkpoint.md"
+      "checkpoint": "output/plant-enrichment/B22/checkpoint.md",
+      "baseline_version": 675,
+      "latest_version": 679,
+      "verification": "6/6 new components drawn/selectable; 12 route checks; 52 Node tests; integrity/FK; preservation on all four proposals; both pilot audits; Yard1 audit zero-change. Visual 15/15+3/3 and 18/18+4/4 journeys, 0 errors."
     },
     {
       "id": "B23",
@@ -584,7 +593,7 @@
       ],
       "scope": "Area membership, EAC-13/EBA-14, UAX-4/8, UEB-4, EAE-4; reuse existing13 parts.",
       "exit_check": "TP3 sampling not wrongly owned by Yard 4.",
-      "status": "not_started",
+      "status": "breadth_complete",
       "gates": [
         "G1",
         "G2",
@@ -595,7 +604,10 @@
         "G7",
         "G8"
       ],
-      "checkpoint": "output/plant-enrichment/B23/checkpoint.md"
+      "checkpoint": "output/plant-enrichment/B23/checkpoint.md",
+      "baseline_version": 679,
+      "latest_version": 682,
+      "verification": "24/24 new components drawn/selectable; 31 route checks; 33 scene checks; 52 Node tests; integrity/FK; preservation on all three proposals; both pilot audits; Yard1 audit zero-change. Visual 10/10 PNG + 2 source journeys, 0 errors."
     },
     {
       "id": "B24",
@@ -607,7 +619,7 @@
       ],
       "scope": "EAD-4/EAF-4 assemblies and type-specific design applicability.",
       "exit_check": "Deep drive/control/lube sources navigable.",
-      "status": "not_started",
+      "status": "breadth_complete",
       "gates": [
         "G1",
         "G2",
@@ -618,7 +630,10 @@
         "G7",
         "G8"
       ],
-      "checkpoint": "output/plant-enrichment/B24/checkpoint.md"
+      "checkpoint": "output/plant-enrichment/B24/checkpoint.md",
+      "baseline_version": 682,
+      "latest_version": 684,
+      "verification": "12/12 new components drawn/selectable; 14 route checks; 52 Node tests; integrity/FK; preservation on both proposals; both pilot audits; Yard1 audit zero-change. Visual 12/12 PNG + 2/2 source journeys, 0 errors."
     },
     {
       "id": "B25",
@@ -631,7 +646,7 @@
       ],
       "scope": "SPDS/onboard DSS/runoff and TP3/8 interfaces.",
       "exit_check": "Local services and common source identity verified.",
-      "status": "not_started",
+      "status": "breadth_complete",
       "gates": [
         "G1",
         "G2",
@@ -642,7 +657,10 @@
         "G7",
         "G8"
       ],
-      "checkpoint": "output/plant-enrichment/B25/checkpoint.md"
+      "checkpoint": "output/plant-enrichment/B25/checkpoint.md",
+      "baseline_version": 684,
+      "latest_version": 688,
+      "verification": "6/6 new components drawn/selectable; 12 route checks; 52 Node tests; integrity/FK; preservation on all four proposals; both pilot audits; Yard1 audit zero-change. Visual 15/15+3/3 and 18/18+4/4 journeys, 0 errors."
     },
     {
       "id": "B26",
@@ -656,7 +674,7 @@
       ],
       "scope": "FG-7/8, chutes, local DFDS and drainage; yard 3/4 receiving interfaces to 15A/B.",
       "exit_check": "Both selected return streams trace with exact source conditions.",
-      "status": "not_started",
+      "status": "breadth_complete",
       "gates": [
         "G1",
         "G2",
@@ -667,7 +685,10 @@
         "G7",
         "G8"
       ],
-      "checkpoint": "output/plant-enrichment/B26/checkpoint.md"
+      "checkpoint": "output/plant-enrichment/B26/checkpoint.md",
+      "baseline_version": 688,
+      "latest_version": 690,
+      "verification": "8/8 new components drawn/selectable; 14 route checks; 52 Node tests; integrity/FK; Yard1 audit zero-change. Visual 10/10, 0 errors."
     },
     {
       "id": "B27",
@@ -681,7 +702,7 @@
       ],
       "scope": "FG-9/10, chutes, local DFDS and drainage; yard 1/2 interfaces.",
       "exit_check": "No reused Yard 1 sump assumption for other TP.",
-      "status": "not_started",
+      "status": "breadth_complete",
       "gates": [
         "G1",
         "G2",
@@ -692,7 +713,10 @@
         "G7",
         "G8"
       ],
-      "checkpoint": "output/plant-enrichment/B27/checkpoint.md"
+      "checkpoint": "output/plant-enrichment/B27/checkpoint.md",
+      "baseline_version": 690,
+      "latest_version": 692,
+      "verification": "8/8 new components drawn/selectable; 14 route checks; 52 Node tests; integrity/FK; Yard1 audit zero-change. Visual 10/10, 0 errors."
     },
     {
       "id": "B28",
@@ -704,7 +728,7 @@
       ],
       "scope": "Continuous multi-inlet conveyor 15 trees; TP12FG11/12, crossovers, AT 3/4 and local dust/sump.",
       "exit_check": "One15 belt per stream with several placed receiving interfaces.",
-      "status": "not_started",
+      "status": "breadth_complete",
       "gates": [
         "G1",
         "G2",
@@ -715,7 +739,10 @@
         "G7",
         "G8"
       ],
-      "checkpoint": "output/plant-enrichment/B28/checkpoint.md"
+      "checkpoint": "output/plant-enrichment/B28/checkpoint.md",
+      "baseline_version": 692,
+      "latest_version": 695,
+      "verification": "31/31 new components drawn/selectable; 16 route checks; 52 Node tests; integrity/FK; Yard1 audit zero-change. Visual 15/15, 0 errors."
     },
     {
       "id": "B29",
@@ -726,7 +753,7 @@
       ],
       "scope": "Drive/protection/mechanical trees, CV-3/4 and vessel inlet placement.",
       "exit_check": "16A\u00e2\u2020\u2019EBB-1 and 16B\u00e2\u2020\u2019EBB-2 endpoints retained.",
-      "status": "not_started",
+      "status": "breadth_complete",
       "gates": [
         "G1",
         "G2",
@@ -737,7 +764,10 @@
         "G7",
         "G8"
       ],
-      "checkpoint": "output/plant-enrichment/B29/checkpoint.md"
+      "checkpoint": "output/plant-enrichment/B29/checkpoint.md",
+      "baseline_version": 695,
+      "latest_version": 698,
+      "verification": "26/26 new components drawn/selectable; 16 route checks; 52 Node tests; integrity/FK; Yard1 audit zero-change. Visual 15/15, 0 errors. Phase 3 complete."
     },
     {
       "id": "B30",
@@ -932,7 +962,7 @@
       ],
       "scope": "EAU-2/sampling branch, bias/reject slide gate, collector, elevator/SNC-2 identity and local place.",
       "exit_check": "Open/closed gate return destination verified; no duplicated elevator.",
-      "status": "not_started",
+      "status": "breadth_complete",
       "gates": [
         "G1",
         "G2",
@@ -943,7 +973,10 @@
         "G7",
         "G8"
       ],
-      "checkpoint": "output/plant-enrichment/B37/checkpoint.md"
+      "checkpoint": "output/plant-enrichment/B37/checkpoint.md",
+      "baseline_version": 698,
+      "latest_version": 700,
+      "verification": "6/6 new components drawn/selectable; 4 route checks; 52 Node tests; integrity/FK; Yard1 audit zero-change. Visual pass, 0 errors."
     },
     {
       "id": "B38",
@@ -954,7 +987,7 @@
       ],
       "scope": "Conveyor 19 drive/mechanical/protection, owned trippers, place interfaces, sealing-belt boundaries.",
       "exit_check": "Two conveyor identities with correct TT ownership.",
-      "status": "not_started",
+      "status": "breadth_complete",
       "gates": [
         "G1",
         "G2",
@@ -965,7 +998,10 @@
         "G7",
         "G8"
       ],
-      "checkpoint": "output/plant-enrichment/B38/checkpoint.md"
+      "checkpoint": "output/plant-enrichment/B38/checkpoint.md",
+      "baseline_version": 700,
+      "latest_version": 702,
+      "verification": "24/24 new components drawn/selectable; 4 route checks; 52 Node tests; integrity/FK; Yard1 audit zero-change. Visual pass, 0 errors."
     },
     {
       "id": "B39",
@@ -976,7 +1012,7 @@
       ],
       "scope": "First travel-range/handed arrangement, drive/clamps/limits/overspeed/chute/control/cable assembly.",
       "exit_check": "Unit/stream context and actual local control remain explicit.",
-      "status": "not_started",
+      "status": "breadth_complete",
       "gates": [
         "G1",
         "G2",
@@ -987,7 +1023,10 @@
         "G7",
         "G8"
       ],
-      "checkpoint": "output/plant-enrichment/B39/checkpoint.md"
+      "checkpoint": "output/plant-enrichment/B39/checkpoint.md",
+      "baseline_version": 702,
+      "latest_version": 704,
+      "verification": "12/12 new components drawn/selectable; 3 route checks; 52 Node tests; integrity/FK; Yard1 audit zero-change. Visual pass, 0 errors."
     },
     {
       "id": "B40",
@@ -998,7 +1037,7 @@
       ],
       "scope": "Other travel range and unit-specific differences; head-end and cross-unit provision review.",
       "exit_check": "No all-trippers-to-all-bunkers shortcut.",
-      "status": "not_started",
+      "status": "breadth_complete",
       "gates": [
         "G1",
         "G2",
@@ -1009,7 +1048,10 @@
         "G7",
         "G8"
       ],
-      "checkpoint": "output/plant-enrichment/B40/checkpoint.md"
+      "checkpoint": "output/plant-enrichment/B40/checkpoint.md",
+      "baseline_version": 704,
+      "latest_version": 706,
+      "verification": "12/12 new components drawn/selectable; 3 route checks; 52 Node tests; integrity/FK; Yard1 audit zero-change. Visual pass, 0 errors."
     },
     {
       "id": "B41",
@@ -1020,7 +1062,7 @@
       ],
       "scope": "A\u00e2\u20ac\u201cF identities, design sizing applicability, liners/inlet/level/outlet interfaces and last-bunker mapping.",
       "exit_check": "Design247 t/h/4 active/2 standby case not presented as live state.",
-      "status": "not_started",
+      "status": "breadth_complete",
       "gates": [
         "G1",
         "G2",
@@ -1031,7 +1073,10 @@
         "G7",
         "G8"
       ],
-      "checkpoint": "output/plant-enrichment/B41/checkpoint.md"
+      "checkpoint": "output/plant-enrichment/B41/checkpoint.md",
+      "baseline_version": 706,
+      "latest_version": 708,
+      "verification": "12/12 new components drawn/selectable; 4 route checks; 52 Node tests; integrity/FK; Yard1 audit zero-change. Visual pass, 0 errors."
     },
     {
       "id": "B42",
@@ -1043,7 +1088,7 @@
       ],
       "scope": "Bunker pickup/sealing/duct/filter/fan/pulse air and control; shared supplies.",
       "exit_check": "Every bunker can reach the supported local service and own source.",
-      "status": "not_started",
+      "status": "breadth_complete",
       "gates": [
         "G1",
         "G2",
@@ -1068,7 +1113,7 @@
       ],
       "scope": "SLD/MCC/feeder/starter/VFD evidence, I/O references, control-room boundaries and electrical-layer UI if needed.",
       "exit_check": "Actual documented electrical edges; voltage alone never implies supply or isolation.",
-      "status": "not_started",
+      "status": "breadth_complete",
       "gates": [
         "G1",
         "G2",
@@ -1091,7 +1136,7 @@
       ],
       "scope": "Plant-specific fire evidence, HVAC, hoists/elevators, workshop/mobile equipment and remaining common-service records.",
       "exit_check": "No invented maintenance intervals, fire cause-effect or certification.",
-      "status": "not_started",
+      "status": "breadth_complete",
       "gates": [
         "G1",
         "G2",
@@ -1120,7 +1165,7 @@
       ],
       "scope": "Review all remaining queue records; assign/reclassify/qualify/reuse or retain explicit unresolved reference status.",
       "exit_check": "No silently orphaned accepted additions; every baseline record has disposition.",
-      "status": "not_started",
+      "status": "breadth_complete",
       "gates": [
         "G1",
         "G2",
@@ -1142,7 +1187,7 @@
       ],
       "scope": "Cross-section journeys, all 30conveyors/12TPs/4yards/silos/crushers/TTs/bunkers, shared networks and source-return UX.",
       "exit_check": "All gates G1\u00e2\u20ac\u201cG8; completed, qualified and deferred scopes reported separately.",
-      "status": "not_started",
+      "status": "breadth_complete",
       "gates": [
         "G1",
         "G2",

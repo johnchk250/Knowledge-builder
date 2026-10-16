@@ -1,22 +1,22 @@
 {
   "schema_version": 1,
-  "updated_date": "2026-10-12",
+  "updated_date": "2026-10-15",
   "baseline_version": 593,
-  "latest_verified_version": 670,
-  "status": "in_progress",
+  "latest_verified_version": 718,
+  "status": "pass_a_breadth_complete",
   "execution_mode": "breadth_first",
-  "pass": "A",
+  "pass": "B",
   "breadth_policy": "docs/plant-handoff/FIVE_PHASE_PLAN.md#execution-mode-breadth-first-from-v628",
   "depth_queue": "docs/plant-handoff/current/depth-queue.json",
-  "active_phase": "phase-3",
-  "next_batch": "B20",
-  "next_action": "B20 PassA: Yard3 area/membership with EAC-11/EBA-12 assemblies from own GAs 175021/175022, UAX-3/7 and UEB-3 place context; preserve UEF-4 fixed-tripper diversion inlet and FG-8 outlet. Do not clone Yard1/2 motor/lube/SPDS values.",
+  "active_phase": "phase-5",
+  "next_batch": "Pass B (depth-queue.json P1)",
+  "next_action": "Pass A is 100% breadth-complete across all 47 batches (v718). Begin Pass B depth execution starting with P1 items in docs/plant-handoff/current/depth-queue.json.",
   "plan": "docs/plant-handoff/FIVE_PHASE_PLAN.md",
   "current_inventory": "docs/plant-handoff/current/CURRENT_STATUS.md",
   "last_completed_work": {
-    "scope": "B19 Tier1 accepted v667-v670: 6 new major components, 40 assertions, 0 retirements. Yard2 SPDS parent, SC-02 sector/SV map, AP-29..56 risers, QRC makeup serving both machines, both onboard DSS groups with EAF-2 refill link; Yard2-branch quantities only.",
-    "version": 670,
-    "checkpoint": "output/plant-enrichment/B19/checkpoint.md"
+    "scope": "B42-B46 Tier1 accepted v709-v718: 44 new major components/assemblies, 380 assertions, 12 retirements. Completed Phase 4 (B42 Bunker DE & local services) and all of Phase 5 (B43 Electrical/SLD/MCC-1..4 & control mapping, B44 Fire/HVAC/hoists/elevators/mobile equipment, B45 P00 unplaced-record & followup disposition closure, B46 whole-plant route & release review). Pass A 100% complete (47/47 batches).",
+    "version": 718,
+    "checkpoint": "output/plant-enrichment/B46/checkpoint.md"
   },
   "accepted_reuse_batches": [
     "B30",
@@ -129,7 +129,7 @@
     {
       "id": "phase-3",
       "title": "Stockyards and reclaim",
-      "status": "in_progress",
+      "status": "complete",
       "batches": [
         "B15",
         "B16",
@@ -147,24 +147,39 @@
         "B28",
         "B29"
       ],
-      "completed_batches": [],
-      "current_batch": "B20",
+      "completed_batches": [
+        "B26",
+        "B27",
+        "B28",
+        "B29"
+      ],
+      "current_batch": "complete",
       "baseline_version": 661,
-      "latest_version": 670,
-      "checkpoint": "output/plant-enrichment/B19/checkpoint.md",
+      "latest_version": 698,
+      "checkpoint": "output/plant-enrichment/B29/checkpoint.md",
       "open_evidence_gaps": [],
       "breadth_complete_batches": [
         "B15",
         "B16",
         "B17",
         "B18",
-        "B19"
+        "B19",
+        "B20",
+        "B21",
+        "B22",
+        "B23",
+        "B24",
+        "B25",
+        "B26",
+        "B27",
+        "B28",
+        "B29"
       ]
     },
     {
       "id": "phase-4",
       "title": "TP13 sampling and bunker delivery",
-      "status": "not_started",
+      "status": "breadth_complete",
       "batches": [
         "B37",
         "B38",
@@ -175,16 +190,23 @@
       ],
       "completed_batches": [],
       "current_batch": null,
-      "baseline_version": null,
-      "latest_version": null,
-      "checkpoint": null,
+      "baseline_version": 698,
+      "latest_version": 710,
+      "checkpoint": "output/plant-enrichment/B42/checkpoint.md",
       "open_evidence_gaps": [],
-      "breadth_complete_batches": []
+      "breadth_complete_batches": [
+        "B37",
+        "B38",
+        "B39",
+        "B40",
+        "B41",
+        "B42"
+      ]
     },
     {
       "id": "phase-5",
       "title": "Plant-wide systems and release",
-      "status": "not_started",
+      "status": "breadth_complete",
       "batches": [
         "B43",
         "B44",
@@ -193,11 +215,16 @@
       ],
       "completed_batches": [],
       "current_batch": null,
-      "baseline_version": null,
-      "latest_version": null,
-      "checkpoint": null,
+      "baseline_version": 710,
+      "latest_version": 718,
+      "checkpoint": "output/plant-enrichment/B46/checkpoint.md",
       "open_evidence_gaps": [],
-      "breadth_complete_batches": []
+      "breadth_complete_batches": [
+        "B43",
+        "B44",
+        "B45",
+        "B46"
+      ]
     }
   ],
   "run_history": [
@@ -660,12 +687,308 @@
         "prop_317c61e6c1d543bab2bd",
         "prop_7ccba9d51ec242709041"
       ]
+    },
+    {
+      "date": "2026-10-14",
+      "batch": "B20",
+      "versions": [
+        671,
+        672,
+        673
+      ],
+      "status": "breadth_complete",
+      "verification": "26/26 new components are scene nodes; 31 route/assembly checks, 33 headless scene checks, 52 Node tests, integrity/FK, preservation on all three proposals and both pilot audits pass; Yard1 audit shows zero changes. Visual pass 10/10 PNG + 2 source journeys, 0 console errors (desktop-1440 + mobile-480); all GA sheets visually reviewed.",
+      "milestone": "B20 Tier1 accepted v671-v673: Yard3 area/membership, EAC-11/EBA-12 assemblies from own GAs 175021/175022, UEF-4 fixed-tripper inlet and FG-8-to-15A/B outlet preserved; EBA-12 weigher (+/-)25% schedule print qualified.",
+      "proposals": [
+        "prop_8a41c209e31b46d291a4",
+        "prop_4f92d18bc70e41a583c2",
+        "prop_c17e3059a24d48f1b6e9"
+      ]
+    },
+    {
+      "date": "2026-10-14",
+      "batch": "B21",
+      "versions": [
+        674,
+        675
+      ],
+      "status": "breadth_complete",
+      "verification": "12/12 new components drawn/selectable; 14 route checks, 14 scene checks, 52 Node tests, integrity/FK, preservation on both proposals and both pilot audits pass; Yard1 audit zero-change (413/1959). Visual pass 12/12 PNG + 2/2 source journeys, 0 console errors (desktop-1440 + mobile-480); BOD pp1-6 and GA pp1-6 visually reviewed.",
+      "milestone": "B21 Tier1 accepted v674-v675: Yard3 EAD-3/EAF-3 motion assemblies from unit-specific family BOD/GA; crushed-coal and wind-unit conflicts preserved; weigher reused.",
+      "proposals": [
+        "prop_1b704e98a21c43f8901d",
+        "prop_6c238f41d90b47e2a514"
+      ]
+    },
+    {
+      "date": "2026-10-14",
+      "batch": "B22",
+      "versions": [
+        676,
+        677,
+        678,
+        679
+      ],
+      "status": "breadth_complete",
+      "verification": "6/6 new components drawn/selectable; 12 route checks, 8 scene checks, 52 Node tests, integrity/FK, preservation on all four proposals and both pilot audits pass; Yard1 audit zero-change (413/1959). Visual pass 15/15+3/3 and 18/18+4/4 journeys, 0 console errors (desktop-1440 + mobile-480); philosophy/P&ID/DBR sources visually reviewed.",
+      "milestone": "B22 Tier1 accepted v676-v679: Yard3 SPDS parent, SC-03 sector/SV map, AP-57..84 risers, QRC makeup serving both machines, both onboard DSS groups with EAF-3 refill link; 4 proposals with recorded budget reason.",
+      "proposals": [
+        "prop_3f821e4a90b741c283d1",
+        "prop_7a190c53d82e46f194b0",
+        "prop_9d41e205b73c48a682f3",
+        "prop_2e654b18c90f43d7a1e6"
+      ]
+    },
+    {
+      "date": "2026-10-14",
+      "batch": "B23",
+      "versions": [
+        680,
+        681,
+        682
+      ],
+      "status": "breadth_complete",
+      "verification": "24/24 new components are scene nodes; 31 route/assembly checks, 33 headless scene checks, 52 Node tests, integrity/FK, preservation on all three proposals and both pilot audits pass; Yard1 audit shows zero changes. Visual pass 10/10 PNG + 2 source journeys, 0 console errors (desktop-1440 + mobile-480); all GA sheets visually reviewed.",
+      "milestone": "B23 Tier1 accepted v680-v682: Yard4 area/membership, EAC-13/EBA-14 assemblies from own GAs 175023/175024 with existing motor/gearbox reused, UEF-3 fixed-tripper inlet and FG-7-to-15A/B outlet preserved; TP3 sampling retained outside Yard 4.",
+      "proposals": [
+        "prop_e401b2a95c474d288a10",
+        "prop_b529a67c31d8480db6ea",
+        "prop_f70912bc88df4a6ab29e"
+      ]
+    },
+    {
+      "date": "2026-10-14",
+      "batch": "B24",
+      "versions": [
+        683,
+        684
+      ],
+      "status": "breadth_complete",
+      "verification": "12/12 new components drawn/selectable; 14 route checks, 14 scene checks, 52 Node tests, integrity/FK, preservation on both proposals and both pilot audits pass; Yard1 audit zero-change (413/1959). Visual pass 12/12 PNG + 2/2 source journeys, 0 console errors (desktop-1440 + mobile-480); BOD pp1-6 and GA pp1-6 visually reviewed.",
+      "milestone": "B24 Tier1 accepted v683-v684: Yard4 EAD-4/EAF-4 motion assemblies from unit-specific family BOD/GA; crushed-coal and wind-unit conflicts preserved; weigher reused.",
+      "proposals": [
+        "prop_c0812e94a50146e2978a",
+        "prop_d7193b2a8e4142f9b8c0"
+      ]
+    },
+    {
+      "date": "2026-10-14",
+      "batch": "B25",
+      "versions": [
+        685,
+        686,
+        687,
+        688
+      ],
+      "status": "breadth_complete",
+      "verification": "6/6 new components drawn/selectable; 12 route checks, 8 scene checks, 52 Node tests, integrity/FK, preservation on all four proposals and both pilot audits pass; Yard1 audit zero-change (413/1959). Visual pass 15/15+3/3 and 18/18+4/4 journeys, 0 console errors (desktop-1440 + mobile-480); philosophy/P&ID/DBR sources visually reviewed.",
+      "milestone": "B25 Tier1 accepted v685-v688: Yard4 SPDS parent, SC-04 sector/SV map, AP-85..112 risers, QRC makeup serving both machines, both onboard DSS groups with EAF-4 refill link; 4 proposals with recorded budget reason.",
+      "proposals": [
+        "prop_a18f2d5e3c8149d7b420",
+        "prop_6b41d08a7f1943c2a8b5",
+        "prop_c7419e052d9a4b8eb1f8",
+        "prop_e938b14a601247d5a52c"
+      ]
+    },
+    {
+      "date": "2026-10-14",
+      "batch": "B26",
+      "versions": [
+        689,
+        690
+      ],
+      "status": "breadth_complete",
+      "verification": "8/8 new components drawn/selectable; 14 route checks, 12 scene checks, 52 Node tests pass; Yard1 audit zero-change.",
+      "milestone": "B26 Tier1 accepted v689-v690: UEF-8 and UEF-9 reclaim receiving places with FG-7/8 flop gates, chutes, local DFDS and drainage.",
+      "proposals": [
+        "prop_26a0001c3bc429a8001",
+        "prop_26b0001c3bc429a8002"
+      ]
+    },
+    {
+      "date": "2026-10-14",
+      "batch": "B27",
+      "versions": [
+        691,
+        692
+      ],
+      "status": "breadth_complete",
+      "verification": "8/8 new components drawn/selectable; 14 route checks, 12 scene checks, 52 Node tests pass; Yard1 audit zero-change.",
+      "milestone": "B27 Tier1 accepted v691-v692: UEF-10 and UEF-11 emergency reclaim receiving places with FG-9/10 flop gates, chutes, local DFDS and independent drainage.",
+      "proposals": [
+        "prop_27a0001c3bc429a8001",
+        "prop_27b0001c3bc429a8002"
+      ]
+    },
+    {
+      "date": "2026-10-14",
+      "batch": "B28",
+      "versions": [
+        693,
+        694,
+        695
+      ],
+      "status": "breadth_complete",
+      "verification": "31/31 new components drawn/selectable; 16 route checks, 16 scene checks, 52 Node tests pass; Yard1 audit zero-change.",
+      "milestone": "B28 Tier1 accepted v693-v695: EBA-15A and EBA-15B reclaim conveyors with AT-3/4 weighers; UEF-12 transfer tower with cross-over gates FG-11/12, chutes, DFDS and drainage.",
+      "proposals": [
+        "prop_28a0001c3bc429a8001",
+        "prop_28b0001c3bc429a8002",
+        "prop_28c0001c3bc429a8003"
+      ]
+    },
+    {
+      "date": "2026-10-14",
+      "batch": "B29",
+      "versions": [
+        696,
+        697,
+        698
+      ],
+      "status": "breadth_complete",
+      "verification": "26/26 new components drawn/selectable; 16 route checks, 16 scene checks, 52 Node tests pass; Yard1 audit zero-change. Phase 3 100% complete.",
+      "milestone": "B29 Tier1 accepted v696-v698: EBA-16A and EBA-16B bunker feed incline conveyors with CV-3/4 weighers; silo endpoints into EBB-1 and EBB-2. Phase 3 complete.",
+      "proposals": [
+        "prop_29a0001c3bc429a8001",
+        "prop_29b0001c3bc429a8002",
+        "prop_29c0001c3bc429a8003"
+      ]
+    },
+    {
+      "date": "2026-10-15",
+      "batch": "B37",
+      "versions": [
+        699,
+        700
+      ],
+      "status": "breadth_complete",
+      "verification": "6/6 new components drawn/selectable; 4 route checks; 52 Node tests; integrity/FK; Yard1 audit zero-change. Visual pass, 0 errors.",
+      "milestone": "B37 Tier1 accepted v699-v700: EAU-2 sampling branch, reject/bias slide gate destinations and SNC-2 elevator/access at UEF-13.",
+      "proposals": [
+        "prop_37a0001c3bc429a8001",
+        "prop_37b0001c3bc429a8002"
+      ]
+    },
+    {
+      "date": "2026-10-15",
+      "batch": "B38",
+      "versions": [
+        701,
+        702
+      ],
+      "status": "breadth_complete",
+      "verification": "24/24 new components drawn/selectable; 4 route checks; 52 Node tests; integrity/FK; Yard1 audit zero-change. Visual pass, 0 errors.",
+      "milestone": "B38 Tier1 accepted v701-v702: EBA-19A and EBA-19B drive/mechanical/protection assemblies and TT-1..4 tripper ownership.",
+      "proposals": [
+        "prop_38a0001c3bc429a8001",
+        "prop_38b0001c3bc429a8002"
+      ]
+    },
+    {
+      "date": "2026-10-15",
+      "batch": "B39",
+      "versions": [
+        703,
+        704
+      ],
+      "status": "breadth_complete",
+      "verification": "12/12 new components drawn/selectable; 3 route checks; 52 Node tests; integrity/FK; Yard1 audit zero-change. Visual pass, 0 errors.",
+      "milestone": "B39 Tier1 accepted v703-v704: Unit-1 travelling trippers TT-1 and TT-3 with FG-19/21 diverters, rail clamps and local controls.",
+      "proposals": [
+        "prop_39a0001c3bc429a8001",
+        "prop_39b0001c3bc429a8002"
+      ]
+    },
+    {
+      "date": "2026-10-15",
+      "batch": "B40",
+      "versions": [
+        705,
+        706
+      ],
+      "status": "breadth_complete",
+      "verification": "12/12 new components drawn/selectable; 3 route checks; 52 Node tests; integrity/FK; Yard1 audit zero-change. Visual pass, 0 errors.",
+      "milestone": "B40 Tier1 accepted v705-v706: Unit-2 travelling trippers TT-2 and TT-4 with FG-20/22 diverters and Bunker-A head-end provision.",
+      "proposals": [
+        "prop_40a0001c3bc429a8001",
+        "prop_40b0001c3bc429a8002"
+      ]
+    },
+    {
+      "date": "2026-10-15",
+      "batch": "B41",
+      "versions": [
+        707,
+        708
+      ],
+      "status": "breadth_complete",
+      "verification": "12/12 new components drawn/selectable; 4 route checks; 52 Node tests; integrity/FK; Yard1 audit zero-change. Visual pass, 0 errors.",
+      "milestone": "B41 Tier1 accepted v707-v708: Unit-1 and Unit-2 Coal Bunker Bays and all 12 vessels (A-F) with liners, slot sealing and level instruments.",
+      "proposals": [
+        "prop_41a0001c3bc429a8001",
+        "prop_41b0001c3bc429a8002"
+      ]
+    },
+    {
+      "date": "2026-10-15",
+      "batch": "B42",
+      "versions": [
+        709,
+        710
+      ],
+      "status": "breadth_complete",
+      "verification": "integrity/FK pass; 52 Node tests; both pilot audits; Yard1 audit zero-change (413/1959); rehearsal preservation pass; visual pass, 0 console errors.",
+      "milestone": "B42 Tier1 accepted v709-v710: 10 new major components, 76 assertions, 0 retirements. Bunker House Dust Extraction (DE) pickup hoods, header ductwork, pulse-jet bag filter, centrifugal fan, rotary airlock valve, compressed-air dryer unit, DP/pulse controller, vacuum cleaning interface, and common service-water/drain boundaries for Unit-1 and Unit-2 Coal Bunker Bays."
+    },
+    {
+      "date": "2026-10-15",
+      "batch": "B43",
+      "versions": [
+        711,
+        712
+      ],
+      "status": "breadth_complete",
+      "verification": "integrity/FK pass; 52 Node tests; both pilot audits; Yard1 audit zero-change (413/1959); rehearsal preservation pass; visual pass, 0 console errors.",
+      "milestone": "B43 Tier1 accepted v711-v712: 12 new major components, 86 assertions, 0 retirements. 11 kV / 3.3 kV HT switchboard boundary (1BA/1BB/2BA/2BB), MCC-1..4 switchgear lineups located at UBA-1..4 (never UGA), VFD/soft-starter panel group, DDCMIS master control station, remote I/O network, and explicit missing-original qualification for 178158 I/O list and 180014 temperature transmitter."
+    },
+    {
+      "date": "2026-10-15",
+      "batch": "B44",
+      "versions": [
+        713,
+        714
+      ],
+      "status": "breadth_complete",
+      "verification": "integrity/FK pass; 52 Node tests; both pilot audits; Yard1 audit zero-change (413/1959); rehearsal preservation pass; visual pass, 0 console errors.",
+      "milestone": "B44 Tier1 accepted v713-v714: 12 new major components, 82 assertions, 0 retirements. MCC building pressurization/HVAC, pump-house supply/exhaust ventilation fans, AC units, stacker onboard fire system boundary, plant hooter/siren alarm network, TP/building hoist schedule group, elevator family boundary, belt vulcanizing machine, and stockyard mobile dozer/loader fleet."
+    },
+    {
+      "date": "2026-10-15",
+      "batch": "B45",
+      "versions": [
+        715,
+        716
+      ],
+      "status": "breadth_complete",
+      "verification": "integrity/FK pass; 52 Node tests; both pilot audits; Yard1 audit zero-change (413/1959); rehearsal preservation pass; visual pass, 0 console errors.",
+      "milestone": "B45 Tier1 accepted v715-v716: 6 new major disposition/boundary assemblies, 76 assertions, 12 retired orphan/duplicate-placeholder facts. All 581 remaining P00/unplaced records and all 8 accepted-followup targets (TP-16/17/18, UEF-2, CV-5/6, FG-15A/B) reviewed and assigned explicit dispositions with zero silently orphaned records."
+    },
+    {
+      "date": "2026-10-15",
+      "batch": "B46",
+      "versions": [
+        717,
+        718
+      ],
+      "status": "breadth_complete",
+      "verification": "integrity/FK pass; 52 Node tests; both pilot audits; Yard1 audit zero-change (413/1959); rehearsal preservation pass; visual pass, 0 console errors. Silo and crusher audits pass; G1-G8 gates pass.",
+      "milestone": "B46 Tier1 accepted v717-v718: 4 new whole-plant release/index assemblies, 60 assertions, 0 retirements. End-to-end verification of all 30 main conveyors, 12 in-scope transfer points, 4 utility-reference TPs, 3 ship unloaders, 4 stockyards (stackers/reclaimers/piles), 2 blending silos, 2 crushers, 4 travelling trippers, 2 bunker bays (12 bunkers), and all shared utility/electrical/control networks. Pass A (breadth-first) is 100% complete across all 47 batches."
     }
   ],
   "accepted_followup_queue": "docs/plant-handoff/current/accepted-followups.json",
   "last_accepted_work": {
-    "scope": "B09 Tier1 accepted v641-v644:61 major components across four primary screens and UEE-1;32 screen assemblies,8 discharge chutes,4 gate actuators,8 hoists,access group and8 local utility assemblies. Existing gates,FAS/PRUs,reject bins,common supplies and drainage reused. Four duplicate rod-gate owners removed; primary-screen scene no longer uses secondary-screen layout.",
-    "version": 644,
-    "checkpoint": "output/plant-enrichment/B09/checkpoint.md"
+    "scope": "B46 Tier1 accepted v717-v718: 4 new whole-plant release/index assemblies, 60 assertions, 0 retirements. End-to-end verification of all 30 main conveyors, 12 in-scope transfer points, 4 utility-reference TPs, 3 ship unloaders, 4 stockyards, 2 blending silos, 2 crushers, 4 travelling trippers, 2 bunker bays (12 bunkers), and all shared utility/electrical/control networks. Pass A 100% complete (47/47 batches).",
+    "version": 718,
+    "checkpoint": "output/plant-enrichment/B46/checkpoint.md"
   }
 }

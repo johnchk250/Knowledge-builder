@@ -315,6 +315,276 @@
       "source": "doc_5a36f2843d504d6e96de BOM item 19 and note 9; field routing records",
       "priority": "P3",
       "status": "open"
+    },
+    {
+      "id": "DQ-B20-001",
+      "batch": "B20",
+      "target": "EAC-11 / EBA-12 drive and protection detail",
+      "missing": "Vendor drive internals, brake setting/calculation reconciliation, protection numeric settings, idler/cleaner row-level BOM reconciliation, head-pulley table/detail-face wording, and EBA-12 weigher (+/-)25% vs 2%/0.25% accuracy schedule print reconciliation. PCS schedule quantity without explicit pair-unit stays qualified.",
+      "source": "doc_9d6657d14f3a4c829469 (175021) and doc_0adf08e6189847b88503 (175022) schedule/detail sheets; vendor drive/lube sources",
+      "priority": "P1",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B20-002",
+      "batch": "B20",
+      "target": "Yard3 civil, access and foundation detail",
+      "missing": "Take-up/HGT tower, head-frame, gallery and foundation load-table detail; EAC-11 coasting-calculation 1400mm width versus GA 2000mm review qualification; sheet-1 copied UAX1/UEF6 notes disposition.",
+      "source": "doc_9d6657d14f3a4c829469 and doc_0adf08e6189847b88503 pp1-5; review replies",
+      "priority": "P2",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B21-001",
+      "batch": "B21",
+      "target": "EAD-3 stacker drive and protection detail",
+      "missing": "Vendor motor/gearbox/coupling/brake internals below assembly level; travel/slew/luff protection numeric settings and PLC/collision/travel-limit/storm-parking logic; commissioned speeds/pressures and per-unit serials. Assembly notes only assert family design.",
+      "source": "Stacker BOD doc_78bebe6773984d59b013 pp2-3; stacker GA doc_d69ffd4c7c2241018323 pp1-4; drive/lube/DSS vendor sources P07",
+      "priority": "P1",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B21-002",
+      "batch": "B21",
+      "target": "EAF-3 reclaimer drive and protection detail",
+      "missing": "Scraper chain/blade/take-up detail; hoist rope/drum/brake internals; travel clamp/buffer selections; cable-reel feeder/starter/VFD mapping; safety-instrument 179103 loops and wind-trip reconciliation; lube/DSS/fire and commissioned settings. Assembly notes only assert family design.",
+      "source": "Reclaimer GA doc_3e81ea1c32df4215968d p3 spec table + pp4-6 replies; reclaimer BOD doc_498f70490d294542b8b0; lube/DSS/safety sources P07",
+      "priority": "P1",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B22-001",
+      "batch": "B22",
+      "target": "Yard3 machine fire protection",
+      "missing": "Per-machine fire detection/suppression applicability for EAD-3/EAF-3; vendor package scope versus installed coverage unverified.",
+      "source": "doc_4d488fd685284c408297 Fire detection and extinguishon system of Stacker (50pp, scope to verify); reclaimer-side fire source to locate",
+      "priority": "P2",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B22-002",
+      "batch": "B22",
+      "target": "EAD-3/EAF-3 onboard service internals",
+      "missing": "Machine lube (central grease, chain oil); onboard DSS pump/nozzle internals, commissioned set points, skid serials; duplex/simplex filter wording reconciliation for the coal sections.",
+      "source": "doc_0f52c77514a74773ae30 control/calculation sections; doc_a6a2fa82944f4d12b8aa pump schedule and P&ID 3778-02-T-01; vendor nameplates",
+      "priority": "P2",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B22-003",
+      "batch": "B22",
+      "target": "Yard3 AP-to-SV cross-reference",
+      "missing": "Unique AP-57..84 to SV-57..84 cross-reference and surveyed riser coordinates; per-riser valve/nozzle tag detail.",
+      "source": "doc_e17edf6897d746fabe12 sector tables; doc_7244e891263a4e6d8214 stockpile DS piping layout pp1-3",
+      "priority": "P3",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B22-004",
+      "batch": "B22",
+      "target": "Yard3 QRC count and routing",
+      "missing": "Per-yard share of the 92 BOM QRC positions; installed QRC routing and hose-connection detail for EAD-3/EAF-3 tanks.",
+      "source": "doc_5a36f2843d504d6e96de BOM item 19 and note 9; field routing records",
+      "priority": "P3",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B23-001",
+      "batch": "B23",
+      "target": "EAC-13 / EBA-14 drive and protection detail",
+      "missing": "Vendor drive internals, brake setting/calculation reconciliation, protection numeric settings, idler/cleaner row-level BOM reconciliation and head-pulley table/detail-face wording. PCS schedule quantity without explicit pair-unit stays qualified.",
+      "source": "doc_99b04888284c4cf0802b (175023) and doc_06286613f92f4d31b83c (175024) schedule/detail sheets; vendor drive/lube sources P08",
+      "priority": "P1",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B23-002",
+      "batch": "B23",
+      "target": "Yard4 civil, access and foundation detail",
+      "missing": "Take-up/HGT tower, head-frame, gallery and foundation load-table detail; EAC-13 coasting-calculation 1400mm width versus GA 2000mm review qualification; sheet-1 copied UAX1/UEF6 notes disposition.",
+      "source": "doc_99b04888284c4cf0802b and doc_06286613f92f4d31b83c pp1-5; review replies",
+      "priority": "P2",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B24-001",
+      "batch": "B24",
+      "target": "EAD-4 stacker drive and protection detail",
+      "missing": "Vendor motor/gearbox/coupling/brake internals below assembly level; travel/slew/luff protection numeric settings and PLC/collision/travel-limit/storm-parking logic; commissioned speeds/pressures and per-unit serials. Assembly notes only assert family design.",
+      "source": "Stacker BOD doc_78bebe6773984d59b013 pp2-3; stacker GA doc_d69ffd4c7c2241018323 pp1-4; drive/lube/DSS vendor sources P08",
+      "priority": "P1",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B24-002",
+      "batch": "B24",
+      "target": "EAF-4 reclaimer drive and protection detail",
+      "missing": "Scraper chain/blade/take-up detail; hoist rope/drum/brake internals; travel clamp/buffer selections; cable-reel feeder/starter/VFD mapping; safety-instrument 179103 loops and wind-trip reconciliation; lube/DSS/fire and commissioned settings. Assembly notes only assert family design.",
+      "source": "Reclaimer GA doc_3e81ea1c32df4215968d p3 spec table + pp4-6 replies; reclaimer BOD doc_498f70490d294542b8b0; lube/DSS/safety sources P08",
+      "priority": "P1",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B25-001",
+      "batch": "B25",
+      "target": "Yard4 machine fire protection",
+      "missing": "Per-machine fire detection/suppression applicability for EAD-4/EAF-4; vendor package scope versus installed coverage unverified.",
+      "source": "doc_4d488fd685284c408297 Fire detection and extinguishon system of Stacker; reclaimer-side fire source to locate",
+      "priority": "P2",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B25-002",
+      "batch": "B25",
+      "target": "EAD-4/EAF-4 onboard service internals",
+      "missing": "Machine lube (central grease, chain oil); onboard DSS pump/nozzle internals, commissioned set points, skid serials; duplex/simplex filter wording reconciliation for the coal sections.",
+      "source": "doc_0f52c77514a74773ae30 control/calculation sections; doc_a6a2fa82944f4d12b8aa pump schedule and P&ID 3778-02-T-01; vendor nameplates",
+      "priority": "P2",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B25-003",
+      "batch": "B25",
+      "target": "Yard4 AP-to-SV cross-reference",
+      "missing": "Unique AP-85..112 to SV-85..112 cross-reference and surveyed riser coordinates; per-riser valve/nozzle tag detail.",
+      "source": "doc_e17edf6897d746fabe12 sector tables; doc_7244e891263a4e6d8214 stockpile DS piping layout pp1-3",
+      "priority": "P3",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B25-004",
+      "batch": "B25",
+      "target": "Yard4 QRC count and routing",
+      "missing": "Per-yard share of the 92 BOM QRC positions; installed QRC routing and hose-connection detail for EAD-4/EAF-4 tanks.",
+      "source": "doc_5a36f2843d504d6e96de BOM item 19 and note 9; field routing records",
+      "priority": "P3",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B26-001",
+      "batch": "B26",
+      "target": "FG-7 / FG-8 flap gate actuator internals",
+      "missing": "Vendor actuator model, stroke limit settings and torque switches.",
+      "source": "Flap gate GA doc_9258f527621741938b79; vendor manuals",
+      "priority": "P2",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B27-001",
+      "batch": "B27",
+      "target": "FG-9 / FG-10 flap gate actuator internals",
+      "missing": "Vendor actuator model, stroke limit settings and torque switches.",
+      "source": "Flap gate GA doc_9258f527621741938b79; vendor manuals",
+      "priority": "P2",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B28-001",
+      "batch": "B28",
+      "target": "EBA-15A/B drive and AT-3/4 weigher calibration",
+      "missing": "Multi-idler bridge calibration constants, test chain load weights and integrator terminal loops.",
+      "source": "Conveyor GA doc_98d5b2ca45584e948725; vendor weigher manual",
+      "priority": "P1",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B29-001",
+      "batch": "B29",
+      "target": "EBA-16A/B drive and CV-3/4 weigher calibration",
+      "missing": "Incline belt tension reconciliation and integrator terminal loops.",
+      "source": "Conveyor GA doc_3d530f1e269f4ea8a842; vendor weigher manual",
+      "priority": "P1",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B37-001",
+      "batch": "B37",
+      "target": "EAU-2 sampler timer and SNC-2 controller internals",
+      "missing": "Primary cutter interval timer settings, crusher screen mesh and elevator controller wiring.",
+      "source": "doc_98b9805fdd334190a93f and doc_b7a9f2181ea84038b93c",
+      "priority": "P2",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B38-001",
+      "batch": "B38",
+      "target": "EBA-19A/B drive and sealing-belt detail",
+      "missing": "Vendor reducer bearing list, brake setting reconciliation and sealing-belt tensioner detail.",
+      "source": "doc_6a078e0b46ea4b6bab33 and doc_f40f9df559824fc9b500",
+      "priority": "P1",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B39-001",
+      "batch": "B39",
+      "target": "TT-1/TT-3 tripper limit switch and clamp detail",
+      "missing": "Per-bunker position switch tags and hydraulic rail clamp pressure setting.",
+      "source": "doc_1217799da7124df5bbe5 and doc_1c5a42b43cd84a4e8fdc",
+      "priority": "P1",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B40-001",
+      "batch": "B40",
+      "target": "TT-2/TT-4 tripper limit switch and clamp detail",
+      "missing": "Per-bunker position switch tags and head-end Bunker-A interlock wiring.",
+      "source": "doc_1217799da7124df5bbe5 and doc_1c5a42b43cd84a4e8fdc",
+      "priority": "P1",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B41-001",
+      "batch": "B41",
+      "target": "Unit-1/2 bunker level and CO sensor tags",
+      "missing": "Individual radar/capacitance probe KKS tags and mill outlet gate actuator detail.",
+      "source": "doc_dd46f2c1532c4467a6e6 and doc_4f2cd96c3b1e413ea4b5",
+      "priority": "P2",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B42-001",
+      "batch": "B42",
+      "target": "Bunker House DE bagfilter cage/bag BOM, fan curve and rotary airlock motor detail",
+      "missing": "Individual filter bag count per compartment, fan static-pressure test curve, airlock rotor clearance and dryer purge timer settings.",
+      "source": "doc_40568f1cddaf46f08262, doc_7263469a9d61411dbe04, doc_ae2f48499fd7429fad60, doc_799aadaacc6e481e8595",
+      "priority": "P2",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B43-001",
+      "batch": "B43",
+      "target": "MCC-1..4 individual cubicle GA sheets and protection relay settings",
+      "missing": "Cubicle-by-cubicle GA compartment schedule in doc_3edf343f7518437cb9c9 (59 pages) and standalone I/O list 178158 / 180014 if supplied later.",
+      "source": "doc_c3a502c5677443c59183, doc_3edf343f7518437cb9c9, doc_4f2cd96c3b1e413ea4b5 p35",
+      "priority": "P2",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B44-001",
+      "batch": "B44",
+      "target": "HVAC fan curves, electric hoist wiring/brake tables and stacker fire cylinder BOM",
+      "missing": "Detailed fan curves across 92-page doc_1f1bf24f34f5465a8ae1, 60-page electric hoist GA doc_004fe90168444f2c9e18 and 50-page stacker fire BOM doc_4d488fd685284c408297.",
+      "source": "doc_a88db2443eb5488182fc, doc_1f1bf24f34f5465a8ae1, doc_004fe90168444f2c9e18, doc_4d488fd685284c408297",
+      "priority": "P3",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B45-001",
+      "batch": "B45",
+      "target": "001-004EAF06/09 instrument tag field verification and 019676_03 / 016535_04 drawing cross-check",
+      "missing": "Field KKS marshalling confirmation for 001-004EAF hydraulic/slew switches and title-block reconciliation for numeric PDFs.",
+      "source": "doc_0d848e40b9394c72810b, doc_f4ed092c246a43d98293, doc_556abd9c9aef4dc18873, record-review-queue.csv",
+      "priority": "P3",
+      "status": "open"
+    },
+    {
+      "id": "DQ-B46-001",
+      "batch": "B46",
+      "target": "Pass B exhaustive per-claim browser verification and P1-P3 depth queue execution",
+      "missing": "Pass B deep vendor BOM decomposition (O-rings, seals, bearings), relay/timer tables and exhaustive per-claim crop audit across all 64 depth-queue items.",
+      "source": "docs/plant-handoff/current/depth-queue.json",
+      "priority": "P1",
+      "status": "open"
     }
   ]
 }
