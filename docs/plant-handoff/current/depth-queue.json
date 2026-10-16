@@ -98,7 +98,7 @@
       "missing": "Drive internals, detailed protections, pulley/idler/BOM rows and rope/sheave selection reconciliation; no final selection inferred from inconsistent GA/replies.",
       "source": "doc_030c8f82fb674548a4dc pp1-5; principal table p2 and rope/sheave replies pp3-4; control doc_4f2cd96c3b1e413ea4b5 conveyor2 clauses",
       "priority": "P1",
-      "status": "in_progress"
+      "status": "done"
     },
     {
       "id": "DQ-B07-001",
@@ -116,7 +116,7 @@
       "missing": "Unit-specific drive/brake/protection internals; Type2 dry-fog versus plain-water reconciliation and limestone grab weight15/15.1t; detailed travel/anti-collision controls. LS-EAC1 modeled only as receiving boundary.",
       "source": "175155 doc_1518e219127b4b0eaa3a pp8-12; Type2 dust tablep10 vs sectionE-Ep11; jetty175158 pp3-11; vendor DSS/drive sources P02",
       "priority": "P1",
-      "status": "in_progress"
+      "status": "done"
     },
     {
       "id": "DQ-B09-001",
