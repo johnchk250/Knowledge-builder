@@ -9,8 +9,8 @@
   "breadth_policy": "docs/plant-handoff/FIVE_PHASE_PLAN.md#execution-mode-breadth-first-from-v628",
   "depth_queue": "docs/plant-handoff/current/depth-queue.json",
   "active_phase": "phase-5",
-  "next_batch": "Pass-1 follow-up Q4 (p8 tentative), then Pass 2",
-  "next_action": "Pass 1 complete live (v721-v730): DQ-B06-001 + DQ-B08-001 done; DQ-B07-001 in_progress pending Q4. pass-01-followup.zip (p8 tentative, single question) is with the user. When top-model-result-p8.json returns: stage one proposal on doc_1518e219127b4b0eaa3a (base v730), mark DQ-B07 done, then start Pass 2 per PASS_B_TWO_TIER_WORKFLOW.md.",
+  "next_batch": "Pass 2 (screens / TP3 / sampling1)",
+  "next_action": "Pass 1 fully complete live (v719-v731): DQ-B06-001 + DQ-B07-001 + DQ-B08-001 done; Q4 verified both Tentative tags, SUL-1 weights 983/17.5t recorded. Start Pass 2 per PASS_B_TWO_TIER_WORKFLOW.md (DQ-B09-001 + DQ-B09-002 + DQ-B10-001 + DQ-B10-002 + DQ-B11-001).",
   "plan": "docs/plant-handoff/FIVE_PHASE_PLAN.md",
   "current_inventory": "docs/plant-handoff/current/CURRENT_STATUS.md",
   "last_completed_work": {

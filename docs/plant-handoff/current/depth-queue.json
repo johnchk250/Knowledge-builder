@@ -107,7 +107,7 @@
       "missing": "Vendor drivetrain/brake/rope internals; detailed protection and anti-collision controls; final tentative feeder/cable-reel ratings; dust/lube circuits and jetty-water upstream mapping.",
       "source": "175155 doc_1518e219127b4b0eaa3a pp2-12;175154 DBR pp2-3;175158 jetty layout pp3-11; specific drive/lube/DSS documents indexed under P02",
       "priority": "P1",
-      "status": "in_progress"
+      "status": "done"
     },
     {
       "id": "DQ-B08-001",

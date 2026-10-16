@@ -180,8 +180,8 @@ guarded accept + verification + visual pass. If top struggles on a yard pass
 
 ## Next action
 
-**Pass 1 done live (v721–v730, 2026-10-16):** DQ-B06-001 + DQ-B08-001 done;
-DQ-B07-001 one leg left (Q4 p8 tentative — `pass-01-followup.zip` with user).
-Apply the p8 return when it arrives (one proposal, base v730), mark DQ-B07 done,
-then continue with **Pass 2** (DQ-B09-001 + DQ-B09-002 + DQ-B10-001 + DQ-B10-002 +
-DQ-B11-001), then Passes 3-10 in order.
+**Pass 1 fully complete live (v719–v731, 2026-10-16):** DQ-B06-001 + DQ-B07-001 +
+DQ-B08-001 done. Q4 verified both Tentative tags on p8; SUL-1 weights 983/17.5t
+recorded; existing SUL-1 feeder/reel/dust records stand. Continue with **Pass 2**
+(DQ-B09-001 + DQ-B09-002 + DQ-B10-001 + DQ-B10-002 + DQ-B11-001), then Passes 3-10
+in order.
