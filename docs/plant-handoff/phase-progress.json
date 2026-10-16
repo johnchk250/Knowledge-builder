@@ -9,8 +9,8 @@
   "breadth_policy": "docs/plant-handoff/FIVE_PHASE_PLAN.md#execution-mode-breadth-first-from-v628",
   "depth_queue": "docs/plant-handoff/current/depth-queue.json",
   "active_phase": "phase-5",
-  "next_batch": "Pass 2 (screens / TP3 / sampling1)",
-  "next_action": "Pass 2 IN PROGRESS (local extraction complete 2026-10-16): all Pass 2 sources reviewed (grizzly GA/calc/TCS, control pp13-22, conv-3 GA, TP3 GA, sampling vendor GA+TCS, UEE-1 piping+P&ID, PSH GA). 8 local proposal bodies next (tools/build_pass02.py), then ONE top-model zip (4 conflict Qs + §3D proofread/sweep), then guarded accept v731->v739, close all 5 items.",
+  "next_batch": "Pass 3 (conveyors 4/5/6 chain)",
+  "next_action": "Pass 2 fully complete live (v732-v739, 2026-10-16): DQ-B09-001 + DQ-B09-002 + DQ-B10-001 + DQ-B10-002 + DQ-B11-001 done; +44 assertions; top-model Q1 corrected (FAS-10A, P&ID governs EBD-4), Q2/Q3/Q4 confirmed with 7 preserved disagreements; proofread applied incl. CSU-2 off CSU-1 entity, AP-01..04 on UEF-1 entity, per-view PAS/FAS verbatim. Follow-up deciding records in output/plant-enrichment/pass-02/checkpoint.md (no zip until sourced). Start Pass 3 per PASS_B_TWO_TIER_WORKFLOW.md (DQ-B12-001 + DQ-B12-002 + DQ-B13-001 + DQ-B13-002 + DQ-B14-001 + DQ-B14-002 + DQ-B14-003).",
   "plan": "docs/plant-handoff/FIVE_PHASE_PLAN.md",
   "current_inventory": "docs/plant-handoff/current/CURRENT_STATUS.md",
   "last_completed_work": {

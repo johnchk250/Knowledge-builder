@@ -216,8 +216,15 @@ guarded accept + verification + visual pass. If top struggles on a yard pass
 
 ## Next action
 
-**Pass 1 fully complete live (v719–v731, 2026-10-16):** DQ-B06-001 + DQ-B07-001 +
-DQ-B08-001 done. Q4 verified both Tentative tags on p8; SUL-1 weights 983/17.5t
-recorded; existing SUL-1 feeder/reel/dust records stand. Continue with **Pass 2**
-(DQ-B09-001 + DQ-B09-002 + DQ-B10-001 + DQ-B10-002 + DQ-B11-001), then Passes 3-10
-in order.
+**Pass 2 fully complete live (v732–v739, 2026-10-16):** DQ-B09-001 + DQ-B09-002 +
+DQ-B10-001 + DQ-B10-002 + DQ-B11-001 done (+44 assertions). Top-model round:
+Q1 corrected (View 3-3 reads FAS-10A + duplicate PRU-6A; approved P&ID AP-10A
+PRU-10A governs EBD-4), Q2/Q3/Q4 confirmed with 7 preserved disagreements.
+Proofread applied (CSU-2 off CSU-1 entity; AP-01..04 on UEF-1 entity; per-view
+PAS/FAS + PFL/FFL + ECA verbatim — blanket FAS claim refuted for views 4-4/1-1/2-2;
+160M, 1.2 density, (+)580/(+)585 loads fixed; per-lane idler counts). Title blocks
+transcribed (conv-3 IS-1-GA-702-101-M013 Rev 3; P&ID 13.10.2018-comment rev; both
+FOR-APPROVAL blocks with later APPROVED stamps). Follow-up deciding records in
+`output/plant-enrichment/pass-02/checkpoint.md`. Continue with **Pass 3**
+(DQ-B12-001 + DQ-B12-002 + DQ-B13-001 + DQ-B13-002 + DQ-B14-001 + DQ-B14-002 +
+DQ-B14-003), then Passes 4-10 in order.

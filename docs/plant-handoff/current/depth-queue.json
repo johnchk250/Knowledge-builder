@@ -125,7 +125,7 @@
       "missing": "Exciter/shaft/spring/liner vendor detail,stroke/weight settings,torque basis and detailed gate control/protection logic.",
       "source": "doc_b4cf0a76c954435aadd6 pp1-4;175001 control pp13-14,19-21; gate/actuator GAs P03",
       "priority": "P1",
-      "status": "in_progress"
+      "status": "done"
     },
     {
       "id": "DQ-B09-002",
@@ -134,7 +134,7 @@
       "missing": "Reconcile layout incoming Pump House2 versus DFDS1/UGA1; PRU8A/10A and both PRU11/12 outlet3B labels; verify local SW/PW extensions; detailed hoist/rail/nozzle/piping BOM and bin count.",
       "source": "doc_c0ce31dea65b4d4caef4 pp1-3; doc_bca09d68af9b43e3b633 p1; doc_8d973a7544ef4a488e98 pp1-3",
       "priority": "P2",
-      "status": "in_progress"
+      "status": "done"
     },
     {
       "id": "DQ-B10-001",
@@ -143,7 +143,7 @@
       "missing": "Conveyor3 drive internals,pulley/idler BOM and protection settings; FD1/2 and FG1/2 detailed sequence logic.",
       "source": "doc_3eab668d697f4e4598c8 pp1-2;doc_4f2cd96c3b1e413ea4b5 pp19-21",
       "priority": "P1",
-      "status": "in_progress"
+      "status": "done"
     },
     {
       "id": "DQ-B10-002",
@@ -152,7 +152,7 @@
       "missing": "Local nozzle/valve internals,hoist rail/detail and structural/access review; no certification inferred.",
       "source": "doc_883418b36ea44369adbe pp1-5;doc_bca09d68af9b43e3b633 p1",
       "priority": "P2",
-      "status": "in_progress"
+      "status": "done"
     },
     {
       "id": "DQ-B11-001",
@@ -161,7 +161,7 @@
       "missing": "Resolve GA/control drive ratings and BSS disagreement, screw capacity and gate actuator alternatives; control21 endpoint/interlock labels. Detailed timers,protection logic and vendor internals remain deferred.",
       "source": "doc_404c8747ba8047ab8f12 pp1,3-8,10-11;doc_4f2cd96c3b1e413ea4b5 pp19-21; sampling calculation source retained on system",
       "priority": "P1",
-      "status": "in_progress"
+      "status": "done"
     },
     {
       "id": "DQ-B12-001",

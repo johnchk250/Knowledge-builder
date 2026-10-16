@@ -39,18 +39,26 @@ SMP = 'ent_037e08c0c8134297a954'
 FG1 = 'ent_6d0d953b7e804240a2e4'
 FG2 = 'ent_13a6597186a24acf8e6a'
 
-BASIS_GRZ = ('GA 175064 Rev 2, approved 21-Jan-2019; TCS 07-Jan-19 AOC with BHEL replies; '
-             'motor calc SO 200999 Rev 001 16/01/2019. Design only.')
-BASIS_CTL = ('Control write-up IS-4-CW-702-101-E914 Rev04 26.03.2020, AOC 06-Apr-2020. Design only.')
-BASIS_C3 = ('GA and load data belt conveyor-3A/3B, approved 26-Nov-2018. Design only.')
-BASIS_TP3 = ('GA and mech load TP-3 175035; TCS 17-May-18 AOC with BHEL replies to comment 41; '
-             'Fichtner comments 16-May-18; approved 14-Dec-2018. Design only.')
-BASIS_SM = ('ASSPL sampling system GA 251A-MECH-SYS-100-1 and equipment GAs, FOR APPROVAL; '
-            'TCS comments approved 07-Jan-2019. Vendor supply versus BHEL system design; design only.')
+BASIS_GRZ = ('GA 175064: TCS Rev 1 AOC 07-Jan-19 with BHEL replies; GA Rev 2 approved 21-Jan-2019; '
+             'motor calc SO 200999 Rev 001 16/01/2019 (Page 1 of 2 in corpus; Page 2 of 2 absent). Design only.')
+BASIS_CTL = ('Control write-up IS-4-CW-702-101-E914 Rev04 26.03.2020 (BIFPCL doc MAITREE-00-EBY-DB-179162-ISG), '
+             'AOC 06-Apr-2020 subject to necessary corrections; AOC conditions sheet not in corpus. Design only.')
+BASIS_C3 = ('GA and load data belt conveyor-3A/3B, dwg IS-1-GA-702-101-M013 Rev 3 (28.10.18; customer '
+            'dwg Maitree-00-KT-LH-175013-ISG-3); status block FOR APPROVAL, sheet stamped APPROVED 26-Nov-2018. '
+            'Design only.')
+BASIS_TP3 = ('GA and mech load TP-3 175035; TCS Rev 2 AOC 17-May-18 with BHEL replies to comment 41; '
+             'Fichtner comments 16-May-18; GA approved 14-Dec-2018 (AOC revision distinct from approved revision). '
+             'Design only.')
+BASIS_SM = ('ASSPL sampling system GA 251A-MECH-SYS-100-1 and equipment GAs (Mar-Apr 2016), FOR APPROVAL; '
+            'only TCS comments 17-36 (pp10-11) APPROVED 07-Jan-2019 (comments 1-16 and sheets p2/p9 unreviewed); '
+            'Note 7 cross-refers 251B-MECH-SYS-100-1. Vendor supply versus BHEL system design; design only.')
 BASIS_U1 = ('Piping layout DFDS/SW/PW UEE-1 175287 Rev 2, FIO 12-Sep-2019; TCS Rev1 FIO-R 08-Jul-19 '
-            '(FFL routing and FAS/PRU locations to be revised). Design only; not approved.')
-BASIS_PID = ('P&ID for DFDS System, approved 14-Dec-2018. Design only.')
-BASIS_PSH = ('GA and mech load PSH 175034 Rev 2, AOC 30-Apr-19; approved 01-Oct-2019. Design only.')
+            '(FFL routing and FAS/PRU locations to be revised). FIO non-approved layout data only; never overrides '
+            'approved P&ID tag allocation.')
+BASIS_PID = ('P&ID for DFDS System (13.10.2018-comment revision); status block FOR APPROVAL, sheet stamped '
+             'APPROVED 14-Dec-2018. Design only.')
+BASIS_PSH = ('GA and mech load PSH 175034: TCS AOC 30-Apr-19; GA Rev 2 approved 01-Oct-2019 '
+             '(AOC revision distinct from approved revision). Design only.')
 
 
 def ev(eid, region):
@@ -71,12 +79,13 @@ def pkg_grz():
                  ev('ev_b3c37ba7231443ef84bb', [0.78, 0.10, 1.0, 0.42])]
     settings = ('Size selection: 0.75 sq.m per 100 TPH tender basis; 12.75 sq.m rated / 14.025 design; '
                 'bar deck 5.39m x 2.7m = 14.55 sq.m + 1.5m blind deck + 0.2m lip = 7.09m total. Torque basis '
-                '(Rev 001 calc): vibrating weight 17600kg + 10% wet-coal allowance = 19020kg gross; stroke '
-                '13mm primary (12mm secondary class); working moment 123.63 kg-m at 750rpm; starting HP 72.4 '
+                '(Rev 001 calc): vibrating weight 17600kg + 1420kg (approx. 10% wet-coal allowance) = 19020kg gross; '
+                'stroke 13mm primary; working moment 123.63 kg-m at 750rpm; starting HP 72.4 '
                 '(C1 2, C2 1.15); required starting torque at motor shaft 64.39 kgf-m at 1440rpm; selected '
-                '55kW motor rated 36 / starting 86.4 (240% FLT), 68.4 at 90% voltage; bulk density 1.1 T/cu.m; '
-                'feed adjust 40-100% by DF exciter unbalance weights.')
-    sup_set = [ev('ev_0062eb6d6a764351bb61', FULL), ev('ev_38c26247cadd4f978386', FULL)]
+                '55kW motor rated 36 / starting 86.4 (240% FLT), 68.4 at 90% voltage; bulk density 1.1 T/cu.m (TCS '
+                'reply c); feed adjust 40-100% by DF exciter unbalance weights (TCS reply f).')
+    sup_set = [ev('ev_0062eb6d6a764351bb61', FULL), ev('ev_38c26247cadd4f978386', FULL),
+               ev('ev_ff40a5dad7cf42e0b0d2', FULL)]
     ops = []
     for subj in [EBD1, EBD2, EBD3, EBD4]:
         ops.append(dict(op='assert', subject=subj, predicate='assembly_arrangement', value=drive,
@@ -91,9 +100,12 @@ def pkg_grz():
                           'revised to 13mm primary / 12mm secondary (GA range note 11-13mm); (c) vibrating weight '
                           'is equipment + 10% wet-coal allowance at 1.1 T/cu.m; (d) torque shortfall comment (old '
                           'calc 55/105.6 vs motor 36/86.4) replied as revised calc, package approved 21-Jan-2019 '
-                          '(top-model Q4 asks whether Rev 001 truly closes it); (e) spring constants incorporated '
-                          'as d27/Cv/CH entries; (f) feed adjust via unbalance weights. Secondary-screen 12mm unit '
-                          'mapping outside EBD-1..4 per accepted Tier-1 mapping; detailed spring-constant units and '
+                          '(top-model Q4 confirms: starting arithmetic closes; old rated figures superseded; Page 2 of 2 '
+                          'of SO 200999 Rev 001 absent from the 4-page PDF is the deciding record for any separate '
+                          'running-torque check); (e) spring constants incorporated '
+                          'as d27/Cv/CH entries; (f) feed adjust via unbalance weights. Secondary-screen 12mm class '
+                          'mapping outside EBD-1..4 per accepted Tier-1 mapping (all four EBD units are primary '
+                          'screens); detailed spring-constant units and '
                           'P03 gate/actuator GAs not in corpus (gate logic taken from control write-up + TP3/PSH '
                           'hoist schedules instead).')))
     return dict(summary='EBD1-4 exciter/shaft/spring/liner detail, stroke/weight/torque basis, TCS close-out (grizzly GA)',
@@ -128,30 +140,34 @@ def pkg_ctl():
     csu1 = ('CSU-1 (EAU-1, samples EAC-3A/3B): dedicated PLC, DCS start/stop, ASTM-D-2234; one auto pushbutton + local '
             'stations; cutter stuck between parkings trips preceding conveyor with MCR annunciation; coupling-failure '
             'fall protection via cutter-rotation timing; MCR signals CSU ON/OFF/Trip, Cutter-1/2 stuck, Cutter-1/2 parked. '
-            'Equipment: primary sampler rotary-scoop x2 (30kW, limit-switch + PLC timer + DC-brake parking); reversible '
+            'Equipment: primary sampler rotary-scoop x2 (control states "It consists of 30 kw motor" without specifying '
+            'total vs per-unit, sheets 19-20); reversible '
             'belt feeder (2.2kW, VVVF, zero-speed + sway switches, reverse for bias with sampler only); hammer crusher '
             '(45kW, zero-speed); secondary sampler (2.2kW, proximity cycle); rotary collector (2.2kW, proximity + brake, '
-            '60min cycle); reject screw (7.5kW continuous); slide gate (1.1kW, reverse-open/forward-close limit logic, '
-            'interlocked with EAC-3A closed / EAC-3B open per control20). Control20 routes reject to EAC-4A (gate closed) '
-            '/ EAC-4B (gate open); control21 (f)/(g) instead names EAC-3A/3B with a 2B typo (top-model Q3).')
-    csu2 = ('CSU-2 (samples EBA-18A/18B): primary sampler x2 (15kW); reversible belt feeder (1.5kW); hammer crusher '
-            '(18.5kW); secondary sampler (2.2kW); reject screw to EAC-3A/3B-class conveyors EBA-19A (gate closed) / '
-            'EBA-19B (gate open); bias mode feeder-reverse with sampler only. Collector/screw/gate ratings past sheet 22 '
-            'not reviewed.')
+            '60min cycle); reject screw (7.5kW continuous); slide gate (1.1kW, reverse-open/forward-close limit logic; '
+            'control20 routes reject to EAC-4A closed / EAC-4B open while control21 (g) names EAC-3A with verbatim '
+            '"when conveyor 2B runs then Slide gate will be open condition" typo preserved as internal conflict, '
+            'top-model Q3).')
+    csu2_note = ('CSU-2 outline reviewed on sheets 21-22 (samples EBA-18A/18B; primary sampler x2 15kW; reversible belt '
+                 'feeder 1.5kW; hammer crusher 18.5kW; secondary sampler 2.2kW; reject screw to EBA-19A (gate closed) / '
+                 'EBA-19B (gate open); bias mode feeder-reverse with sampler only; collector/screw/gate ratings past '
+                 'sheet 22 not reviewed). Not asserted on any entity: CSU-2 is outside Pass-2 entity scope (no CSU-2 '
+                 'system entity in corpus; EAU-2 units outside DQ-B11-001 target).')
     sup_csu = [ev('ev_726e1a50673047efb681', FULL), ev('ev_257cbf85b38f4ea6bf47', FULL),
-               ev('ev_24a2c85d3aa9459c9a68', FULL), ev('ev_7a1df48bb94943439096', FULL)]
+               ev('ev_24a2c85d3aa9459c9a68', FULL)]
+    sup_csu2 = [ev('ev_24a2c85d3aa9459c9a68', FULL), ev('ev_7a1df48bb94943439096', FULL)]
     ops.append(dict(op='assert', subject=SMP, predicate='operating_requirement', value=csu1,
-                    context=dict(kind='specification', basis=BASIS_CTL + ' CSU-1 schedule.'),
+                    context=dict(kind='specification', basis=BASIS_CTL + ' CSU-1 schedule, sheets 19-21.'),
                     origin='explicit', confidence=0.9, evidence=sup_csu))
-    ops.append(dict(op='assert', subject=SMP, predicate='operating_requirement', value=csu2,
-                    context=dict(kind='specification', basis=BASIS_CTL + ' CSU-2 outline, sheets 21-22 only.'),
-                    origin='explicit', confidence=0.85, evidence=sup_csu))
+    ops.append(dict(op='source_note', origin='explicit', confidence=0.85, evidence=sup_csu2, text=csu2_note))
     ops.append(dict(op='source_note', origin='explicit', confidence=0.9, evidence=sup_csu,
-                    text=('Control20-vs-21 reject conflict preserved: control20 + 175072 GA route CSU-1 reject to '
-                          'EAC-4A/4B; control21 (f)/(g) names EAC-3A/3B (with 2B typo). ASSPL system GA basic parameter '
-                          'also says discharge EAC-4A/4B (recorded under sampling-GA proposal). Numeric PLC timer '
-                          'settings are stated adjustable, no values printed: deciding record is the PLC program or '
-                          'loop-setting sheet.')))
+                    text=('Reject-routing conflict within this control write-up, preserved: sheet-20 narrative routes '
+                          'CSU-1 reject to EAC-4A (gate closed) / EAC-4B (gate open); sheet-21 items (f)/(g) name '
+                          'EAC-3A/3B with verbatim "conveyor 2B" typo. Position A (4A/4B) governs by agreement with the '
+                          'vendor system GA discharge conveyors (recorded under sampling-GA proposal); position B kept '
+                          'as internal conflict. Deciding record: approved control-write-up revision closing the AOC '
+                          'conditions, or PLC interlock logic diagram. Numeric PLC timer settings are stated adjustable '
+                          'with no values printed: deciding record is the PLC program or loop-setting sheet.')))
     return dict(summary='FG/FD/divider/VGF logic + CSU-1/CSU-2 schedules with reject-routing conflict (control write-up)',
                 operations=ops,
                 intake_assessment=dict(route='mixed', purpose='Record gate/divider/sampler control logic',
@@ -165,16 +181,20 @@ def pkg_c3():
     pulleys = ('Pulleys (approved 26-Nov-2018): drive 800 dia x 2200 face, 1 no/conv, 12mm diamond-groove lagging; '
                'bend and snub 630 dia x 2200 face, 3 nos/conv, lagged; tail and take-up 630 dia x 2200 face, 2 nos/conv, '
                'lagged; deflector 219 dia face, 2 nos/conv, lagged.')
-    idlers = ('Idlers/rollers: transition sets; impact sets 12 nos/conv; carrying sets 151 nos (3A) / 154 nos (3B); '
-              'self-aligning carrying 11 nos/conv; self-cleaning return 1 no/conv at discharge pulley; return trough '
-              'sets 46 nos/conv; SA/FSA return sets; flat return rollers 2 nos (3A) / 3 nos (3B) at tail, head and take-up.')
+    idlers_a = ('Idlers/rollers EAC-3A: transition sets; impact sets 12 nos; carrying sets 151 nos; '
+                'self-aligning carrying 11 nos; self-cleaning return 1 no at discharge pulley; return trough '
+                'sets 46 nos; SA/FSA return sets; flat return rollers 2 nos at tail, head and take-up.')
+    idlers_b = ('Idlers/rollers EAC-3B: transition sets; impact sets 12 nos; carrying sets 154 nos; '
+                'self-aligning carrying 11 nos; self-cleaning return 1 no at discharge pulley; return trough '
+                'sets 46 nos; SA/FSA return sets; flat return rollers 3 nos at tail, head and take-up.')
     prot = ('Protection key layout: belt sway switches both sides at 40m intervals, 5 pairs/conv; pull-cord switches '
             'both sides at 30m spacing, 5 pairs/conv; zero-speed switch on tail pulley, 1 no/conv.')
     struct = ('Skirt 14m, 20thk Hardox 400 with top cover; deck plate 3.15mm continuous; seal plate; vertical gravity '
               'take-up with mark-up scale; head frame with drive arrangement (motor-gearbox-scoop-brake line) and '
               'discharge hood; belt-curve/takeup zones as drawn.')
     ops = []
-    for subj, tag in [(EAC3A, '3A'), (EAC3B, '3B')]:
+    sup_struct = chart + [ev('ev_c697bd5170dd485aa5fb', FULL)]
+    for subj, tag, idlers in [(EAC3A, '3A', idlers_a), (EAC3B, '3B', idlers_b)]:
         ops.append(dict(op='assert', subject=subj, predicate='assembly_arrangement', value=pulleys,
                         context=dict(kind='specification', basis=BASIS_C3 + ' EAC-%s.' % tag),
                         origin='explicit', confidence=0.95, evidence=chart))
@@ -186,7 +206,7 @@ def pkg_c3():
                         origin='explicit', confidence=0.95, evidence=key))
         ops.append(dict(op='assert', subject=subj, predicate='assembly_arrangement', value=struct,
                         context=dict(kind='specification', basis=BASIS_C3 + ' EAC-%s skirt/takeup/head.' % tag),
-                        origin='explicit', confidence=0.9, evidence=chart))
+                        origin='explicit', confidence=0.9, evidence=sup_struct))
     ops.append(dict(op='source_note', origin='explicit', confidence=0.9, evidence=chart,
                     text=('Characteristics table corroborates Tier-1 belt/tension/coupling/brake/coasting/rope numerics '
                           '(not re-asserted). Piece-level idler/roller vendor BOM and drive foundation loads remain P3; '
@@ -237,7 +257,12 @@ def pkg_tp3():
            dict(op='source_note', origin='explicit', confidence=0.9, evidence=sup_tcs,
                     text=('Per-nozzle DFDS internals at TP3 need vendor sheets (P&ID UEF-3 AP-13..20 recorded under '
                           'P&ID proposal). KB-FG-1/2 versus FG-1/FG-2 identity unresolved: deciding record is the '
-                          'actuator loop schedule or as-built label register.'))]
+                          'actuator loop schedule or as-built label register. CSU load/elevation differences against '
+                          'the vendor system GA are preserved, not overwritten: TP-3 GA 175035 (approved 14-Dec-2018) '
+                          'lists feeder P3 at EL+14.100M with +65/+115 horizontal, divider P6 at EL+10.000M 4 nos '
+                          '+390/+175, screw P8 at EL+7.300M 10 nos, while vendor system GA (FOR APPROVAL 2016) lists '
+                          'F3 at EL+16.000M with (+)15 across, F5 at EL+11.600M 6 pts (+)35/(+)40, F7 at EL+10.000M '
+                          '8 pts (recorded under sampling-GA proposal).'))]
     return dict(summary='TP-3 hook/hoist schedules, CSU loads, structural/access TCS close-out (TP3 GA)',
                 operations=ops,
                 intake_assessment=dict(route='mixed', purpose='Record TP3 handling/structural/access detail',
@@ -248,16 +273,17 @@ def pkg_tp3():
 def pkg_sm():
     sup_p1 = [ev('ev_e71bf9537b084038a6eb', [0.03, 0.55, 0.45, 0.97]),
               ev('ev_e71bf9537b084038a6eb', [0.75, 0.05, 1.0, 0.97])]
-    drives = ('ASSPL system drive detail (FOR APPROVAL, UEF-3): primary sampler geared brake 15.0kW x 2 nos, 160L, '
+    drives = ('ASSPL system drive detail (FOR APPROVAL, UEF-3): primary sampler geared brake 15.0kW x 2 nos, 160M, '
               '44rpm approx; belt feeder reversible geared 2.2kW x 1, 90L, 10rpm approx; crusher V-belt standard motor '
               '18.5kW x 1, 160L, 1440rpm approx; secondary sampler geared brake 0.37kW x 1, 71M, 15rpm approx; bottle '
               'collector geared brake 0.37kW x 1, 71M, 1.1rpm approx; screw feeder geared 2.2kW x 1, 100L, 29rpm approx; '
-              'slide gate linear electrical actuator 0.25kW x 1. Basic parameters: feed EAC-3A/3B, coal 0.8 vol/1.1 power, '
+              'slide gate linear electrical actuator 0.25kW x 1. Basic parameters: feed EAC-3A/3B, coal 0.8 (VOL.) / 1.2 '
+              '(POWER) (verbatim BULK DENCITY), '
               '3400 TPH rated, 100mm maximum top size, belt 2000mm at 3.5 m/s, 35deg troughing, discharge EAC-4A/4B. '
               'Chutes: sample ASI 409M 6thk, reject ASI 409M 6thk, flanges IS 2062 8thk, neoprene gaskets 6thk.')
     tcs = ('Vendor TCS resolutions (approved 07-Jan-2019): belt-feeder sway switch NOT required (short/slow feeder), PNP '
            'proximity doubles as zero/under-speed switch (#19/20/24); primary delivers 40kg per increment through 60deg '
-           'chute (#22); sampling-zone idlers are two 35deg 5-roll sets per side of cutter, confirmed (#25); sampler '
+           'chute (#22, preserved against system-GA 80.95 kg per increment); sampling-zone idlers are two 35deg 5-roll sets per side of cutter, confirmed (#25); sampler '
            'support from TP floor (#27); input lump 100mm (not 50), system designed for single AND both streams per '
            'Design Memorandum p49 either-of-two-conveyors (#30); motor ratings carry 20% margin over absorbed power, '
            'confirmed (#31); lot size and sample qty/hr incorporated with proximity + mechanical back-stop in BOM, no '
@@ -274,14 +300,15 @@ def pkg_sm():
     sup_screw = [ev('ev_4b615fb3d0ba40119a8f', FULL)]
     primary = ('Primary sampler (251A-MECH-EQP-112-1): sweep-arm type on 2000mm belt, EAC-3A/3B at 3400 TPH, cutter '
                'opening 300mm, 44rpm approx, 26 cuts/hr, assembly 3500kgs, heaviest 870kgs, lots 20400/3500 MT; 15kW '
-               '160L drive; loads F1 2pts +1580/+750, F2 4pts +3585/+760; bearings 22222K SKF/FAG, shaft EN-8 dia100, '
+               '160M drive; loads F1 4 pts (+)580/(+)750, F2 8 pts (+)585/(+)760; bearings 22222K SKF/FAG, shaft EN-8 dia100, '
                'cutter AISI-304 16thk with replaceable PU lip, skirts with 3thk AISI-304 liner; belt sway allowance '
                '100mm max per side, edge clearance 125mm.')
     sup_primary = [ev('ev_4b58f514a4284ab485ef', FULL)]
     small = ('Bottle collector (EQP-151-1): 4-station rotary, 40L x 4 AISI-304 containers, 1.1rpm, 800/200kgs, 0.37kW '
              '71M geared brake with shrink disc, 2 proximity switches; load F6 4pts +200/+250. Secondary sampler '
              '(EQP-135-1): rotary, 45mm cutter opening, enclosed, 200/80kgs, 0.37kW 1440rpm geared to 15rpm, 71M, '
-             'AISI-304 cutter; load F5 6pts +35/+40. Belt feeder (EQP-211-1): 600mm reversible, 5100 kg/hr, 8780mm C/C, '
+              'AISI-304 cutter; load F5 6pts +35/+40. Belt feeder (EQP-211-1): 600mm reversible (preserved against '
+              'system-GA 500mm width), 5100 kg/hr, 8780mm C/C, '
              '9.5 m/min, flat, 2500/300kgs; geared 2.2kW 1440rpm to 10rpm, 90L, without brake; 270x600 pulleys, 22212 '
              'bearings, screw take-up, VVVF-class speed range. Crusher (EQP-234-1): Jeffrey hammer mill, 5100 kg/hr, '
              '50mm/100mm feed, (-)8mesh 95% / (-)4mesh 100% output, 18.5kW 1440rpm 160L, 4 V-belts, 1000kgs assembly, '
@@ -309,7 +336,10 @@ def pkg_sm():
                           '2016 FOR-APPROVAL supply versus BHEL 2020 AOC system schedule; TCS-31 confirms 20% margin on '
                           'vendor ratings. Deciding record is commissioning/as-built or approved vendor QA doc (top-model '
                           'Q2). BSS on belt feeder: control says provided, vendor TCS says not required with proximity '
-                          'zero-speed instead (top-model Q2). Sheets p2/p9 unreviewed; numeric PLC timer values not '
+                          'zero-speed instead (top-model Q2 confirms preserved). Internal vendor-package discrepancies '
+                          'preserved, not overwritten: feeder width 500mm (system p1 DESIGN BASIS) vs 600mm (EQP-211-1); '
+                          'increment 80.95kg (system p1) vs 40kg (TCS-22); primary loads F1/F2 as printed per sheet. '
+                          'Sheets p2/p9 unreviewed; numeric PLC timer values not '
                           'printed anywhere reviewed.'))]
     return dict(summary='Sampling vendor GA drive table, equipment details, TCS resolutions, preserved rating table (sampling GA)',
                 operations=ops,
@@ -321,12 +351,14 @@ def pkg_sm():
 def pkg_u1():
     sup_views = [ev('ev_089deb0d6bdc4e548534', [0.0, 0.0, 0.62, 0.72]),
                  ev('ev_4571a8b4b9e341c4a1e3', [0.0, 0.0, 0.62, 0.72])]
-    mapping = ('UEE-1 DFDS air/water station mapping (layout Rev 2, FIO): PAS-05/PRU-05 to EAC-2A; PAS-09/PRU-09 to '
-               'EAC-2B; PAS-08/PRU-08 to EAC-3A; PAS-06/PRU-06 to screen EBD-1; PAS-6A/PRU-6A to EBD-2; PAS-10/PRU-10 to '
-               'EBD-3; PAS-10A with a PRU tag reading PRU-6A (duplicate of the EBD-2 unit) to EBD-4, against P&ID AP-10A '
-               'PRU-10A/FAS-10A (label conflict preserved, top-model Q1); PAS-11/PRU-11 and PAS-12/PRU-12 both to EAC-3B, '
-               'confirmed by P&ID AP-11/AP-12. Headers 80NB air / 32NB water with 15NB water / 20NB air drops; PFL legs '
-               'to each point. Layout is FIO with TCS-required FFL-routing and FAS/PRU-location revisions outstanding.')
+    mapping = ('UEE-1 DFDS air/water station mapping (FIO layout Rev 2, verbatim tags per view): View 4-4: '
+               'PAS-05/PRU-05 to EAC-2A; PAS-09/PRU-09 to EAC-2B; PFL legs. View 1-1: PAS-08/PRU-08 and PAS-07/PRU-07 '
+               'both to ECA-3A [layout spelling]; PFL legs. View 3-3: FAS-6/PRU-6 to EBD-1; FAS-6A/PRU-6A to EBD-2; '
+               'FAS-10/PRU-10 to EBD-3; FAS-10A with duplicate PRU-6A tag (copied from the EBD-2 branch) to EBD-4, '
+               'against P&ID AP-10A PRU-10A/FAS-10A which governs (label conflict preserved, top-model Q1 corrected); '
+               'FFL legs. View 2-2: PAS-11/PRU-11 and PAS-12/PRU-12 both to ECA-3B [layout spelling], confirmed by '
+               'P&ID AP-11/AP-12; PFL legs. Headers 80NB air / 32NB water with 15NB water / 20NB air drops. FIO layout '
+               'with TCS FIO-R revisions (FFL routing, FAS/PRU locations) outstanding.')
     sup_bom = [ev('ev_089deb0d6bdc4e548534', [0.60, 0.0, 1.0, 1.0]),
                ev('ev_4571a8b4b9e341c4a1e3', [0.60, 0.0, 1.0, 1.0])]
     bom = ('UEE-1 piping BOM (Rev 2): DFDS air 80/50/32/20NB pipe with elbows, tees, reducers, sockets and U-clamps; '
@@ -336,10 +368,10 @@ def pkg_u1():
            'nozzles equal the P&ID nozzle sum over PRU-05..12 (4+5+5+9+9+4+5+5+9+9). Pipe supports PS-1 13 nos, PS-2 10 '
            'nos, PS-3 5 nos, PS-4 10 nos.')
     sup_p1 = [ev('ev_f149acf086284e0994e8', [0.40, 0.15, 0.80, 0.65])]
-    supply = ('Supply split at UEE-1: service and potable water enter FROM PUMP HOUSE-2; DFDS air and pressurised water '
-              'come from DFDS System-1 ex pump-cum-compressor house UGA-1 (P&ID), with clarified-water tap. Local SW/PW '
-              'extensions are the hose-box/QRC points and potable branches in the BOM. UEE-1 is a flow-through screens '
-              'house with no storage bins; the bias sample bin belongs to EAU-1 (existing entity).')
+    supply = ('Layout-scoped supply at UEE-1: service and potable water enter FROM PUMP HOUSE-2 (layout lower level); '
+              'local SW extensions are 2 hose boxes + 4 QRC with 125/100/32NB distribution; potable galvanized branches '
+              '32/25/20NB. DFDS air/water plant location is outside these layout sheets (P&ID scope, recorded under P&ID '
+              'proposal). UEE-1 as drawn is a flow-through screens house; no storage bins on these sheets.')
     ops = [dict(op='assert', subject=UEE1, predicate='assembly_arrangement', value=mapping,
                 context=dict(kind='specification', basis=BASIS_U1 + ' Station mapping.'),
                 origin='explicit', confidence=0.85, evidence=sup_views),
@@ -349,45 +381,59 @@ def pkg_u1():
            dict(op='assert', subject=UEE1, predicate='document_note', value=supply,
                 context=dict(kind='specification', basis=BASIS_U1 + ' Supply reconciliation.'),
                 origin='explicit', confidence=0.85, evidence=sup_p1)]
-    receipts = [(EBD1, 'EBD-1 from PRU-06/FAS-06, AP-06, 5 nozzles (layout PAS-06/PRU-06).'),
-                (EBD2, 'EBD-2 from PRU-06A/FAS-06A, AP-06A, 5 nozzles (layout PAS-6A/PRU-6A).'),
-                (EBD3, 'EBD-3 from PRU-10/FAS-10, AP-10, 5 nozzles (layout PAS-10/PRU-10).'),
-                (EBD4, 'EBD-4 from PAS-10A/FAS-10A, AP-10A, 5 nozzles; layout PRU tag reads PRU-6A duplicating the '
-                       'EBD-2 unit, against P&ID PRU-10A (conflict preserved, top-model Q1).')]
+    receipts = [(EBD1, 'EBD-1 from FAS-6/PRU-6, AP-06, 5 nozzles (layout View 3-3).'),
+                (EBD2, 'EBD-2 from FAS-6A/PRU-6A, AP-06A, 5 nozzles (layout View 3-3).'),
+                (EBD3, 'EBD-3 from FAS-10/PRU-10, AP-10, 5 nozzles (layout View 3-3).'),
+                (EBD4, 'EBD-4 from FAS-10A, AP-10A, 5 nozzles; layout PRU tag reads PRU-6A duplicating the '
+                       'EBD-2 unit, against P&ID PRU-10A which governs (conflict preserved, top-model Q1 corrected).')]
     for subj, txt in receipts:
         ops.append(dict(op='assert', subject=subj, predicate='assembly_arrangement', value='DFDS dry-fog receipt: ' + txt,
                         context=dict(kind='specification', basis=BASIS_U1 + ' Per-screen receipt.'),
                         origin='explicit', confidence=0.85, evidence=sup_views))
     ops.append(dict(op='source_note', origin='explicit', confidence=0.85, evidence=sup_views + sup_p1,
-                    text=('PRU-01..04 (EAC-1A/1B/2A/2B points) are P&ID scope not shown on the Rev-2 layout sheets; '
-                          'P&ID AP-10A PRU-10A governs the EBD-4 tag over the layout duplicate pending a later '
+                    text=('P&ID AP-01..AP-04 (PRU-01..04) serve UEF-1 transfer points per P&ID Sl. No. 1 (recorded under '
+                          'P&ID proposal on the UEF-1 entity), hence absent from the UEE-1 layout sheets. P&ID AP-10A '
+                          'PRU-10A governs the EBD-4 tag over the FIO layout duplicate pending a later '
                           'approved layout revision or loop-check record.')))
     return dict(summary='UEE-1 DFDS station mapping, piping/nozzle BOM with 64-count reconciliation, supply split (UEE-1 piping)',
                 operations=ops,
                 intake_assessment=dict(route='mixed', purpose='Record UEE-1 DFDS installation scope',
                     questions=['How is DFDS/SW/PW laid out and supplied at UEE-1?'],
-                    reviewed_evidence_ids=[], gaps=['PRU-01..04 sheets; EBD-4 PRU tag.']))
+                    reviewed_evidence_ids=[], gaps=['EBD-4 PRU tag deciding record; PRU-01..04 on UEF-1 entity.']))
 
 
 def pkg_pid():
     sup_uee1 = [ev('ev_08ec0122d044468d8975', FULL), ev('ev_02ba8d819eac482f9cc9', FULL),
                 ev('ev_a6d89effc78d46bab679', FULL)]
-    uee1 = ('UEE-1 DFDS System-1 application points (approved P&ID): AP-01 EAC-1A discharge 4/4 PRU-01/FAS-01; AP-02 '
-            'EAC-2A receipt 9/9 PRU-02; AP-03 EAC-1B discharge 4/4 PRU-03; AP-04 EAC-2B receipt 9/9 PRU-04; AP-05 EAC-2A '
-            'discharge 4/4 PRU-05; AP-06 screen EBD-1 5/5 PRU-06; AP-06A screen EBD-2 5/5 PRU-06A; AP-07 EAC-3A receipt 9/9 '
-            'PRU-07; AP-08 EAC-3A receipt 9 total / 0 operating PRU-08; AP-09 EAC-2B discharge 4/4 PRU-09; AP-10 screen '
-            'EBD-3 5/5 PRU-10; AP-10A screen EBD-4 5/5 PRU-10A/FAS-10A; AP-11 EAC-3B receipt 9/9 PRU-11; AP-12 EAC-3B '
-            'receipt 9 total / 0 operating PRU-12. Both PRU-11 and PRU-12 genuinely serve EAC-3B (two receipt points); '
-            'AP-08 and AP-12 are standby points.')
-    uef3 = ('UEF-3 DFDS points: AP-13 EAC-3A discharge 4/4 PRU-13; AP-14 EAC-4A receipt 9/9 PRU-14; AP-15 EAC-4B receipt '
-            '9/0 PRU-15; AP-16 EAC-13 from 3A 9/0 PRU-16; AP-17 EAC-3B discharge 4/4 PRU-17; AP-18 EAC-4A receipt 9/9 '
-            'PRU-18; AP-19 EAC-4B receipt 9/0 PRU-19; AP-20 EAC-13 from 3B 9/0 PRU-20; 62 nozzles over 8 points. '
+    uee1 = ('UEE-1 DFDS System-1 application points, Sl. No. 2 Primary Screen House (approved P&ID, 10 points, '
+            '64 nozzles): AP-05 EAC-2A discharge 4/4 PRU-05/FAS-05; AP-06 screen EBD-1 5/5 PRU-06/FAS-06; AP-06A screen '
+            'EBD-2 5/5 PRU-06A/FAS-06A; AP-07 EAC-3A receipt 9/9 PRU-07/FAS-07; AP-08 EAC-3A receipt 9 total / 0 operating '
+            'PRU-08/FAS-08; AP-09 EAC-2B discharge 4/4 PRU-09/FAS-09; AP-10 screen EBD-3 5/5 PRU-10/FAS-10; AP-10A screen '
+            'EBD-4 5/5 PRU-10A/FAS-10A; AP-11 EAC-3B receipt 9/9 PRU-11/FAS-11; AP-12 EAC-3B receipt 9 total / 0 operating '
+            'PRU-12/FAS-12. Both PRU-11 and PRU-12 genuinely serve EAC-3B (two receipt points, mirroring AP-07/AP-08 on '
+            'EAC-3A); AP-08 and AP-12 are standby points.')
+    uef1 = ('UEF-1 DFDS System-1 application points, Sl. No. 1 (approved P&ID, 4 points, 26 nozzles): AP-01 EAC-1A '
+            'discharge 4/4 PRU-01/FAS-01; AP-02 EAC-2A receipt 9/9 PRU-02/FAS-02; AP-03 EAC-1B discharge 4/4 '
+            'PRU-03/FAS-03; AP-04 EAC-2B receipt 9/9 PRU-04/FAS-04.')
+    ebd4 = ('P&ID-side corroboration for EBD-4 (top-model Q1 corrected): AP-10A allocates PRU-10A/FAS-10A, 5 total / 5 '
+            'operating nozzles, and governs over the FIO layout duplicate PRU-6A tag (preserved under UEE-1 piping '
+            'proposal) pending approved layout revision or loop-check record.')
+    uef3 = ('UEF-3 DFDS points: AP-13 EAC-3A discharge 4/4 PRU-13/FAS-13; AP-14 EAC-4A receipt 9/9 PRU-14/FAS-14; '
+            'AP-15 EAC-4B receipt 9/0 PRU-15/FAS-15; AP-16 EAC-13 from 3A 9/0 PRU-16/FAS-16; AP-17 EAC-3B discharge 4/4 '
+            'PRU-17/FAS-17; AP-18 EAC-4A receipt 9/9 PRU-18/FAS-18; AP-19 EAC-4B receipt 9/0 PRU-19/FAS-19; AP-20 EAC-13 '
+            'from 3B 9/0 PRU-20/FAS-20; 62 nozzles over 8 points. '
             'PRU regulates air and water pressure per header group; FAS holds the activation solenoids; typical '
             'arrangements for PRU, FAS and air-atomizing nozzle as drawn.')
     sup_uef3 = [ev('ev_a6d89effc78d46bab679', FULL), ev('ev_5bfb0b3f7efe4b938282', FULL)]
     ops = [dict(op='assert', subject=UEE1, predicate='assembly_arrangement', value=uee1,
                 context=dict(kind='specification', basis=BASIS_PID + ' UEE-1 application points.'),
                 origin='explicit', confidence=0.95, evidence=sup_uee1),
+           dict(op='assert', subject='ent_108b99f6c64844df8cf8', predicate='assembly_arrangement', value=uef1,
+                context=dict(kind='specification', basis=BASIS_PID + ' UEF-1 application points.'),
+                origin='explicit', confidence=0.95, evidence=[ev('ev_08ec0122d044468d8975', FULL)]),
+           dict(op='assert', subject=EBD4, predicate='assembly_arrangement', value=ebd4,
+                context=dict(kind='specification', basis=BASIS_PID + ' EBD-4 P&ID-side corroboration.'),
+                origin='explicit', confidence=0.95, evidence=[ev('ev_a6d89effc78d46bab679', FULL)]),
            dict(op='assert', subject=UEF3, predicate='assembly_arrangement', value=uef3,
                 context=dict(kind='specification', basis=BASIS_PID + ' UEF-3 application points; nozzle/valve scope.'),
                 origin='explicit', confidence=0.9, evidence=sup_uef3),
@@ -395,7 +441,7 @@ def pkg_pid():
                     text=('P&ID AP-10A PRU-10A/FAS-10A for EBD-4 governs tagging over the FIO layout duplicate PRU-6A '
                           'pending later approved revision (top-model Q1). Per-nozzle internal piece detail needs vendor '
                           'sheets; UEF-4..7 and future-UEF points are outside Pass-2 scope.'))]
-    return dict(summary='UEE-1 14-point and UEF-3 8-point DFDS application tables with standby points (DFDS P&ID)',
+    return dict(summary='UEE-1 10-point, UEF-1 4-point and UEF-3 8-point DFDS application tables with standby points (DFDS P&ID)',
                 operations=ops,
                 intake_assessment=dict(route='mixed', purpose='Record DFDS application allocation',
                     questions=['Which PRU/FAS points and nozzle counts serve UEE-1 and UEF-3?'],
@@ -411,7 +457,7 @@ def pkg_psh():
              'actuator of SR and F gate; hooks H-1 and H-2 2T for EAC-2A/2B bend pulleys.')
     forces = ('Screen support forces F1/F2/F3 (kgf, static / operating / start-stop with 12.5 Hz operating and 2-4 Hz '
               'start-stop frequency, about 30 load cycles): F1 vertical 7400 / +-660 / +-5280, horizontal +-410 / +-3280; '
-              'F2 vertical 4500 / +-440 / +-3520, horizontal +-340 / +-2720; F3 800. Matches the grizzly GA force table.')
+              'F2 vertical 4500 / +-440 / +-3520, horizontal +-340 / +-2720; F3 800.')
     sup_p1 = [ev('ev_c42a2d9b6f2f4e45afc7', FULL)]
     tcs = ('PSH TCS close-out (Rev 2 AOC 30-Apr-19, approved 01-Oct-2019): VSF-coordination observations noted with '
            'drawing revised per approved VSF GA; MH-2 monorail U-type (not straight) for counterweight eccentric '
@@ -427,7 +473,11 @@ def pkg_psh():
                 origin='explicit', confidence=0.9, evidence=sup_p2 + sup_p1),
            dict(op='assert', subject=UEE1, predicate='document_note', value=tcs,
                 context=dict(kind='specification', basis=BASIS_PSH + ' TCS close-out.'),
-                origin='explicit', confidence=0.9, evidence=sup_p3)]
+                origin='explicit', confidence=0.9,
+                evidence=sup_p3 + [ev('ev_c42a2d9b6f2f4e45afc7', FULL), ev('ev_5c320e9f04fb44359bb8', FULL)]),
+           dict(op='source_note', origin='explicit', confidence=0.9, evidence=sup_p2,
+                    text=('PSH force table corroborates the grizzly GA force table (doc_b4cf0a76c954435aadd6) with '
+                          'identical F1/F2/F3 figures.'))]
     return dict(summary='PSH hoist schedule, screen support forces, TCS close-out (PSH GA)',
                 operations=ops,
                 intake_assessment=dict(route='mixed', purpose='Record PSH handling and structural coordination',
