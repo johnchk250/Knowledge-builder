@@ -139,6 +139,22 @@ note. Local rejects anything else without review.
   entries with full evidence, then rehearsal -> guarded accept -> verification
   (§2 steps 5-7).
 
+### 3D. Two standing text-only uses (no new zip, no new round trip)
+
+Proven in Pass 1; run on every pass before staging:
+
+1. **Revision-status sweep.** Paste the pass's source list (document, revision,
+   approval/FIO stamp + date, sheet count) and ask: flag FOR APPROVAL vs approved,
+   FIO vs AOC, title-block vs revision-table mismatches, same-date transmittal links
+   that are not established, and any reading that treats a review comment or an
+   approval stamp as a final selection. Local verifies each flag against the crops
+   before staging.
+2. **Pre-stage proofread.** Paste the staged proposal bodies (operations + evidence
+   ids/regions, not the DB) and ask: flag invented tags/values, copied A/B-lane or
+   Type-1/2 values without per-unit evidence, merged systems, normalised spellings
+   that should stay verbatim, and applicability overreach. Local re-checks each flag;
+   the proofread never replaces rehearsal, preservation, or verification.
+
 ## 4. The 10 passes (start at Pass 1)
 
 Order respects plant flow (jetty -> yards -> reclaim -> bunkers -> services ->
@@ -170,7 +186,27 @@ Pass 8 limit tags + clamp pressure + level/CO + fan curves; Pass 9 PS polarity
 + 5/10m3 pit + header branches (no new physical pipes, no System1/2 collapse);
 Pass 10 MCC cubicles + thin-target scope only.
 
-## 5. Tracking for future sessions
+## 5. Complete-pass rule (no partial passes)
+
+When the user asks for a pass, the pass is the unit of delivery — not the first
+zip. A pass is complete only when **every depth item in its table row** reaches a
+terminal state in the same run:
+
+- For each item, close **every named leg** (e.g. drives *and* protections *and*
+  schedule rows *and* internals verdicts): assert it with exact evidence, or record
+  it as an explicit gap / `evidence_gap` naming the exact deciding record.
+- Local extraction first (schedule rows, control clauses, vendor sheets already in
+  the corpus); top model only for hard/conflict items. A pilot zip that answers 3
+  questions while sibling legs sit unopened is a first round, never a completion.
+- Follow-up zips (missing crops, deciding records) belong to the same pass until
+  its items are terminal. Never report a pass complete, or move its items to `done`,
+  with legs unaddressed and unnamed.
+- Honest terminal states: `done` (all legs asserted or gapped with deciding record,
+  residual P3 vendor-BOM piece detail transferred by name), or `evidence_gap`
+  (deciding record identified but absent from the corpus). `in_progress` with a
+  checkpoint listing open legs is the only acceptable mid-pass state.
+
+## 6. Tracking for future sessions
 
 Read order: this file -> `phase-progress.json` (`next_action`) ->
 `current/depth-queue.json` -> pass checkpoint in `output/plant-enrichment/`.
