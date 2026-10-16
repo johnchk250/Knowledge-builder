@@ -43,48 +43,57 @@ DOC_PHIL = 'doc_e17edf6897d746fabe12'
 
 BASIS_C9D = ('Drive schedule IS-3-SC-702-101-M107 Rev R2 24-11-2018 (customer doc Maitree-00-EAC-PA-175107-ISG-2); '
              'status block FOR APPROVAL, sheet stamped FIO FOR INFORMATION ONLY 14-Dec-2018. FIO non-approved '
-             'schedule data only; group columns headed EAC 7/9/11/13 and EAC 8/10/12/14 as printed.')
+             'schedule data only; group columns headed EAC 7/9/11/13 and EAC 8/10/12/14 as printed. Registry records rev 1 '
+             'vs printed Rev R2 24-11-18.')
 BASIS_C9S = ('Selection of drive components, brakes and belts IS-1-GA-702-101-M052 Rev 2 (customer doc '
              'Maitree-00-EAC-PA-175052-ISG); status block FOR APPROVAL, sheet stamped APPROVED 23-Nov-2018. '
-             'Design selection only; required-vs-selected reconciliation as printed.')
+             'Design selection only; required-vs-selected reconciliation as printed. Registry records rev 1 vs printed Rev 2.')
 BASIS_C9P = ('Bearing selection & shell/diaphragm thickness calculation for conveyor pulleys, Rev 04 20-Dec-18 '
              '(BHEL/BTL); evidence stamp APPROVED 25-Feb-2019. Pulley input rows EAC 7/9/11/13 + EBA 8/10/12/14 only; '
-             'bearing/shaft selections on later pages remain unopened.')
+             'bearing/shaft selections on later pages remain unopened. Registry filed blank revision vs printed Rev 04.')
 BASIS_C9G = ('GA and load data belt conveyor-9, dwg IS-1-GA-702-101-M019 Rev 2 (customer dwg Maitree-00-KF-LH-175019-ISG-2); '
-             'status block FOR APPROVAL, sheet stamped APPROVED 26-Nov-2018; Fichtner comments Trans 054935 15.10.18. Design only.')
+             'status block FOR APPROVAL, sheet stamped APPROVED 26-Nov-2018; Fichtner comments Trans 054935 15.10.18. Design only. '
+             'Registry filed blank revision vs printed Rev 2.')
 BASIS_C10G = ('GA and load data belt conveyor-10, dwg IS-1-GA-702-101-M020 Rev 2 (customer dwg Maitree-00-KF-LH-175020-ISG-2); '
-              'status block FOR APPROVAL, sheet stamped APPROVED 26-Nov-2018; Fichtner comments 11.10.18. Design only.')
+              'status block FOR APPROVAL, sheet stamped APPROVED 26-Nov-2018; Fichtner comments 11.10.18. Design only. '
+              'Registry filed blank revision vs printed Rev 2.')
 BASIS_PCS = ('PCS BSS ZSS & belt-watch panel datasheet IS-4-GA-702-101-E804 REV 3 (customer doc 178803-ISG); status block '
              'FOR APPROVAL, sheet stamped APPROVED 18-Sep-2019 (registry filed rev 1). Vendor GA sheets for Jayashree '
              'electronic speed switch, pull-cord and belt-sway switches as printed; per-conveyor GCP allocation sheets remain unopened.')
 BASIS_STKB = ('Basis of design for coal stacker 175249 Rev 2, vendor Hunan Changzhong, approved 27-Feb-2019. Project-family '
               'design for four stackers; applied to Yard 2 EAD-2 identified by coal-flow 175001 Rev 8. Component names without '
               'plant tags are descriptive. Installed configuration and commissioned settings are not verified.')
-BASIS_STKG = ('GA & TDS of stacker 175126 Rev 2 (customer doc Maitree-00-EAF-DA-175126-ISG-1), approved 26-Nov-2018 with '
+BASIS_STKG = ('GA & TDS of stacker 175126 Rev 2 (customer doc Maitree-00-EAF-DA-175126-ISG-1, prints EAF and -1 suffix as observed), approved 26-Nov-2018 with '
               'BIFPCL/BHEL compliance replies. Project-family design applied to Yard 2 EAD-2 as above. GA drawing sheets are '
-              'image-only; reply text governs.')
+              'image-only; reply text governs. Registry filed blank revision vs printed Rev 2.')
 BASIS_RECG = ('GA & TDS of portal type scraper reclaimer 175127 Rev 2 (vendor dwg 47039267), approved 23-Nov-2018 with '
               'TENOVA compliance replies 09-11-2018. Project-family design for EAF-1..4 applied to Yard 2 EAF-2 identified by '
-              'coal-flow 175001 Rev 8. Descriptive names; installed/commissioned state not verified.')
+              'coal-flow 175001 Rev 8. Descriptive names; installed/commissioned state not verified. Approval stamp date string '
+              "prints malformed '23-Nov-2019-11-2018' (read as 23-Nov-2018). Registry filed blank revision vs printed Rev 2.")
 BASIS_RECB = ('Basis of design for portal reclaimer 175119 Rev 2 (vendor 47039270, TENOVA POC-705), approved 23-Nov-2018. '
               'Project-family structural/load design for four reclaimers applied to Yard 2 EAF-2 as above. Structural pressures '
-              'are not trip settings.')
+              'are not trip settings. Internal system revision block prints rev 0 vs document Rev 2.')
 BASIS_DSSS = ('Chemtrols coal stacker plain-water DSS design/control Rev 05, FIO 23-Jan-2021 (customer doc '
               'MAITREE-00-EAF-DB-175244-ISG). Coal section only; limestone dry-fog section excluded. Project-family design '
-              'applied to Yard 2 EAD-2. Installed configuration and commissioned settings not verified.')
+              'applied to Yard 2 EAD-2. Installed configuration and commissioned settings not verified. Registry records rev 1 '
+              'and Approved authority vs sheet BHEL Rev 0 / Chemtrols Rev 05 FIO (critical mismatch).')
 BASIS_DSSR = ('F. Harley plain-water DS BOD 47039284 Rev 2, approved 19-Aug-2019 (customer doc MAITREE-00-EAF-DB-175150-ISG-2), '
               'four portal reclaimers. Project-family design applied to Yard 2 EAF-2. Pump schedule ratings tentative, subject to '
-              'final vendor selection. Installed state not verified.')
+              'final vendor selection. Installed state not verified. Registry records rev 1 vs printed Rev 2.')
 BASIS_DSSP = ('P&ID of machine-mounted DS for portal reclaimer, vendor drg 3778-02-T-01 Rev 2 (customer doc '
-              'MAITREE-00-EAF-MB-175151-ISG-2), FIO 19-Aug-2019. Typical arrangement; pipe routing tentative. Installed state not verified.')
+              'MAITREE-00-EAF-MB-175151-ISG-2), FIO 19-Aug-2019. Typical arrangement; pipe routing tentative. Installed state not verified. '
+              'Registry records rev 1 vs printed Rev 2.')
 BASIS_FIRE = ('Datasheet/BOM for FDA system of stacker, drg IS-3-GA-702-108-E1104 REV 02 (KKS MAITREE-00-EAD-DA-179063-ISG, '
               'registry filed rev 1), vendor Hunan Changzhong; status FOR INFORMATION, stamped FIO 14-Nov-2019. Vendor '
-              'supply/design proposal only; no erection, PLC I/O, commissioning or handover record in file. Stacker scope only.')
+               'supply/design proposal only; no erection, PLC I/O, commissioning or handover record in file. Stacker scope only. '
+               'Sheet revision-history rows 1-6 blank.')
 BASIS_QRCP = ('P&ID for plain-water DS for stockpile 175255 Rev 2, FIO 21-Jan-2019 (BOM item 19, note 9, typical QRC '
-              'connection). Design arrangement; routing and installation unverified.')
+               'connection). Design arrangement; routing and installation unverified. Enclosed TCS references Rev 1 FIO-R vs sheet Rev 2. '
+               'Registry filed blank revision.')
 BASIS_PHIL = ('Operation & control philosophy for CHP stockpile DS + SW/PW pumping 175319 Rev 5, approved 26-May-2020. '
-              'Yard 2 (Stockpile-2/EAE-2, SC-02) scope only; stockpile-1/3/4 values retained as stated pairing context. '
-              'Design/control arrangement; installed and commissioned state unverified.')
+               'Yard 2 (Stockpile-2/EAE-2, SC-02) scope only; stockpile-1/3/4 values retained as stated pairing context. '
+               'Design/control arrangement; installed and commissioned state unverified. Piping layout 175301 (FIO 16-Oct-2019) cited '
+               'alongside. Registry filed blank revision vs printed Rev 5.')
 
 
 def ev(eid, region):
@@ -143,29 +152,30 @@ def pkg_c9d():
     sched9 = ('Drive schedule EAC 7/9/11/13 group as printed (applies to EAC-9 with EAC-7/11/13; FIO data): motor SQ cage '
               'induction 680 kW, 4-pole, 3300V +/-6%, 50 Hz +3%/-5%, BHEL; gearbox bevel-helical B3-560, nominal ratio 20.9, '
               'exact 22.8, mechanical 1903 kW, thermal 1165 kW, fan-cooled YES, holdback YES, make PREMIUM; H.S. scoop '
-              'coupling PST-660, 975 kW at 1500 RPM, make row prints PREMLUM (sic); L.S. geared coupling RG-13, 2793 HP/100 RPM, torque '
-              '19998 kg-m, max bore 330/min 140, make GBM; brake AC electro-hydraulic thruster, 951 kg-m, size EBTM-500-DS/I, '
-              'drum 500.0, make ELEKTROMAG. Schedule prints RG-13 while GA-9 prints RG-12; both readings preserved, '
-              'adjudication pending top-model Q1.')
+              "coupling PST-660 (M107 prints 'PST - 660' with spaces), 975 kW at 1500 RPM, make row prints PREMLUM (sic); L.S. geared coupling RG-13, 2793 HP/100 RPM, torque "
+              "19998 kg-m, max bore 330/min 140, make GBM; brake AC electro-hydraulic thruster, 951 kg-m, size EBTM-500-DS/I "
+              "(M107 prints 'EBTM-500 - DS/I' with spaces), "
+              'drum 500.0, brake make row prints ELEKCTROMAG (sic, KC; GA-9/GA-10 print ELEKTROMAG). Schedule prints RG-13 while GA-9 prints RG-12; both readings preserved, '
+              'top-model Q1 retain_disagreement (deciding record: approved GBM geared-coupling GA with per-conveyor tag allocation or EAC-9 as-built nameplate).')
     sched10 = ('Drive schedule EAC 8/10/12/14 group as printed (column header reads EAC though EBA-10 is the machine; FIO '
                'data): motor SQ cage induction 270 kW, 1488 RPM synchronous, 3.3 kV; gearbox bevel-helical B3-355, nominal '
                '23.2, exact 23.5, mechanical 385 kW, thermal 424 kW, fan YES, holdback YES, make PREMIUM; H.S. scoop coupling '
-               'PST-500, 275 kW at 1500 RPM (make row prints PREMLUM, sic); L.S. geared RG-10, 1150 HP/100 RPM, make GBM; brake AC '
-               'electro-hydraulic thruster, 290 kg-m, size EBTM-500/F, drum 500.0. Schedule prints PST-500 while GA-10 '
-               'prints PST-530; both readings preserved, adjudication pending top-model Q2.')
+               "PST-500 (M107 prints 'PST - 500' with spaces), 275 kW at 1500 RPM (make row prints PREMLUM, sic); L.S. geared RG-10, 1150 HP/100 RPM, make GBM; brake AC "
+               "electro-hydraulic thruster, 290 kg-m, size EBTM-500/F (M107 prints 'EBTM-500 / F' with spaces), drum 500.0; brake make row prints ELEKCTROMAG (sic, KC). Schedule prints PST-500 while GA-10 "
+               'prints PST-530; both readings preserved, top-model Q2 retain_disagreement (deciding record: approved Premium scoop-coupling GA with per-conveyor tag allocation or EBA-10 as-built nameplate).')
     ops = [note(ent('EAC-9'), sched9, BASIS_C9D + ' EAC-9 group ratings.', ['ev_fac9fa4f3', 'ev_520f37b37']),
            note(ent('EBA-10'), sched10, BASIS_C9D + ' EBA-10 group ratings.', ['ev_fac9fa4f3', 'ev_520f37b37']),
            note(ent('EAC-9 low-speed coupling'),
-                'Schedule L.S. row EAC 7/9/11/13 prints geared coupling RG-13 (2793 HP/100 RPM, GBM); GA-9 schedule block '
-                'prints RG-12 (GBM). Both preserved; Q1 pending.', BASIS_C9D, ['ev_fac9fa4f3']),
+                 'Schedule L.S. row EAC 7/9/11/13 prints geared coupling RG-13 (2793 HP/100 RPM, GBM); GA-9 schedule block '
+                 'prints RG-12 (GBM). Both preserved; top-model Q1 retain_disagreement, deciding record as above.', BASIS_C9D, ['ev_fac9fa4f3']),
            note(ent('EBA-10 scoop fluid coupling'),
-                'Schedule H.S. row EAC 8/10/12/14 prints scoop coupling PST-500 (275 kW at 1500 RPM, PREMIUM); GA-10 '
-                'schedule block prints PST-530 (PREMIUM). Both preserved; Q2 pending.', BASIS_C9D, ['ev_fac9fa4f3'])]
+                 'Schedule H.S. row EAC 8/10/12/14 prints scoop coupling PST-500 (275 kW at 1500 RPM, PREMIUM); GA-10 '
+                 'schedule block prints PST-530 (PREMIUM). Both preserved; top-model Q2 retain_disagreement, deciding record as above.', BASIS_C9D, ['ev_fac9fa4f3'])]
     return dict(summary='Yard conveyor drive schedule vendor ratings, EAC-9/EBA-10 groups (M107 FIO)',
                 operations=ops,
                 intake_assessment=dict(route='mixed', purpose='Record schedule vendor ratings with GA conflicts preserved',
                     questions=['Which schedule ratings apply to EAC-9/EBA-10?'],
-                    reviewed_evidence_ids=[], gaps=['Vendor GA sheets for PST/RG/EBTM models; top-model Q1/Q2.']))
+                    reviewed_evidence_ids=[], gaps=['Vendor GA sheets for PST/RG/EBTM models (deciding records for retain_disagreement PD-Q1/PD-Q2).']))
 
 
 def pkg_c9s():
@@ -173,12 +183,14 @@ def pkg_c9s():
             'EBTM-500-DS/I, 951.0 kg-m, drum 500.0 (selected exceeds required). Coupling selection same group: H.S. '
             'PST-660 (rating 975 kW at 1500 RPM, drum 500.0), L.S. RG-13 (2793.00 HP/100 RPM, torque 19998 kg-m). Belt '
             'check same group: ST1000, F.S. 6.7, cover FR 8/6, RMBT 149.26 kN/m vs 142.934 required, drive pulley 1000 / '
-            'non-drive 800 / snub 630, belt 14.00 mm, 51.60 kg/m; T1S 64244.00 lb / 285866.53 N.')
+            'non-drive 800 / snub 630, belt 14.00 mm, 51.60 kg/m; T1S 64244.00 lb / 285866.53 N. Cross-document spreads preserved '
+            '(not resolved): required braking torque M052 668.3 kg-m vs live M008 1.73 kgf-m; belt mass M052 51.60 kg/m vs M008 31.93 kg/m.')
     brk10 = ('Brake reconciliation EBA 8/10/12/14 group (APPROVED selection): required 265.4 kg-m; selected EBTM-500/F, '
              '290.0 kg-m, drum 500.0 (selected exceeds required). Coupling selection same group: H.S. PST-500 (275 kW), '
              'L.S. RG-10 (1150 HP/100 RPM, torque 8289 kg-m, max bore 240/min 110). Belt check same group: N/N HD 1250/4, '
              'cover FR 5/2, RMBT 125.00 kN/m vs 104.457 required, T1 27293 lb / 121445.66 N, T1S 32865 lb / 146239.39 N, '
-             'BW 1400, mass 37.40 kg/m.')
+             'BW 1400, mass 37.40 kg/m. Cross-document spreads preserved (not resolved): required braking torque M052 265.4 kg-m '
+             'vs live M008 231.15 kgf-m; belt mass M052 37.40 kg/m vs M008 15.98 kg/m.')
     ops = [note(ent('EAC-9 service thruster brake'), brk9, BASIS_C9S + ' EAC-9 brake/coupling/belt selection.',
                 ['ev_e4150068d', 'ev_61eac3afa', 'ev_a67e3da13']),
            note(ent('EBA-10 service thruster brake'), brk10, BASIS_C9S + ' EBA-10 brake/coupling/belt selection.',
@@ -187,17 +199,19 @@ def pkg_c9s():
                 operations=ops,
                 intake_assessment=dict(route='mixed', purpose='Record required-vs-selected brake reconciliation',
                     questions=['Do selected brakes/couplings/belts cover requirements?'],
-                    reviewed_evidence_ids=[], gaps=['None for selection; GA-vs-schedule model letters go to top model.']))
+                    reviewed_evidence_ids=[], gaps=['None for selection; GA-vs-schedule model letters adjudicated retain_disagreement (Q1/Q2).']))
 
 
 def pkg_c9p():
     pul9 = ('Pulley calculation inputs EAC 7/9/11/13 family (APPROVED): head pulley 20DR3, 1000 dia / 2200 face / 2700 '
             'bearing CRS; family row HEAD T1s 65143 lb / 289842 N, resultant 437465.81 N; tail 22152 lb / 98572 N; '
-            'take-up 19550 lb / 86994 N; bend and snub rows as tabled. Dimensions agree with GA-9 table (1000/2200/2700 '
+            'take-up 19550 lb / 86994 N; bend and snub rows as tabled. Starting-tension 3-way spread preserved: GA-9 284.610 kN '
+            'vs M052 285866.53 N (64244.00 lb) vs pulley calc 289842 N (65143 lb). Dimensions agree with GA-9 table (1000/2200/2700 '
             'head, 800/2200/2700 tail/take-up/bend, 630 snub, 219 deflector/hold-down). Bearing/shaft selections on later '
             'calculation pages remain unopened.')
     pul10 = ('Pulley calculation inputs EBA 8/10/12/14 family (APPROVED): head pulley family row HEAD T1s 32865 lb / '
-             '146243 N, resultant 221498.05 N; tail 12261 lb / 54559 N; snub 9945.23 lb / 44254 N. Dimensions agree with '
+             '146243 N, resultant 221498.05 N; tail 12261 lb / 54559 N; snub 9945.23 lb / 44254 N. Starting-tension 3-way spread '
+             'preserved: GA-10 146.191 kN vs M052 146239.39 N (32865 lb) vs pulley calc 146243 N (32865 lb). Dimensions agree with '
              'GA-10 table (800/1600/2100 head, 630/1600/2100 tail/take-up, 219 deflector/hold-down). Bearing/shaft '
              'selections on later pages remain unopened.')
     ops = [note(ent('EAC-9 head drive pulley'), pul9, BASIS_C9P + ' EAC-9 pulley inputs.',
@@ -208,7 +222,7 @@ def pkg_c9p():
                 operations=ops,
                 intake_assessment=dict(route='mixed', purpose='Record pulley calc inputs vs GA tables',
                     questions=['Do calc inputs match GA pulley tables?'],
-                    reviewed_evidence_ids=[], gaps=['Bearing/shaft/shell pages unopened; T1S three-way spread to top model.']))
+                    reviewed_evidence_ids=[], gaps=['Bearing/shaft/shell pages unopened; T1S three-way spread recorded above.']))
 
 
 def pkg_c9g9():
@@ -232,6 +246,9 @@ def pkg_c9g9():
              'LOCATION BETWEEN UEF-5 TO UAX-2.')
     ops = [note(ent('EAC-9 idler and belt-support assembly'), idlers, BASIS_C9G + ' EAC-9 idler rows.',
                 ['ev_c30eea00d']),
+           note(ent('EAC-9 conveyor belting'),
+                "GA-9 belt row prints 'ST 1000 WITH REP PROTECTION (sic, REP for RIP), 2000MM BW' (triangle-1 row).",
+                BASIS_C9G + ' EAC-9 belt verbatim.', ['ev_c30eea00d']),
            note(ent('EAC-9 horizontal gravity take-up assembly'), takeup, BASIS_C9G + ' EAC-9 take-up.',
                 ['ev_c30eea00d']),
            note(ent('EAC-9'), civil, BASIS_C9G + ' EAC-9 chute/skirt/foundation.',
@@ -264,7 +281,7 @@ def pkg_c9g10():
              'as printed, likely 3.15 typo, preserved verbatim); chute plate 10 MM non-impact / 20 MM impact Hardox 400. '
              'Hold-down roller 219 DIA x 2200 FACE WIDTH QTY 1 NO per conveyor (delta-2) on 1400 MM BW while all other '
              'EBA-10 pulleys are 1600 face, preserved verbatim. Sheet-1 note 18 refers head/chute loads out to UEE-11 '
-             '175044-ISG-0 drawing.')
+             '175044-ISG-0 drawing; UEE-11 is a copied sheet-1 template note whereas GA-10 places EBA-10 between UAX-6 and UEF-10.')
     ops = [note(ent('EBA-10 idler and belt-support assembly'), idlers, BASIS_C10G + ' EBA-10 idler rows.',
                 ['ev_519e13410']),
            note(ent('EBA-10 horizontal gravity take-up assembly'), takeup, BASIS_C10G + ' EBA-10 take-up.',
@@ -287,7 +304,7 @@ def pkg_c9x():
            'Jayashree RME211-NTD-CA-11-B60-ER; monitoring unit cast aluminium IP65 with acrylic window; supply 110V and '
            '240V AC +/-10%, 50 Hz +/-5%; output contacts 1 NO + 1 NC, 10 A resistive at 240V AC; time-setting knob NTD '
            '(VIEW-X); probe M60x1.5P x 65L nickel-plated brass tube, 12V DC, IP67, sensing distance 30 mm +/-10% nominal / '
-           '18 mm +/-10% effective, 18 mm +/-10% sensing gap. Terminal diagram 10V/240VAC + RBG from probe.')
+           '18 mm +/-10% effective, 18 mm +/-10% sensing gap. Terminal diagram 10V/240VAC (sic as printed, vs 110V and 240V AC supply row) + RBG from probe.')
     pcs = ('Pull-cord protection vendor package (same datasheet): pull-cord switch addressable type Jayashree SW-4030HAS122; '
            'die-cast aluminium enclosure IP66; actuation 1-0 bidirectional by pull rope, manual reset with red indication; '
            'normal-action limit switch, contact combination 2 NO + 2 NC; rating 5 A resistive at 240V AC; sensor module '
@@ -504,9 +521,11 @@ def pkg_dssp():
 def pkg_firs():
     scope = ('Stacker fire detection/suppression package record (FIO vendor supply/design only): datasheet + BOM for FDA '
              'system of stacker, Hunan Changzhong, KKS MAITREE-00-EAD-DA-179063-ISG (EAD family prefix, no numbered unit); '
+             "cover index row 3 prints 'SCHERMATIC' (sic); customer block prints 'BANGALADESH' (sic); "
              'status FOR INFORMATION, FIO 14-Nov-2019. No erection, cable-routing, PLC I/O, commissioning, cylinder-serial, '
              'pressure-test or handover record in this 50-page file. No page names EAD-2, EAF-2, reclaimer or a numbered '
-             'yard; binding to a numbered machine requires nameplates/photos/commissioning certs (top-model Q4).')
+             'yard; top-model Q4 confirmed Option b: package stays on the B44 boundary below as an unverified 00-EAD FIO '
+             'family proposal, both numbered machines gapped.')
     equip = ('Package equipment types (same file, catalogue/project mix, per-machine counts NOT asserted): extinguishing '
              'cylinders 22L at 25 bar with 11 kg HFC-227ea and 80L at 25 bar with 50 kg HFC-227ea (Minimax MX200; BOM '
              'quantity columns garbled, DesignManager shows 1x80L 49.5 kg + 1x22L 11 kg for the two unnamed enclosures); '
@@ -515,7 +534,8 @@ def pkg_firs():
              '126 detectors, 16 control groups, 32 relays); 24V electrical + manual release devices (actuation present '
              'minimum 5 s); DN25 360deg 4-bore nozzles; DN50 manifold/check valve; Sch80 pipe; DMX95 buttons; hand/auto '
              'switch; HZFQ-1 gas-release indicator.')
-    calc = ('Package design calculations (same file, unnamed enclosures only): Electrical_Room 10.5x3x2.7 m (85.05 m3, 7.3% '
+    calc = ('Package design calculations (same file, unnamed enclosures only): Elecrical_Room / 1 (sic, missing first t in all 4 '
+            "occurrences) 10.5x3x2.7 m (85.05 m3, 7.3% "
             'concentration, 48.7 kg, 2x889041 DN25 nozzles at 10.107 bar, 10.0 s) and Driver Room 2.4x1.9x2.5 m (11.4 m3, '
             '6.6 kg, 1x889037 at 14.247 bar, 9.9 s), NFPA 2001 10 s discharge; driver-room height 2.5 m vs live EAD-2 cabin '
             '2.4x1.9x2.4 m (0.1 m mismatch, not equated); pp8-37 Minimax/Apollo/FMZ catalogues and pp44-50 FM/UL listings are '
@@ -528,6 +548,13 @@ def pkg_firs():
            note(ent('Stacker Onboard Fire Detection & Extinguishant System Boundary'), calc,
                 BASIS_FIRE + ' Enclosure calculations.', ['ev_2e8661318', 'ev_642b24ab8', 'ev_d2ceb31e0',
                                                          'ev_2e3cacbdd', 'ev_52ee06e97', 'ev_9c7e7cb0d']),
+           gap(ent('EAD-2'),
+               'Onboard fire protection per numbered machine: FDA package IS-3-GA-702-108-E1104 REV 02 is an unverified FIO '
+               '00-EAD family proposal recorded on ent_1920bc6fa56ce0fde581 (Driver-Room 2.5 m vs live cabin 2.4 m height '
+               'mismatch, no numbered unit named, no PLC I/O or commissioning record). Deciding records: approved E1104 '
+               'revision, EAD-2 E-house/cabin nameplates or photos showing FMZ5000/Apollo/MX200 fitment, loop drawings, PLC '
+               'I/O schedule, commissioning and enclosure-integrity certs. Not field-verified.',
+               BASIS_FIRE + ' EAD-2 fire gap.', ['ev_acc765dd2']),
            gap(ent('EAF-2'),
                'Onboard fire detection/suppression for the portal scraper reclaimer: no reclaimer-titled fire document in '
                'sources.json, SOURCE_CATALOG.md or the documents table (22 reclaimer docs are DS/lube/mech/painting only); '
@@ -539,7 +566,7 @@ def pkg_firs():
                 operations=ops,
                 intake_assessment=dict(route='mixed', purpose='Record fire package without binding to numbered machines',
                     questions=['What does the FDA package cover, and what is missing for EAF-2?'],
-                    reviewed_evidence_ids=[], gaps=['EAD-2 binding (Q4); EAF-2 fire source absent.']))
+                    reviewed_evidence_ids=[], gaps=['EAD-2 gap recorded (Q4 confirmed Option b); EAF-2 fire source absent.']))
 
 
 def pkg_qrcg():
@@ -646,7 +673,7 @@ def main():
         af = {a['id']: a for a in after['assertions']}
         missing = [k for k in bf if k not in af]
         changed = [k for k in bf if k in af and bf[k] != {kk: vv for kk, vv in af[k].items() if kk in bf[k]}]
-        assert not missing and changed, (missing, changed)
+        assert not missing and (changed or len(af) > len(bf)), (missing, changed, len(af) - len(bf))
         print(json.dumps({'applied': True, 'version': after['version'], 'new_assertions': len(af) - len(bf)}))
 
 

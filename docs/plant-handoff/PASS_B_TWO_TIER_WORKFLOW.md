@@ -216,12 +216,15 @@ guarded accept + verification + visual pass. If top struggles on a yard pass
 
 ## Next action
 
-**Pass 3 fully complete live (v740–v754, 2026-10-16):** DQ-B12-001 + DQ-B12-002 +
-DQ-B13-001 + DQ-B13-002 + DQ-B14-001 + DQ-B14-002 + DQ-B14-003 done (+71 assertions).
-Top-model round: Q1–Q5 all `retain_disagreement` with provenance (single-tank ruling
-at UEF-4/UEF-6, GA FD pair governs, HT+415V rows kept, cleaner count kept, 4B wording
-kept as garble). Proofread applied (UEF-6 foundation 19-column FT/BF/WS/CS/GP/GU fix,
-`PREAMIMUM` verbatim on conv-5/6, MH-3 fix, tank/cleaner/4B ops added). Return cited 2
-nonexistent entity IDs — re-resolved by label lookup before staging. Follow-up deciding
-records in `output/plant-enrichment/pass-03/checkpoint.md`. Continue with **Pass 4**
-(bunkers/silos chain), then Passes 5-10 in order.
+**Pass 4 fully complete live (v755–v770, 2026-10-17):** DQ-B17-001 + DQ-B17-002 +
+DQ-B18-001 + DQ-B18-002 + DQ-B19-001 + DQ-B19-002 + DQ-B19-003 + DQ-B19-004 done
+(+44 assertions: 34 notes, 9 gaps, 1 discrepancy). Top-model round: Q1–Q3
+`retain_disagreement` with revision/stamp provenance (RG-12 vs RG-13, PST-530 vs
+PST-500, coasting 1400 Row-2 transposition vs GA-9 2000 which governs physical
+width), Q4 confirmed (FIO FDA package stays on B44 boundary, EAD-2 + EAF-2
+gapped). Proofread applied (`ELEKCTROMAG`, `Elecrical_Room / 1`, `SCHERMATIC`,
+`BANGALADESH`, `REP PROTECTION` sics; T1S 3-way + M052/M008 torque/mass spreads;
+registry-vs-sheet flags incl. critical M206 mismatch). Harness assert relaxed
+for pure-additive passes (no retirements). Follow-up deciding records in
+`output/plant-enrichment/pass-04/checkpoint.md`. Continue with **Pass 5**
+(Yard 3 full), then Passes 6-10 in order.

@@ -10,7 +10,7 @@
   "depth_queue": "docs/plant-handoff/current/depth-queue.json",
   "active_phase": "phase-5",
   "next_batch": "Pass 4 (bunkers/silos chain)",
-  "next_action": "Pass 4 IN PROGRESS: 8 items in_progress; 16 local proposals rehearsed clean v755-v770 (tools/build_pass04.py); top-model zip output/plant-enrichment/pass-04.zip built (4 conflict Qs: RG-12/13, PST-530/500, coasting 1400/2000, fire bind-vs-gap; + proofread/sweep). Visual verification caught+fixed conv-4 idler contamination in c9g9 before rehearsal. Awaiting top-model-result.json to apply live.",
+  "next_action": "Pass 4 fully complete live (v755-v770, 2026-10-17): DQ-B17-001 + DQ-B17-002 + DQ-B18-001 + DQ-B18-002 + DQ-B19-001 + DQ-B19-002 + DQ-B19-003 + DQ-B19-004 done; +44 assertions (34 notes, 9 gaps, 1 discrepancy); top-model round: Q1-Q3 retain_disagreement with provenance (RG-12/13, PST-530/500, coasting 1400 transposition vs GA 2000), Q4 confirmed (FIO package on B44, both machines gapped); proofread applied incl. ELEKCTROMAG/Elecrical/SCHERMATIC/BANGALADESH/REP sics, T1S + torque spreads, registry flags. Follow-up deciding records in output/plant-enrichment/pass-04/checkpoint.md. Start Pass 5 (Yard 3) per PASS_B_TWO_TIER_WORKFLOW.md.",
   "plan": "docs/plant-handoff/FIVE_PHASE_PLAN.md",
   "current_inventory": "docs/plant-handoff/current/CURRENT_STATUS.md",
   "last_completed_work": {
