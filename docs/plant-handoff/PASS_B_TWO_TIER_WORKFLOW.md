@@ -180,6 +180,8 @@ guarded accept + verification + visual pass. If top struggles on a yard pass
 
 ## Next action
 
-Start **Pass 1** (DQ-B06-001 + DQ-B07-001 + DQ-B08-001). Build
-`pilot-pass-1/` per §3 with max 3 hard questions, upload, apply return through
-normal proposals, verify, then continue Passes 2-10 in order.
+**Pass 1 done live (v719/v720, 2026-10-16):** Q1 rope/sheave, Q2 SUL1 tentative,
+Q3 SUL3 dust/grab closed as explicit gaps with deciding records; 6 new assertions,
+preservation clean, verify + scene/explorer tests pass. DQ-B06/B07/B08 stay
+`in_progress`. Continue with **Pass 2** (DQ-B09-001 + DQ-B09-002 + DQ-B10-001 +
+DQ-B10-002 + DQ-B11-001), then Passes 3-10 in order.
