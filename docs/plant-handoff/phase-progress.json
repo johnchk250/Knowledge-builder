@@ -9,8 +9,8 @@
   "breadth_policy": "docs/plant-handoff/FIVE_PHASE_PLAN.md#execution-mode-breadth-first-from-v628",
   "depth_queue": "docs/plant-handoff/current/depth-queue.json",
   "active_phase": "phase-5",
-  "next_batch": "Pass 3 (conveyors 4/5/6 chain)",
-  "next_action": "Pass 3 IN PROGRESS: DQ-B12-001 + DQ-B12-002 + DQ-B13-001 + DQ-B13-002 + DQ-B14-001 + DQ-B14-002 + DQ-B14-003. Local extraction next (conv-4/5/6 GAs, TP-4/5/6/7 GAs, UEF-4/5/6/7 piping, analyser assembly/datasheet/QAP, control pp27-29/36-43/49-52), then proposals + top-model zip.",
+  "next_batch": "Pass 4 (bunkers/silos chain)",
+  "next_action": "Pass 3 fully complete live (v740-v754, 2026-10-16): DQ-B12-001 + DQ-B12-002 + DQ-B13-001 + DQ-B13-002 + DQ-B14-001 + DQ-B14-002 + DQ-B14-003 done; +71 assertions; top-model round: Q1-Q5 all retain_disagreement with provenance (single-tank ruling, FD pair governs, HT+415V kept, cleaner count kept, 4B wording garble kept); proofread applied incl. UEF-6 foundation 19-column fix (FT/BF/WS/CS/GP/GU), PREAMIMUM verbatim, MH-3 fix. Return cited 2 nonexistent entity IDs, re-resolved by label before staging. Follow-up deciding records in output/plant-enrichment/pass-03/checkpoint.md (no zip until sourced). Start Pass 4 per PASS_B_TWO_TIER_WORKFLOW.md.",
   "plan": "docs/plant-handoff/FIVE_PHASE_PLAN.md",
   "current_inventory": "docs/plant-handoff/current/CURRENT_STATUS.md",
   "last_completed_work": {

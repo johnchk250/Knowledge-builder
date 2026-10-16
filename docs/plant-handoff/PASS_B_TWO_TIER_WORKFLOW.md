@@ -216,15 +216,12 @@ guarded accept + verification + visual pass. If top struggles on a yard pass
 
 ## Next action
 
-**Pass 2 fully complete live (v732–v739, 2026-10-16):** DQ-B09-001 + DQ-B09-002 +
-DQ-B10-001 + DQ-B10-002 + DQ-B11-001 done (+44 assertions). Top-model round:
-Q1 corrected (View 3-3 reads FAS-10A + duplicate PRU-6A; approved P&ID AP-10A
-PRU-10A governs EBD-4), Q2/Q3/Q4 confirmed with 7 preserved disagreements.
-Proofread applied (CSU-2 off CSU-1 entity; AP-01..04 on UEF-1 entity; per-view
-PAS/FAS + PFL/FFL + ECA verbatim — blanket FAS claim refuted for views 4-4/1-1/2-2;
-160M, 1.2 density, (+)580/(+)585 loads fixed; per-lane idler counts). Title blocks
-transcribed (conv-3 IS-1-GA-702-101-M013 Rev 3; P&ID 13.10.2018-comment rev; both
-FOR-APPROVAL blocks with later APPROVED stamps). Follow-up deciding records in
-`output/plant-enrichment/pass-02/checkpoint.md`. Continue with **Pass 3**
-(DQ-B12-001 + DQ-B12-002 + DQ-B13-001 + DQ-B13-002 + DQ-B14-001 + DQ-B14-002 +
-DQ-B14-003), then Passes 4-10 in order.
+**Pass 3 fully complete live (v740–v754, 2026-10-16):** DQ-B12-001 + DQ-B12-002 +
+DQ-B13-001 + DQ-B13-002 + DQ-B14-001 + DQ-B14-002 + DQ-B14-003 done (+71 assertions).
+Top-model round: Q1–Q5 all `retain_disagreement` with provenance (single-tank ruling
+at UEF-4/UEF-6, GA FD pair governs, HT+415V rows kept, cleaner count kept, 4B wording
+kept as garble). Proofread applied (UEF-6 foundation 19-column FT/BF/WS/CS/GP/GU fix,
+`PREAMIMUM` verbatim on conv-5/6, MH-3 fix, tank/cleaner/4B ops added). Return cited 2
+nonexistent entity IDs — re-resolved by label lookup before staging. Follow-up deciding
+records in `output/plant-enrichment/pass-03/checkpoint.md`. Continue with **Pass 4**
+(bunkers/silos chain), then Passes 5-10 in order.

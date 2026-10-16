@@ -198,12 +198,15 @@ def pkg_t4d():
            dict(op='source_note', origin='explicit', confidence=0.9, evidence=sup_sched,
                 text=('TP-4 filename versus UEF-4 drawing: file filed as GA & MECH LOAD OF TP-4, title block reads '
                       'GA & MECHANICAL LOAD OF UEF-4, dwg M036; legs attach to UEF-4. EH-2 plan/schedule 2.5T vs '
-                      '3.5T retained. 250L GA tank versus 300L piping PW tank is the top-model tank question.'))]
+                      '3.5T retained. Single physical PW tank assembly at EL+15.500M: 250L GA tank (M036 Rev 3, '
+                      'approved 18-Dec-2018) versus 300L piping PW tank (M289 Rev 2, FIO 13-Sep-2019) retained as '
+                      'capacity disagreement with provenance (top-model Q1 retain_disagreement; deciding record: '
+                      'approved Potable Water DBR or later approved M036 revision / approved piping layout).'))]
     return dict(summary='UEF-4 hoist schedule, drainage provisions, TCS close-out, civil notes (TP-4 GA)',
                 operations=ops,
                 intake_assessment=dict(route='mixed', purpose='Record TP-4 handling/structural/access detail',
                     questions=['What hoist, drainage and TCS outcomes apply at UEF-4?'],
-                    reviewed_evidence_ids=[], gaps=['Tank deciding record (top-model Q1); piped drain drawing.']))
+                    reviewed_evidence_ids=[], gaps=['250L GA vs 300L piping PW tank at UEF-4: retained disagreement (Q1 retain_disagreement); separate piped drain drawing.']))
 
 
 def pkg_u4p():
@@ -224,8 +227,10 @@ def pkg_u4p():
     tank = ('UEF-4 300L PW tank detail (piping sheet): PVC TANK ARRANGEMENT, CAPACITY 300 LTR FOR PW SYSTEM, on '
             'ISA 65x65x6 / 50x50x6 stand; FLOAT VALVE, VENT, 20NB OVER FLOW LINE, 25NB GLOBE VALVE, 25NB GATE VALVE '
             'NORMALLY OPEN, 20NB GATE VALVE NORMALLY CLOSE. Plan shows 100 SQ opening PW discharge and 100 DIA PVC '
-            'pipe sleeve on floor. All SW and PW tap points 1200mm from finish floor. Versus GA 250L tank: top-model '
-            'tank question decides one tank or two.')
+             'pipe sleeve on floor. All SW and PW tap points 1200mm from finish floor. Single physical tank assembly '
+             'at EL+15.500M: GA M036 Rev 3 (approved 18-Dec-2018) WATER TANK 250L CAP. (added per TCS potable-tank '
+             'comment) versus piping 300L PW capacity retained as disagreement with provenance (top-model Q1 '
+             'retain_disagreement).')
     notes = ('UEF-4 piping notes: dimensions mm, levels meters; support spacing may change at erection; pipes '
              'supported every 3m max from existing structure; minor routing changes to suit site; pipes/fittings/valves '
              'per technical specification. Status FIO 13-Sep-2019. TCS FIO-R: FFL piping hinders man movement, pipe '
@@ -258,7 +263,7 @@ def pkg_c5d():
     drive = ('Conveyor-5 drive-train make/model detail (approved 14-Dec-2018, both lanes EAC-5A/5B): motor SQ. CAGE, '
              'BHEL, RATING 380 KW HT, SPEED 1488rpm synchronous, SUPPLY 415V +/-10% 50Hz +/-5% (HT rating row versus '
              '415V LT supply row preserved as internal conflict, top-model Q3), MODEL/FRAME SIZE - (dash); gearbox '
-             'BEVEL HELICAL, PREMIUM, MODEL B3 450, RATIO 17:1; H.S. coupling SCOOP COUPLING/PREMIUM PST-530; L.S. '
+             'BEVEL HELICAL, PREAMIMUM (verbatim sheet spelling, triangle 1), MODEL B3 450, RATIO 17:1; H.S. coupling SCOOP COUPLING/PREMIUM PST-530; L.S. '
              'coupling GEARED/GBM RG-10; brake THRUSTER, ELECKTROMAG (verbatim) MODEL EBTM-500/DS/DG. Drive arrangement '
              'V1-V1/V2-V3 line: CL MOTOR - CL GEAR BOX OUT PUT SHAFT with scoop coupling and brake in line. Base-plate '
              'MKD EAC-5A/B SS-6 to SS-32 and SS-41 to SS-71. Chute plates 10mm Hardox 400 non-impact, 20mm impact, '
@@ -279,6 +284,19 @@ def pkg_c5d():
            dict(op='assert', subject=ent('EAC-5B'), predicate='assembly_arrangement', value=drive,
                 context=dict(kind='specification', basis=BASIS_C5 + ' EAC-5B drive makes.'),
                 origin='explicit', confidence=0.95, evidence=sup_drive),
+           dict(op='assert', subject=ent('EAC-5A head tripper and tail cleaner group'),
+                predicate='assembly_arrangement',
+                value=('Scraper schedule versus TCS item 14 (retained disagreement, top-model Q4): M015 Rev 2 table '
+                       '(approved 14-Dec-2018) states EX. SCRAPER spring-loaded primary and secondary on discharge '
+                       'pulley QTY 1 NO. EACH per conveyor, and INT. SCRAPER V-plough near tail pulley QTY 2 NO. per '
+                       'conveyor. TCS item 14 (23-Oct-2018) required both external and internal scrapers changed to '
+                       '2nos each, one in tripper discharge pulley at UEF-6 and one in head discharge pulley at UEF-7; '
+                       'BHEL replied 14. Revised; Rev 2 updated INT. SCRAPER to 2 NO. while EX. SCRAPER stayed QTY 1 NO. '
+                       'EACH. Both kept with provenance.'),
+                context=dict(kind='specification', basis=BASIS_C5 + ' EAC-5A/5B cleaner count (Q4).'),
+                origin='explicit', confidence=0.95,
+                evidence=[ev('ev_ea9eece376a7425a9c8c', [0.76, 0.56, 0.97, 0.61]),
+                          ev('ev_27948e80b7e146f6810c', [0.04, 0.08, 0.96, 0.25])]),
            dict(op='source_note', origin='explicit', confidence=0.9,
                 evidence=sup_drive + [ev('ev_27948e80b7e146f6810c', FULL)], text=tcs),
            dict(op='source_note', origin='explicit', confidence=0.9, evidence=sup_drive,
@@ -289,7 +307,7 @@ def pkg_c5d():
                 operations=ops,
                 intake_assessment=dict(route='mixed', purpose='Record conveyor-5 drive/TCS depth legs',
                     questions=['What drive makes, chute detail and TCS outcomes apply to EAC-5A/5B?'],
-                    reviewed_evidence_ids=[], gaps=['HT deciding record (top-model Q3); cleaner count (top-model Q4).']))
+                    reviewed_evidence_ids=[], gaps=['HT vs 415V + cleaner count: retained disagreements (Q3/Q4 retain_disagreement).']))
 
 
 def pkg_t5d():
@@ -451,13 +469,18 @@ def pkg_t6d():
              '+14.400M for 5A/B VGTU take-up pulley; MH-2 1T/2.0m/+14.100M for flow divider; MH-3 7.5x2T/10.30m/+10.300M '
              'for counterweight frames (additional monorail with hoist provided for counterweight). Hook schedule '
              'H-1&2 3.5T for EAC-5A/B bend pulleys. Monorails EH-1/EH-2 @ +21.700/+10.300M, MH-1 3T @ +14.400M and '
-             'MH-1 7.5x2T @ +10.300M, MH-2 1T @ divider.')
-    loads = ('UEF-6 foundation loads per base plate (footing) in kN, selected groups: 5A/B HF-1 dead 7.32 / live 0.00 / '
-             'start-Hx 90.42 / normal-Hx 60.28 / start-Vy -66.16 / normal-Vy -44.11; HF-2 31.86/14.50/89.91/59.94/'
-             '61.44/40.96; HF-3 18.92/0.00/-82.03/-54.68/82.03/54.68; DF-1 (21 nos) 14.60/0.00/81.26/54.18/81.26/54.18; '
-             'DF-2 10.36/0.00/74.55/49.70/79.88/53.26; SS-1 20.40/0.00/77.84/51.89/-140.24/-93.49; CS-1 19.24/8.99/'
-             '27.96/18.64/-126.39/-84.26; 7 TF-1 11.73/1.82/93.26/62.17/-91.93/-61.29; 7 TF-2 26.31/16.31/99.87/66.58/'
-             '113.95/75.96. Footnote: (-) vertical = uplift; live load at 1.1 T/cu.m density. Full table on sheet 2.')
+             'MH-3 7.5x2T @ +10.300M, MH-2 1T @ divider.')
+    loads = ('UEF-6 foundation loads per base plate (footing) in kN (Sheet 2 table, 19 columns, corrected Nov-2026 '
+             'against M038 Rev 3 Sheet 2; earlier draft misused UEF-7 headers): 5A/B FT-1 dead 7.32 / live 0.00 / '
+             'start-Hx 90.42 / normal-Hx 60.28 / start-Vy -66.16 / normal-Vy -44.11; 5A/B FT-2 31.86/14.50/89.91/59.94/'
+             '61.44/40.96; 5A/B BF-1 18.92/0.00/-82.03/-54.68/82.03/54.68; 5A/B BF-2 14.60/0.00/81.26/54.18/81.26/54.18; '
+             '5A/B BF-3 10.36/0.00/74.55/49.70/79.88/53.26; 5A/B BF-4 20.40/0.00/77.84/51.89/-140.24/-93.49; 5A/B BF-5 '
+             '19.24/0.00/27.96/18.64/-126.39/-84.26; 5A/B SS-1 dead 8.73 / live 8.99 (belt pulls dash); 5A/B WS-1 '
+             '1.74/2.52; 5A/B CS-1 12.27/33.02; 5A/B CS-2 12.68/12.37; 5A/B CS-3 12.77/22.16; 5A/B CS-4 12.77/22.16; '
+             '5A/B GP-1 dead 3.52 / live dash; 5A/B GU-1 dead 1.18 / live dash; 7 TF-1 11.73/1.82/93.26/62.17/-91.93/'
+             '-61.29; 7 TF-2 26.31/16.31/99.87/66.58/113.95/75.96; 7 SS-1 dead 24.21 / live 28.61; 7 LA-1 dead 0.98 / '
+             'live dash. Footnote: (-) vertical = uplift; live load at 1.1 T/cu.m density. Full 19-column table on '
+             'sheet 2.')
     civil = ('UEF-6 civil (all tentative, refer separate drawing): FFL RL+5.60M = plant EL 0.0M, ground RL+5.0M; cable '
              'openings tentative; handrail at openings; toe guard on grating; chequered step at 10deg+; 100mm kerb at '
              'floor openings; hood 6mm MS; impact chute 20mm Hardox 400, non-impact 10mm. Provisions: DOWN COMER with '
@@ -499,7 +522,7 @@ def pkg_t6d():
                 operations=ops,
                 intake_assessment=dict(route='mixed', purpose='Record TP-6 handling/structural/access detail',
                     questions=['What hoist, foundation and TCS outcomes apply at UEF-6?'],
-                    reviewed_evidence_ids=[], gaps=['Tank deciding record (top-model Q1).']))
+                    reviewed_evidence_ids=[], gaps=['250L GA vs 300L piping PW tank at UEF-6: retained disagreement (Q1 retain_disagreement).']))
 
 
 def pkg_u6p():
@@ -529,6 +552,18 @@ def pkg_u6p():
            dict(op='assert', subject=ent('UEF-6'), predicate='utility_bom_summary', value=bom,
                 context=dict(kind='specification', basis=BASIS_U6 + ' BOM excerpts and notes.'),
                 origin='explicit', confidence=0.9, evidence=sup_p2),
+           dict(op='assert', subject=ent('UEF-6 potable-water tank and tap assembly'), predicate='assembly_arrangement',
+                value=('Single physical PW tank assembly at EL+15.500M (grid D-C/1-2): UEF-6 piping sheet M291 Rev 2 '
+                       '(FIO 16-Sep-2019) labels WATER TANK 300L CAP. in VIEW-AA/VIEW-BB with PVC TANK ARRANGEMENT '
+                       'CAPACITY 300 LTR FOR PW SYSTEM (float valve, vent, 20NB overflow, 25NB globe/gate valves), but '
+                       'the EL+15.500M plan background under-layer on the same sheet and TP-6 GA M038 Rev 3 (approved '
+                       '18-Dec-2018) still carry WATER TANK 250L CAP. at the same footprint. 250L GA versus 300L '
+                       'piping/DBR retained as capacity disagreement with provenance (top-model Q1 '
+                       'retain_disagreement).'),
+                context=dict(kind='specification', basis=BASIS_U6 + ' PW tank detail (Q1).'),
+                origin='explicit', confidence=0.9,
+                evidence=[ev('ev_03dbce3bff0446739e4d', [0.69, 0.40, 0.95, 0.76]),
+                          ev('ev_03dbce3bff0446739e4d', [0.03, 0.65, 0.14, 0.78])]),
            dict(op='source_note', origin='explicit', confidence=0.85, evidence=sup_p1 + sup_p2,
                 text=('UEF-6 piping suspicions preserved: UAF-5/UAF-7/UAX-5 mains labels on a UEF-6 sheet (UEF-7 piping '
                       'correctly references UAF-6 on UEF-7 sheets, so a UEF-6 sheet referencing UAF-6 would be expected '
@@ -639,9 +674,12 @@ def pkg_ctd():
     divider = ('Fixed-tripper and flow-divider scheme (system description p5, UEF-4/UEF-5): through fixed tripper '
                'FTR-1, EAC-4A feeds coal either to EAC-4A (belt continuation) or to stacker-yard conveyor EAC-11 '
                'through flow divider KB-FD-3; through FTR-2, EAC-4B feeds coal either to EAC-4A through flow divider '
-               'KB-FD-3 or to EAC-11 (control names only KB-FD-3 for both legs against GA KB-FD-3 + KB-FD-4, '
-               'top-model Q2). Flow dividers positionable throughout length with AI 4-20mA position to DCS; stop '
-               'command at site-adjustable position; permissives and trips same as flap gate.')
+               'KB-FD-3 or to EAC-11 (control p5 names only KB-FD-3 for both legs and states EAC-4B-to-EAC-4A, '
+               'preserved verbatim as garbled copy-paste conflict against approved GAs M014 Rev 4 / M036 Rev 3 and '
+               'control interlock tables pp. 36-37, 41-42 where FTR-1/KB-FD-3 serves EAC-4A and FTR-2/KB-FD-4 serves '
+               'EAC-4B, top-model Q2/Q5 retain_disagreement). Flow dividers positionable throughout length with AI '
+               '4-20mA position to DCS; stop command at site-adjustable position; permissives and trips same as '
+               'flap gate.')
     divider5 = ('UEF-5 divider scheme (system description p5): EAC-4A feeds EAC-5A/5B through flap gate KB-FG-3 or '
                 'EAC-9 through divider KB-FD-5; EAC-4B feeds EAC-5A/5B through KB-FG-4 or EAC-9 through KB-FD-6. '
                 'UEF-6: through FTR-3, EAC-5A feeds EAC-5A (continuation) through KB-FD-7 or EAC-7; through FTR-4, '
@@ -689,18 +727,30 @@ def pkg_ctd():
            dict(op='assert', subject=ent('EAC-4A'), predicate='operating_requirement', value=path4,
                 context=dict(kind='specification', basis=BASIS_CTL + ' Path clauses with conflict.'),
                 origin='explicit', confidence=0.9, evidence=sup_p36),
+           dict(op='assert', subject=ent('EAC-4B'), predicate='operating_requirement',
+                value=('EAC-4B path clauses and Control p5 destination conflict (top-model Q2/Q5 '
+                       'retain_disagreement): Control p5 states verbatim that through FTR-2, EAC-4B feeds coal either '
+                       'to EAC-4A through flow divider KB-FD-3 or to EAC-11, retained as garbled copy-paste conflict '
+                       'against approved GAs M014 Rev 4 / M036 Rev 3 and interlock tables (Flow Path-1 pp. 36-37, Flow '
+                       'Path-2 pp. 41-42) where EAC-4B discharges through FTR-2 and KB-FD-4 either to EAC-4B belt '
+                       'continuation (toward UEF-5) or to EAC-11. Scoop actuator for EAC-4B requires EAC-4B main motor '
+                       'running.'),
+                context=dict(kind='specification', basis=BASIS_CTL + ' EAC-4B path clauses (Q2/Q5).'),
+                origin='explicit', confidence=0.9,
+                evidence=[ev('ev_142e4eee958d4c258029', [0.08, 0.18, 0.92, 0.27])] + sup_p36),
            dict(op='assert', subject=ent('EAC-5A'), predicate='operating_requirement', value=path5,
                 context=dict(kind='specification', basis=BASIS_CTL + ' Path clauses with copy error.'),
                 origin='explicit', confidence=0.9, evidence=sup_p36 + sup_p40),
            dict(op='source_note', origin='explicit', confidence=0.9, evidence=sup_p5,
                 text=('EAC-4B destination wording (control p5) preserved as garbled: EAC-4B feeds coal either to '
                       'EAC-4A through flow divider KB-FD-3 or to EAC-11 (no KB-FD-4, and 4B-to-4A via divider against '
-                      'GA chute arrangement discharging each lane divider to EAC-11). Top-model Q2/Q5 scope.'))]
+                       'GA chute arrangement discharging each lane divider to EAC-11). Top-model Q2/Q5 '
+                       'retain_disagreement; deciding record E914 Rev04 AOC conditions sheet or corrected Rev05.'))]
     return dict(summary='FTR/divider schemes, brake/scoop/HT logic, EAC-4/5 path clauses with conflicts (control)',
                 operations=ops,
                 intake_assessment=dict(route='mixed', purpose='Record conveyor-4/5 control depth legs',
                     questions=['What FTR/divider, brake/scoop and path logic applies to EAC-4A/4B/5A/5B?'],
-                    reviewed_evidence_ids=[], gaps=['FD naming (top-model Q2); EAC-4B wording (top-model Q5).']))
+                    reviewed_evidence_ids=[], gaps=['FD naming + EAC-4B wording: retained disagreements (Q2/Q5 retain_disagreement).']))
 
 
 def pkg_cva():
