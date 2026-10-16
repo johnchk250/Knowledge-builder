@@ -9,8 +9,8 @@
   "breadth_policy": "docs/plant-handoff/FIVE_PHASE_PLAN.md#execution-mode-breadth-first-from-v628",
   "depth_queue": "docs/plant-handoff/current/depth-queue.json",
   "active_phase": "phase-5",
-  "next_batch": "Pass B (depth-queue.json P1)",
-  "next_action": "Pass A is 100% breadth-complete across all 47 batches (v718). Begin Pass B depth execution starting with P1 items in docs/plant-handoff/current/depth-queue.json.",
+  "next_batch": "Pass B Pass 1 (jetty front end)",
+  "next_action": "Pass A is 100% breadth-complete across all 47 batches (v718). Run Pass B via docs/plant-handoff/PASS_B_TWO_TIER_WORKFLOW.md 10-pass two-tier plan (local routine + top model for hard cases). Start Pass 1: DQ-B06-001 + DQ-B07-001 + DQ-B08-001; build pilot-pass-1 zip per workflow section 3, then Passes 2-10 in order.",
   "plan": "docs/plant-handoff/FIVE_PHASE_PLAN.md",
   "current_inventory": "docs/plant-handoff/current/CURRENT_STATUS.md",
   "last_completed_work": {
