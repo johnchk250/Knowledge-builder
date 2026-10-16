@@ -35,23 +35,109 @@ commit `docs/tools/code` only.
 7. Local marks `depth-queue.json` items `in_progress` -> `done`/`evidence_gap`,
    updates the pass checkpoint, commits docs/tools.
 
-## 3. Zip format (pilot and full passes)
+## 3. Handoff package: what local sends, what top returns
+
+### 3A. Input zip (local -> top), one per pass
 
 ```
-pilot-<pass-id>/
-  README.md           — depth IDs, exact questions, what failed locally
-  draft-claims.json   — subject/predicate/value/unit, source doc/page/region,
-                        basis/conditions, unsure flags (claims.json style)
-  db-slice.json       — only affected canonical rows + active claims
-  example-accepted.json — one prior accepted result for same family (format ref)
-  images/             — 3-6 readable crops with headers/units, named by doc/page
-  checks.txt          — verify/test output showing the failure
-  code/               — relevant snippet only (proposal builder / check for family)
+<pass-id>/                       e.g. pilot-pass-1/, pass-04-yard2/
+  TOP_MODEL_BRIEF.md    — paste-ready instruction package (§3B). The only file
+                          the user pastes/uploads with the zip; everything else
+                          is context it refers to.
+  draft-claims.json     — local first-draft claims that failed or are unsure.
+                          Same shape as repo claims: id, subject (canonical ent_
+                          id or descriptive name), predicate, value/unit or
+                          object_entity, basis/conditions, unsure flag + question id.
+  db-slice.json         — only affected canonical rows + their active claims/
+                          aliases/conflicts (never the whole DB).
+  sources.json          — manifest for every cited page: document id, immutable
+                          hash, drawing/revision/status, applicable equipment,
+                          reviewed pages/regions, crop filename. Unreviewed pages
+                          are listed as unreviewed, never marked reviewed.
+  images/               — 3-6 readable crops (PNG) with headers/units visible,
+                          named <doc>__p<page>__<region>.png; dense BOMs/tables/
+                          symbols must be legible, not thumbnails.
+  checks.txt            — the exact failed output (verify / tests / route check).
+  example-accepted.json — one prior accepted result for the same family so the
+                          top model copies the field style, never the values.
+  result-template.json  — empty §3C template the top model fills in.
+  code/ (optional)      — relevant snippet only for the family under review.
 ```
 
 Guardrails: 2-4 hard questions per zip, 3-6 pages, <200 rows. Large docs
-(92pp HVAC, 59pp MCC, 50pp fire) split across trips. Every returned claim still
-needs doc_id/hash/revision/page/region + applicability to be accepted.
+(92pp HVAC, 59pp MCC, 50pp fire) split across trips. Full originals and the live
+`data/plant` directory never leave the PC.
+
+### 3B. Instruction package (contents of TOP_MODEL_BRIEF.md)
+
+Each brief is generated per pass from this template (concrete IDs/questions
+filled in; rules below are fixed text):
+
+1. Role + scope: "You are the reviewing engineer. Decide only the listed
+   questions for the listed depth IDs using only the crops + slices provided.
+   Do not assert anything not visible in the crops."
+2. Non-negotiable rules: no invented field/KKS/cable/spare tags; no invented
+   ratings/settings; keep A/B lanes, numbered-machine and revision applicability
+   explicit; keep descriptive names when no tag exists; preserve disagreements
+   as qualified alternatives with the record needed to settle them; never merge
+   the two DFDS systems, never collapse System1/2, never connect every tripper
+   to every bunker; design capacity is not live inventory.
+3. Per-question block: question id, depth id, plain-language ask, local draft
+   claim ids, the exact crops/rows that bear on it, what check failed.
+4. Return order: "Return exactly one file, `top-model-result.json`, following
+   `result-template.json` (§3C). No DB edits, no SQL, no proposal bodies —
+   local stages those."
+
+### 3C. Return contract (top -> local): output format
+
+The top model returns exactly one machine-readable file plus an optional short
+note. Local rejects anything else without review.
+
+- File: `top-model-result.json` (UTF-8 JSON, schema_version 1).
+- Top-level keys: `pass_id`, `depth_ids`, `model`, `date`,
+  `resolutions[]`, `preserved_disagreements[]`, `open_questions[]`.
+- One entry in `resolutions[]` per draft claim or per question:
+
+```json
+{
+  "draft_id": "draft_001",
+  "question_id": "Q1",
+  "verdict": "confirmed | corrected | rejected_needs_source | not_resolvable",
+  "subject": "ent_91dd763af7f4417ebaa6",
+  "predicate": "has_motor_rating_kw",
+  "value": "132",
+  "unit": "kW",
+  "object_entity": null,
+  "applicability": "EAC-2A only; do not copy to 2B without its own evidence",
+  "conditions": "duty drive as drawn; standby/commissioned values not asserted",
+  "supports": [
+    {"document": "doc_030c8f82fb674548a4dc", "page": 2,
+     "crop": "doc_030c8f82fb674548a4dc__p2__schedule.png",
+     "region": [0.10, 0.20, 0.80, 0.35],
+     "quote": "exact visible cell/paragraph text"}
+  ],
+  "rationale": "why this reading wins over the alternative, in one paragraph",
+  "confidence": 0.85,
+  "proposal_group": "doc_030c8f82fb674548a4dc",
+  "needs": "nothing | exact drawing/manual/page that would settle it"
+}
+```
+
+- `proposal_group` must equal one source document: local splits the return into
+  one proposal per group (validator rule). A resolution citing two sources is
+  staged as corroborating claims on the reused identity, not one merged proposal.
+- `verdict` meanings: `confirmed` (draft stands, supports added),
+  `corrected` (use top's subject/predicate/value), `rejected_needs_source`
+  (draft withdrawn, `needs` names the exact source/page sought),
+  `not_resolvable` (kept as qualified disagreement in
+  `preserved_disagreements[]` with both readings + deciding record).
+- Local acceptance gate: every `confirmed`/`corrected` needs at least one
+  legible support with document + page + crop + region/quote and explicit
+  applicability. Missing supports, invented tags/values, merged systems/lanes,
+  or revision-to-revision inference beyond identity are rejected and sent back
+  as a narrowed follow-up zip. Accepted resolutions become repo `claims.json`
+  entries with full evidence, then rehearsal -> guarded accept -> verification
+  (§2 steps 5-7).
 
 ## 4. The 10 passes (start at Pass 1)
 
