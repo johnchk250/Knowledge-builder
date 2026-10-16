@@ -170,7 +170,7 @@
       "missing": "Conveyor4 drive internals,protection settings and EBTF/EBTM brake model wording; fixed-tripper/divider detailed control.",
       "source": "doc_a02d56b879734b5db189 pp3-4; existing power/brake calculation and control175001 pp27-29,36-43",
       "priority": "P1",
-      "status": "open"
+      "status": "in_progress"
     },
     {
       "id": "DQ-B12-002",
@@ -179,7 +179,7 @@
       "missing": "Hoist EH2 3.5/2.5t,tank250/300L,local drainage endpoint andSW/PW branches; nozzle/valve detail and hoist/civil certification.",
       "source": "doc_9bd6e66e9fbb43468184 pp1-5;doc_492c079544304e2da177 pp1-3",
       "priority": "P2",
-      "status": "open"
+      "status": "in_progress"
     },
     {
       "id": "DQ-B13-001",
@@ -188,7 +188,7 @@
       "missing": "Drive internals/settings,HT versus415V motor wording and one/two cleaner quantities; detailed FD/FG control clauses.",
       "source": "doc_b74a01e57a2b4792883c pp3-6;control175001 pp27-29,36-43,49-52",
       "priority": "P1",
-      "status": "open"
+      "status": "in_progress"
     },
     {
       "id": "DQ-B13-002",
@@ -197,7 +197,7 @@
       "missing": "TP6 tank250/300L and UAF/UEF continuation wording; detailed SW/PW/local drainage,hoist rails and pipe/nozzle BOM. No field lifting certification asserted.",
       "source": "doc_6d28742056e94651be04 pp1-3;doc_eadc432afcad400192d0 pp1-6;doc_e91d806d942243248e18 pp1-3;doc_f9f96af6a25e47179881 pp1-3",
       "priority": "P2",
-      "status": "open"
+      "status": "in_progress"
     },
     {
       "id": "DQ-B14-001",
@@ -206,7 +206,7 @@
       "missing": "Drive internals/settings, idler/BOM and gallery detail. Preserve A/B protection-count and belt-length differences.",
       "source": "doc_c91eac5d4c104264801f pp1-8",
       "priority": "P2",
-      "status": "open"
+      "status": "in_progress"
     },
     {
       "id": "DQ-B14-002",
@@ -215,7 +215,7 @@
       "missing": "Local pipe/nozzle and hoist/civil details; copied UAF/EAC labels and1700/2000 clearance qualification.",
       "source": "doc_f6e89f3b3d3b40eb8d80 pp1-2;doc_d157f03e84e84c068b06 pp1-3",
       "priority": "P2",
-      "status": "open"
+      "status": "in_progress"
     },
     {
       "id": "DQ-B14-003",
@@ -224,7 +224,7 @@
       "missing": "Catalogue, calibration, electronics, QAP and source-holder detail; do not infer isotope, activity or loaded-source status.",
       "source": "doc_740734a151bd4c00b655 pp1-5;doc_b5c8e30f4e3d475b8cf2;doc_c29985298e9c4a338bbb",
       "priority": "P2",
-      "status": "open"
+      "status": "in_progress"
     },
     {
       "id": "DQ-B15-001",
