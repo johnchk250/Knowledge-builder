@@ -1,8 +1,8 @@
 # Current plant detail inventory
 
-Reviewed 2026-10-12 at model v670. Fresh read-only snapshot: `output/plant-enrichment/B19/accepted-v670.json`. All 179 targets and 47 batches reconciled. Integrity/FK checks pass. Counts describe records, not physical quantities or engineering completion.
+Reviewed 2026-10-18 at model v882 (Passes 1-11 complete; checkpoint `output/plant-enrichment/pass06-11/checkpoint.md`). The per-target counts below remain the 2026-10-12 v670 snapshot, kept for reference; item-level state lives in the [depth queue](depth-queue.json) and `phase-progress.json`.
 
-9 batches accepted with qualifications; 18 further batches breadth-complete; 20 remain in Pass A. Phase 1: 6/6 batches. Finer work stays in [the depth queue](depth-queue.json).
+All 47 batches reached their Pass A / Pass B terminal states: 9 batches accepted with qualifications, the rest breadth-complete and depth-closed. Pass B depth queue closed 62/64 (DQ-B02-002 parked `evidence_gap`; DQ-B46-001 local exhaustive verification open). Counts describe records, not physical quantities or engineering completion.
 
 ## Main conveyors
 
@@ -58,9 +58,9 @@ Reviewed 2026-10-12 at model v670. Fresh read-only snapshot: `output/plant-enric
 
 ## Review limits and additional queues
 
-- Accepted-package targets without owned children: TP-16, TP-17, TP-18, UEF-2, CV-5, CV-6, FG-15A, FG-15B. See accepted-followups.json; B45 must review available detail and scope before closure.
+- Accepted-package targets without owned children: TP-16, TP-17, TP-18, UEF-2, CV-5, CV-6, FG-15A, FG-15B. Dispositioned in Pass 10 (v882; utility-boundary and thin-target groups in `accepted-followups.json`).
 - 581 non-reference canonical records are outside the current process-area projection; some are legitimate shared services or design/identity candidates. Every row is recorded in record-review-queue.json for source-based disposition, not automatic placement.
-- Current documented electrical-network assertions: 10; the old v510 statement of zero electrical edges is historical. Plant-wide SLD/feeder closure remains B43.
+- Current documented electrical-network assertions: 10 at v670; the old v510 statement of zero electrical edges is historical. Plant-wide SLD/feeder closure B43 depth leg closed v882; protection relay settings remain a recorded open question.
 - target-status.json records every target, including reference boundaries and planned yard area identities. No missing target is silently created.
 - Existing pilot source gaps, unwritten source dispositions and unresolved identities remain work even when a root has many assertions.
 - B37 sampling/access, shared utilities B01–B04 and final integration B43–B46 have scope beyond named target-card roots; batch coverage is not inferred from target-card counts.

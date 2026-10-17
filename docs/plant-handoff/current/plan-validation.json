@@ -1,14 +1,14 @@
 {
   "ok": true,
-  "inventory_version": 630,
+  "inventory_version": 718,
   "phases": 5,
   "batches": 47,
   "reused_batches": 7,
   "scheduled_batches": 40,
   "targets": 179,
-  "checked_local_links": 18,
+  "checked_local_links": 17,
   "dependency_order_valid": true,
-  "next_phase": "phase-1",
-  "next_batch": "B03",
+  "next_phase": "phase-5",
+  "next_batch": "B46",
   "scope": "Handoff coverage and references, not engineering acceptance"
 }

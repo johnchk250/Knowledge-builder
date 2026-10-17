@@ -1,11 +1,12 @@
 # Pass B two-tier workflow (local + top model) — 10 passes
 
 Status: Pass A 100% breadth-complete, v718, 47/47 batches. Pass B depth work only;
-Passes 1-5 complete live (v789). Passes 6-10 are running as a single top-model package round
-(user-directed, §2b): package `output/plant-enrichment/pass06-10-top-model.zip`, applied back with
+Passes 1-5 complete live (v789), Passes 6-10 closeout applied live (v882, 2026-10-18,
+including the returned Pass 11 silo-reference restructure) via the single top-model
+package round (§2b): package `output/plant-enrichment/pass06-10-top-model.zip`, applied back with
 `tools/apply_pass06_10_delta.py`. Source of truth: `docs/plant-handoff/FIVE_PHASE_PLAN.md` (Pass B priority),
 `docs/plant-handoff/phase-progress.json` (resume pointer),
-`docs/plant-handoff/current/depth-queue.json` (64 items; 31 done, 32 open, 1 evidence_gap as of Pass 5).
+`docs/plant-handoff/current/depth-queue.json` (64 items; 62 done, 1 open, 1 evidence_gap as of 2026-10-18).
 This file defines *how* Pass B runs in two tiers. It does not change acceptance rules.
 
 ## 1. Roles
@@ -70,7 +71,10 @@ rehearses on a DB copy (`--rehearse`) and applies guarded (`--apply`) with
 APIs, so acceptance rules are unchanged. The local 100%-confidence tier is
 suspended for these passes. Original PDFs are not in the zip; the user provides
 cloud access to the 266 originals (match by `sha256`/name via
-`shared/model-state/documents.json`).
+`shared/model-state/documents.json`). The return additionally carried a Pass 11
+silo-reference restructure (22 proposals re-hierarchizing plant-wide blending-silo
+assembly references), applied in the same delta at the user's direction
+(Option A: apply everything in one pass).
 
 ## 3. Handoff package: what local sends, what top returns
 
@@ -212,8 +216,8 @@ DQ-B46-001 is local exhaustive verification, no top trip.
 | 9 | Common services + TP1/Yard1 | DQ-B02-001(P2), DQ-B02-003(P2), DQ-B02-004(P2), DQ-B03-001(P2), DQ-B04-001(P2), DQ-B05-001(P2), DQ-B15-001(B15/B16,P2), DQ-B15-001(B15,P2)*, DQ-B16-001(P2) |
 | 10 | Plant-wide closeout | DQ-B43-001(P2), DQ-B44-001(P3), DQ-B45-001(P3), DQ-PILOT-001(P3), DQ-B46-001(P1-meta, local only) |
 
-\* Known duplicate ID: two items share `DQ-B15-001`. Rename the B15 EAD1/EAF1
-item to `DQ-B15-002` when Pass 9 starts; track both until then.
+\* Former duplicate ID: the B15 EAD1/EAF1 item was renamed `DQ-B15-002` in
+`depth-queue.json` when the Pass 9 leg was applied (2026-10-18, v882).
 
 Top-model focus per pass: Pass 1 rope/sheave + drivetrain/brake + dust/lube;
 Pass 2 exciter/settings + FD/FG logic + GA/control conflicts; Pass 3 drive
@@ -253,14 +257,19 @@ guarded accept + verification + visual pass. If top struggles on a yard pass
 
 ## Next action
 
-**Passes 6-10 packaged for one top-model round (2026-10-17):**
-`output/plant-enrichment/pass06-10-top-model.zip` (16 MB; 266 evidence
-documents, model state v789 as JSON exports + read-only `plant-v789.sqlite3`
-snapshot, contracts incl. B02-B05 review findings + Yard-1 pilot report, delta
-format/examples, applier code). Next: hand the top model
-the zip plus cloud access to the original PDFs; on return run
-`python tools/apply_pass06_10_delta.py <delta>` then `--rehearse` then
-`--apply` (see `APPLY_NOTES.md` in the package), followed by per-pass
-verification, tracker/queue/checkpoint updates and commit. Passes 1-5 remain
-complete live at v789 (Pass 5 checkpoint:
-`output/plant-enrichment/pass-05/checkpoint.md`).
+**Passes 6-11 applied live v882 (2026-10-18).** The combined return
+(`output/plant-enrichment/pass06-10-delta/pass06-11-combined-delta.json`,
+93 proposals / 1839 operations) was validated (`--check`, 0 problems), rehearsed
+(`--rehearse`, chain v790-v882 identical) and applied (`--apply`) as directed
+(Option A). Verification passed: `chp.verify` 0 errors
+(266 docs / 5196 evidence / 882 versions), Node 53/53, unittest 76 OK (4 skipped),
+visual sweep 21/21 steps + 5/5 source journeys, 0 console errors — run
+`tools/visual_sweep.cjs` only after polling `/api/state` until 200 on a fresh
+server (cold payload is ~46 MB / ~19 s and races the sweep's `.ps-root` wait).
+Depth queue closed out: 62/64 `done`; DQ-B02-002 parked `evidence_gap`;
+DQ-B46-001 open for local exhaustive per-claim verification; 10 residual
+field/commissioning questions recorded in `depth-queue.json`. Registry:
+3 crop-verified revisions set in `sources.json` (EBA-14 corrected to 23.10.2018;
+the return's suggested 26.11.2018 was the approval-stamp date). Checkpoint:
+`output/plant-enrichment/pass06-11/checkpoint.md`. Next: local DQ-B46-001
+exhaustive verification and any user-directed follow-up round.

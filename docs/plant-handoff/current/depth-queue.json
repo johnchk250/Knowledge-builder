@@ -17,7 +17,8 @@
       "missing": "Model-reference compressor internals and protection-table reconciliation against model applicability",
       "source": "175103 compressor GA/PID/wiring pp4-8/11-16; see output/plant-enrichment/B02/review/compressor/findings.json",
       "priority": "P2",
-      "status": "open"
+      "status": "done",
+      "resolution": "Combined Passes 6-11 delta applied live v790-v882 (2026-10-18)"
     },
     {
       "id": "DQ-B02-002",
@@ -35,7 +36,8 @@
       "missing": "Tagged level/MGV mapping gap, PS polarity and filter trip/annunciation disagreements remain qualified",
       "source": "output/plant-enrichment/B02/review/control/findings.json",
       "priority": "P2",
-      "status": "open"
+      "status": "done",
+      "resolution": "Combined Passes 6-11 delta applied live v790-v882 (2026-10-18); residual question in open_questions"
     },
     {
       "id": "DQ-PILOT-001",
@@ -44,7 +46,8 @@
       "missing": "Accepted-package thin targets with no owned children; review available sources and scope",
       "source": "docs/plant-handoff/current/accepted-followups.json",
       "priority": "P3",
-      "status": "open"
+      "status": "done",
+      "resolution": "Combined Passes 6-11 delta applied live v790-v882 (2026-10-18)"
     },
     {
       "id": "DQ-B05-001",
@@ -53,7 +56,8 @@
       "missing": "Hoist, access and tank detail from the found TP1 GA and review replies",
       "source": "doc_71a0d8fc66304e93b9c1 pp1-2",
       "priority": "P2",
-      "status": "open"
+      "status": "done",
+      "resolution": "Combined Passes 6-11 delta applied live v790-v882 (2026-10-18)"
     },
     {
       "id": "DQ-B15-001",
@@ -62,7 +66,8 @@
       "missing": "Residual machine safety/anchor/lube/onboard-DSS follow-ups from the Yard1 pilot",
       "source": "COAL_YARD_1_PILOT_REPORT.md follow-up list",
       "priority": "P2",
-      "status": "open"
+      "status": "done",
+      "resolution": "Combined Passes 6-11 delta applied live v790-v882 (2026-10-18)"
     },
     {
       "id": "DQ-B02-004",
@@ -71,7 +76,8 @@
       "missing": "Remaining trunk tees, intermediate isolation and branches to UEE-1/2 and UEF-3..12. Tier-1 consumer connections remain owned by each consuming batch; this depth item covers finer pipe decomposition only. Do not connect TP1 to System2 or collapse the two stations.",
       "source": "doc_bca09d68af9b43e3b633 pp1-2; local piping layouts in SOURCE_CATALOG.md",
       "priority": "P2",
-      "status": "open"
+      "status": "done",
+      "resolution": "Combined Passes 6-11 delta applied live v790-v882 (2026-10-18)"
     },
     {
       "id": "DQ-B03-001",
@@ -80,7 +86,8 @@
       "missing": "AP/SC/SV mapping; detailed valve/recirculation, hose/tank/gallery assemblies; source head/name/control-table reconciliation. Main routes are breadth complete.",
       "source": "175255 and embedded175091 in doc_e17edf6897d746fabe12 pp13-17; accepted B01 qualifications",
       "priority": "P2",
-      "status": "open"
+      "status": "done",
+      "resolution": "Combined Passes 6-11 delta applied live v790-v882 (2026-10-18)"
     },
     {
       "id": "DQ-B04-001",
@@ -89,7 +96,8 @@
       "missing": "Resolve5/10m3 pit-capacity review discrepancy; individual pump/mechanical/control/valve detail and civil chamber overflow construction. Main routes completed.",
       "source": "175259 pp1-2 and175257 p1; available DBR175260,pond GA175520 and vendor sources",
       "priority": "P2",
-      "status": "open"
+      "status": "done",
+      "resolution": "Combined Passes 6-11 delta applied live v790-v882 (2026-10-18)"
     },
     {
       "id": "DQ-B06-001",
@@ -227,13 +235,14 @@
       "status": "done"
     },
     {
-      "id": "DQ-B15-001",
+      "id": "DQ-B15-002",
       "batch": "B15",
       "target": "EAD1/EAF1 and machine family",
       "missing": "Safety/interlock,storm anchor,rail clamp,lube/fire detailed references and commissioned settings. Later-yard unit-specific sources must be reviewed before reuse.",
       "source": "Yard1 source-manifest;current/yard-machine-applicability.md",
       "priority": "P2",
-      "status": "open"
+      "status": "done",
+      "resolution": "Combined Passes 6-11 delta applied live v790-v882 (2026-10-18)"
     },
     {
       "id": "DQ-B16-001",
@@ -242,7 +251,8 @@
       "missing": "Existing qualification inventory:PCS count units,scoop model,AP/SV unique mapping,SC01 count,pump-head choice and field coordinates. Detailed onboard and local utility controls remain deferred.",
       "source": "COAL_YARD_1_PILOT_REPORT.md;Yard1 manifest;B03/B04 boundaries",
       "priority": "P2",
-      "status": "open"
+      "status": "done",
+      "resolution": "Combined Passes 6-11 delta applied live v790-v882 (2026-10-18)"
     },
     {
       "id": "DQ-B17-001",
@@ -395,7 +405,8 @@
       "missing": "Vendor drive internals, brake setting/calculation reconciliation, protection numeric settings, idler/cleaner row-level BOM reconciliation and head-pulley table/detail-face wording. PCS schedule quantity without explicit pair-unit stays qualified.",
       "source": "doc_99b04888284c4cf0802b (175023) and doc_06286613f92f4d31b83c (175024) schedule/detail sheets; vendor drive/lube sources P08",
       "priority": "P1",
-      "status": "open"
+      "status": "done",
+      "resolution": "Combined Passes 6-11 delta applied live v790-v882 (2026-10-18); residual question in open_questions"
     },
     {
       "id": "DQ-B23-002",
@@ -404,7 +415,8 @@
       "missing": "Take-up/HGT tower, head-frame, gallery and foundation load-table detail; EAC-13 coasting-calculation 1400mm width versus GA 2000mm review qualification; sheet-1 copied UAX1/UEF6 notes disposition.",
       "source": "doc_99b04888284c4cf0802b and doc_06286613f92f4d31b83c pp1-5; review replies",
       "priority": "P2",
-      "status": "open"
+      "status": "done",
+      "resolution": "Combined Passes 6-11 delta applied live v790-v882 (2026-10-18)"
     },
     {
       "id": "DQ-B24-001",
@@ -413,7 +425,8 @@
       "missing": "Vendor motor/gearbox/coupling/brake internals below assembly level; travel/slew/luff protection numeric settings and PLC/collision/travel-limit/storm-parking logic; commissioned speeds/pressures and per-unit serials. Assembly notes only assert family design.",
       "source": "Stacker BOD doc_78bebe6773984d59b013 pp2-3; stacker GA doc_d69ffd4c7c2241018323 pp1-4; drive/lube/DSS vendor sources P08",
       "priority": "P1",
-      "status": "open"
+      "status": "done",
+      "resolution": "Combined Passes 6-11 delta applied live v790-v882 (2026-10-18)"
     },
     {
       "id": "DQ-B24-002",
@@ -422,7 +435,8 @@
       "missing": "Scraper chain/blade/take-up detail; hoist rope/drum/brake internals; travel clamp/buffer selections; cable-reel feeder/starter/VFD mapping; safety-instrument 179103 loops and wind-trip reconciliation; lube/DSS/fire and commissioned settings. Assembly notes only assert family design.",
       "source": "Reclaimer GA doc_3e81ea1c32df4215968d p3 spec table + pp4-6 replies; reclaimer BOD doc_498f70490d294542b8b0; lube/DSS/safety sources P08",
       "priority": "P1",
-      "status": "open"
+      "status": "done",
+      "resolution": "Combined Passes 6-11 delta applied live v790-v882 (2026-10-18); residual question in open_questions"
     },
     {
       "id": "DQ-B25-001",
@@ -431,7 +445,8 @@
       "missing": "Per-machine fire detection/suppression applicability for EAD-4/EAF-4; vendor package scope versus installed coverage unverified.",
       "source": "doc_4d488fd685284c408297 Fire detection and extinguishon system of Stacker; reclaimer-side fire source to locate",
       "priority": "P2",
-      "status": "open"
+      "status": "done",
+      "resolution": "Combined Passes 6-11 delta applied live v790-v882 (2026-10-18); residual question in open_questions"
     },
     {
       "id": "DQ-B25-002",
@@ -440,7 +455,8 @@
       "missing": "Machine lube (central grease, chain oil); onboard DSS pump/nozzle internals, commissioned set points, skid serials; duplex/simplex filter wording reconciliation for the coal sections.",
       "source": "doc_0f52c77514a74773ae30 control/calculation sections; doc_a6a2fa82944f4d12b8aa pump schedule and P&ID 3778-02-T-01; vendor nameplates",
       "priority": "P2",
-      "status": "open"
+      "status": "done",
+      "resolution": "Combined Passes 6-11 delta applied live v790-v882 (2026-10-18)"
     },
     {
       "id": "DQ-B25-003",
@@ -449,7 +465,8 @@
       "missing": "Unique AP-85..112 to SV-85..112 cross-reference and surveyed riser coordinates; per-riser valve/nozzle tag detail.",
       "source": "doc_e17edf6897d746fabe12 sector tables; doc_7244e891263a4e6d8214 stockpile DS piping layout pp1-3",
       "priority": "P3",
-      "status": "open"
+      "status": "done",
+      "resolution": "Combined Passes 6-11 delta applied live v790-v882 (2026-10-18)"
     },
     {
       "id": "DQ-B25-004",
@@ -458,7 +475,8 @@
       "missing": "Per-yard share of the 92 BOM QRC positions; installed QRC routing and hose-connection detail for EAD-4/EAF-4 tanks.",
       "source": "doc_5a36f2843d504d6e96de BOM item 19 and note 9; field routing records",
       "priority": "P3",
-      "status": "open"
+      "status": "done",
+      "resolution": "Combined Passes 6-11 delta applied live v790-v882 (2026-10-18)"
     },
     {
       "id": "DQ-B26-001",
@@ -467,7 +485,8 @@
       "missing": "Vendor actuator model, stroke limit settings and torque switches.",
       "source": "Flap gate GA doc_9258f527621741938b79; vendor manuals",
       "priority": "P2",
-      "status": "open"
+      "status": "done",
+      "resolution": "Combined Passes 6-11 delta applied live v790-v882 (2026-10-18); residual question in open_questions"
     },
     {
       "id": "DQ-B27-001",
@@ -476,7 +495,8 @@
       "missing": "Vendor actuator model, stroke limit settings and torque switches.",
       "source": "Flap gate GA doc_9258f527621741938b79; vendor manuals",
       "priority": "P2",
-      "status": "open"
+      "status": "done",
+      "resolution": "Combined Passes 6-11 delta applied live v790-v882 (2026-10-18)"
     },
     {
       "id": "DQ-B28-001",
@@ -485,7 +505,8 @@
       "missing": "Multi-idler bridge calibration constants, test chain load weights and integrator terminal loops.",
       "source": "Conveyor GA doc_98d5b2ca45584e948725; vendor weigher manual",
       "priority": "P1",
-      "status": "open"
+      "status": "done",
+      "resolution": "Combined Passes 6-11 delta applied live v790-v882 (2026-10-18); residual question in open_questions"
     },
     {
       "id": "DQ-B29-001",
@@ -494,7 +515,8 @@
       "missing": "Incline belt tension reconciliation and integrator terminal loops.",
       "source": "Conveyor GA doc_3d530f1e269f4ea8a842; vendor weigher manual",
       "priority": "P1",
-      "status": "open"
+      "status": "done",
+      "resolution": "Combined Passes 6-11 delta applied live v790-v882 (2026-10-18)"
     },
     {
       "id": "DQ-B37-001",
@@ -503,7 +525,8 @@
       "missing": "Primary cutter interval timer settings, crusher screen mesh and elevator controller wiring.",
       "source": "doc_98b9805fdd334190a93f and doc_b7a9f2181ea84038b93c",
       "priority": "P2",
-      "status": "open"
+      "status": "done",
+      "resolution": "Combined Passes 6-11 delta applied live v790-v882 (2026-10-18); residual question in open_questions"
     },
     {
       "id": "DQ-B38-001",
@@ -512,7 +535,8 @@
       "missing": "Vendor reducer bearing list, brake setting reconciliation and sealing-belt tensioner detail.",
       "source": "doc_6a078e0b46ea4b6bab33 and doc_f40f9df559824fc9b500",
       "priority": "P1",
-      "status": "open"
+      "status": "done",
+      "resolution": "Combined Passes 6-11 delta applied live v790-v882 (2026-10-18)"
     },
     {
       "id": "DQ-B39-001",
@@ -521,7 +545,8 @@
       "missing": "Per-bunker position switch tags and hydraulic rail clamp pressure setting.",
       "source": "doc_1217799da7124df5bbe5 and doc_1c5a42b43cd84a4e8fdc",
       "priority": "P1",
-      "status": "open"
+      "status": "done",
+      "resolution": "Combined Passes 6-11 delta applied live v790-v882 (2026-10-18); residual question in open_questions"
     },
     {
       "id": "DQ-B40-001",
@@ -530,7 +555,8 @@
       "missing": "Per-bunker position switch tags and head-end Bunker-A interlock wiring.",
       "source": "doc_1217799da7124df5bbe5 and doc_1c5a42b43cd84a4e8fdc",
       "priority": "P1",
-      "status": "open"
+      "status": "done",
+      "resolution": "Combined Passes 6-11 delta applied live v790-v882 (2026-10-18)"
     },
     {
       "id": "DQ-B41-001",
@@ -539,7 +565,8 @@
       "missing": "Individual radar/capacitance probe KKS tags and mill outlet gate actuator detail.",
       "source": "doc_dd46f2c1532c4467a6e6 and doc_4f2cd96c3b1e413ea4b5",
       "priority": "P2",
-      "status": "open"
+      "status": "done",
+      "resolution": "Combined Passes 6-11 delta applied live v790-v882 (2026-10-18); residual question in open_questions"
     },
     {
       "id": "DQ-B42-001",
@@ -548,7 +575,8 @@
       "missing": "Individual filter bag count per compartment, fan static-pressure test curve, airlock rotor clearance and dryer purge timer settings.",
       "source": "doc_40568f1cddaf46f08262, doc_7263469a9d61411dbe04, doc_ae2f48499fd7429fad60, doc_799aadaacc6e481e8595",
       "priority": "P2",
-      "status": "open"
+      "status": "done",
+      "resolution": "Combined Passes 6-11 delta applied live v790-v882 (2026-10-18)"
     },
     {
       "id": "DQ-B43-001",
@@ -557,7 +585,8 @@
       "missing": "Cubicle-by-cubicle GA compartment schedule in doc_3edf343f7518437cb9c9 (59 pages) and standalone I/O list 178158 / 180014 if supplied later.",
       "source": "doc_c3a502c5677443c59183, doc_3edf343f7518437cb9c9, doc_4f2cd96c3b1e413ea4b5 p35",
       "priority": "P2",
-      "status": "open"
+      "status": "done",
+      "resolution": "Combined Passes 6-11 delta applied live v790-v882 (2026-10-18); residual question in open_questions"
     },
     {
       "id": "DQ-B44-001",
@@ -566,7 +595,8 @@
       "missing": "Detailed fan curves across 92-page doc_1f1bf24f34f5465a8ae1, 60-page electric hoist GA doc_004fe90168444f2c9e18 and 50-page stacker fire BOM doc_4d488fd685284c408297.",
       "source": "doc_a88db2443eb5488182fc, doc_1f1bf24f34f5465a8ae1, doc_004fe90168444f2c9e18, doc_4d488fd685284c408297",
       "priority": "P3",
-      "status": "open"
+      "status": "done",
+      "resolution": "Combined Passes 6-11 delta applied live v790-v882 (2026-10-18)"
     },
     {
       "id": "DQ-B45-001",
@@ -575,7 +605,8 @@
       "missing": "Field KKS marshalling confirmation for 001-004EAF hydraulic/slew switches and title-block reconciliation for numeric PDFs.",
       "source": "doc_0d848e40b9394c72810b, doc_f4ed092c246a43d98293, doc_556abd9c9aef4dc18873, record-review-queue.csv",
       "priority": "P3",
-      "status": "open"
+      "status": "done",
+      "resolution": "Combined Passes 6-11 delta applied live v790-v882 (2026-10-18)"
     },
     {
       "id": "DQ-B46-001",
@@ -584,7 +615,114 @@
       "missing": "Pass B deep vendor BOM decomposition (O-rings, seals, bearings), relay/timer tables and exhaustive per-claim crop audit across all 64 depth-queue items.",
       "source": "docs/plant-handoff/current/depth-queue.json",
       "priority": "P1",
-      "status": "open"
+      "status": "open",
+      "resolution": "Silo-reference restructure/cleanup legs applied v861-v882 (2026-10-18); exhaustive per-claim browser verification remains the local Pass B meta item."
     }
-  ]
+  ],
+  "open_questions": [
+    {
+      "depth_id": "DQ-B23-001",
+      "pass_id": "pass-06-yard4",
+      "question": "Which low-speed coupling (RG-12 on GA-13 vs RG-13 on M107/M052) for EAC-13 and which high-speed fluid coupling (PST-530 on GA-14 vs PST-500 on M107/M052) for EBA-14 are installed at site, and what are the individual field KKS tags for the 18 BSS / 30 PCS on EAC-13 and 17 BSS / 31 PCS on EBA-14?",
+      "needs": "Approved GBM/Premium coupling GAs with per-conveyor tag allocation, field switch loop tag schedule, and UAX-4/UEF-3/UEF-8 structural load sheets",
+      "candidates": [
+        "doc_99b04888284c4cf0802b",
+        "doc_06286613f92f4d31b83c",
+        "doc_957d8f8bd41c4e71be3c",
+        "doc_425fb77433564871b40e"
+      ]
+    },
+    {
+      "depth_id": "DQ-B24-002",
+      "pass_id": "pass-06-yard4",
+      "question": "What are the per-machine fire-panel loop addresses and HFC-227ea cylinder serial numbers for EAD-4, and is there a separate fire-protection vendor package for portal reclaimer EAF-4?",
+      "needs": "Approved per-machine EAD-4 fire schedule and portal reclaimer fire protection vendor dossier",
+      "candidates": [
+        "doc_4d488fd685284c408297",
+        "doc_2c2568dc7b9e4e509cd6"
+      ]
+    },
+    {
+      "depth_id": "DQ-B25-001",
+      "pass_id": "pass-06-yard4",
+      "question": "What is the exact one-to-one mapping between Yard-4 sprinkler risers AP-85..AP-112 and individual SV-* solenoid valves inside sector SC-04, and how are the 92 project QRC stations split across Yards 1..4?",
+      "needs": "Approved Yard-4 and Yard-1 field piping isometrics and QRC station tag register",
+      "candidates": [
+        "doc_e17edf6897d746fabe12",
+        "doc_7244e891263a4e6d8214",
+        "doc_5a36f2843d504d6e96de"
+      ]
+    },
+    {
+      "depth_id": "DQ-B26-001",
+      "pass_id": "pass-07-reclaim-tp13",
+      "question": "What are the commissioned end-of-stroke limit switch and thrust/torque switch trip settings for Prepec P5 Model B flap-gate actuators on FG-7..FG-12?",
+      "needs": "Prepec actuator factory test / site commissioning sheets for UEF-8..UEF-12",
+      "candidates": [
+        "doc_90dd538dc5104f57884f"
+      ]
+    },
+    {
+      "depth_id": "DQ-B28-001",
+      "pass_id": "pass-07-reclaim-tp13",
+      "question": "Which drive motor rating is installed on EBA-15A/15B (160 kW LT per 170048-ISG-3 vs 355 kW HT/415V mixed entry on GA 175025-ISG-2), EBA-16A/16B (370 kW vs 400 kW HT), and EBA-19A/19B (200 kW vs 160 kW), and where are the site calibration certificates for belt weighers AT-3, AT-4, CV-3, and CV-4?",
+      "needs": "Approved BHEL motor GAs / as-built nameplates for EBA-15A/B, EBA-16A/B, EBA-19A/B and belt-weigher commissioning calibration sheets",
+      "candidates": [
+        "doc_98d5b2ca45584e948725",
+        "doc_3d530f1e269f4ea8a842",
+        "doc_6a078e0b46ea4b6bab33"
+      ]
+    },
+    {
+      "depth_id": "DQ-B37-001",
+      "pass_id": "pass-07-reclaim-tp13",
+      "question": "What are the commissioned PLC timer intervals for EAU-2 cutters at UEF-13 and where is the standalone VVVF controller wiring schematic for elevator SNC-2?",
+      "needs": "Approved EAU-2 LCP wiring/timer schedule and SNC-2 vendor electrical schematic",
+      "candidates": [
+        "doc_98b9805fdd334190a93f",
+        "doc_b7a9f2181ea84038b93c"
+      ]
+    },
+    {
+      "depth_id": "DQ-B39-001",
+      "pass_id": "pass-08-trippers-bunkers-de",
+      "question": "What are the individual bunker-position proximity switch KKS tags and Bunker-A shared-zone festoon interlock terminal numbers for Travelling Trippers TT-1..TT-4?",
+      "needs": "Bunker Bay tripper field instrument tag register and LCP festoon terminal wiring diagram",
+      "candidates": [
+        "doc_1217799da7124df5bbe5",
+        "doc_5aa6ba4db83e42b794c5"
+      ]
+    },
+    {
+      "depth_id": "DQ-B41-001",
+      "pass_id": "pass-08-trippers-bunkers-de",
+      "question": "What are the individual KKS tags for the radar and RF-capacitance level probes on Unit-1/Unit-2 Bunkers A..F, and what is the boiler-package actuator model on the bunker outlet gates?",
+      "needs": "Boiler/CHP interface instrument schedule and bunker outlet gate GA",
+      "candidates": [
+        "doc_dd46f2c1532c4467a6e6"
+      ]
+    },
+    {
+      "depth_id": "DQ-B02-003",
+      "pass_id": "pass-09-common-services-yard1",
+      "question": "Does high DP across duplex strainer DUP-01 (DPS-01) trip the running DFDS/DS pump or only annunciate an alarm, and which pump tag set (PWDSSP-2A/2B vs SPDSP-2A/2B; PWP-1A/1B vs PWP-2A/2B) is engraved on the MCC feeders?",
+      "needs": "Commissioned DFDS/DS PLC logic printout and MCC-1/MCC-3 as-built feeder nameplate schedule",
+      "candidates": [
+        "doc_b5188c19e5b942cfa976",
+        "doc_7f1c0864c0b84788a816"
+      ]
+    },
+    {
+      "depth_id": "DQ-B43-001",
+      "pass_id": "pass-10-plantwide",
+      "question": "Can the external PLC I/O and cable schedules 178158, 180014, and 180055 be supplied, and do the hydraulic switches tagged 001-004EAF06/09 belong to stackers EAD-1..4?",
+      "needs": "External documents 178158, 180014, 180055 and site KKS verification of 001-004EAF06/09",
+      "candidates": [
+        "doc_3edf343f7518437cb9c9",
+        "doc_556abd9c9aef4dc18873"
+      ]
+    }
+  ],
+  "updated": "2026-10-18",
+  "model_version_at_update": 882
 }

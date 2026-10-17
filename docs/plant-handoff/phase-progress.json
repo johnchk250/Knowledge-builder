@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
-  "updated_date": "2026-10-17",
+  "updated_date": "2026-10-18",
   "baseline_version": 593,
-  "latest_verified_version": 789,
+  "latest_verified_version": 882,
   "status": "pass_a_breadth_complete",
   "execution_mode": "breadth_first",
   "pass": "B",
   "breadth_policy": "docs/plant-handoff/FIVE_PHASE_PLAN.md#execution-mode-breadth-first-from-v628",
   "depth_queue": "docs/plant-handoff/current/depth-queue.json",
   "active_phase": "phase-5",
-  "next_batch": "Pass 5 (Yard 3) complete live v771-v789; Pass 6 (Yard 4) extraction next",
-  "next_action": "Batched Passes 5-10 run (100%-confidence-only local tier per user). Pass 5 (Yard 3, DQ-B20-001/002, B21-001/002, B22-001..004) COMPLETE live v770 -> v789: 19 one-source proposals (126 new assertions, 2 evidence-backed retirements), top-model return folded (23 resolutions: 11 retain_disagreement, 11 confirmed, 1 corrected; 6 op-text fixes; 5 finding-row fixes; 26 fold-in notes; registry subset for 9 docs). Verified: chp.verify 0 errors (266 docs / 5196 evidence / 789 versions), Node 53/53, unittest 76 OK, visual sweep 18/18 steps + 4/4 source journeys 0 console errors. Checkpoint: output/plant-enrichment/pass-05/checkpoint.md; zip (with returned result archived) at output/plant-enrichment/pass-05-zip. Next: extract Pass 6 (Yard 4, DQ-B23..B25) in the same batched pattern; apply pass-6..10 locals after each review fold-in; combined handoff.",
+  "next_batch": "B46",
+  "next_action": "Combined Passes 6-11 delta applied live v789 -> v882 (93 proposals, 1839 ops; includes Pass 11 silo-reference restructure, user-directed Option A). Rehearsed and applied via tools/apply_pass06_10_delta.py: live chain v790-v882 identical to rehearsal, 0 repairs, 0 problems. Verified: chp.verify 0 errors (266 docs / 5196 evidence / 882 versions), Node 53/53, unittest 76 OK (4 skipped), visual sweep 21/21 steps + 5/5 source journeys, 0 console errors (warm-up poll of /api/state required; cold start now 46 MB / ~19 s). Depth queue: 62/64 done; DQ-B02-002 parked evidence_gap; DQ-B46-001 remains open (local exhaustive per-claim verification); 10 residual field/commissioning questions recorded in depth-queue.json open_questions. Registry: 3 doc revisions set from crop-verified title blocks (EAC-13 2 (22.10.2018); EBA-14 2 (23.10.2018), corrected from suggested 26.11.2018; TP-1 6 (01.10.2019)). Checkpoint: output/plant-enrichment/pass06-11/checkpoint.md. Next: local exhaustive DQ-B46-001 verification and any user-directed follow-up rounds.",
   "plan": "docs/plant-handoff/FIVE_PHASE_PLAN.md",
   "current_inventory": "docs/plant-handoff/current/CURRENT_STATUS.md",
   "last_completed_work": {
@@ -993,12 +993,22 @@
       ],
       "status": "applied",
       "note": "19 proposals chained v770->v789 (126 new assertions, 2 retirements). Top-model return folded: 23 resolutions (retain/confirm), 6 operation-text fixes, 5 finding-row corrections, 21 fold-in notes, EAC-11 Notes 18/19 re-read (fact_a1eaba854236c25c8aab retired) and EAF-3 wheel count corrected (fact_2022c45e62c6c4ab7648 retired, 22 total / 12 driven). Verified: chp.verify 0 errors, Node 53/53, unittest 76 OK (3 skipped), visual sweep 18/18 steps + 4/4 source journeys 0 console errors. Registry subset: sources.json 9 docs. Checkpoint: output/plant-enrichment/pass-05/checkpoint.md; zip output/plant-enrichment/pass-05-zip (returned result archived)."
+    },
+    {
+      "date": "2026-10-18",
+      "batch": "Passes 6-11 combined (Yards 4/1, TP13 reclaim, trippers/bunkers DE, plant-wide + silo-reference restructure)",
+      "versions": [
+        790,
+        882
+      ],
+      "status": "applied",
+      "note": "93 proposals chained v790->v882 (1839 operations; Pass 11 silo-reference restructure included). Rehearsal chain identical live; 0 repairs, 0 problems. Top-model delta applied as returned (user-directed Option A, no local review round). Verified: chp.verify 0 errors (266 docs / 5196 evidence / 882 versions), Node 53/53, unittest 76 OK (4 skipped), visual sweep 21/21 steps + 5/5 source journeys 0 console errors. 31 depth-queue items closed; DQ-B02-002 evidence_gap parked; DQ-B46-001 open; 10 residual open questions recorded. Registry subset: sources.json 3 doc revisions crop-verified (EAC-13 2 (22.10.2018); EBA-14 2 (23.10.2018) corrected from suggested 26.11.2018; TP-1 6 (01.10.2019)). Checkpoint: output/plant-enrichment/pass06-11/checkpoint.md."
     }
   ],
   "accepted_followup_queue": "docs/plant-handoff/current/accepted-followups.json",
   "last_accepted_work": {
-    "scope": "B46 Tier1 accepted v717-v718: 4 new whole-plant release/index assemblies, 60 assertions, 0 retirements. End-to-end verification of all 30 main conveyors, 12 in-scope transfer points, 4 utility-reference TPs, 3 ship unloaders, 4 stockyards, 2 blending silos, 2 crushers, 4 travelling trippers, 2 bunker bays (12 bunkers), and all shared utility/electrical/control networks. Pass A 100% complete (47/47 batches).",
-    "version": 718,
-    "checkpoint": "output/plant-enrichment/B46/checkpoint.md"
+    "scope": "Combined Passes 6-11 accepted v790-v882: 93 proposals, 1839 operations; Yard 4 civil/mechanical and services, TP13 reclaim and tripper/bunker dust extraction, Yard 1 common services, plant-wide ties and silo-reference restructure. Pass B depth queue closed out (62/64 done; DQ-B02-002 evidence_gap parked; DQ-B46-001 local exhaustive verification remains).",
+    "version": 882,
+    "checkpoint": "output/plant-enrichment/pass06-11/checkpoint.md"
   }
 }
