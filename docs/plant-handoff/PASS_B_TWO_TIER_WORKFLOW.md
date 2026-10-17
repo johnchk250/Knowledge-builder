@@ -1,7 +1,9 @@
 # Pass B two-tier workflow (local + top model) — 10 passes
 
 Status: Pass A 100% breadth-complete, v718, 47/47 batches. Pass B depth work only;
-Passes 1-5 complete live (v789). Source of truth: `docs/plant-handoff/FIVE_PHASE_PLAN.md` (Pass B priority),
+Passes 1-5 complete live (v789). Passes 6-10 are running as a single top-model package round
+(user-directed, §2b): package `output/plant-enrichment/pass06-10-top-model.zip`, applied back with
+`tools/apply_pass06_10_delta.py`. Source of truth: `docs/plant-handoff/FIVE_PHASE_PLAN.md` (Pass B priority),
 `docs/plant-handoff/phase-progress.json` (resume pointer),
 `docs/plant-handoff/current/depth-queue.json` (64 items; 31 done, 32 open, 1 evidence_gap as of Pass 5).
 This file defines *how* Pass B runs in two tiers. It does not change acceptance rules.
@@ -53,6 +55,21 @@ tier, deviating from §2 as follows (acceptance rules unchanged):
 - Registry (`sources.json`) corrections are applied per pass for the
   unambiguous, crop-verified subset only; ambiguous/blank entries stay queued.
 - Every pass checkpoint records this deviation and the pass's zip/return state.
+
+### 2b. Single-package top-model round for Passes 6-10 (user-directed, 2026-10-17)
+
+The user requested one complete handover package for all five remaining passes
+instead of per-pass zips: `output/plant-enrichment/pass06-10-top-model.zip`
+(built by `tools/build_pass06_10_zip.py`; brief, return format and apply notes
+inside). The top model works the full depth of Passes 6-10 (all 31 open queue
+legs; B46 included for awareness only — DQ-B46-001 stays local) and returns one
+`delta.json` pinned to `base_version` 789. The local side validates (`--check`),
+rehearses on a DB copy (`--rehearse`) and applies guarded (`--apply`) with
+`tools/apply_pass06_10_delta.py`; operations stage through the same proposal
+APIs, so acceptance rules are unchanged. The local 100%-confidence tier is
+suspended for these passes. Original PDFs are not in the zip; the user provides
+cloud access to the 266 originals (match by `sha256`/name via
+`shared/model-state/documents.json`).
 
 ## 3. Handoff package: what local sends, what top returns
 
@@ -235,14 +252,13 @@ guarded accept + verification + visual pass. If top struggles on a yard pass
 
 ## Next action
 
-**Pass 5 fully complete live (v771–v789, 2026-10-17):** DQ-B20-001 + DQ-B20-002 +
-DQ-B21-001 + DQ-B21-002 + DQ-B22-001 + DQ-B22-002 + DQ-B22-003 + DQ-B22-004 done
-(19 proposals: 126 new assertions, 2 retirements). Top-model round folded:
-23 resolutions (11 retain_disagreement, 11 confirmed, 1 corrected), 6 op-text
-fixes, 5 finding-row fixes, 26 fold-in notes, 2 evidence-backed retirements
-(EAC-11 Notes 18/19 UAX-3/UEE-6 re-read; EAF-3 wheels 22 total / 12 driven),
-registry subset for 9 docs. Verification: `chp.verify` 0 errors (789 versions),
-Node 53/53, unittest 76 OK, visual sweep 18/18 + 4/4 source journeys, 0 console
-errors. Checkpoint: `output/plant-enrichment/pass-05/checkpoint.md`. Continue
-with **Pass 6** (Yard 4 full: DQ-B23-001/002, DQ-B24-001/002,
-DQ-B25-001..004) in the same batched pattern, then Passes 7-10.
+**Passes 6-10 packaged for one top-model round (2026-10-17):**
+`output/plant-enrichment/pass06-10-top-model.zip` (4.6 MB; 266 evidence
+documents, model state v789, contracts incl. B02-B05 review findings + Yard-1
+pilot report, delta format/examples, applier code). Next: hand the top model
+the zip plus cloud access to the original PDFs; on return run
+`python tools/apply_pass06_10_delta.py <delta>` then `--rehearse` then
+`--apply` (see `APPLY_NOTES.md` in the package), followed by per-pass
+verification, tracker/queue/checkpoint updates and commit. Passes 1-5 remain
+complete live at v789 (Pass 5 checkpoint:
+`output/plant-enrichment/pass-05/checkpoint.md`).
