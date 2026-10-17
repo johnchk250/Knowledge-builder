@@ -60,7 +60,8 @@ tier, deviating from §2 as follows (acceptance rules unchanged):
 
 The user requested one complete handover package for all five remaining passes
 instead of per-pass zips: `output/plant-enrichment/pass06-10-top-model.zip`
-(built by `tools/build_pass06_10_zip.py`; brief, return format and apply notes
+(16 MB; built by `tools/build_pass06_10_zip.py`; brief, return format, apply
+notes, JSON model-state exports and a read-only `plant-v789.sqlite3` snapshot
 inside). The top model works the full depth of Passes 6-10 (all 31 open queue
 legs; B46 included for awareness only — DQ-B46-001 stays local) and returns one
 `delta.json` pinned to `base_version` 789. The local side validates (`--check`),
@@ -253,9 +254,10 @@ guarded accept + verification + visual pass. If top struggles on a yard pass
 ## Next action
 
 **Passes 6-10 packaged for one top-model round (2026-10-17):**
-`output/plant-enrichment/pass06-10-top-model.zip` (4.6 MB; 266 evidence
-documents, model state v789, contracts incl. B02-B05 review findings + Yard-1
-pilot report, delta format/examples, applier code). Next: hand the top model
+`output/plant-enrichment/pass06-10-top-model.zip` (16 MB; 266 evidence
+documents, model state v789 as JSON exports + read-only `plant-v789.sqlite3`
+snapshot, contracts incl. B02-B05 review findings + Yard-1 pilot report, delta
+format/examples, applier code). Next: hand the top model
 the zip plus cloud access to the original PDFs; on return run
 `python tools/apply_pass06_10_delta.py <delta>` then `--rehearse` then
 `--apply` (see `APPLY_NOTES.md` in the package), followed by per-pass

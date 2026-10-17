@@ -439,28 +439,61 @@ def build_model_state(dir_, con):
         contexts.append({'assertion_id': r['assertion_id'], 'context': ctx})
     dump('contexts.json', contexts)
 
-    retirements = [dict(r) for r in con.execute('SELECT assertion_id, version, reason FROM retirements')]
+    retirements = []
+    for r in con.execute('SELECT assertion_id, version, reason, provenance FROM retirements'):
+        d = dict(r)
+        if d.get('provenance'):
+            try:
+                d['provenance'] = json.loads(d['provenance'])
+            except (TypeError, ValueError):
+                pass
+        retirements.append(d)
     dump('retirements.json', retirements)
 
-    aliases = [dict(r) for r in con.execute(
-        'SELECT id, entity_id, alias, created_version FROM aliases ORDER BY entity_id')]
+    aliases = []
+    for r in con.execute('SELECT id, entity_id, alias, normalized, created_version, provenance'
+                         ' FROM aliases ORDER BY entity_id'):
+        d = dict(r)
+        if d.get('provenance'):
+            try:
+                d['provenance'] = json.loads(d['provenance'])
+            except (TypeError, ValueError):
+                pass
+        aliases.append(d)
     dump('aliases.json', aliases)
 
-    versions = [dict(r) for r in con.execute('SELECT version, proposal_id, created, summary FROM versions ORDER BY version')]
+    versions = [dict(r) for r in con.execute('SELECT version, proposal_id, created, summary,'
+                                             ' previous_hash, hash FROM versions ORDER BY version')]
     dump('versions.json', versions)
 
     documents = []
     for doc_id, d in sorted(meta.items()):
         s = stats.get(doc_id, {'blocks': 0, 'pages': 0, 'images': 0})
+        warnings = d['warnings']
+        if warnings:
+            try:
+                warnings = json.loads(warnings)
+            except (TypeError, ValueError):
+                pass
         documents.append({'document': doc_id, 'name': d['name'], 'sha256': d['sha256'],
                           'bytes': d['bytes'], 'media_type': d['media_type'],
                           'revision': d['revision'], 'authority': d['authority'],
+                          'created': d['created'], 'warnings': warnings,
                           'evidence_blocks': s['blocks'], 'page_images': s['images'],
                           'pages': s['pages']})
     dump('documents.json', documents)
     return {'entities': len(entities), 'assertions': len(assertions), 'contexts': len(contexts),
             'aliases': len(aliases), 'retirements': len(retirements),
             'documents': len(documents), 'ontology': len(ontology)}
+
+
+def copy_sqlite(dir_, con):
+    dst = dir_ / 'shared/model-state' / ('plant-v%d.sqlite3' % BASE_VERSION)
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    out = sqlite3.connect(str(dst))
+    con.backup(out)
+    out.close()
+    return dst.stat().st_size
 
 
 def build_evidence(dir_, con):
@@ -470,10 +503,17 @@ def build_evidence(dir_, con):
     for row in con.execute('SELECT id FROM documents ORDER BY id'):
         doc = row['id']
         blocks = []
-        for e in con.execute('SELECT id, page, locator, text, image FROM evidence WHERE document_id=?'
-                             ' ORDER BY page, id', (doc,)):
+        for e in con.execute('SELECT id, page, locator, text, image, sha256, metadata FROM evidence'
+                             ' WHERE document_id=? ORDER BY page, id', (doc,)):
+            meta = e['metadata']
+            if meta:
+                try:
+                    meta = json.loads(meta)
+                except (TypeError, ValueError):
+                    pass
             blocks.append({'id': e['id'], 'page': e['page'], 'locator': e['locator'],
-                           'text': e['text'] or '', 'has_image': bool(e['image'])})
+                           'text': e['text'] or '', 'has_image': bool(e['image']),
+                           'image': e['image'], 'sha256': e['sha256'], 'metadata': meta})
         (out / (doc + '.json')).write_text(
             json.dumps({'document': doc, 'evidence': blocks}, indent=2, ensure_ascii=False) + '\n',
             encoding='utf-8', newline='\n')
@@ -641,11 +681,17 @@ def build_brief(dir_, counts, scope, meta, stats):
         '  %d assertions, %d assertion contexts, %d aliases, %d retirements, %d documents,' % (
             counts['assertions'], counts['contexts'], counts['aliases'], counts['retirements'],
             counts['documents']),
-        '  full version history. Read `assertions.json` before asserting anything: it is what is',
-        '  already accepted; do not duplicate it, and preserve its recorded conflicts.',
+        '  full version history, plus `plant-v%d.sqlite3` - a read-only snapshot of the exact live' % BASE_VERSION,
+        '  database (every table and column, %s MB). The JSON files are reading-friendly exports of' % round(counts['db_bytes'] / 1e6, 1),
+        '  the same data; if you can run code, query the SQLite snapshot directly for precision.',
+        '  Never edit it and never treat it as the target: canonical changes happen only through your',
+        '  delta. Read `assertions.json` before asserting anything: it is what is already accepted;',
+        '  do not duplicate it, and preserve its recorded conflicts.',
         '- `evidence/<doc>.json` - for every corpus document the immutable extracted text with block',
-        '  ids (`ev_...`), page numbers and image availability. THIS is the citable text: quotes in',
-        '  your operations must be exact substrings of it (or use a region support on an image page).',
+        '  ids (`ev_...`), page numbers, block sha256, render metadata (page size in points, render',
+        '  dimensions, render_sha256) and image availability. THIS is the citable text: quotes in',
+        '  your operations must be exact substrings of it (or use a region support on an image page,',
+        '  choosing region coordinates in normalized page space 0..1).',
         '  Total: %d evidence blocks across %d documents.' % (total_ev, doc_count),
         '- `contracts/` - the plan, workflow, assembly contracts, findings, breadth notes/checkpoints',
         '  per batch (what Tier 1 already asserted - do not re-assert), B02-B05 review findings, the',
@@ -656,8 +702,8 @@ def build_brief(dir_, counts, scope, meta, stats):
         '',
         '## The original source PDFs',
         '',
-        'Originals are NOT in this package (size). They are in cloud storage provided alongside this',
-        'package (266 files). `shared/model-state/documents.json` maps each `doc_...` id to its file',
+        'Originals are NOT in this package (266 PDFs, ~860 MB). They are in cloud storage provided',
+        'alongside this package. `shared/model-state/documents.json` maps each `doc_...` id to its file',
         'name, byte size and sha256 - use it to open the right file and to state which revision you',
         'read. The extracted text in `evidence/` is what the local validator can cite; the PDFs are',
         'for reading the actual drawings/cells (fonts, digits, title blocks, notes). If a cell is not',
@@ -713,6 +759,8 @@ def build_checks(dir_, counts):
         'Model: %d entities, %d assertions, %d contexts, %d aliases, %d retirements.' % (
             counts['entities'], counts['assertions'], counts['contexts'], counts['aliases'],
             counts['retirements']),
+        'Snapshot: shared/model-state/plant-v%d.sqlite3 (%s MB, read-only copy of the live DB).' % (
+            BASE_VERSION, round(counts['db_bytes'] / 1e6, 1)),
         '',
         'Last verified state (Pass 5, v789):',
         '  chp.verify --data data/plant -> ok (266 documents, 5196 evidence blocks, 789 versions, 0 errors)',
@@ -744,6 +792,7 @@ def main():
     ZIP.mkdir(parents=True)
 
     counts = build_model_state(ZIP, con)
+    counts['db_bytes'] = copy_sqlite(ZIP, con)
     counts['evidence'] = con.execute('SELECT COUNT(*) FROM evidence').fetchone()[0]
     counts['documents'] = len(meta)
     n_ev = build_evidence(ZIP, con)
@@ -771,6 +820,7 @@ def main():
     print(json.dumps({'zip_folder': str(ZIP), 'archive': str(ARCHIVE),
                       'files': sum(1 for p in ZIP.rglob('*') if p.is_file()),
                       'raw_bytes': raw, 'zip_bytes': ARCHIVE.stat().st_size,
+                      'db_bytes': counts['db_bytes'],
                       'evidence_files': n_ev, 'contracts': len(copied)}, indent=2))
 
 
