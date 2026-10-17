@@ -1,9 +1,9 @@
 # Pass B two-tier workflow (local + top model) — 10 passes
 
-Status: Pass A 100% breadth-complete, v718, 47/47 batches. Pass B depth work only.
-Source of truth: `docs/plant-handoff/FIVE_PHASE_PLAN.md` (Pass B priority),
+Status: Pass A 100% breadth-complete, v718, 47/47 batches. Pass B depth work only;
+Passes 1-5 complete live (v789). Source of truth: `docs/plant-handoff/FIVE_PHASE_PLAN.md` (Pass B priority),
 `docs/plant-handoff/phase-progress.json` (resume pointer),
-`docs/plant-handoff/current/depth-queue.json` (64 items: 23x P1 open, 31x P2 open, 9x P3 open, 1x evidence_gap).
+`docs/plant-handoff/current/depth-queue.json` (64 items; 31 done, 32 open, 1 evidence_gap as of Pass 5).
 This file defines *how* Pass B runs in two tiers. It does not change acceptance rules.
 
 ## 1. Roles
@@ -34,6 +34,25 @@ commit `docs/tools/code` only.
    browser source-open/return + narrow-width journey, visual sweep 0 console errors).
 7. Local marks `depth-queue.json` items `in_progress` -> `done`/`evidence_gap`,
    updates the pass checkpoint, commits docs/tools.
+
+### 2a. Batched-run deviation (user-directed, Passes 5-10, from 2026-10-17)
+
+The user directed Passes 5-10 to run as one batched effort with a stricter local
+tier, deviating from §2 as follows (acceptance rules unchanged):
+
+- The local tier applies only 100%-confidence work: CERTAIN printed rows become
+  `document_note` ops and ABSENT legs `source_gap` ops. Every conflict, illegible
+  digit, unit clash or mapping question ships in the pass zip as draft claims +
+  numbered questions instead of being locally resolved (Pass 5: 23 drafts, 10 Qs).
+- Each pass zip still gets its own top-model round; returns fold per pass as:
+  retain/confirm notes on the subject entity, operation-text corrections,
+  finding-row corrections, and evidence-backed retirements (crop-level re-read
+  only, reason recorded; Pass 5 retired 2 prior facts). A pass is applied live
+  only after its fold-in; verification (rehearsal equality, `chp.verify`, Node,
+  unittest, visual sweep) is per pass, not per batch.
+- Registry (`sources.json`) corrections are applied per pass for the
+  unambiguous, crop-verified subset only; ambiguous/blank entries stay queued.
+- Every pass checkpoint records this deviation and the pass's zip/return state.
 
 ## 3. Handoff package: what local sends, what top returns
 
@@ -216,15 +235,14 @@ guarded accept + verification + visual pass. If top struggles on a yard pass
 
 ## Next action
 
-**Pass 4 fully complete live (v755–v770, 2026-10-17):** DQ-B17-001 + DQ-B17-002 +
-DQ-B18-001 + DQ-B18-002 + DQ-B19-001 + DQ-B19-002 + DQ-B19-003 + DQ-B19-004 done
-(+44 assertions: 34 notes, 9 gaps, 1 discrepancy). Top-model round: Q1–Q3
-`retain_disagreement` with revision/stamp provenance (RG-12 vs RG-13, PST-530 vs
-PST-500, coasting 1400 Row-2 transposition vs GA-9 2000 which governs physical
-width), Q4 confirmed (FIO FDA package stays on B44 boundary, EAD-2 + EAF-2
-gapped). Proofread applied (`ELEKCTROMAG`, `Elecrical_Room / 1`, `SCHERMATIC`,
-`BANGALADESH`, `REP PROTECTION` sics; T1S 3-way + M052/M008 torque/mass spreads;
-registry-vs-sheet flags incl. critical M206 mismatch). Harness assert relaxed
-for pure-additive passes (no retirements). Follow-up deciding records in
-`output/plant-enrichment/pass-04/checkpoint.md`. Continue with **Pass 5**
-(Yard 3 full), then Passes 6-10 in order.
+**Pass 5 fully complete live (v771–v789, 2026-10-17):** DQ-B20-001 + DQ-B20-002 +
+DQ-B21-001 + DQ-B21-002 + DQ-B22-001 + DQ-B22-002 + DQ-B22-003 + DQ-B22-004 done
+(19 proposals: 126 new assertions, 2 retirements). Top-model round folded:
+23 resolutions (11 retain_disagreement, 11 confirmed, 1 corrected), 6 op-text
+fixes, 5 finding-row fixes, 26 fold-in notes, 2 evidence-backed retirements
+(EAC-11 Notes 18/19 UAX-3/UEE-6 re-read; EAF-3 wheels 22 total / 12 driven),
+registry subset for 9 docs. Verification: `chp.verify` 0 errors (789 versions),
+Node 53/53, unittest 76 OK, visual sweep 18/18 + 4/4 source journeys, 0 console
+errors. Checkpoint: `output/plant-enrichment/pass-05/checkpoint.md`. Continue
+with **Pass 6** (Yard 4 full: DQ-B23-001/002, DQ-B24-001/002,
+DQ-B25-001..004) in the same batched pattern, then Passes 7-10.

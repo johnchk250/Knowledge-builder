@@ -1345,8 +1345,8 @@
     "name": "DBR for Machine mounted DS system for Stacker Machine.pdf",
     "sha256": "18944c043b37e853dca76f0e861249d473ad59fc1cd1e762c04f8785fe5d45cb",
     "media_type": "application/pdf",
-    "revision": "1",
-    "authority": "Approved Design Basis Report",
+    "revision": "0/05",
+    "authority": "Vendor Design Basis",
     "original": "data/plant/originals/18944c043b37e853dca76f0e861249d473ad59fc1cd1e762c04f8785fe5d45cb",
     "groups": [
       "stacker",
@@ -2302,7 +2302,7 @@
     "name": "Fire detection and extinguishon system of Stacker.pdf",
     "sha256": "aefa8364b7731b839be40232dc4e4375e0c456e8472a6ff9a26fb0db2ed902de",
     "media_type": "application/pdf",
-    "revision": "1",
+    "revision": "02",
     "authority": "Engineering Specification",
     "original": "data/plant/originals/aefa8364b7731b839be40232dc4e4375e0c456e8472a6ff9a26fb0db2ed902de",
     "groups": [
@@ -3877,8 +3877,8 @@
     "name": "GA & LOAD DATA OF BELT CONVEYOR-11.pdf",
     "sha256": "0fd5938a48543cc3536cdf422b87dad12074578f881e15fbcf868f8abaf7fbf4",
     "media_type": "application/pdf",
-    "revision": "",
-    "authority": "Unclassified",
+    "revision": "2",
+    "authority": "Engineering drawing package",
     "original": "data/plant/originals/0fd5938a48543cc3536cdf422b87dad12074578f881e15fbcf868f8abaf7fbf4",
     "groups": [],
     "pages": {
@@ -3909,8 +3909,8 @@
     "name": "GA & LOAD DATA OF BELT CONVEYOR-12.pdf",
     "sha256": "a925cd73ca55844232eb9334af6de9baa3a8112615136f8a904cb60ecaf1ee23",
     "media_type": "application/pdf",
-    "revision": "",
-    "authority": "Unclassified",
+    "revision": "2",
+    "authority": "Engineering drawing package",
     "original": "data/plant/originals/a925cd73ca55844232eb9334af6de9baa3a8112615136f8a904cb60ecaf1ee23",
     "groups": [],
     "pages": {
@@ -5653,7 +5653,7 @@
     "name": "GA & TDS of Portal Type Scraper Reclaimer Machine.pdf",
     "sha256": "a3754af913db0925a42f0f2fd185ee20aa2e3324c3c83dc1f05cfcf8ddefaddb",
     "media_type": "application/pdf",
-    "revision": "",
+    "revision": "2",
     "authority": "Engineering drawing package",
     "original": "data/plant/originals/a3754af913db0925a42f0f2fd185ee20aa2e3324c3c83dc1f05cfcf8ddefaddb",
     "groups": [
@@ -5766,7 +5766,7 @@
     "name": "GA & TDS of Stacker Machine.pdf",
     "sha256": "2f0763aa5b92729101569437ed7a0c4ce2d1d4ff648b0b1747baab0a7a81a728",
     "media_type": "application/pdf",
-    "revision": "",
+    "revision": "2",
     "authority": "Engineering drawing package",
     "original": "data/plant/originals/2f0763aa5b92729101569437ed7a0c4ce2d1d4ff648b0b1747baab0a7a81a728",
     "groups": [
@@ -11691,7 +11691,7 @@
     "name": "OPERATION & CONTROL PHILOSOPHY FOR CHP STOCKPILE DS SYSTEM AND SW-PW PUMPING SYSTEM.pdf",
     "sha256": "8915c708d9fd8bb5589162a7a4ddcb4a24cd6afeafea84916f069992b30ed385",
     "media_type": "application/pdf",
-    "revision": "",
+    "revision": "5",
     "authority": "Engineering design/calculation package",
     "original": "data/plant/originals/8915c708d9fd8bb5589162a7a4ddcb4a24cd6afeafea84916f069992b30ed385",
     "groups": [
@@ -12007,7 +12007,7 @@
     "name": "P & ID FOR PLAIN WATER DS SYSTEM FOR STOCKPILE FOR CHP.pdf",
     "sha256": "2c96f806a86e0d9281861f7878879f817bdab55568a4794127a67ea411279292",
     "media_type": "application/pdf",
-    "revision": "",
+    "revision": "2",
     "authority": "Engineering drawing package",
     "original": "data/plant/originals/2c96f806a86e0d9281861f7878879f817bdab55568a4794127a67ea411279292",
     "groups": [
@@ -13455,7 +13455,7 @@
     "name": "Piping Layout for CHP Stockpile DS System.pdf",
     "sha256": "d1958d1aaf1408048e4eaf1c57683d8ea98c89d1594516283448cd12d9409f64",
     "media_type": "application/pdf",
-    "revision": "",
+    "revision": "1",
     "authority": "Engineering drawing package",
     "original": "data/plant/originals/d1958d1aaf1408048e4eaf1c57683d8ea98c89d1594516283448cd12d9409f64",
     "groups": [
