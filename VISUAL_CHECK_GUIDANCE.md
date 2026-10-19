@@ -35,7 +35,7 @@ tool" is never an excuse on its own).
 - **Route B — `tools/visual_sweep.cjs`.** Scripted equivalent of Route A:
   per viewport it captures overview, each tagged equipment with inspector
   open, connections view and operations desk; then one source-open/return
-  journey per tag (first `pe-source` button → evidence modal screenshot →
+  journey per tag (first inspector source button → evidence modal screenshot →
   Escape → inspector retained). Results and console/page errors land in
   `<out>/manifest.json`.
 
@@ -64,8 +64,11 @@ Rules learned the hard way (B17):
   (the next launcher run retires verified orphans).
 - The sweep waits for the `Documented model · v<live>` badge before touching
   anything. If it never flips from v0, the server is on the wrong data dir.
-- Inspector source buttons are `button.pe-source` (explorer cite helper);
-  `button.ps-source` is a different helper used elsewhere. Expand `<details>`
+- Inspector source buttons are matched by `data-action="fact-source"` inside
+  the inspector (`.ps-inspector button[data-action="fact-source"]`). The
+  cosmetic class has been renamed over time (`pe-source` in the explorer cite
+  helper, `ps-source` / `ps-source-chip` in the scene inspector), so the sweep
+  locator must not depend on it. Expand `<details>`
   with real summary clicks only — setting `.open` via evaluate wedges the page.
 - Viewport screenshots for modals (centered, fast); full-page for scenes.
 
@@ -111,7 +114,7 @@ use Route A when a browser tool exists, Route B otherwise; this sweep is the too
 | `ERR_CONNECTION_REFUSED` at sweep start | Server reaped between runs | Start the server and sweep back-to-back in the same run; verify the 8765 listener first |
 | Model badge flips but search finds nothing | Interaction raced the async `/api/state` load | `waitForModel` gate in the script; do not remove it |
 | Script wedges expanding inspector sections | `.open` set via evaluate | Expand with real summary clicks only (baked into the script) |
-| Source-button locator finds nothing | Wrong class: scene uses `ps-source`, inspector uses `pe-source` | Locator in the script targets `button.pe-source`; keep it so |
+| Source-button locator finds nothing | Wrong class: the source button's cosmetic class has been renamed (`pe-source`, `ps-source`, `ps-source-chip`) | The sweep locator matches `data-action="fact-source"` inside `.ps-inspector` and stays class-agnostic; keep it so |
 | Full-page scene shots take minutes | Huge SVG DOM on assembly scenes | Expected; viewport shots are used for modals |
 
 ## Worked example (B17, v664)

@@ -186,7 +186,11 @@ async function runSourceJourneys(browser) {
         await summary.waitFor({ state: 'visible', timeout: 15000 });
         await summary.click();
         await sleep(500);
-        const link = page.locator('.ps-inspector button.pe-source[data-action="fact-source"]').first();
+        // The inspector's source button is keyed by its data-action; the
+        // cosmetic class has been renamed over time (pe-source in the explorer
+        // panel, ps-source / ps-source-chip in the scene inspector), so match
+        // on the action inside the inspector and stay class-agnostic.
+        const link = page.locator('.ps-inspector button[data-action="fact-source"]').first();
         await link.waitFor({ state: 'visible', timeout: 15000 });
         entry.button = ((await link.textContent()) || '').trim().slice(0, 60);
         await link.click();

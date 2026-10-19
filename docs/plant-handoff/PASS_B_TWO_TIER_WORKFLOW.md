@@ -4,9 +4,10 @@ Status: Pass A 100% breadth-complete, v718, 47/47 batches. Pass B depth work onl
 Passes 1-5 complete live (v789), Passes 6-10 closeout applied live (v882, 2026-10-18,
 including the returned Pass 11 silo-reference restructure) via the single top-model
 package round (§2b): package `output/plant-enrichment/pass06-10-top-model.zip`, applied back with
-`tools/apply_pass06_10_delta.py`. Source of truth: `docs/plant-handoff/FIVE_PHASE_PLAN.md` (Pass B priority),
+`tools/apply_pass06_10_delta.py`. Passes 12-15 applied live on 2026-10-19 (v883-v999).
+Source of truth: `docs/plant-handoff/FIVE_PHASE_PLAN.md` (Pass B priority),
 `docs/plant-handoff/phase-progress.json` (resume pointer),
-`docs/plant-handoff/current/depth-queue.json` (64 items; 62 done, 1 open, 1 evidence_gap as of 2026-10-18).
+`docs/plant-handoff/current/depth-queue.json` (64 items; 62 done, 1 open, 1 evidence_gap as of 2026-10-19).
 This file defines *how* Pass B runs in two tiers. It does not change acceptance rules.
 
 ## 1. Roles
@@ -76,8 +77,35 @@ silo-reference restructure (22 proposals re-hierarchizing plant-wide blending-si
 assembly references), applied in the same delta at the user's direction
 (Option A: apply everything in one pass).
 
-## 3. Handoff package: what local sends, what top returns
+### 2c. Stale entity IDs in a returned delta (Pass 15, 2026-10-19)
 
+A returned delta may reference entity IDs that exist in **no** version of the live
+model — the entity was re-created, or the model was rolled back and re-applied, after
+the delta was authored. `--check` rejects such a proposal with "unknown entity
+reference"; the operation is not silently dropped.
+
+Repair it only when the identity is unambiguous, with
+`tools/remap_delta_entity_ids.py`:
+
+```powershell
+python tools/remap_delta_entity_ids.py <delta.json> <mapping.json> <remapped-delta.json>
+```
+
+The mapping is explicit (`stale_id -> {id, label}`) and the tool refuses to remap
+unless **all** of the following hold:
+
+- the stale ID does not resolve in the live model (it is stale, not merged);
+- the replacement ID resolves in the live model;
+- the replacement's canonical label equals the expected label **exactly**;
+- that label appears verbatim in the affected operation's own `basis`/context text;
+- every mapping entry is actually used by the delta.
+
+The remapped delta and a `.remap.json` report are kept beside the rehearsal. Every
+other entity reference in the delta is left untouched, and the repair is recorded in
+the pass checkpoint. Do not hand-edit a returned delta and do not invent a mapping:
+an unmappable reference is an evidence question, not a rename.
+
+## 3. Handoff package: what local sends, what top returns
 ### 3A. Input zip (local -> top), one per pass
 
 ```
@@ -257,19 +285,34 @@ guarded accept + verification + visual pass. If top struggles on a yard pass
 
 ## Next action
 
-**Passes 6-11 applied live v882 (2026-10-18).** The combined return
-(`output/plant-enrichment/pass06-10-delta/pass06-11-combined-delta.json`,
-93 proposals / 1839 operations) was validated (`--check`, 0 problems), rehearsed
-(`--rehearse`, chain v790-v882 identical) and applied (`--apply`) as directed
-(Option A). Verification passed: `chp.verify` 0 errors
-(266 docs / 5196 evidence / 882 versions), Node 53/53, unittest 76 OK (4 skipped),
-visual sweep 21/21 steps + 5/5 source journeys, 0 console errors — run
-`tools/visual_sweep.cjs` only after polling `/api/state` until 200 on a fresh
-server (cold payload is ~46 MB / ~19 s and races the sweep's `.ps-root` wait).
-Depth queue closed out: 62/64 `done`; DQ-B02-002 parked `evidence_gap`;
-DQ-B46-001 open for local exhaustive per-claim verification; 10 residual
-field/commissioning questions recorded in `depth-queue.json`. Registry:
-3 crop-verified revisions set in `sources.json` (EBA-14 corrected to 23.10.2018;
-the return's suggested 26.11.2018 was the approval-stamp date). Checkpoint:
-`output/plant-enrichment/pass06-11/checkpoint.md`. Next: local DQ-B46-001
-exhaustive verification and any user-directed follow-up round.
+**Passes 12-15 applied live v999 (2026-10-19).** Pass 12 physical parts and wiring
+(v883-v932, 50 proposals / 7612 operations), Pass 13 plantwide discrepancy fixes
+(v933-v940, 8 proposals / 574 operations, re-applied clean from v932), Pass 14
+plantwide audit and completion (v941-v991, 51 proposals / 383 operations) and Pass 15
+plantwide flow topology (v992-v999, 8 proposals / 1926 operations: 1698 `assert` +
+228 `qualify`) were validated (`--check`), rehearsed (`--rehearse`) and accepted
+(`--apply`) with `tools/apply_pass06_10_delta.py`; rehearsal and live chains matched
+in every case, 0 repairs, 0 problems.
+
+Pass 15 also needed the §2c stale-ID repair: two returned references
+(`ent_3a18ea7ae39947879c1e`, `ent_1e7e545350a9400888f4`) existed in no model
+version; both resolved to unique exact-label canonical entities created at v944
+(KF-4 and EAC-5A discharge chutes), applied via
+`tools/remap_delta_entity_ids.py` with a `.remap.json` report.
+
+Verification at v999: `chp.verify` 0 errors (266 docs / 5196 evidence / 999 versions),
+Node 53/53, unittest 76 OK (3 skipped), preservation 0 assertions/entities/aliases/
+merges lost and 0 new retirements, +1698 assertions / +1926 `assertion_contexts`
+(exact op accounting), visual sweep 18/18 steps + 4/4 source journeys, 0 console
+errors — run `tools/visual_sweep.cjs` only after polling `/api/state` until 200 on a
+fresh server (cold payload is ~46 MB / ~19 s and races the sweep's `.ps-root` wait),
+and start the server in the same run as the sweep or it is reaped between them.
+The sweep's source-button locator is class-agnostic
+(`.ps-inspector button[data-action="fact-source"]`); the scene inspector's class was
+renamed `ps-source` -> `ps-source-chip` on 2026-10-18 and a class-pinned locator
+silently fails every source journey.
+
+Depth queue: 62/64 `done`; DQ-B02-002 parked `evidence_gap`; DQ-B46-001 open for
+local exhaustive per-claim verification; 10 residual field/commissioning questions
+recorded in `depth-queue.json`. Checkpoint: `output/plant-enrichment/pass15/checkpoint.md`.
+Next: local DQ-B46-001 exhaustive verification and any user-directed follow-up round.
