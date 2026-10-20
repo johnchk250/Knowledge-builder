@@ -1,8 +1,8 @@
 # Current plant detail inventory
 
-Reviewed 2026-10-19 at model v999 (Passes 1-15 applied; latest checkpoint `output/plant-enrichment/pass15/checkpoint.md`). The per-target counts below remain the 2026-10-12 v670 snapshot, kept for reference; item-level state lives in the [depth queue](depth-queue.json) and `phase-progress.json`.
+Reviewed 2026-10-20 at model v1007 (Passes 1-16 applied; latest checkpoint `output/plant-enrichment/pass16/checkpoint.md`). The per-target counts below remain the 2026-10-12 v670 snapshot, kept for reference; item-level state lives in the [depth queue](depth-queue.json) and `phase-progress.json`.
 
-All 47 batches reached their Pass A / Pass B terminal states: 9 batches accepted with qualifications, the rest breadth-complete and depth-closed. Pass B depth queue closed 62/64 (DQ-B02-002 parked `evidence_gap`; DQ-B46-001 local exhaustive verification open). Passes 12-15 are connection/plantwide topology passes: they add documented link facts and re-type existing facts as connections, so per-target record counts are unchanged and the counts here describe records, not physical quantities or engineering completion.
+All 47 batches reached their Pass A / Pass B terminal states: 9 batches accepted with qualifications, the rest breadth-complete and depth-closed. Pass B depth queue closed 62/64 (DQ-B02-002 parked `evidence_gap`; DQ-B46-001 local exhaustive verification open). Passes 12-16 are plantwide connection, audit and visual-inspection passes: they add, retire and re-type documented link facts, so per-target record counts are unchanged and the counts here describe records, not physical quantities or engineering completion.
 
 ## Main conveyors
 
