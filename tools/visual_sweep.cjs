@@ -9,7 +9,7 @@
 //
 // Usage (app must be running on port 8765 with the LIVE workspace):
 //   python -m chp.launcher   (safe orphan handling, correct --data data)
-//   node tools/visual_sweep.cjs --port 8765 --out tmp/visual-checks/B17 [--tags EAC-9,EBA-10] [--no-source-journeys]
+//   node tools/visual_sweep.cjs --port 8765 --out tmp/visual-checks/B17 [--tags EAC-9,EBA-10] [--channel msedge] [--no-source-journeys]
 //
 // Start the server and run the sweep back-to-back in the same run: background
 // servers may be reaped between runs. Never start with --data data/plant —
@@ -50,6 +50,7 @@ const opt = (name, fallback) => {
 const PORT = Number(opt('--port', '8765'));
 const OUT = opt('--out', 'tmp/visual-checks/sweep');
 const TAGS = opt('--tags', 'EAC-9,EBA-10').split(',').map(s => s.trim()).filter(Boolean);
+const CHANNEL = opt('--channel', process.platform === 'win32' ? 'msedge' : '');
 const WITH_SOURCE = !args.includes('--no-source-journeys');
 const BASE = `http://127.0.0.1:${PORT}`;
 
@@ -127,7 +128,11 @@ async function runViewport(browser, vp) {
   try {
     const conn = page.getByRole('link', { name: /View connections/ }).first();
     if (await conn.count()) {
-      await conn.click();
+      // The scene pans when a hotspot is selected, and the link can keep
+      // moving during Playwright's actionability check. It is a plain in-app
+      // anchor, so dispatch its native click and wait for the route change.
+      await conn.evaluate(el => el.click());
+      await page.waitForURL(/scene=connections/, { timeout: 15000 });
       await sleep(800);
       results.push({ step: 'connections', ...(await shot(page, path.join(dir, `${String(n++).padStart(2, '0')}-connections.png`), errors)) });
     } else {
@@ -172,6 +177,7 @@ async function runSourceJourneys(browser) {
       try {
         await page.goto(`${BASE}/#overview`, { waitUntil: 'domcontentloaded' });
         await page.waitForSelector('.ps-root', { timeout: 30000 });
+        await waitForModel(page);
         await page.fill('#ps-search', tag);
         await page.waitForSelector('#ps-search-results:not([hidden])', { timeout: 15000 });
         await page.locator('#ps-search-results a').first().click();
@@ -197,7 +203,11 @@ async function runSourceJourneys(browser) {
         await sleep(1200);
         entry.file = path.join(dir, `${tag}-source.png`);
         await page.screenshot({ path: entry.file });
-        await page.keyboard.press('Escape');
+        // Close the native source dialog through its explicit close control.
+        // Escape also reaches the scene's inspector-dismiss handler in some
+        // Chromium builds, which makes this return check nondeterministic.
+        await page.locator('#close-dialog').click();
+        await page.waitForFunction(() => !document.querySelector('#dialog')?.open, undefined, { timeout: 5000 });
         await sleep(400);
         entry.returned = ((await page.locator('.ps-inspector h2').first().textContent().catch(() => '(gone)')) || '').trim();
         if (!entry.returned || entry.returned === '(gone)') entry.error = 'Inspector not retained after Escape';
@@ -218,8 +228,10 @@ async function runSourceJourneys(browser) {
 
 (async () => {
   fs.mkdirSync(OUT, { recursive: true });
-  const browser = await playwright.chromium.launch().catch(e => {
-    console.error('Could not launch Chromium. Did you run `npx playwright install chromium`?\n' + String(e).slice(0, 400));
+  const launchOptions = { headless: true };
+  if (CHANNEL) launchOptions.channel = CHANNEL;
+  const browser = await playwright.chromium.launch(launchOptions).catch(e => {
+    console.error(`Could not launch browser (${CHANNEL || 'Chromium'}).\n` + String(e).slice(0, 400));
     process.exit(3);
   });
   const manifest = { base: BASE, tags: TAGS, at: new Date().toISOString(), viewports: [], sourceJourneys: [] };

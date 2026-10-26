@@ -135,3 +135,124 @@ test('yard overview scopes the flow to its assembly while keeping shared service
   assert.deepEqual(p.assemblyBoundary('yard').map(a=>a.canonical_subject),['pump']);
   assert.equal(p.assembly('yard').some(x=>x.id==='pump'),false);
 });
+
+test('smart search normalizes hyphens, enforces numeric token boundaries, expands synonyms and ranks primary equipment first',()=>{
+  const es=[
+    entity('c5','EAC-5A'),
+    entity('c15','EBA-15A'),
+    entity('part','EAC-5A Bend pulley'),
+    entity('ref','EAC-5A Power and Belt-Tension Calculation'),
+    entity('samp','UEF-3 Coal Sampling System'),
+    entity('sul2','Coal Ship Unloader-2'),
+    entity('stk1','EAD-1'),
+    entity('bk1c','Bunker-C of Unit-1')
+  ];
+  const fs=[
+    fact('c5','instance_of',null,{value:'belt_conveyor'}),
+    fact('c15','instance_of',null,{value:'belt_conveyor'}),
+    fact('part','part_of','c5'),
+    fact('ref','instance_of',null,{value:'calculation'}),
+    fact('samp','instance_of',null,{value:'sampling_system'}),
+    fact('sul2','instance_of',null,{value:'ship_unloader'}),
+    fact('stk1','instance_of',null,{value:'stacker_machine'}),
+    fact('bk1c','instance_of',null,{value:'coal_bunker'})
+  ];
+  const p=PE.build(model(es,fs),{at:now});
+  assert.equal(PE.searchEntities(p,'eac5a')[0].id,'c5');
+  const fiveA=PE.searchEntities(p,'5A conveyor').map(e=>e.id);
+  assert.ok(fiveA.includes('c5'));
+  assert.ok(!fiveA.includes('c15'));
+  assert.equal(PE.searchEntities(p,'coal sampler')[0].id,'samp');
+  assert.equal(PE.searchEntities(p,'ship unloader 2')[0].id,'sul2');
+  assert.equal(PE.searchEntities(p,'stacker 1')[0].id,'stk1');
+  assert.equal(PE.searchEntities(p,'bunker 3c')[0].id,'bk1c');
+});
+
+test('equipment flow builds start permissives checklist and triages qualification severity',()=>{
+  const es=[entity('c1','EAC-1A')];
+  const fs=[
+    fact('c1','instance_of',null,{value:'belt_conveyor'}),
+    fact('c1','start_permissive',null,{value:'Downstream conveyor running and zero-speed switch healthy'}),
+    fact('c1','trip_condition',null,{value:'Pull-cord switch or belt-sway switch stage-2 actuated'}),
+    fact('c1','source_discrepancy',null,{value:'Weight listed as 120 kg on GA vs 125 kg on schedule'}),
+    fact('c1','source_discrepancy',null,{value:'Motor voltage 6.6 kV vs 415 V in feeder schedule'})
+  ];
+  const p=PE.build(model(es,fs),{at:now});
+  const flow=PE.buildEquipmentFlow(p,'c1');
+  assert.equal(flow.permissivesChecklist.length,2);
+  assert.equal(flow.permissivesChecklist[0].kind,'permissive');
+  assert.equal(flow.permissivesChecklist[1].kind,'trip');
+  assert.equal(flow.qualifications.length,2);
+  assert.equal(flow.qualifications[0].severity,'high');
+  assert.equal(flow.qualifications[1].severity,'low');
+});
+
+test('plant-wide aliases map TP/UEF, PSH/UEE-1, CBSH/UEE-2, CRH/UEE-3, BCN/EAC/EBA, DH/TPH/UAX and include located systems',()=>{
+  const es=[
+    entity('uef5','UEF-5'),
+    entity('fg3','FG-3'),
+    entity('uee1','UEE-1'),
+    entity('ebd1','EBD-1'),
+    entity('uee2','Coal Blending Silo House',{aliases:['Coal Blending Silo House','UEE-2','CBSH']}),
+    entity('ebb1','EBB-1'),
+    entity('re1','EBE-CES-1'),
+    entity('uee3','UEE-3'),
+    entity('ebc1','EBC-1'),
+    entity('c1a','EAC-1A'),
+    entity('c18a','EBA-18A'),
+    entity('uax1','UAX-1'),
+    entity('uax5','UAX-5')
+  ];
+  const fs=[
+    fact('uef5','instance_of',null,{value:'transfer_point'}),
+    fact('fg3','instance_of',null,{value:'diverter_gate'}),
+    fact('fg3','located_at','uef5'),
+    fact('uee1','instance_of',null,{value:'primary_screening_house'}),
+    fact('ebd1','instance_of',null,{value:'vibrating_screen'}),
+    fact('ebd1','part_of','uee1'),
+    fact('uee2','instance_of',null,{value:'coal_blending_silo_house'}),
+    fact('ebb1','instance_of',null,{value:'coal_silo'}),
+    fact('ebb1','part_of','uee2'),
+    fact('re1','instance_of',null,{value:'silo_extractor'}),
+    fact('re1','part_of','uee2'),
+    fact('uee3','instance_of',null,{value:'crusher_house'}),
+    fact('ebc1','instance_of',null,{value:'ring_granulator'}),
+    fact('ebc1','part_of','uee3'),
+    fact('c1a','instance_of',null,{value:'belt_conveyor'}),
+    fact('c18a','instance_of',null,{value:'belt_conveyor'}),
+    fact('uax1','instance_of',null,{value:'plant_building'}),
+    fact('uax5','instance_of',null,{value:'plant_building'})
+  ];
+  const p=PE.build(model(es,fs),{at:now});
+
+  for(const q of ['TP 5','TP5','TP-5','TH-5','transfer point 5']){
+    const res=PE.searchEntities(p,q).map(e=>e.id);
+    assert.equal(res[0],'uef5',q+' top match should be uef5');
+    assert.ok(res.includes('fg3'),q+' should also surface located gate fg3');
+  }
+  for(const q of ['PSH','Primary Screening House','UEE 1','UEE-1']){
+    const res=PE.searchEntities(p,q).map(e=>e.id);
+    assert.equal(res[0],'uee1',q+' top match should be uee1');
+    assert.ok(res.includes('ebd1'),q+' should also surface screen ebd1');
+  }
+  for(const q of ['CBSH','Coal Blending Silo House','Silo House','UEE 2','UEE-2']){
+    const res=PE.searchEntities(p,q).map(e=>e.id);
+    assert.equal(res[0],'uee2',q+' top match should be uee2');
+    assert.ok(res.includes('ebb1'),q+' should also surface silo ebb1');
+  }
+  for(const q of ['CRH','Crusher House','UEE 3','UEE-3']){
+    const res=PE.searchEntities(p,q).map(e=>e.id);
+    assert.equal(res[0],'uee3',q+' top match should be uee3');
+    assert.ok(res.includes('ebc1'),q+' should also surface crusher ebc1');
+  }
+  for(const q of ['BCN-18A','BCN 18A','BC 18A','EAC-18A','EAC 18A','conveyor 18a','belt 18a']){
+    assert.equal(PE.searchEntities(p,q)[0]?.id,'c18a',q);
+  }
+  for(const q of ['BCN','EAC','belt','conveyor']){
+    const res=PE.searchEntities(p,q).map(e=>e.id);
+    assert.ok(res.includes('c1a')&&res.includes('c18a'),q);
+  }
+  assert.equal(PE.searchEntities(p,'DH-1')[0]?.id,'uax1');
+  assert.equal(PE.searchEntities(p,'TPH-1')[0]?.id,'uax5');
+  assert.equal(PE.searchEntities(p,'RE-1')[0]?.id,'re1');
+});

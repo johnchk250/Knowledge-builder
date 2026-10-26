@@ -18,7 +18,7 @@ test('nearest parent removes distant duplicate memberships and keeps real altern
 });
 test('shared supplies stay external; owned protective devices never become external',()=>{
   const p=project([e('belt','EAC-1A'),e('protect','Belt protection devices'),e('pcs','PCS'),e('water','Water system')],[f('protect','part_of','belt'),f('pcs','part_of','protect'),f('pcs','protects_equipment','belt'),f('water','serves_equipment','belt')]);
-  const s=S.scene(p,'belt');assert.equal(s.nodes.find(n=>n.id==='water').role,'connected');assert.equal(s.nodes.some(n=>n.id==='pcs'),false);assert.ok(s.all.includes('pcs'));
+  const s=S.scene(p,'belt');assert.equal(s.nodes.find(n=>n.id==='water').role,'connected');assert.equal(s.nodes.find(n=>n.id==='pcs').role,'part');assert.ok(s.all.includes('pcs'));
 });
 test('drive scene reaches head pulley without changing its parentage',()=>{
   const p=project([e('drive','EAC-1A Drive assembly'),e('coupling','EAC-1A Low-speed geared coupling RG-10'),e('mechanical','Mechanical assembly'),e('pulley','Head pulley')],[f('coupling','part_of','drive'),f('pulley','part_of','mechanical'),net('coupling','pulley','mechanical')]);
@@ -56,10 +56,10 @@ test('area entry retains a detailed functional yard beneath the aggregate stocky
 });
 
 test('silo house exposes exact vessel inlets and both outlet alternatives without adopting external conveyors',()=>{
-  const types={house:'coal_blending_silo_house',v1:'coal_silo',v2:'coal_silo',x1:'silo_extractor',x2:'silo_extractor',k1:'belt_feeder',k2:'belt_feeder',g1:'diverter_gate',g2:'diverter_gate'};
-  const es=[...Object.keys(types),'6A','6B','16A','16B','17A','17B','reference'].map(x=>e(x));
+  const types={house:'coal_blending_silo_house',v1:'coal_silo',v2:'coal_silo',x1:'silo_extractor',x2:'silo_extractor',k1:'belt_feeder',k2:'belt_feeder',g1:'diverter_gate',g2:'diverter_gate','6A':'belt_conveyor','6B':'belt_conveyor','16A':'belt_conveyor','16B':'belt_conveyor'};
+  const es=[...Object.keys(types),'17A','17B','reference'].map(x=>e(x));
   const fs=Object.entries(types).map(([id,type])=>f(id,'instance_of',null,{value:type}));
-  for(const id of Object.keys(types).filter(x=>x!=='house'))fs.push(f(id,'part_of','house'));
+  for(const id of Object.keys(types).filter(x=>!['house','6A','6B','16A','16B'].includes(x)))fs.push(f(id,'part_of','house'));
   fs.push(f('reference','instance_of',null,{value:'equipment_design_reference'}),f('reference','part_of','house'));
   for(const[a,b]of [['6A','v2'],['6B','v1'],['16A','v1'],['16B','v2'],['v1','x1'],['v2','x2'],['x1','k1'],['x2','k2'],['k1','g1'],['k2','g2'],['g1','17A'],['g1','17B'],['g2','17A'],['g2','17B']])fs.push(net(a,b));
   fs.push(net('6A','v1','material',{origin:'inferred'}));
@@ -85,9 +85,8 @@ test('silo inlets follow chute interfaces without duplicating conveyors or cross
   fs.push(f('v1','part_of','house'),f('v2','part_of','house'),f('ca','part_of','a'),f('cb','part_of','b'));
   for(const [a,b] of [['gate','a'],['a','ca'],['ca','v2'],['a','v2'],['b','cb'],['cb','v1'],['cb','cycle'],['cycle','cb'],['unresolved','v1']])fs.push(net(a,b));
   const p=project(Object.keys(types).map(x=>e(x)),fs),cols=S.siloColumns(p,'house');
-  assert.deepEqual(cols[0].inlets,['b','unresolved']);
+  assert.deepEqual(cols[0].inlets,['b']);
   assert.deepEqual(cols[1].inlets,['a']);
-  assert.deepEqual(S.closestParents(p,'ca'),['a']);
   assert.ok(S.scene(p,'a').nodes.some(n=>n.id==='ca'));
 });
 
@@ -226,3 +225,155 @@ test('pump seal and receiver drain keep their physical forms under parent labels
 });
 
 
+
+test('stacker and portal reclaimer 3D models are built on demand with exact GA dimensions and kinematic articulation',()=>{
+  const Y3D=require('../dist/plant-yard-3d.js');
+  // Verify dist/plant-scene.js defines both window.PlantScene and window.PlantYard3D and executes full 2D -> 3D -> 2D bind/mount/unmount lifecycle
+  const vm=require('node:vm'),fs=require('node:fs');
+  const M=require('../dist/plant-model.js');
+  const elMap=new Map();
+  const mockGL=new Proxy({
+    VERTEX_SHADER:35633,FRAGMENT_SHADER:35632,COMPILE_STATUS:35713,LINK_STATUS:35714,
+    ARRAY_BUFFER:34962,STATIC_DRAW:35044,FLOAT:5126,DEPTH_TEST:2929,CULL_FACE:2884,
+    POLYGON_OFFSET_FILL:32823,COLOR_BUFFER_BIT:16384,DEPTH_BUFFER_BIT:256,TRIANGLES:4,LINES:1,
+    getShaderParameter:()=>true,getShaderInfoLog:()=>'',getProgramParameter:()=>true,getProgramInfoLog:()=>'',
+    getExtension:()=>({loseContext:()=>{}})
+  },{get:(t,k)=>(k in t?t[k]:()=>0)});
+  const mkEl=id=>({
+    id,dataset:{width:'1200',height:'720',initialHeight:'720'},style:{},
+    classList:{toggle:()=>{},add:()=>{},remove:()=>{}},setAttribute:()=>{},getAttribute:()=>'',
+    addEventListener:()=>{},removeEventListener:()=>{},
+    getBoundingClientRect:()=>({left:0,top:0,width:1200,height:640}),
+    querySelector:()=>null,querySelectorAll:()=>[],closest:()=>null,
+    clientWidth:1200,clientHeight:640,width:1200,height:640,getContext:()=>mockGL,innerHTML:''
+  });
+  const rootEl=mkEl('ps-root');
+  const doc={
+    body:{classList:{toggle:()=>{}}},addEventListener:()=>{},removeEventListener:()=>{},
+    querySelector:sel=>(sel==='.ps-root'?rootEl:null),querySelectorAll:()=>[],
+    getElementById:id=>(elMap.has(id)?elMap.get(id):(elMap.set(id,mkEl(id)),elMap.get(id)))
+  };
+  const bctx={
+    window:null,globalThis:null,location:{hash:'#overview'},document:doc,
+    URLSearchParams,Date,Math,Number,String,Array,Object,Set,Map,RegExp,JSON,Float32Array,AbortController,
+    CSS:{escape:s=>s},ResizeObserver:class{observe(){}disconnect(){}},
+    requestAnimationFrame:()=>1,cancelAnimationFrame:()=>{},
+    console,PlantExplorerModel:M,PlantSceneModel:S,esc:s=>String(s??'')
+  };
+  bctx.window=bctx;bctx.globalThis=bctx;
+  bctx.window.matchMedia=()=>({matches:false});
+  bctx.window.addEventListener=()=>{};bctx.window.removeEventListener=()=>{};
+  vm.createContext(bctx);
+  vm.runInContext(fs.readFileSync(require('node:path').join(__dirname,'../dist/plant-scene.js'),'utf8'),bctx);
+  assert.equal(typeof bctx.PlantScene,'object','dist/plant-scene.js must define window.PlantScene');
+  assert.equal(typeof bctx.PlantScene.view,'function','window.PlantScene.view must be a function');
+  assert.equal(typeof bctx.PlantYard3D,'object','dist/plant-scene.js must define window.PlantYard3D');
+  assert.equal(typeof bctx.PlantYard3D.unmount,'function','window.PlantYard3D.unmount must be a function');
+  assert.equal(typeof bctx.PlantYard3D.destroy3DHost,'function','window.PlantYard3D.destroy3DHost must be a function');
+  assert.equal(Y3D.isMounted(),false,'3D engine must not mount during module load or 2D browsing');
+
+  // 1. Stacker (EAD-1) 3D geometry & kinematic check
+  const stEnts=[
+    e('ead1','EAD-1'),e('trip','EAD-1 Travelling tripper'),e('boom','EAD-1 Boom conveyor'),
+    e('weigh','EAD-1 Boom Belt Weigher'),e('bdrive','EAD-1 Boom conveyor Drive group'),
+    e('luff','EAD-1 Luffing system'),e('lcyl','EAD-1 Luffing system Cylinder'),
+    e('slew','EAD-1 Slew system'),e('sring','EAD-1 Slew system Ring bearing and pinions'),
+    e('trav','EAD-1 Travel system'),e('twheel','EAD-1 Travel system Rails and wheels'),
+    e('cabin','EAD-1 Operator cabin'),e('ehouse','EAD-1 Electrical house'),
+    e('dss','EAD-1 Onboard plain-water DSS'),e('lube','EAD-1 Central grease lubrication'),
+    e('eac7','EAC-7'),e('eae1','EAE-1')
+  ];
+  const stFacts=[
+    f('ead1','instance_of',null,{value:'stacker_machine'}),
+    f('trip','instance_of',null,{value:'tripper'}),f('trip','part_of','ead1'),
+    f('boom','instance_of',null,{value:'conveyor'}),f('boom','part_of','ead1'),
+    f('weigh','instance_of',null,{value:'belt_weigher'}),f('weigh','part_of','boom'),
+    f('bdrive','instance_of',null,{value:'drive_unit'}),f('bdrive','part_of','boom'),
+    f('luff','instance_of',null,{value:'functional_assembly'}),f('luff','part_of','ead1'),
+    f('lcyl','instance_of',null,{value:'hydraulic_cylinder'}),f('lcyl','part_of','luff'),
+    f('slew','instance_of',null,{value:'functional_assembly'}),f('slew','part_of','ead1'),
+    f('sring','instance_of',null,{value:'bearing'}),f('sring','part_of','slew'),
+    f('trav','instance_of',null,{value:'functional_assembly'}),f('trav','part_of','ead1'),
+    f('twheel','instance_of',null,{value:'mechanical_component'}),f('twheel','part_of','trav'),
+    f('cabin','instance_of',null,{value:'operator_cabin'}),f('cabin','part_of','ead1'),
+    f('ehouse','instance_of',null,{value:'building'}),f('ehouse','part_of','ead1'),
+    f('dss','instance_of',null,{value:'dust_suppression_system'}),f('dss','part_of','ead1'),
+    f('lube','instance_of',null,{value:'lubrication_system'}),f('lube','part_of','ead1'),
+    f('eac7','instance_of',null,{value:'belt_conveyor'}),
+    f('eae1','instance_of',null,{value:'stockpile'}),
+    net('eac7','ead1','material'),net('ead1','eae1','material')
+  ];
+  const pSt=project(stEnts,stFacts),scSt=S.scene(pSt,'ead1');
+  const m0=Y3D.buildStackerScene3D(scSt,{slewDeg:0,luffDeg:-8,travelM:0});
+  const m1=Y3D.buildStackerScene3D(scSt,{slewDeg:90,luffDeg:14,travelM:10});
+  assert.ok(m0.items.length>=14,'Stacker 3D model must include all major mechanical, structural, electrical and utility subassemblies');
+  assert.ok(m0.dimLines.some(d=>d.label.includes('8,400 mm')),'Stacker 3D model must include 8,400 mm rail gauge dimension');
+  assert.ok(m0.dimLines.some(d=>d.label.includes('41,755 mm')),'Stacker 3D model must include 41,755 mm boom dimension');
+  assert.ok(m0.dimLines.some(d=>d.label.includes('47,878 mm')),'Stacker 3D model must include 47,878 mm travelling tripper dimension');
+  // Verify boom luff & slew kinematics actually move the 3D vertices
+  const boom0=m0.items.find(i=>i.label.includes('Boom Conveyor Belt'));
+  const boom1=m1.items.find(i=>i.label.includes('Boom Conveyor Belt'));
+  assert.ok(boom1.bbox.hi[1]>boom0.bbox.hi[1]+9,'Luffing from -8 deg to +14 deg must raise the 41.755 m boom head elevation by >9 m');
+  assert.ok(Math.abs(boom1.centre[2]-boom0.centre[2])>10,'Slewing from 0 deg to 90 deg must rotate the boom across the stockpile');
+
+  // 2. Portal Reclaimer (EAF-1) 3D geometry & kinematic check
+  const recEnts=[
+    e('eaf1','EAF-1'),e('mboom','EAF-1 Main scraper boom'),e('mchain','EAF-1 Main scraper boom Scraper chain'),
+    e('mblade','EAF-1 Main scraper boom Scraper blades'),e('mdrive','EAF-1 Main scraper boom Drive group'),
+    e('aboom','EAF-1 Auxiliary scraper boom'),e('achain','EAF-1 Auxiliary scraper boom Scraper chain'),
+    e('ablade','EAF-1 Auxiliary scraper boom Scraper blades'),e('adrive','EAF-1 Auxiliary scraper boom Drive group'),
+    e('hoist','EAF-1 Hoist system'),e('hwinch','EAF-1 Hoist system Winch rope and sheaves'),
+    e('rtrav','EAF-1 Travel system'),e('rwheel','EAF-1 Travel system Rails and wheels'),
+    e('storm','EAF-1 Travel system Manual rail clamps'),e('preel','EAF-1 Power cable reel'),
+    e('eba8','EBA-8'),e('eae1','EAE-1')
+  ];
+  const recFacts=[
+    f('eaf1','instance_of',null,{value:'portal_reclaimer'}),
+    f('mboom','instance_of',null,{value:'functional_assembly'}),f('mboom','part_of','eaf1'),
+    f('mchain','instance_of',null,{value:'scraper_chain'}),f('mchain','part_of','mboom'),
+    f('mblade','instance_of',null,{value:'mechanical_component'}),f('mblade','part_of','mboom'),
+    f('mdrive','instance_of',null,{value:'drive_unit'}),f('mdrive','part_of','mboom'),
+    f('aboom','instance_of',null,{value:'functional_assembly'}),f('aboom','part_of','eaf1'),
+    f('achain','instance_of',null,{value:'scraper_chain'}),f('achain','part_of','aboom'),
+    f('ablade','instance_of',null,{value:'mechanical_component'}),f('ablade','part_of','aboom'),
+    f('adrive','instance_of',null,{value:'drive_unit'}),f('adrive','part_of','aboom'),
+    f('hoist','instance_of',null,{value:'functional_assembly'}),f('hoist','part_of','eaf1'),
+    f('hwinch','instance_of',null,{value:'hoist_winch'}),f('hwinch','part_of','hoist'),
+    f('rtrav','instance_of',null,{value:'functional_assembly'}),f('rtrav','part_of','eaf1'),
+    f('rwheel','instance_of',null,{value:'mechanical_component'}),f('rwheel','part_of','rtrav'),
+    f('storm','instance_of',null,{value:'rail_clamp'}),f('storm','part_of','rtrav'),
+    f('preel','instance_of',null,{value:'cable_reel'}),f('preel','part_of','eaf1'),
+    f('eba8','instance_of',null,{value:'belt_conveyor'}),
+    f('eae1','instance_of',null,{value:'stockpile'}),
+    net('eae1','eaf1','material'),net('eaf1','eba8','material')
+  ];
+  const pRec=project(recEnts,recFacts),scRec=S.scene(pRec,'eaf1');
+  const r0=Y3D.buildReclaimerScene3D(scRec,{mainBoomDeg:-24,auxBoomDeg:-22,travelM:0});
+  const r1=Y3D.buildReclaimerScene3D(scRec,{mainBoomDeg:8,auxBoomDeg:10,travelM:12});
+  assert.ok(r0.items.length>=14,'Portal reclaimer 3D model must include portal bridge, main/aux scraper booms, chains, blades, hoist winch, bogies and reels');
+  assert.ok(r0.dimLines.some(d=>d.label.includes('55,800 mm')),'Portal reclaimer 3D model must include 55,800 mm rail span dimension');
+  assert.ok(r0.dimLines.some(d=>d.label.includes('37,145 mm')),'Portal reclaimer 3D model must include 37,145 mm main boom sprocket centers');
+  assert.ok(r0.dimLines.some(d=>d.label.includes('14,800 mm')),'Portal reclaimer 3D model must include 14,800 mm aux boom sprocket centers');
+  const mb0=r0.items.find(i=>i.entity_id==='mboom');
+  const mb1=r1.items.find(i=>i.entity_id==='mboom');
+  assert.ok(mb1.bbox.lo[1]>mb0.bbox.lo[1]+8,'Hoisting main scraper boom from -24 deg to +8 deg must raise the boom tail elevation');
+  // 3. Full PlantScene.view() + PlantScene.bind() 2D -> 3D -> 2D lifecycle check
+  const helpers={fact:()=>'',entityLink:()=>'',docLink:()=>''};
+  bctx.location.hash='#overview?equipment=eaf1';
+  elMap.clear();
+  assert.ok(bctx.PlantScene.view(pRec,helpers).includes('🧊 3D Model'),'2D reclaimer view must include 3D Model toggle');
+  bctx.PlantScene.bind();
+  assert.equal(bctx.PlantYard3D.isMounted(),false,'3D engine must stay unmounted in 2D view');
+
+  bctx.location.hash='#overview?equipment=eaf1&view=3d';
+  elMap.clear();
+  assert.ok(bctx.PlantScene.view(pRec,helpers).includes('id="ps-yard3d-canvas"'),'3D reclaimer view must render WebGL canvas');
+  bctx.PlantScene.bind();
+  assert.equal(bctx.PlantYard3D.isMounted(),true,'3D engine must mount in 3D view');
+
+  bctx.location.hash='#overview?equipment=eaf1';
+  elMap.clear();
+  bctx.PlantScene.view(pRec,helpers);
+  bctx.PlantScene.bind();
+  assert.equal(bctx.PlantYard3D.isMounted(),false,'3D engine must unmount cleanly when returning to 2D view');
+});

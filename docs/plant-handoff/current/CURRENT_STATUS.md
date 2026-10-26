@@ -1,43 +1,43 @@
 # Current plant detail inventory
 
-Reviewed 2026-10-20 at model v1007 (Passes 1-16 applied; latest checkpoint `output/plant-enrichment/pass16/checkpoint.md`). The per-target counts below remain the 2026-10-12 v670 snapshot, kept for reference; item-level state lives in the [depth queue](depth-queue.json) and `phase-progress.json`.
+Reviewed 2026-10-24 against live model v1114. Read-only SQLite integrity check passed; foreign-key check returned 0 rows. All 179 targets and 47 batches reconciled. Counts describe records, not physical quantities or engineering completion.
 
-All 47 batches reached their Pass A / Pass B terminal states: 9 batches accepted with qualifications, the rest breadth-complete and depth-closed. Pass B depth queue closed 62/64 (DQ-B02-002 parked `evidence_gap`; DQ-B46-001 local exhaustive verification open). Passes 12-16 are plantwide connection, audit and visual-inspection passes: they add, retire and re-type documented link facts, so per-target record counts are unchanged and the counts here describe records, not physical quantities or engineering completion.
+9 batches accepted with qualifications; 38 further batches breadth-complete; 0 remain in Pass A. Phase 1: 6/6 batches. Finer work stays in [the depth queue](depth-queue.json).
 
 ## Main conveyors
 
 | Conveyor | Owned records | Current work disposition | Batch / phase |
 |---|---:|---|---|
-| EAC-1A | 66 | Tier 1 accepted; finer detail in depth queue | B05 / phase-1 |
-| EAC-1B | 66 | Tier 1 accepted; finer detail in depth queue | B05 / phase-1 |
-| EAC-2A | 15 | Tier 1 accepted; finer detail in depth queue | B06 / phase-2 |
-| EAC-2B | 15 | Tier 1 accepted; finer detail in depth queue | B06 / phase-2 |
-| EAC-3A | 14 | Tier 1 accepted; finer detail in depth queue | B10 / phase-2 |
-| EAC-3B | 14 | Tier 1 accepted; finer detail in depth queue | B10 / phase-2 |
-| EAC-4A | 16 | Tier 1 accepted; finer detail in depth queue | B12 / phase-2 |
-| EAC-4B | 16 | Tier 1 accepted; finer detail in depth queue | B12 / phase-2 |
-| EAC-5A | 16 | Tier 1 accepted; finer detail in depth queue | B13 / phase-2 |
-| EAC-5B | 16 | Tier 1 accepted; finer detail in depth queue | B13 / phase-2 |
-| EBA-6A | 20 | Tier 1 accepted; finer detail in depth queue | B14 / phase-2 |
-| EBA-6B | 20 | Tier 1 accepted; finer detail in depth queue | B14 / phase-2 |
-| EAC-7 | 41 | Tier 1 accepted; finer detail in depth queue | B16 / phase-3 |
-| EBA-8 | 42 | Tier 1 accepted; finer detail in depth queue | B16 / phase-3 |
-| EAC-9 | 13 | Tier 1 accepted; finer detail in depth queue | B17 / phase-3 |
-| EBA-10 | 14 | Tier 1 accepted; finer detail in depth queue | B17 / phase-3 |
-| EAC-11 | 1 | remaining batch: inspect existing detail before adding | B20 / phase-3 |
-| EBA-12 | 1 | remaining batch: inspect existing detail before adding | B20 / phase-3 |
-| EAC-13 | 3 | remaining batch: inspect existing detail before adding | B23 / phase-3 |
-| EBA-14 | 1 | remaining batch: inspect existing detail before adding | B23 / phase-3 |
-| EBA-15A | 1 | remaining batch: inspect existing detail before adding | B28 / phase-3 |
-| EBA-15B | 1 | remaining batch: inspect existing detail before adding | B28 / phase-3 |
-| EBA-16A | 1 | remaining batch: inspect existing detail before adding | B29 / phase-3 |
-| EBA-16B | 1 | remaining batch: inspect existing detail before adding | B29 / phase-3 |
-| EBA-17A | 33 | remaining batch: inspect existing detail before adding | B34 / accepted-reuse |
-| EBA-17B | 33 | remaining batch: inspect existing detail before adding | B34 / accepted-reuse |
-| EBA-18A | 126 | accepted batch: reuse and recheck qualifications | B36 / accepted-reuse |
-| EBA-18B | 126 | accepted batch: reuse and recheck qualifications | B36 / accepted-reuse |
-| EBA-19A | 5 | remaining batch: inspect existing detail before adding | B38 / phase-4 |
-| EBA-19B | 5 | remaining batch: inspect existing detail before adding | B38 / phase-4 |
+| EAC-1A | 78 | Tier 1 accepted; finer detail in depth queue | B05 / phase-1 |
+| EAC-1B | 78 | Tier 1 accepted; finer detail in depth queue | B05 / phase-1 |
+| EAC-2A | 74 | Tier 1 accepted; finer detail in depth queue | B06 / phase-2 |
+| EAC-2B | 74 | Tier 1 accepted; finer detail in depth queue | B06 / phase-2 |
+| EAC-3A | 49 | Tier 1 accepted; finer detail in depth queue | B10 / phase-2 |
+| EAC-3B | 49 | Tier 1 accepted; finer detail in depth queue | B10 / phase-2 |
+| EAC-4A | 51 | Tier 1 accepted; finer detail in depth queue | B12 / phase-2 |
+| EAC-4B | 51 | Tier 1 accepted; finer detail in depth queue | B12 / phase-2 |
+| EAC-5A | 52 | Tier 1 accepted; finer detail in depth queue | B13 / phase-2 |
+| EAC-5B | 51 | Tier 1 accepted; finer detail in depth queue | B13 / phase-2 |
+| EBA-6A | 55 | Tier 1 accepted; finer detail in depth queue | B14 / phase-2 |
+| EBA-6B | 55 | Tier 1 accepted; finer detail in depth queue | B14 / phase-2 |
+| EAC-7 | 60 | Tier 1 accepted; finer detail in depth queue | B16 / phase-3 |
+| EBA-8 | 62 | Tier 1 accepted; finer detail in depth queue | B16 / phase-3 |
+| EAC-9 | 49 | Tier 1 accepted; finer detail in depth queue | B17 / phase-3 |
+| EBA-10 | 49 | Tier 1 accepted; finer detail in depth queue | B17 / phase-3 |
+| EAC-11 | 49 | Tier 1 accepted; finer detail in depth queue | B20 / phase-3 |
+| EBA-12 | 49 | Tier 1 accepted; finer detail in depth queue | B20 / phase-3 |
+| EAC-13 | 49 | Tier 1 accepted; finer detail in depth queue | B23 / phase-3 |
+| EBA-14 | 49 | Tier 1 accepted; finer detail in depth queue | B23 / phase-3 |
+| EBA-15A | 60 | Tier 1 accepted; finer detail in depth queue | B28 / phase-3 |
+| EBA-15B | 60 | Tier 1 accepted; finer detail in depth queue | B28 / phase-3 |
+| EBA-16A | 54 | Tier 1 accepted; finer detail in depth queue | B29 / phase-3 |
+| EBA-16B | 54 | Tier 1 accepted; finer detail in depth queue | B29 / phase-3 |
+| EBA-17A | 48 | remaining batch: inspect existing detail before adding | B34 / accepted-reuse |
+| EBA-17B | 48 | remaining batch: inspect existing detail before adding | B34 / accepted-reuse |
+| EBA-18A | 123 | accepted batch: reuse and recheck qualifications | B36 / accepted-reuse |
+| EBA-18B | 123 | accepted batch: reuse and recheck qualifications | B36 / accepted-reuse |
+| EBA-19A | 96 | Tier 1 accepted; finer detail in depth queue | B38 / phase-4 |
+| EBA-19B | 96 | Tier 1 accepted; finer detail in depth queue | B38 / phase-4 |
 
 ## Transfer points
 
@@ -59,7 +59,7 @@ All 47 batches reached their Pass A / Pass B terminal states: 9 batches accepted
 ## Review limits and additional queues
 
 - Accepted-package targets without owned children: TP-16, TP-17, TP-18, UEF-2, CV-5, CV-6, FG-15A, FG-15B. Dispositioned in Pass 10 (v882; utility-boundary and thin-target groups in `accepted-followups.json`).
-- 581 non-reference canonical records are outside the current process-area projection; some are legitimate shared services or design/identity candidates. Every row is recorded in record-review-queue.json for source-based disposition, not automatic placement.
+- 536 non-reference canonical records are outside the current process-area projection; some are legitimate shared services or design/identity candidates. Every row is recorded in record-review-queue.json for source-based disposition, not automatic placement.
 - Current documented electrical-network assertions: 10 at v670; the old v510 statement of zero electrical edges is historical. Plant-wide SLD/feeder closure B43 depth leg closed v882; protection relay settings remain a recorded open question.
 - target-status.json records every target, including reference boundaries and planned yard area identities. No missing target is silently created.
 - Existing pilot source gaps, unwritten source dispositions and unresolved identities remain work even when a root has many assertions.

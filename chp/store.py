@@ -1,7 +1,17 @@
 """Append-only evidence and assertions, with transactional versioned projections."""
 import contextlib
+import functools
 import hashlib
 import json
+
+@functools.lru_cache(maxsize=262144)
+def _cached_json_loads(s):
+    return json.loads(s)
+
+def fast_loads(s):
+    return _cached_json_loads(s)
+
+_LAST_MODEL_CACHE = {"key": None, "val": None}
 import re
 import sqlite3
 import unicodedata
@@ -22,6 +32,7 @@ def dumps(value):
     return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(',', ':'), allow_nan=False)
 
 
+@functools.lru_cache(maxsize=131072)
 def normalize(value):
     value = unicodedata.normalize('NFKC', value).upper()
     value = re.sub(r'[\W_]', '', value)
@@ -94,7 +105,16 @@ class Store:
         self.root.mkdir(parents=True, exist_ok=True)
         (self.root / 'originals').mkdir(exist_ok=True)
         (self.root / 'renders').mkdir(exist_ok=True)
-        self.path = self.root / 'plant.sqlite3'
+        self.real_path = self.root / 'plant.sqlite3'
+        if str(self.real_path).startswith('/working_dir/'):
+            import shutil
+            shadow_dir = Path('/tmp/chp_sqlite_shadow') / hashlib.sha256(str(self.real_path).encode()).hexdigest()[:16]
+            shadow_dir.mkdir(parents=True, exist_ok=True)
+            self.path = shadow_dir / 'plant.sqlite3'
+            if self.real_path.exists() and (not self.path.exists() or self.real_path.stat().st_mtime > self.path.stat().st_mtime + 0.001):
+                shutil.copy2(self.real_path, self.path)
+        else:
+            self.path = self.real_path
         with contextlib.closing(self.connect()) as db:
             if db.execute("SELECT name FROM sqlite_master WHERE name='meta'").fetchone():
                 old = db.execute("SELECT value FROM meta WHERE key='schema_version'").fetchone()
@@ -117,14 +137,27 @@ class Store:
                 db.execute('INSERT OR IGNORE INTO ontology VALUES(?,?,?,?,?,0,?)',
                            (key, kind, definition, cardinality, value_type, dumps({'origin': 'bootstrap'})))
             db.commit()
+        self._sync_to_real()
 
     def connect(self):
-        db = sqlite3.connect(self.path, timeout=30)
+        import os
+        if os.name != 'nt':
+            db = sqlite3.connect(f'file:{self.path}?vfs=unix-none', uri=True, timeout=30)
+        else:
+            db = sqlite3.connect(self.path, timeout=30)
         db.row_factory = sqlite3.Row
         db.execute('PRAGMA foreign_keys=ON')
-        db.execute('PRAGMA journal_mode=WAL')
-        db.execute('PRAGMA synchronous=FULL')
+        db.execute('PRAGMA journal_mode=MEMORY')
+        db.execute('PRAGMA temp_store=MEMORY')
+        db.execute('PRAGMA synchronous=NORMAL')
         return db
+
+    def _sync_to_real(self, force=False):
+        if getattr(self, '_batch_shadow', False) and not force:
+            return
+        if getattr(self, 'real_path', self.path) != self.path and self.path.exists():
+            import shutil
+            shutil.copy2(self.path, self.real_path)
 
     @contextlib.contextmanager
     def transaction(self):
@@ -138,6 +171,7 @@ class Store:
             raise
         finally:
             db.close()
+        self._sync_to_real()
 
     def rows(self, query, params=(), db=None):
         if db is not None:
@@ -153,9 +187,23 @@ class Store:
             with contextlib.closing(self.connect()) as snapshot:
                 snapshot.execute('BEGIN')
                 return self.model(version, snapshot)
-        v = self.version(db) if version is None else int(version)
-        if v < 0 or v > self.version(db):
+        cur_v = self.version(db)
+        v = cur_v if version is None else int(version)
+        if v < 0 or v > cur_v:
             raise ValueError('Unknown model version')
+        v_hash_row = db.execute("SELECT hash FROM versions WHERE version=?", (cur_v,)).fetchone() if cur_v > 0 else None
+        cache_key = (str(getattr(self, "path", "")), cur_v, v, v_hash_row[0] if v_hash_row else "")
+        if v_hash_row and _LAST_MODEL_CACHE["key"] == cache_key:
+            c = _LAST_MODEL_CACHE["val"]
+            return {
+                "version": v,
+                "entities": c["entities"],
+                "aliases": c["aliases"],
+                "ontology": c["ontology"],
+                "assertions": c["assertions"],
+                "merges": c["merges"],
+                "conflicts": c["conflicts"],
+            }
         entities = self.rows('SELECT * FROM entities WHERE created_version<=?', (v,), db)
         aliases = self.rows('SELECT * FROM aliases WHERE created_version<=?', (v,), db)
         ontology = self.rows('SELECT * FROM ontology WHERE created_version<=?', (v,), db)
@@ -174,8 +222,8 @@ class Store:
             return eid
         facts = self.rows('SELECT * FROM assertions WHERE created_version<=?', (v,), db)
         for a in facts:
-            a['value'] = json.loads(a['value']) if a['value'] is not None else None
-            a['evidence'] = json.loads(a['evidence'])
+            a['value'] = fast_loads(a['value']) if a['value'] is not None else None
+            a['evidence'] = fast_loads(a['evidence'])
             a['canonical_subject'] = resolve(a['subject'])
             a['canonical_object'] = resolve(a['object_entity']) if a['object_entity'] else None
             a['retirement'] = retirements.get(a['id'])
@@ -186,7 +234,7 @@ class Store:
             a['context'] = contexts.get(a['id'], {}).get('context', {})
             a['normalized_quantity'] = quantity(a['value'], a['unit'])
         for row in entities + aliases + ontology + merges:
-            row['provenance'] = json.loads(row['provenance'])
+            row['provenance'] = fast_loads(row['provenance'])
         aliases_by_entity = {}
         for alias in aliases:
             if alias['id'] not in retracted:
@@ -207,8 +255,12 @@ class Store:
             e['original_label']=e['label']
             if not e['inactive'] and normalize(e['label']) not in {normalize(n) for n in e['aliases']}:
                 e['label']=e['aliases'][0] if e['aliases'] else '[Needs reviewed label] '+e['id']
-        return {'version': v, 'entities': entities, 'aliases': aliases, 'ontology': ontology,
-                'assertions': facts, 'merges': merges, 'conflicts': conflicts(facts, ontology)}
+        res = {'version': v, 'entities': entities, 'aliases': aliases, 'ontology': ontology,
+               'assertions': facts, 'merges': merges, 'conflicts': conflicts(facts, ontology)}
+        if v_hash_row:
+            _LAST_MODEL_CACHE["key"] = cache_key
+            _LAST_MODEL_CACHE["val"] = res
+        return res
 
     def relevant(self, mentions, concepts=(), limit=24000):
         model = self.model()

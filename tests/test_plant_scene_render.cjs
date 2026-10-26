@@ -97,3 +97,165 @@ test('fixed tripper renders same-belt continuation without a recycle arc and kee
   assert.ok(html.includes('ps-route-inactive'));
  }
 });
+
+test('conveyor scene renders 1D kinematic belt loop strip by default and switches to component matrix when spread=1',()=>{
+  const entities=[
+    ['conv','EAC-1A'],['inlet','Coal Ship Unloader-1'],['outlet','UEF-1'],
+    ['weigh','EAC-1A Belt Weigher'],['motor','EAC-1A Drive Motor'],['cpl','EAC-1A Fluid Coupling'],
+    ['gbx','EAC-1A Gearbox'],['pulley','EAC-1A Head Drive Pulley'],['tail','EAC-1A Tail Pulley'],
+    ['tu','EAC-1A Gravity Take-Up'],['pcs','EAC-1A Pull Cord Switch']
+  ].map(([id,label])=>({id,label,canonical_id:id,aliases:[]}));
+  let n=0;const assertions=[];
+  const add=(s,p,o,value,context={kind:'classification'})=>assertions.push({id:'cv'+(++n),canonical_subject:s,canonical_object:o,predicate:p,value,origin:'explicit',context,evidence:[{evidence_id:'ev'}]});
+  for(const [id,t] of Object.entries({
+    conv:'belt_conveyor',inlet:'ship_unloader',outlet:'transfer_point',
+    weigh:'belt_weigher',motor:'electric_motor',cpl:'fluid_coupling',
+    gbx:'gearbox',pulley:'conveyor_pulley',tail:'conveyor_pulley',
+    tu:'take_up_system',pcs:'pull_cord_switch'
+  }))add(id,'instance_of',null,t);
+  for(const id of ['weigh','motor','cpl','gbx','pulley','tail','tu','pcs'])add(id,'part_of','conv');
+  add('inlet','material_flow_to','conv',null,{kind:'connection',network:'material',verification:'documented'});
+  add('conv','material_flow_to','outlet',null,{kind:'connection',network:'material',verification:'documented'});
+  add('motor','mechanically_drives','cpl',null,{kind:'connection',network:'mechanical',verification:'documented'});
+  add('cpl','mechanically_drives','gbx',null,{kind:'connection',network:'mechanical',verification:'documented'});
+  add('gbx','mechanically_drives','pulley',null,{kind:'connection',network:'mechanical',verification:'documented'});
+
+  const projection=PE.build({version:1007,entities,assertions});
+  const renderHash=hash=>{
+    const ctx=vm.createContext({PlantSceneModel:S,PlantExplorerModel:PE,URLSearchParams,location:{hash},window:{matchMedia:()=>({matches:false})},esc:s=>String(s)});
+    vm.runInContext(fs.readFileSync(require.resolve('../dist/plant-scene.js'),'utf8'),ctx);ctx.projection=projection;
+    return vm.runInContext('PlantScene.view(projection,{})',ctx);
+  };
+  const stripHtml=renderHash('#overview?equipment=conv');
+  assert.ok(stripHtml.includes('1D KINEMATIC CONVEYOR BELT LOOP'));
+  assert.ok(stripHtml.includes('ps-belt-carry'));
+  assert.ok(stripHtml.includes('ps-belt-return'));
+  assert.ok(stripHtml.includes('⇄ 1D Belt Strip'));
+  assert.ok(stripHtml.includes('ps-open-pill'));
+  for(const {label} of entities)assert.ok(stripHtml.includes('aria-label="Inspect '+label+'"'),label);
+
+  const matrixHtml=renderHash('#overview?equipment=conv&spread=1');
+  assert.ok(matrixHtml.includes('CONVEYOR, DRIVE & MECHANICAL LOOP'));
+  for(const {label} of entities)assert.ok(matrixHtml.includes('aria-label="Inspect '+label+'"'),label);
+});
+
+test('multi-floor building scenes render 2.5D isometric elevation decks and floor slicer pills',()=>{
+  const html=render(false);
+  assert.ok(html.includes('ps-iso-deck'));
+  assert.ok(html.includes('ps-floor-slicer'));
+  assert.ok(html.includes('◫ 2.5D Stack'));
+  assert.ok(html.includes('▭ 2D Flat'));
+});
+
+test('plant overview route selection highlights active route stages and arrows and dims non-participating stages',()=>{
+  const entities=[
+    ['p3','CHP Operating Path-3'],['u','Coal Ship Unloader-1'],['sc','UEE-1'],['y','EAE-1'],['r','UEF-8'],['b','UEE-2'],['c','UEE-3'],['bf','UEF-13'],['bk','TT-1']
+  ].map(([id,label])=>({id,label,canonical_id:id,aliases:[]}));
+  let n=0;const assertions=[];
+  const add=(s,p,o,value,context={kind:'classification'})=>assertions.push({id:'rt'+(++n),canonical_subject:s,canonical_object:o,predicate:p,value,origin:'explicit',context,evidence:[{evidence_id:'ev'}]});
+  add('p3','sequence_logic',null,'Reclaiming to silo to bunker');
+  for(const [a,b] of [['u','sc'],['y','r'],['r','b'],['b','c'],['c','bf'],['bf','bk']])add(a,'material_flow_to',b,null,{kind:'connection',network:'material',verification:'documented'});
+  const projection=PE.build({version:1007,entities,assertions});
+  const renderHash=hash=>{
+    const ctx=vm.createContext({PlantSceneModel:S,PlantExplorerModel:PE,URLSearchParams,location:{hash},window:{matchMedia:()=>({matches:false})},esc:s=>String(s)});
+    vm.runInContext(fs.readFileSync(require.resolve('../dist/plant-scene.js'),'utf8'),ctx);ctx.projection=projection;
+    return vm.runInContext('PlantScene.view(projection,{})',ctx);
+  };
+  const wholeHtml=renderHash('#overview');
+  assert.ok(!wholeHtml.includes('ps-active-route-banner'));
+  assert.ok(!wholeHtml.includes('ps-route-stage-active'));
+
+  const path3Html=renderHash('#overview?path=3');
+  assert.ok(path3Html.includes('ps-active-route-banner'));
+  assert.ok(path3Html.includes('Reclaiming to silo to bunker'));
+  assert.ok(path3Html.includes('ps-route-stage-active'));
+  assert.ok(path3Html.includes('ps-route-edge-active'));
+  assert.ok(path3Html.includes('ps-dimmed'));
+});
+
+test('unloading area scene renders full multi-hop flow through UEF-1 and inspector renders checklist, severity badges and quick actions',()=>{
+  const entities=[
+    ['sul1','Coal Ship Unloader-1'],['c1a','EAC-1A'],['uef1','UEF-1'],['c2a','EAC-2A'],
+    ['dc1','EAC-1A discharge chute at UEF-1'],['rc2','EAC-2A receiving chute at UEF-1']
+  ].map(([id,label])=>({id,label,canonical_id:id,category:'equipment',aliases:[]}));
+  let n=0;const assertions=[];
+  const add=(s,p,o,value,context={kind:'classification'})=>assertions.push({id:'ua'+(++n),canonical_subject:s,canonical_object:o,predicate:p,value,origin:'explicit',context,evidence:[{evidence_id:'ev'}]});
+  add('sul1','instance_of',null,'ship_unloader');
+  add('c1a','instance_of',null,'belt_conveyor');
+  add('uef1','instance_of',null,'transfer_point');
+  add('c2a','instance_of',null,'belt_conveyor');
+  add('dc1','instance_of',null,'chute_interface');
+  add('rc2','instance_of',null,'chute_interface');
+  add('dc1','part_of','c1a');add('dc1','located_at','uef1');
+  add('rc2','part_of','c2a');add('rc2','located_at','uef1');
+  add('sul1','material_flow_to','c1a',null,{kind:'connection',network:'material',verification:'documented'});
+  add('c1a','material_flow_to','dc1',null,{kind:'connection',network:'material',verification:'documented'});
+  add('dc1','material_flow_to','rc2',null,{kind:'connection',network:'material',verification:'documented'});
+  add('rc2','material_flow_to','c2a',null,{kind:'connection',network:'material',verification:'documented'});
+  add('c1a','start_permissive',null,'Downstream belt EAC-2A running');
+  add('c1a','source_discrepancy',null,'Motor voltage 6.6 kV vs 415 V');
+
+  const projection=PE.build({version:1007,entities,assertions});
+  const renderHash=hash=>{
+    const ctx=vm.createContext({PlantSceneModel:S,PlantExplorerModel:PE,URLSearchParams,location:{hash},window:{matchMedia:()=>({matches:false})},esc:s=>String(s??''),state:{events:[],evidence_index:[]}});
+    vm.runInContext(fs.readFileSync(require.resolve('../dist/plant-scene.js'),'utf8'),ctx);ctx.projection=projection;
+    return vm.runInContext('PlantScene.view(projection,{fact:a=>`<div>${a.value||a.predicate}</div>`})',ctx);
+  };
+  const areaHtml=renderHash('#overview?area=unloading');
+  assert.ok(areaHtml.includes('Inspect Coal Ship Unloader-1 to EAC-1A connection'));
+  assert.ok(areaHtml.includes('Inspect EAC-1A to EAC-1A discharge chute at UEF-1 connection'));
+  assert.ok(areaHtml.includes('Inspect EAC-2A receiving chute at UEF-1 to EAC-2A connection'));
+
+  const pickHtml=renderHash('#overview?equipment=c1a&pick=c1a');
+  assert.ok(pickHtml.includes('Start Permissives & Trip Interlocks'));
+  assert.ok(pickHtml.includes('data-action="plant-record"'));
+  assert.ok(pickHtml.includes('data-action="scene-trace"'));
+  assert.ok(pickHtml.includes('ps-sev-badge is-high'));
+  assert.ok(pickHtml.includes('Wheel: Zoom 🔍'));
+});
+
+test('sub-component BOM enrichment and bespoke cutaway / P&ID schematics render distinct symbols and layouts for rotor, onboard DSS, and lubrication units',()=>{
+  const raw = JSON.parse(fs.readFileSync('/tmp/raw_state.json','utf8'));
+  const projection = PE.build(raw);
+  const findId = lbl => [...projection.entities.values()].find(e => e.label === lbl)?.id;
+
+  const renderEquip = lbl => {
+    const id = findId(lbl);
+    assert.ok(id, 'Entity found: ' + lbl);
+    const ctx = vm.createContext({
+      PlantSceneModel: S,
+      PlantExplorerModel: PE,
+      URLSearchParams,
+      location: { hash: '#overview?equipment=' + encodeURIComponent(id) + '&pick=' + encodeURIComponent(id) },
+      window: { matchMedia: () => ({ matches: false }) },
+      esc: s => String(s ?? ''),
+      state: { events: [], evidence_index: [] }
+    });
+    vm.runInContext(fs.readFileSync(require.resolve('../dist/plant-scene.js'), 'utf8'), ctx);
+    ctx.projection = projection;
+    return vm.runInContext('PlantScene.view(projection,{fact:a=>`<div>${a.value||a.predicate}</div>`})', ctx);
+  };
+
+  // 1. EBC-1 Rotor assembly longitudinal & radial cutaway schematic
+  const rotorHtml = renderEquip('EBC-1 Rotor assembly');
+  assert.ok(rotorHtml.includes('LONGITUDINAL ROTOR BARREL & Ø1600 MM RADIAL HAMMER SWING CUTAWAY'), 'Rotor cutaway header');
+  assert.ok(rotorHtml.includes('RADIAL CUTAWAY · 592 RPM'), 'Radial cutaway callout');
+  for (const part of ['Rotor shaft', 'End discs', 'Spacing discs', 'Suspension arms', 'Suspension bars', 'Ring hammers', 'Hammer replacement maintenance bar']) {
+    assert.ok(rotorHtml.includes('aria-label="Inspect EBC-1 Rotor assembly ' + part + '"'), 'Rotor part hotspot: ' + part);
+  }
+  assert.ok(rotorHtml.includes('#ps-rotor-shaft') && rotorHtml.includes('#ps-rotor-disc') && rotorHtml.includes('#ps-suspension-bar') && rotorHtml.includes('#ps-ring-hammer'), 'Bespoke rotor symbols');
+
+  // 2. SUL-2 onboard dust-suppression assembly 3-stage P&ID schematic
+  const dssHtml = renderEquip('SUL-2 onboard dust-suppression assembly');
+  assert.ok(dssHtml.includes('ONBOARD WATER-MIST P&ID HYDRAULIC FLOW & NOZZLE MANIFOLD SCHEMATIC'), 'Onboard DSS P&ID header');
+  assert.ok(dssHtml.includes('STAGE 1 · WATER FILL & 10 m³ STORAGE'), 'DSS Stage 1');
+  assert.ok(dssHtml.includes('STAGE 2 · STRAINER & 1W+1S BOOSTER SKID'), 'DSS Stage 2');
+  assert.ok(dssHtml.includes('STAGE 3 · PRESSURIZED SPRAY HEADERS'), 'DSS Stage 3');
+  assert.ok(dssHtml.includes('#ps-hose-reel') && dssHtml.includes('#ps-tank') && dssHtml.includes('#ps-filter') && dssHtml.includes('#ps-pump') && dssHtml.includes('#ps-spray'), 'DSS P&ID symbols');
+
+  // 3. SUL-2 lubrication units Dual-Line & Progressive Lubrication schematic
+  const lubeHtml = renderEquip('SUL-2 lubrication units');
+  assert.ok(lubeHtml.includes('CENTRALIZED DUAL-LINE (LINE A / LINE B) & PROGRESSIVE METERING LUBRICATION SCHEMATIC'), 'Lubrication schematic header');
+  assert.ok(lubeHtml.includes('DUAL-LINE HIGH-PRESSURE GREASE HEADERS (LINE A & LINE B · 400 BAR)'), 'Dual-line rails');
+  assert.ok(lubeHtml.includes('#ps-grease-pump') && lubeHtml.includes('#ps-changeover-valve') && lubeHtml.includes('#ps-distributor-block'), 'Lubrication bespoke symbols');
+});

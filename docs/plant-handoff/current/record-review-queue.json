@@ -27,7 +27,7 @@
     "classes": [
       "portal_reclaimer"
     ],
-    "own_fact_count": 14,
+    "own_fact_count": 17,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -38,7 +38,7 @@
     "classes": [
       "stacker_machine"
     ],
-    "own_fact_count": 12,
+    "own_fact_count": 13,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -49,7 +49,7 @@
     "classes": [
       "stacker_machine"
     ],
-    "own_fact_count": 21,
+    "own_fact_count": 24,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -71,7 +71,7 @@
     "classes": [
       "pulley"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 4,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -82,7 +82,7 @@
     "classes": [
       "metal_detector"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 3,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -104,7 +104,7 @@
     "classes": [
       "ship_unloader"
     ],
-    "own_fact_count": 3,
+    "own_fact_count": 5,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -115,7 +115,7 @@
     "classes": [
       "trolley"
     ],
-    "own_fact_count": 3,
+    "own_fact_count": 4,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -126,7 +126,7 @@
     "classes": [
       "hoist_mechanism"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 8,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -137,7 +137,7 @@
     "classes": [
       "thruster_drum_brake"
     ],
-    "own_fact_count": 1,
+    "own_fact_count": 2,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -148,7 +148,7 @@
     "classes": [
       "pump"
     ],
-    "own_fact_count": 7,
+    "own_fact_count": 8,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -159,18 +159,7 @@
     "classes": [
       "conveyor_belting"
     ],
-    "own_fact_count": 4,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_2d6dbef9bddf4edebf93",
-    "label": "Bunker Sealing Belt System",
-    "classes": [
-      "conveyor_belting"
-    ],
-    "own_fact_count": 4,
+    "own_fact_count": 8,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -181,7 +170,7 @@
     "classes": [
       "dust_suppression_system"
     ],
-    "own_fact_count": 4,
+    "own_fact_count": 5,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -203,7 +192,7 @@
     "classes": [
       "dust_suppression_system"
     ],
-    "own_fact_count": 3,
+    "own_fact_count": 4,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -214,7 +203,7 @@
     "classes": [
       "pump"
     ],
-    "own_fact_count": 4,
+    "own_fact_count": 5,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -225,7 +214,7 @@
     "classes": [
       "dust_suppression_system"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 3,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -245,7 +234,7 @@
     "classes": [
       "runoff_pond"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 9,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -256,16 +245,7 @@
     "classes": [
       "dust_suppression_system"
     ],
-    "own_fact_count": 23,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_6b410ef2047e49e9a739",
-    "label": "Maitree-00-BR-TC-175283-ISG-1",
-    "classes": [],
-    "own_fact_count": 2,
+    "own_fact_count": 24,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -276,7 +256,7 @@
     "classes": [
       "vacuum_cleaning_system"
     ],
-    "own_fact_count": 1,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -287,16 +267,7 @@
     "classes": [
       "skirt_sealing_system"
     ],
-    "own_fact_count": 4,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_e7a3776ef18441fcb511",
-    "label": "EAC 1A/1B Bevel Helical Gearbox B3 450",
-    "classes": [],
-    "own_fact_count": 0,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -305,9 +276,10 @@
     "id": "ent_3886ca61694b40b09fc9",
     "label": "Linear Actuator for Flap Gate (P5 Model B)",
     "classes": [
-      "gate_actuator"
+      "gate_actuator",
+      "electric_actuator"
     ],
-    "own_fact_count": 3,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -318,25 +290,7 @@
     "classes": [
       "fire_detection_system"
     ],
-    "own_fact_count": 3,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_f25bbd1a4bf5455da2a2",
-    "label": "Belt Feeder KF-3 and KF-4",
-    "classes": [],
-    "own_fact_count": 0,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_5e419bba1c704e7294cf",
-    "label": "IS-3-GA-702-111-M078",
-    "classes": [],
-    "own_fact_count": 1,
+    "own_fact_count": 4,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -347,16 +301,7 @@
     "classes": [
       "electric_hoist"
     ],
-    "own_fact_count": 4,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_16f27909418f47c49687",
-    "label": "CHP Conveyor External Belt Scraper",
-    "classes": [],
-    "own_fact_count": 0,
+    "own_fact_count": 5,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -367,7 +312,7 @@
     "classes": [
       "diverter_gate"
     ],
-    "own_fact_count": 1,
+    "own_fact_count": 4,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -378,16 +323,7 @@
     "classes": [
       "belt_cleaner"
     ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_193cf78a68624e3592e9",
-    "label": "GA and Calculations of Manual Hoist and Chain Pulley Block",
-    "classes": [],
-    "own_fact_count": 0,
+    "own_fact_count": 4,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -398,7 +334,7 @@
     "classes": [
       "manual_hoist"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 3,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -407,9 +343,10 @@
     "id": "ent_3e70fa69d121469288d3",
     "label": "Conveyor Head Pulley Primary Pre-Cleaner Scraper",
     "classes": [
-      "belt_cleaner"
+      "belt_cleaner",
+      "pulley"
     ],
-    "own_fact_count": 1,
+    "own_fact_count": 4,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -418,9 +355,10 @@
     "id": "ent_f12ee4abcec540e7a7d6",
     "label": "Flow Divider Modulating Rotary Actuator",
     "classes": [
-      "gate_actuator"
+      "gate_actuator",
+      "electric_actuator"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 4,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -431,25 +369,7 @@
     "classes": [
       "belt_cleaner"
     ],
-    "own_fact_count": 1,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_af602d64d92542478120",
-    "label": "CHP Auxiliary Cast Iron Valves Standard",
-    "classes": [],
-    "own_fact_count": 1,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_9e91545d31804ed5a2e6",
-    "label": "CHP Auxiliary Gun Metal Valves Standard",
-    "classes": [],
-    "own_fact_count": 1,
+    "own_fact_count": 3,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -460,7 +380,7 @@
     "classes": [
       "sprinkler"
     ],
-    "own_fact_count": 3,
+    "own_fact_count": 4,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -471,16 +391,7 @@
     "classes": [
       "geared_motor"
     ],
-    "own_fact_count": 3,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_e15e42af44404171a261",
-    "label": "Primary Screening House Rod Gate (1500x1700)",
-    "classes": [],
-    "own_fact_count": 0,
+    "own_fact_count": 13,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -491,16 +402,7 @@
     "classes": [
       "pump"
     ],
-    "own_fact_count": 3,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_8cb534ffd212421b91ac",
-    "label": "Belt Feeder KF-1 and KF-2",
-    "classes": [],
-    "own_fact_count": 0,
+    "own_fact_count": 5,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -511,7 +413,7 @@
     "classes": [
       "water_tank"
     ],
-    "own_fact_count": 16,
+    "own_fact_count": 17,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -522,16 +424,7 @@
     "classes": [
       "water_tank"
     ],
-    "own_fact_count": 18,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_978077dd4ad44f3a973d",
-    "label": "Coal Stacker Boom Impact Idlers (194mm OD)",
-    "classes": [],
-    "own_fact_count": 0,
+    "own_fact_count": 24,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -542,7 +435,7 @@
     "classes": [
       "pulley"
     ],
-    "own_fact_count": 4,
+    "own_fact_count": 5,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -564,7 +457,7 @@
     "classes": [
       "gearbox"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 5,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -575,7 +468,7 @@
     "classes": [
       "geared_motor"
     ],
-    "own_fact_count": 9,
+    "own_fact_count": 11,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -586,7 +479,7 @@
     "classes": [
       "belt_weigher"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 3,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -597,7 +490,7 @@
     "classes": [
       "electric_motor"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -608,7 +501,7 @@
     "classes": [
       "gearbox"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -619,16 +512,7 @@
     "classes": [
       "thruster_drum_brake"
     ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_cf8bf7070b1647feb915",
-    "label": "Coal Stacker Electro-Hydraulic Thruster Drum Brakes (YWZ5)",
-    "classes": [],
-    "own_fact_count": 0,
+    "own_fact_count": 4,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -639,16 +523,7 @@
     "classes": [
       "coupling"
     ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_42d41b4a5b004394a1cd",
-    "label": "Coal Stacker Hydrodynamic Fluid Couplings",
-    "classes": [],
-    "own_fact_count": 0,
+    "own_fact_count": 3,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -659,7 +534,7 @@
     "classes": [
       "hoist_mechanism"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 9,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -670,7 +545,7 @@
     "classes": [
       "rail_clamp"
     ],
-    "own_fact_count": 3,
+    "own_fact_count": 5,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -681,7 +556,7 @@
     "classes": [
       "slewing_bearing"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 4,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -692,7 +567,7 @@
     "classes": [
       "hydraulic_motor"
     ],
-    "own_fact_count": 17,
+    "own_fact_count": 18,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -703,7 +578,7 @@
     "classes": [
       "storm_anchor"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 3,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -714,18 +589,7 @@
     "classes": [
       "storm_anchor"
     ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_49f9693e18f94b72b9f2",
-    "label": "DE System Refrigeration Air Dryer",
-    "classes": [
-      "air_dryer"
-    ],
-    "own_fact_count": 1,
+    "own_fact_count": 8,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -742,23 +606,12 @@
     "related_target_batches": []
   },
   {
-    "id": "ent_abcce99e33864c40b6c1",
-    "label": "DE System Pulse Jet Bagfilter",
-    "classes": [
-      "bag_filter"
-    ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
     "id": "ent_535923a6f88447bc9441",
     "label": "Conveyor Belt Vulcanizing Machine",
     "classes": [
       "vulcanizing_machine"
     ],
-    "own_fact_count": 3,
+    "own_fact_count": 4,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -769,29 +622,7 @@
     "classes": [
       "thruster_drum_brake"
     ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_9278ab0b4c544f98b23d",
-    "label": "Crusher House DE System Centrifugal Exhaust Fans",
-    "classes": [
-      "centrifugal_fan"
-    ],
     "own_fact_count": 3,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_f15cd4592076404185f8",
-    "label": "DE System Atlas Copco ZT55 Screw Air Compressor",
-    "classes": [
-      "air_compressor"
-    ],
-    "own_fact_count": 2,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -813,25 +644,7 @@
     "classes": [
       "pressure_regulating_unit"
     ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_32626e43578d4151b97e",
-    "label": "CHP Transfer Chute Two-Way Diverter Flap Gate",
-    "classes": [],
-    "own_fact_count": 0,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_85cf4ca09cfb448e896e",
-    "label": "CHP Proportional Coal Flow Divider",
-    "classes": [],
-    "own_fact_count": 0,
+    "own_fact_count": 3,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -875,25 +688,7 @@
     "classes": [
       "rail_clamp"
     ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_c5355ca352964ed583b3",
-    "label": "BTL EPC CHP Conveyor Idlers Assembly",
-    "classes": [],
-    "own_fact_count": 0,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_7260faf85bbe486ba27b",
-    "label": "Electro Zavod Inline Magnetic Separator ILMS",
-    "classes": [],
-    "own_fact_count": 0,
+    "own_fact_count": 13,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -905,15 +700,6 @@
       "metal_detector"
     ],
     "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_26ce4adcb0864fff83c9",
-    "label": "BTL EPC Motorized Rack & Pinion Gate",
-    "classes": [],
-    "own_fact_count": 0,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -966,7 +752,7 @@
     "classes": [
       "spray_header"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 3,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -994,28 +780,22 @@
     "related_target_batches": []
   },
   {
-    "id": "ent_c7763a52d0b24294a446",
-    "label": "Tenova Takraf Ship Unloader Couplings, Brakes and Thrusters",
-    "classes": [],
-    "own_fact_count": 0,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_2ed91608b93e45109026",
-    "label": "Tenova Takraf Ship Unloader Main Drive Gearbox",
-    "classes": [],
-    "own_fact_count": 0,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
     "id": "ent_45d0e4d775b341a89927",
     "label": "Coal Stacker Machine Luffing & Slew Hydraulic Cylinder",
     "classes": [
       "hydraulic_cylinder"
+    ],
+    "own_fact_count": 2,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_b480aec656f741d49615",
+    "label": "GA of Impact Idlers for Portal Scraper Reclaimer Machine",
+    "classes": [
+      "engineering_drawing",
+      "idler"
     ],
     "own_fact_count": 2,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
@@ -1028,7 +808,7 @@
     "classes": [
       "idler"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 3,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -1039,7 +819,7 @@
     "classes": [
       "operator_cabin"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 3,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -1047,8 +827,10 @@
   {
     "id": "ent_e8aa58c9f6074dc0bd09",
     "label": "CHP MCC Buildings and Pump House Exhaust Ventilation Fans",
-    "classes": [],
-    "own_fact_count": 1,
+    "classes": [
+      "fan"
+    ],
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -1056,26 +838,10 @@
   {
     "id": "ent_7f26b91584964a34a1fd",
     "label": "CHP MCC Buildings and Pump House Supply Ventilation Fans",
-    "classes": [],
-    "own_fact_count": 1,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_5dfe63b869934e89b502",
-    "label": "CHP DFDS and DS Solenoid Valves Assembly",
-    "classes": [],
-    "own_fact_count": 0,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_898a9b4648764428bc93",
-    "label": "CHP Auxiliary Geared Motor Assembly",
-    "classes": [],
-    "own_fact_count": 0,
+    "classes": [
+      "fan"
+    ],
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -1083,8 +849,11 @@
   {
     "id": "ent_004c48d956a24f27a527",
     "label": "BTL EPC CHP Maintenance Hoists System",
-    "classes": [],
-    "own_fact_count": 0,
+    "classes": [
+      "functional_assembly",
+      "maintenance_access"
+    ],
+    "own_fact_count": 3,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -1095,16 +864,7 @@
     "classes": [
       "hoist_mechanism"
     ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_6caeab9ff78b45e79a6c",
-    "label": "Inspection Category for Portal Scraper Reclaimer",
-    "classes": [],
-    "own_fact_count": 1,
+    "own_fact_count": 3,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -1115,16 +875,7 @@
     "classes": [
       "hydraulic_cylinder"
     ],
-    "own_fact_count": 17,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_edfa79c1629b45babb1a",
-    "label": "CAPACITY CALCULATION FOR AIR CONDITIONING SYSTEM IN CHP/AHP",
-    "classes": [],
-    "own_fact_count": 0,
+    "own_fact_count": 30,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -1135,7 +886,7 @@
     "classes": [
       "trolley"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 3,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -1174,28 +925,6 @@
     "related_target_batches": []
   },
   {
-    "id": "ent_0011b14ae3614d6eab10",
-    "label": "CHP Coal Yard Front End Loaders",
-    "classes": [
-      "front_end_loader"
-    ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_c72e0e25bf8348719d77",
-    "label": "CHP Coal Yard Pay Loaders",
-    "classes": [
-      "pay_loader"
-    ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
     "id": "ent_42b44db1a9cb4b8e8cad",
     "label": "CHP Conveyors Skirt Board Sealing Assembly",
     "classes": [
@@ -1207,21 +936,12 @@
     "related_target_batches": []
   },
   {
-    "id": "ent_c24a4d6270c142c993e0",
-    "label": "CHP Transfer Points Fabricated Chutes and Liners",
-    "classes": [],
-    "own_fact_count": 0,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
     "id": "ent_37874896f16445098bd3",
     "label": "Coal Stacker Machine Boom Conveyor Belting",
     "classes": [
       "conveyor_belting"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 3,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -1230,7 +950,7 @@
     "id": "ent_92e6eca55aa44b01a487",
     "label": "Ship Unloader Trolley Travel Drive Assembly",
     "classes": [],
-    "own_fact_count": 4,
+    "own_fact_count": 5,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -1241,7 +961,7 @@
     "classes": [
       "pump"
     ],
-    "own_fact_count": 30,
+    "own_fact_count": 29,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -1252,7 +972,7 @@
     "classes": [
       "pump"
     ],
-    "own_fact_count": 31,
+    "own_fact_count": 30,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -1263,7 +983,7 @@
     "classes": [
       "pump"
     ],
-    "own_fact_count": 32,
+    "own_fact_count": 26,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -1274,7 +994,7 @@
     "classes": [
       "pump"
     ],
-    "own_fact_count": 32,
+    "own_fact_count": 26,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -1318,18 +1038,7 @@
     "classes": [
       "idler"
     ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_2a94ab223b504ef783ce",
-    "label": "DE System Centrifugal Fans",
-    "classes": [
-      "centrifugal_fan"
-    ],
-    "own_fact_count": 1,
+    "own_fact_count": 4,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -1338,9 +1047,10 @@
     "id": "ent_a09d4751c4124da5b44f",
     "label": "ILMS-1",
     "classes": [
-      "magnetic_separator"
+      "magnetic_separator",
+      "metal_detector"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 3,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -1349,9 +1059,10 @@
     "id": "ent_a21683d68b114ce9ab33",
     "label": "ILMS-2",
     "classes": [
-      "magnetic_separator"
+      "magnetic_separator",
+      "metal_detector"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 3,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -1755,7 +1466,7 @@
     "classes": [
       "chute"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 3,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -1766,7 +1477,7 @@
     "classes": [
       "coupling"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -1832,7 +1543,7 @@
     "classes": [
       "geared_motor"
     ],
-    "own_fact_count": 9,
+    "own_fact_count": 10,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -1854,7 +1565,7 @@
     "classes": [
       "air_conditioning_system"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 8,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -1863,9 +1574,10 @@
     "id": "ent_30eeb58f99aa45c89f35",
     "label": "Flap Gate and R&P Gate Actuators",
     "classes": [
-      "gate_actuator"
+      "gate_actuator",
+      "electric_actuator"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 3,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -1876,7 +1588,7 @@
     "classes": [
       "isolation_valve"
     ],
-    "own_fact_count": 1,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -1887,7 +1599,7 @@
     "classes": [
       "ventilation_system"
     ],
-    "own_fact_count": 1,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -2173,7 +1885,7 @@
     "classes": [
       "dust_extraction_system"
     ],
-    "own_fact_count": 11,
+    "own_fact_count": 14,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -2182,7 +1894,7 @@
     "id": "ent_30cc8f74b2834feb851b",
     "label": "Portal Reclaimer Centralized Dual-Line Grease Lubrication System",
     "classes": [],
-    "own_fact_count": 8,
+    "own_fact_count": 9,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -2191,7 +1903,7 @@
     "id": "ent_abd196489ed041f6a5ae",
     "label": "Portal Reclaimer Scraper-Chain Lubrication System",
     "classes": [],
-    "own_fact_count": 6,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -2217,210 +1929,12 @@
     "related_target_batches": []
   },
   {
-    "id": "ent_63eb2d94fec243db9a20",
-    "label": "UEF-10 FAS-27",
-    "classes": [
-      "dfds_fas_unit"
-    ],
-    "own_fact_count": 3,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_d25dff2d68504986837a",
-    "label": "UEF-10 PRU-27",
-    "classes": [
-      "pressure_regulating_unit"
-    ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_c49764b102ec48bcb695",
-    "label": "UEF-10 FAS-26",
-    "classes": [
-      "dfds_fas_unit"
-    ],
-    "own_fact_count": 3,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_1943c7dbdc944eab9d22",
-    "label": "UEF-10 PRU-26",
-    "classes": [
-      "pressure_regulating_unit"
-    ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_a1efb1925cac48edab2b",
-    "label": "UEF-10 FAS-28",
-    "classes": [
-      "dfds_fas_unit"
-    ],
-    "own_fact_count": 3,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_c95ebb4af90643c6a24c",
-    "label": "UEF-10 PRU-28",
-    "classes": [
-      "pressure_regulating_unit"
-    ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_f099aaebf0a746269d84",
-    "label": "UEF-12 FAS-17",
-    "classes": [
-      "dfds_fas_unit"
-    ],
-    "own_fact_count": 3,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_54cbecc2d5b0475e8479",
-    "label": "UEF-12 PRU-17",
-    "classes": [
-      "pressure_regulating_unit"
-    ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_f6a5d3c090df4bea82a9",
-    "label": "UEF-12 FAS-18",
-    "classes": [
-      "dfds_fas_unit"
-    ],
-    "own_fact_count": 3,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_0d21d4c9287148dfa46e",
-    "label": "UEF-12 PRU-18",
-    "classes": [
-      "pressure_regulating_unit"
-    ],
-    "own_fact_count": 1,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_e223cd207caf4411a531",
-    "label": "UEF-12 FAS-19",
-    "classes": [
-      "dfds_fas_unit"
-    ],
-    "own_fact_count": 3,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_77cfe880b9a241bb84ec",
-    "label": "UEF-12 PRU-19",
-    "classes": [
-      "pressure_regulating_unit"
-    ],
-    "own_fact_count": 1,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_45f476562aa84d688bef",
-    "label": "UEF-12 FAS-20",
-    "classes": [
-      "dfds_fas_unit"
-    ],
-    "own_fact_count": 3,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_c33f545a39d74ae39b14",
-    "label": "UEF-12 PRU-20",
-    "classes": [
-      "pressure_regulating_unit"
-    ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_bbc833b0b55549debea4",
-    "label": "UEF-12 FAS-21",
-    "classes": [
-      "dfds_fas_unit"
-    ],
-    "own_fact_count": 3,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_88426582be5b41ddb585",
-    "label": "UEF-12 PRU-21",
-    "classes": [
-      "pressure_regulating_unit"
-    ],
-    "own_fact_count": 1,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_04f2f3bc1b8544899a47",
-    "label": "UEF-12 FAS-22",
-    "classes": [
-      "dfds_fas_unit"
-    ],
-    "own_fact_count": 3,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_bc822cb864ed47469a58",
-    "label": "UEF-12 PRU-22",
-    "classes": [
-      "pressure_regulating_unit"
-    ],
-    "own_fact_count": 1,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
     "id": "ent_7584a695249f4747a9e2",
     "label": "Sump Pump Group SP-1A to SP-1N",
     "classes": [
       "pump"
     ],
-    "own_fact_count": 4,
+    "own_fact_count": 5,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -2431,7 +1945,7 @@
     "classes": [
       "lubrication_arrangement"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 9,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -2442,7 +1956,7 @@
     "classes": [
       "lubrication_system"
     ],
-    "own_fact_count": 3,
+    "own_fact_count": 4,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -2453,7 +1967,7 @@
     "classes": [
       "lubrication_system"
     ],
-    "own_fact_count": 3,
+    "own_fact_count": 4,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -2464,7 +1978,7 @@
     "classes": [
       "lubrication_system"
     ],
-    "own_fact_count": 3,
+    "own_fact_count": 4,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -2487,7 +2001,7 @@
       "dust_suppression_system",
       "dfds_system"
     ],
-    "own_fact_count": 35,
+    "own_fact_count": 39,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -2498,7 +2012,7 @@
     "classes": [
       "dfds_system"
     ],
-    "own_fact_count": 37,
+    "own_fact_count": 38,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -2520,7 +2034,7 @@
     "classes": [
       "tripper"
     ],
-    "own_fact_count": 9,
+    "own_fact_count": 13,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -2542,7 +2056,7 @@
     "classes": [
       "long_travel_mechanism"
     ],
-    "own_fact_count": 8,
+    "own_fact_count": 9,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -2553,205 +2067,7 @@
     "classes": [
       "machinery_house"
     ],
-    "own_fact_count": 3,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_58aa617458e9454dbb04",
-    "label": "UEF-8 FAS-32",
-    "classes": [
-      "dfds_fas_unit"
-    ],
-    "own_fact_count": 3,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_72f28f53df9d45d19e13",
-    "label": "UEF-8 PRU-32",
-    "classes": [
-      "pressure_regulating_unit"
-    ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_f6bbdae315274a1180de",
-    "label": "UEF-8 FAS-33",
-    "classes": [
-      "dfds_fas_unit"
-    ],
-    "own_fact_count": 3,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_f5b4701b4e5c41c2abfa",
-    "label": "UEF-8 PRU-33",
-    "classes": [
-      "pressure_regulating_unit"
-    ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_57948ea4818d4ddf8f75",
-    "label": "UEF-8 FAS-34",
-    "classes": [
-      "dfds_fas_unit"
-    ],
-    "own_fact_count": 3,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_2dab85b1ed2a4d2cbade",
-    "label": "UEF-8 PRU-34",
-    "classes": [
-      "pressure_regulating_unit"
-    ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_7ee215f8ace94282aa0b",
-    "label": "UEF-9 FAS-29",
-    "classes": [
-      "dfds_fas_unit"
-    ],
-    "own_fact_count": 3,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_c3df59f38e4841038e2b",
-    "label": "UEF-9 PRU-29",
-    "classes": [
-      "pressure_regulating_unit"
-    ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_db8fd031d2d04da7a676",
-    "label": "UEF-9 FAS-30",
-    "classes": [
-      "dfds_fas_unit"
-    ],
-    "own_fact_count": 3,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_bfb8b1f4f610470ab244",
-    "label": "UEF-9 PRU-30",
-    "classes": [
-      "pressure_regulating_unit"
-    ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_e62ee2df211641599e4f",
-    "label": "UEF-9 FAS-31",
-    "classes": [
-      "dfds_fas_unit"
-    ],
-    "own_fact_count": 3,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_9919714541544d72afc3",
-    "label": "UEF-9 PRU-31",
-    "classes": [
-      "pressure_regulating_unit"
-    ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_ed800fb731cc40ba9705",
-    "label": "UEF-11 FAS-23",
-    "classes": [
-      "dfds_fas_unit"
-    ],
-    "own_fact_count": 3,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_669ada19e22948a88347",
-    "label": "UEF-11 PRU-23",
-    "classes": [
-      "pressure_regulating_unit"
-    ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_f5c2c95fbbe44fa9bc19",
-    "label": "UEF-11 FAS-24",
-    "classes": [
-      "dfds_fas_unit"
-    ],
-    "own_fact_count": 3,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_a4b0cb26d79b4d5992c0",
-    "label": "UEF-11 PRU-24",
-    "classes": [
-      "pressure_regulating_unit"
-    ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_49ff1c8e6dae4686824e",
-    "label": "UEF-11 FAS-25",
-    "classes": [
-      "dfds_fas_unit"
-    ],
-    "own_fact_count": 3,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_4656b745564d4bf5a975",
-    "label": "UEF-11 PRU-25",
-    "classes": [
-      "pressure_regulating_unit"
-    ],
-    "own_fact_count": 2,
+    "own_fact_count": 4,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -2771,7 +2087,7 @@
     "classes": [
       "transfer_point"
     ],
-    "own_fact_count": 4,
+    "own_fact_count": 5,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": [
@@ -2784,7 +2100,7 @@
     "classes": [
       "transfer_point"
     ],
-    "own_fact_count": 3,
+    "own_fact_count": 4,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": [
@@ -2797,7 +2113,7 @@
     "classes": [
       "transfer_point"
     ],
-    "own_fact_count": 3,
+    "own_fact_count": 4,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": [
@@ -2810,7 +2126,7 @@
     "classes": [
       "transfer_point"
     ],
-    "own_fact_count": 3,
+    "own_fact_count": 4,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": [
@@ -2823,7 +2139,7 @@
     "classes": [
       "electric_motor"
     ],
-    "own_fact_count": 4,
+    "own_fact_count": 5,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -2834,7 +2150,7 @@
     "classes": [
       "electric_motor"
     ],
-    "own_fact_count": 4,
+    "own_fact_count": 5,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -2845,7 +2161,7 @@
     "classes": [
       "electric_motor"
     ],
-    "own_fact_count": 3,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -2867,7 +2183,7 @@
     "classes": [
       "electric_motor"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 5,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -2889,7 +2205,7 @@
     "classes": [
       "electric_motor"
     ],
-    "own_fact_count": 3,
+    "own_fact_count": 4,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -2906,34 +2222,12 @@
     "related_target_batches": []
   },
   {
-    "id": "ent_5eb590aad4dc485d8440",
-    "label": "Bunker House DE System Unit #1",
-    "classes": [
-      "dust_extraction_system"
-    ],
-    "own_fact_count": 9,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_119601ddbdfa471c8293",
-    "label": "Bunker House DE System Unit #2",
-    "classes": [
-      "dust_extraction_system"
-    ],
-    "own_fact_count": 11,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
     "id": "ent_62d64313b1fd47a98ac1",
     "label": "Maitree Auxiliary Power Distribution SLD Rev 8",
     "classes": [
       "electrical_diagram"
     ],
-    "own_fact_count": 43,
+    "own_fact_count": 44,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -2944,7 +2238,7 @@
     "classes": [
       "electrical_switchboard"
     ],
-    "own_fact_count": 3,
+    "own_fact_count": 12,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -2955,7 +2249,7 @@
     "classes": [
       "electrical_switchboard"
     ],
-    "own_fact_count": 4,
+    "own_fact_count": 8,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -2966,7 +2260,7 @@
     "classes": [
       "electrical_switchboard"
     ],
-    "own_fact_count": 4,
+    "own_fact_count": 8,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -2977,7 +2271,7 @@
     "classes": [
       "electrical_switchboard"
     ],
-    "own_fact_count": 3,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -2988,7 +2282,7 @@
     "classes": [
       "electrical_switchboard"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 11,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -2999,7 +2293,7 @@
     "classes": [
       "electrical_switchboard"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 15,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3010,7 +2304,7 @@
     "classes": [
       "electrical_switchboard"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 15,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3021,7 +2315,7 @@
     "classes": [
       "electrical_switchboard"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 4,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3032,7 +2326,7 @@
     "classes": [
       "electrical_switchboard"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 4,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3043,7 +2337,7 @@
     "classes": [
       "electrical_switchboard"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 4,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3054,7 +2348,7 @@
     "classes": [
       "electrical_switchboard"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 4,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3065,7 +2359,7 @@
     "classes": [
       "electrical_switchboard"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 3,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3076,7 +2370,7 @@
     "classes": [
       "electrical_switchboard"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 3,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3087,7 +2381,7 @@
     "classes": [
       "electrical_switchboard"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 3,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3098,7 +2392,7 @@
     "classes": [
       "electrical_switchboard"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 3,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3109,7 +2403,7 @@
     "classes": [
       "electrical_switchboard"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 3,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3120,7 +2414,7 @@
     "classes": [
       "electrical_switchboard"
     ],
-    "own_fact_count": 3,
+    "own_fact_count": 4,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3131,7 +2425,7 @@
     "classes": [
       "electrical_switchboard"
     ],
-    "own_fact_count": 1,
+    "own_fact_count": 2,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3142,7 +2436,7 @@
     "classes": [
       "electrical_switchboard"
     ],
-    "own_fact_count": 1,
+    "own_fact_count": 2,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3153,7 +2447,7 @@
     "classes": [
       "electrical_switchboard"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 3,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3164,7 +2458,7 @@
     "classes": [
       "electrical_switchboard"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 3,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3175,7 +2469,7 @@
     "classes": [
       "electrical_switchboard"
     ],
-    "own_fact_count": 1,
+    "own_fact_count": 2,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3186,7 +2480,7 @@
     "classes": [
       "hydraulic_power_pack_system"
     ],
-    "own_fact_count": 31,
+    "own_fact_count": 32,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3208,7 +2502,7 @@
     "classes": [
       "pump"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 5,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3219,7 +2513,7 @@
     "classes": [
       "directional_control_valve"
     ],
-    "own_fact_count": 3,
+    "own_fact_count": 5,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3241,7 +2535,7 @@
     "classes": [
       "hydraulic_oil_cooler"
     ],
-    "own_fact_count": 3,
+    "own_fact_count": 4,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3252,7 +2546,7 @@
     "classes": [
       "hydraulic_reservoir"
     ],
-    "own_fact_count": 3,
+    "own_fact_count": 4,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3274,7 +2568,7 @@
     "classes": [
       "control_system"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 4,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3285,7 +2579,7 @@
     "classes": [
       "hydraulic_power_pack_system"
     ],
-    "own_fact_count": 25,
+    "own_fact_count": 26,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3307,7 +2601,7 @@
     "classes": [
       "pump"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3318,7 +2612,7 @@
     "classes": [
       "directional_control_valve"
     ],
-    "own_fact_count": 4,
+    "own_fact_count": 5,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3340,7 +2634,7 @@
     "classes": [
       "overcentre_valve"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 3,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3362,7 +2656,7 @@
     "classes": [
       "hydraulic_oil_cooler"
     ],
-    "own_fact_count": 3,
+    "own_fact_count": 4,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3373,7 +2667,7 @@
     "classes": [
       "hydraulic_reservoir"
     ],
-    "own_fact_count": 3,
+    "own_fact_count": 4,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3384,7 +2678,7 @@
     "classes": [
       "temperature_sensor"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3395,7 +2689,7 @@
     "classes": [
       "temperature_sensor"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3406,7 +2700,7 @@
     "classes": [
       "limit_switch"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3417,7 +2711,7 @@
     "classes": [
       "temperature_sensor"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3428,7 +2722,7 @@
     "classes": [
       "temperature_sensor"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3439,7 +2733,7 @@
     "classes": [
       "limit_switch"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3450,7 +2744,7 @@
     "classes": [
       "temperature_sensor"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3461,7 +2755,7 @@
     "classes": [
       "temperature_sensor"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3472,7 +2766,7 @@
     "classes": [
       "limit_switch"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3483,7 +2777,7 @@
     "classes": [
       "temperature_sensor"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3494,7 +2788,7 @@
     "classes": [
       "temperature_sensor"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3505,7 +2799,7 @@
     "classes": [
       "limit_switch"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3516,7 +2810,7 @@
     "classes": [
       "level_switch"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3527,7 +2821,7 @@
     "classes": [
       "level_switch"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3538,7 +2832,7 @@
     "classes": [
       "level_switch"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3549,7 +2843,7 @@
     "classes": [
       "level_switch"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3560,7 +2854,7 @@
     "classes": [
       "limit_switch"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3571,7 +2865,7 @@
     "classes": [
       "pressure_switch"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3582,40 +2876,7 @@
     "classes": [
       "control_system"
     ],
-    "own_fact_count": 5,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_ab42077ce1ae4f5da7c1",
-    "label": "Stockpile Sequential Controller SC-02",
-    "classes": [
-      "control_system"
-    ],
-    "own_fact_count": 4,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_b492967c874147bfbe01",
-    "label": "Stockpile Sequential Controller SC-03",
-    "classes": [
-      "control_system"
-    ],
-    "own_fact_count": 3,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_71d2ab68d0d14e67aa45",
-    "label": "Stockpile Sequential Controller SC-04",
-    "classes": [
-      "control_system"
-    ],
-    "own_fact_count": 3,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3626,7 +2887,7 @@
     "classes": [
       "pump"
     ],
-    "own_fact_count": 16,
+    "own_fact_count": 17,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3637,7 +2898,7 @@
     "classes": [
       "pump"
     ],
-    "own_fact_count": 16,
+    "own_fact_count": 17,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3648,7 +2909,7 @@
     "classes": [
       "pump"
     ],
-    "own_fact_count": 16,
+    "own_fact_count": 17,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3659,7 +2920,7 @@
     "classes": [
       "pump"
     ],
-    "own_fact_count": 16,
+    "own_fact_count": 17,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3670,7 +2931,7 @@
     "classes": [
       "pump"
     ],
-    "own_fact_count": 15,
+    "own_fact_count": 16,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3681,7 +2942,7 @@
     "classes": [
       "pump"
     ],
-    "own_fact_count": 15,
+    "own_fact_count": 16,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3692,7 +2953,7 @@
     "classes": [
       "pump"
     ],
-    "own_fact_count": 21,
+    "own_fact_count": 20,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3703,7 +2964,7 @@
     "classes": [
       "pump"
     ],
-    "own_fact_count": 21,
+    "own_fact_count": 20,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3714,7 +2975,7 @@
     "classes": [
       "water_level_switch"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 5,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3725,7 +2986,7 @@
     "classes": [
       "water_level_switch"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 5,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3736,7 +2997,7 @@
     "classes": [
       "water_level_switch"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 8,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3747,7 +3008,7 @@
     "classes": [
       "water_level_switch"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 5,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3758,7 +3019,7 @@
     "classes": [
       "water_level_switch"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3769,7 +3030,7 @@
     "classes": [
       "pressure_switch"
     ],
-    "own_fact_count": 9,
+    "own_fact_count": 10,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3780,7 +3041,7 @@
     "classes": [
       "differential_pressure_switch"
     ],
-    "own_fact_count": 9,
+    "own_fact_count": 10,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3791,7 +3052,7 @@
     "classes": [
       "pressure_switch"
     ],
-    "own_fact_count": 9,
+    "own_fact_count": 10,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3802,7 +3063,7 @@
     "classes": [
       "differential_pressure_switch"
     ],
-    "own_fact_count": 9,
+    "own_fact_count": 10,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3813,7 +3074,7 @@
     "classes": [
       "pressure_switch"
     ],
-    "own_fact_count": 9,
+    "own_fact_count": 10,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3824,7 +3085,7 @@
     "classes": [
       "differential_pressure_switch"
     ],
-    "own_fact_count": 9,
+    "own_fact_count": 10,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3857,7 +3118,7 @@
     "classes": [
       "pressure_switch"
     ],
-    "own_fact_count": 9,
+    "own_fact_count": 10,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3868,7 +3129,7 @@
     "classes": [
       "differential_pressure_switch"
     ],
-    "own_fact_count": 9,
+    "own_fact_count": 10,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3879,7 +3140,7 @@
     "classes": [
       "motorized_valve"
     ],
-    "own_fact_count": 4,
+    "own_fact_count": 5,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3890,7 +3151,7 @@
     "classes": [
       "motorized_valve"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3901,7 +3162,7 @@
     "classes": [
       "motorized_valve"
     ],
-    "own_fact_count": 7,
+    "own_fact_count": 8,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3912,7 +3173,7 @@
     "classes": [
       "motorized_valve"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3956,7 +3217,7 @@
     "classes": [
       "tank_compartment"
     ],
-    "own_fact_count": 10,
+    "own_fact_count": 13,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3967,7 +3228,7 @@
     "classes": [
       "limestone_stockpile"
     ],
-    "own_fact_count": 4,
+    "own_fact_count": 5,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -3989,7 +3250,7 @@
     "classes": [
       "sprinkler"
     ],
-    "own_fact_count": 4,
+    "own_fact_count": 5,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -4000,7 +3261,7 @@
     "classes": [
       "pump"
     ],
-    "own_fact_count": 21,
+    "own_fact_count": 22,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -4011,7 +3272,7 @@
     "classes": [
       "pump"
     ],
-    "own_fact_count": 22,
+    "own_fact_count": 23,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -4022,7 +3283,7 @@
     "classes": [
       "air_compressor"
     ],
-    "own_fact_count": 12,
+    "own_fact_count": 11,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -4033,7 +3294,7 @@
     "classes": [
       "air_compressor"
     ],
-    "own_fact_count": 12,
+    "own_fact_count": 11,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -4044,7 +3305,7 @@
     "classes": [
       "air_compressor"
     ],
-    "own_fact_count": 8,
+    "own_fact_count": 9,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -4055,7 +3316,7 @@
     "classes": [
       "air_compressor"
     ],
-    "own_fact_count": 8,
+    "own_fact_count": 9,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -4066,7 +3327,7 @@
     "classes": [
       "fluid_coupling"
     ],
-    "own_fact_count": 4,
+    "own_fact_count": 5,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -4077,227 +3338,7 @@
     "classes": [
       "thruster_drum_brake"
     ],
-    "own_fact_count": 4,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_601612d5e775447fa349",
-    "label": "FAN-BU-1-001",
-    "classes": [
-      "centrifugal_fan"
-    ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_2ebee3de13a6421ba581",
-    "label": "RAL-BU-1-001",
-    "classes": [
-      "rotary_airlock_valve"
-    ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_7c74bad63dc64ba7ba0b",
-    "label": "ST-BU-1-001",
-    "classes": [
-      "sequential_timer"
-    ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_ed53bed90da94c4a9e68",
-    "label": "PU-BU-1-001-008",
-    "classes": [
-      "pulse_valve_bank"
-    ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_f555d57e159344c2871d",
-    "label": "ZSS-BU-1-01-001",
-    "classes": [
-      "zero_speed_switch"
-    ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_989f8bb9be934631bc03",
-    "label": "LV-BU-1-001",
-    "classes": [
-      "hopper_level_switch"
-    ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_d0f5444fe94349ed816d",
-    "label": "DPS-BU-1-001",
-    "classes": [
-      "differential_pressure_switch"
-    ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_aa9eaed0356147a0b92f",
-    "label": "PS-BU-1-001",
-    "classes": [
-      "pressure_switch"
-    ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_11c5f696b06041bf9425",
-    "label": "LCP-2",
-    "classes": [
-      "local_control_panel"
-    ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_09f1553af744492dbf93",
-    "label": "FAN-BU-2-001",
-    "classes": [
-      "centrifugal_fan"
-    ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_80700707d62f42b59c7b",
-    "label": "RAL-BU-2-001",
-    "classes": [
-      "rotary_airlock_valve"
-    ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_823a83a11e5b4172a767",
-    "label": "ST-BU-2-001",
-    "classes": [
-      "sequential_timer"
-    ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_c556993659574baf8246",
-    "label": "PU-BU-2-001-008",
-    "classes": [
-      "pulse_valve_bank"
-    ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_aa57fdb6eecd48e085b7",
-    "label": "ZSS-BU-2-01-001",
-    "classes": [
-      "zero_speed_switch"
-    ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_4314f36868994528880d",
-    "label": "LV-BU-2-001",
-    "classes": [
-      "hopper_level_switch"
-    ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_0f80271cde384ab79816",
-    "label": "MD-BU-2-001",
-    "classes": [
-      "motorized_damper"
-    ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_54d3e69f6ec9486ab175",
-    "label": "MD-BU-2-002",
-    "classes": [
-      "motorized_damper"
-    ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_af95125ed0374576a4c0",
-    "label": "DPS-BU-2-001",
-    "classes": [
-      "differential_pressure_switch"
-    ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_b391121ee02248f884e3",
-    "label": "PS-BU-2-001",
-    "classes": [
-      "pressure_switch"
-    ],
-    "own_fact_count": 2,
-    "disposition": "pending source review: unplaced does not mean physical asset missing",
-    "owner_batch": "B45",
-    "related_target_batches": []
-  },
-  {
-    "id": "ent_9f7b693e00da4557ab96",
-    "label": "LCP-3",
-    "classes": [
-      "local_control_panel"
-    ],
-    "own_fact_count": 2,
+    "own_fact_count": 5,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -4319,7 +3360,7 @@
     "classes": [
       "rail_clamp"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -4330,7 +3371,7 @@
     "classes": [
       "coal_bunker_design"
     ],
-    "own_fact_count": 43,
+    "own_fact_count": 45,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -4352,7 +3393,7 @@
     "classes": [
       "scraper_boom"
     ],
-    "own_fact_count": 10,
+    "own_fact_count": 11,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -4363,7 +3404,7 @@
     "classes": [
       "coal_handling_plant"
     ],
-    "own_fact_count": 48,
+    "own_fact_count": 49,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -4374,7 +3415,7 @@
     "classes": [
       "plant_building"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 3,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -4396,7 +3437,7 @@
     "classes": [
       "plant_building"
     ],
-    "own_fact_count": 2,
+    "own_fact_count": 3,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -4418,7 +3459,7 @@
     "classes": [
       "pump_house"
     ],
-    "own_fact_count": 4,
+    "own_fact_count": 5,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -4429,7 +3470,7 @@
     "classes": [
       "pump_house"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 9,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -4506,7 +3547,7 @@
     "classes": [
       "pressure_switch"
     ],
-    "own_fact_count": 8,
+    "own_fact_count": 10,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -4517,7 +3558,7 @@
     "classes": [
       "differential_pressure_switch"
     ],
-    "own_fact_count": 14,
+    "own_fact_count": 13,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -4528,7 +3569,7 @@
     "classes": [
       "differential_pressure_switch"
     ],
-    "own_fact_count": 14,
+    "own_fact_count": 13,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -4539,7 +3580,7 @@
     "classes": [
       "differential_pressure_switch"
     ],
-    "own_fact_count": 8,
+    "own_fact_count": 10,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -4570,9 +3611,10 @@
     "id": "ent_b77b56abd4d74c3f97ec",
     "label": "CHP DE compressed-air supply",
     "classes": [
-      "compressed_air_system"
+      "compressed_air_system",
+      "utility_header"
     ],
-    "own_fact_count": 7,
+    "own_fact_count": 8,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -4583,7 +3625,7 @@
     "classes": [
       "functional_assembly"
     ],
-    "own_fact_count": 4,
+    "own_fact_count": 5,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -4592,9 +3634,10 @@
     "id": "ent_56718cebe4644d58a155",
     "label": "DFDS-1 Common compressed-air supply train",
     "classes": [
-      "functional_assembly"
+      "functional_assembly",
+      "utility_header"
     ],
-    "own_fact_count": 4,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -4616,7 +3659,7 @@
     "classes": [
       "duplex_filter"
     ],
-    "own_fact_count": 19,
+    "own_fact_count": 20,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -4825,7 +3868,7 @@
     "classes": [
       "functional_assembly"
     ],
-    "own_fact_count": 4,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -4834,9 +3877,10 @@
     "id": "ent_e6a88ea7d3d8457d9579",
     "label": "DFDS-2 Common compressed-air supply train",
     "classes": [
-      "functional_assembly"
+      "functional_assembly",
+      "utility_header"
     ],
-    "own_fact_count": 4,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5067,7 +4111,7 @@
     "classes": [
       "filter_element_group"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5089,7 +4133,7 @@
     "classes": [
       "filter_element_group"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5100,7 +4144,7 @@
     "classes": [
       "valve_group"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5133,7 +4177,7 @@
     "classes": [
       "filter_cover_group"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5144,7 +4188,7 @@
     "classes": [
       "filter_support_group"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5155,7 +4199,7 @@
     "classes": [
       "filter_element_group"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5177,7 +4221,7 @@
     "classes": [
       "filter_element_group"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5188,7 +4232,7 @@
     "classes": [
       "valve_group"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5221,7 +4265,7 @@
     "classes": [
       "filter_cover_group"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5232,7 +4276,7 @@
     "classes": [
       "filter_support_group"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5243,7 +4287,7 @@
     "classes": [
       "pressure_relief_valve"
     ],
-    "own_fact_count": 4,
+    "own_fact_count": 5,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5254,7 +4298,7 @@
     "classes": [
       "pressure_gauge"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5287,7 +4331,7 @@
     "classes": [
       "pressure_relief_valve"
     ],
-    "own_fact_count": 4,
+    "own_fact_count": 5,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5298,7 +4342,7 @@
     "classes": [
       "pressure_gauge"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5353,7 +4397,7 @@
     "classes": [
       "mechanical_component"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5362,7 +4406,7 @@
     "id": "ent_bbce279ada084ad8b320",
     "label": "DFDSP-1A Pump shaft",
     "classes": [
-      "mechanical_component"
+      "coupling"
     ],
     "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
@@ -5373,9 +4417,9 @@
     "id": "ent_d5ecb865b3cd442ea53f",
     "label": "DFDSP-1A Closed impeller group",
     "classes": [
-      "mechanical_component"
+      "pump"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5386,7 +4430,7 @@
     "classes": [
       "mechanical_component"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5397,7 +4441,7 @@
     "classes": [
       "bearing"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5408,7 +4452,7 @@
     "classes": [
       "mechanical_component"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5419,7 +4463,7 @@
     "classes": [
       "mechanical_component"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5428,7 +4472,7 @@
     "id": "ent_744ad1efb4bb46a9a03f",
     "label": "DFDSP-1A Stage casing group",
     "classes": [
-      "mechanical_component"
+      "water_tank"
     ],
     "own_fact_count": 5,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
@@ -5441,7 +4485,7 @@
     "classes": [
       "mechanical_component"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 8,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5474,7 +4518,7 @@
     "classes": [
       "mechanical_component"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5483,7 +4527,7 @@
     "id": "ent_456576bb884044f79664",
     "label": "DFDSP-1B Pump shaft",
     "classes": [
-      "mechanical_component"
+      "coupling"
     ],
     "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
@@ -5494,9 +4538,9 @@
     "id": "ent_4e099641e63340adbe5a",
     "label": "DFDSP-1B Closed impeller group",
     "classes": [
-      "mechanical_component"
+      "pump"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5507,7 +4551,7 @@
     "classes": [
       "mechanical_component"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5518,7 +4562,7 @@
     "classes": [
       "bearing"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5529,7 +4573,7 @@
     "classes": [
       "mechanical_component"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5540,7 +4584,7 @@
     "classes": [
       "mechanical_component"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5549,7 +4593,7 @@
     "id": "ent_93c6fff5febe45389347",
     "label": "DFDSP-1B Stage casing group",
     "classes": [
-      "mechanical_component"
+      "water_tank"
     ],
     "own_fact_count": 5,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
@@ -5562,7 +4606,7 @@
     "classes": [
       "mechanical_component"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 8,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5595,7 +4639,7 @@
     "classes": [
       "mechanical_component"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5604,7 +4648,7 @@
     "id": "ent_c3f5c8b236fd41f39746",
     "label": "DFDSP-2A Pump shaft",
     "classes": [
-      "mechanical_component"
+      "coupling"
     ],
     "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
@@ -5615,9 +4659,9 @@
     "id": "ent_af600f03ee8341fd9287",
     "label": "DFDSP-2A Closed impeller group",
     "classes": [
-      "mechanical_component"
+      "pump"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5628,7 +4672,7 @@
     "classes": [
       "mechanical_component"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5639,7 +4683,7 @@
     "classes": [
       "bearing"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5650,7 +4694,7 @@
     "classes": [
       "mechanical_component"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5661,7 +4705,7 @@
     "classes": [
       "mechanical_component"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5670,7 +4714,7 @@
     "id": "ent_f683cb3e0bbb46a8be64",
     "label": "DFDSP-2A Stage casing group",
     "classes": [
-      "mechanical_component"
+      "water_tank"
     ],
     "own_fact_count": 5,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
@@ -5683,7 +4727,7 @@
     "classes": [
       "mechanical_component"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 8,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5716,7 +4760,7 @@
     "classes": [
       "mechanical_component"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5725,7 +4769,7 @@
     "id": "ent_da86fdccf2594b9b861b",
     "label": "DFDSP-2B Pump shaft",
     "classes": [
-      "mechanical_component"
+      "coupling"
     ],
     "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
@@ -5736,9 +4780,9 @@
     "id": "ent_ea805d584fc04f17b2ad",
     "label": "DFDSP-2B Closed impeller group",
     "classes": [
-      "mechanical_component"
+      "pump"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5749,7 +4793,7 @@
     "classes": [
       "mechanical_component"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5760,7 +4804,7 @@
     "classes": [
       "bearing"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5771,7 +4815,7 @@
     "classes": [
       "mechanical_component"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5782,7 +4826,7 @@
     "classes": [
       "mechanical_component"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5791,7 +4835,7 @@
     "id": "ent_f1937e65d2f74af89d88",
     "label": "DFDSP-2B Stage casing group",
     "classes": [
-      "mechanical_component"
+      "water_tank"
     ],
     "own_fact_count": 5,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
@@ -5804,7 +4848,7 @@
     "classes": [
       "mechanical_component"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 8,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5815,7 +4859,7 @@
     "classes": [
       "plug_group"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5826,7 +4870,7 @@
     "classes": [
       "plug_group"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5848,7 +4892,7 @@
     "classes": [
       "mechanical_component"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5859,7 +4903,7 @@
     "classes": [
       "mechanical_component"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 8,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5870,7 +4914,7 @@
     "classes": [
       "mechanical_component"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5881,7 +4925,7 @@
     "classes": [
       "mechanical_component"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 8,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5892,7 +4936,7 @@
     "classes": [
       "plug_group"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5903,7 +4947,7 @@
     "classes": [
       "plug_group"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5925,7 +4969,7 @@
     "classes": [
       "mechanical_component"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5936,7 +4980,7 @@
     "classes": [
       "mechanical_component"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 8,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5947,7 +4991,7 @@
     "classes": [
       "mechanical_component"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5958,7 +5002,7 @@
     "classes": [
       "mechanical_component"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 8,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5969,7 +5013,7 @@
     "classes": [
       "plug_group"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -5980,7 +5024,7 @@
     "classes": [
       "plug_group"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -6002,7 +5046,7 @@
     "classes": [
       "mechanical_component"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -6013,7 +5057,7 @@
     "classes": [
       "mechanical_component"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 8,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -6024,7 +5068,7 @@
     "classes": [
       "mechanical_component"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -6035,7 +5079,7 @@
     "classes": [
       "mechanical_component"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 8,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -6046,7 +5090,7 @@
     "classes": [
       "plug_group"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -6057,7 +5101,7 @@
     "classes": [
       "plug_group"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -6079,7 +5123,7 @@
     "classes": [
       "mechanical_component"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -6090,7 +5134,7 @@
     "classes": [
       "mechanical_component"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 8,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -6101,7 +5145,7 @@
     "classes": [
       "mechanical_component"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 7,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -6112,7 +5156,7 @@
     "classes": [
       "mechanical_component"
     ],
-    "own_fact_count": 6,
+    "own_fact_count": 8,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -6156,7 +5200,7 @@
     "classes": [
       "utility_header"
     ],
-    "own_fact_count": 8,
+    "own_fact_count": 16,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -6167,7 +5211,7 @@
     "classes": [
       "local_control_panel"
     ],
-    "own_fact_count": 4,
+    "own_fact_count": 10,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -6178,7 +5222,7 @@
     "classes": [
       "functional_assembly"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 6,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -6189,7 +5233,7 @@
     "classes": [
       "duplex_filter"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 8,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -6211,7 +5255,7 @@
     "classes": [
       "duplex_filter"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 8,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -6222,7 +5266,7 @@
     "classes": [
       "utility_header"
     ],
-    "own_fact_count": 11,
+    "own_fact_count": 12,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -6233,7 +5277,7 @@
     "classes": [
       "duplex_filter"
     ],
-    "own_fact_count": 5,
+    "own_fact_count": 8,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -6255,7 +5299,7 @@
     "classes": [
       "water_tank"
     ],
-    "own_fact_count": 3,
+    "own_fact_count": 4,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -6266,7 +5310,7 @@
     "classes": [
       "water_tank"
     ],
-    "own_fact_count": 3,
+    "own_fact_count": 4,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []
@@ -6310,7 +5354,537 @@
     "classes": [
       "local_control_panel"
     ],
+    "own_fact_count": 6,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_0a368bcedf9502e41d2f",
+    "label": "Bunker House DE Differential Pressure & Pulse-Jet Cleaning Controller",
+    "classes": [
+      "control_instrumentation_group"
+    ],
+    "own_fact_count": 6,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_c1f2e2509a0d4ba0648a",
+    "label": "Bunker House DE Local Control Panel & Interlock Group",
+    "classes": [
+      "local_control_panel"
+    ],
+    "own_fact_count": 9,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_7bc410a2713767911c51",
+    "label": "Bunker Bay Vacuum Cleaning System Interface",
+    "classes": [
+      "vacuum_cleaning_interface"
+    ],
+    "own_fact_count": 7,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_8ee4d446ba339adbc8b3",
+    "label": "Bunker Bay Common Service Water & Floor Drain Boundary",
+    "classes": [
+      "utility_consumer_boundary"
+    ],
+    "own_fact_count": 7,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_565a0cb6a6ebf088a0b4",
+    "label": "CHP 11 kV / 3.3 kV HT Switchgear Distribution Group (1BA/1BB/2BA/2BB)",
+    "classes": [
+      "switchgear_assembly"
+    ],
+    "own_fact_count": 14,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_7a003ed02afdd3ff3b0b",
+    "label": "MCC-1 Switchgear & Feeder Lineup (at UBA-1)",
+    "classes": [
+      "mcc_lineup"
+    ],
+    "own_fact_count": 6,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_4f4f2fdfcf89bc531aa6",
+    "label": "MCC-2 Switchgear & Feeder Lineup (at UBA-2)",
+    "classes": [
+      "mcc_lineup"
+    ],
+    "own_fact_count": 6,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_b42dfd4078d7006a4592",
+    "label": "MCC-3 Switchgear & Feeder Lineup (at UBA-3)",
+    "classes": [
+      "mcc_lineup"
+    ],
+    "own_fact_count": 6,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_8d79092a640557546f72",
+    "label": "MCC-4 Switchgear & Feeder Lineup (at UBA-4)",
+    "classes": [
+      "mcc_lineup"
+    ],
+    "own_fact_count": 8,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_c61ae087612613d43862",
+    "label": "CHP VFD & Feeder Starter Panel Group",
+    "classes": [
+      "vfd_panel_group"
+    ],
+    "own_fact_count": 5,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_de1e8640cbecffb04f2e",
+    "label": "Unloader & Yard Machine Trailing-Cable HT Supply Boundary",
+    "classes": [
+      "electrical_supply_boundary"
+    ],
+    "own_fact_count": 5,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_8365f34315791906cb74",
+    "label": "Common Services & DE/DFDS LT Feeder Group",
+    "classes": [
+      "electrical_feeder_group"
+    ],
+    "own_fact_count": 5,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_786430644410adf6b829",
+    "label": "CHP Main Control Room PLC / DDCMIS Master Station",
+    "classes": [
+      "control_system_master"
+    ],
+    "own_fact_count": 6,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_506368d4e6565a85e79a",
+    "label": "CHP Remote I/O & Fibre-Optic Marshalling Network",
+    "classes": [
+      "control_network_assembly"
+    ],
+    "own_fact_count": 6,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_04f00228d85d7f9e9263",
+    "label": "CHP Sequential Start/Stop & Protection Permissive Matrix Group",
+    "classes": [
+      "control_logic_group"
+    ],
+    "own_fact_count": 11,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_a75312800df33c94c796",
+    "label": "Referenced I/O List 178158 & Temp Transmitter 180014 Evidence Gap Node",
+    "classes": [
+      "evidence_qualification_record"
+    ],
+    "own_fact_count": 5,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_c71fea35f1c38fa8f92e",
+    "label": "MCC Building Pressurization & Ventilation System (UBA-1..4)",
+    "classes": [
+      "hvac_pressurization_system"
+    ],
+    "own_fact_count": 6,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_d1c3269c3236b749eaa3",
+    "label": "Pump House & MCC Supply/Exhaust Ventilation Fan Group",
+    "classes": [
+      "ventilation_fan_group"
+    ],
+    "own_fact_count": 6,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_f60623c7a24f1284fce6",
+    "label": "Control Room & MCC Air Conditioning Equipment Group",
+    "classes": [
+      "air_conditioning_group"
+    ],
+    "own_fact_count": 7,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_1920bc6fa56ce0fde581",
+    "label": "Stacker Onboard Fire Detection & Extinguishant System Boundary",
+    "classes": [
+      "fire_protection_system"
+    ],
+    "own_fact_count": 8,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_51f19dd8321f067a23b3",
+    "label": "CHP Acoustic Hooter & Siren Warning Network",
+    "classes": [
+      "alarm_warning_network",
+      "protection_device"
+    ],
+    "own_fact_count": 6,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_3affdc9025e0cd83bea8",
+    "label": "Plant-Wide Fire Cause-and-Effect & Hydrant Boundary Qualification",
+    "classes": [
+      "evidence_qualification_record"
+    ],
+    "own_fact_count": 5,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_a7bfef25e3741b65aa52",
+    "label": "CHP Transfer Point & Building Hoist Schedule Group",
+    "classes": [
+      "lifting_hoist_group"
+    ],
+    "own_fact_count": 6,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_1c21f1c8ae7a41f3ff5f",
+    "label": "CHP Passenger & Goods Elevator Family Boundary (SNC-1, SNC-2 & Unloader Lifts)",
+    "classes": [
+      "elevator_system_group"
+    ],
+    "own_fact_count": 6,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_ad8d8ea6d6880553aa11",
+    "label": "CHP Belt Vulcanizing & Splice Maintenance Machine",
+    "classes": [
+      "maintenance_equipment"
+    ],
+    "own_fact_count": 5,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_1612e6c8468d5bfea30a",
+    "label": "CHP Drinking & Potable Water Distribution Boundary",
+    "classes": [
+      "utility_system_boundary"
+    ],
+    "own_fact_count": 5,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_fa20e6bac76e3b6b0919",
+    "label": "P00 Baseline Record Disposition & Classification Ledger",
+    "classes": [
+      "disposition_ledger"
+    ],
+    "own_fact_count": 5,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_8860d0043afb45c7379f",
+    "label": "Reclaimer 001-004EAF06/09 Hydraulic & Slew Instrument Candidate Group",
+    "classes": [
+      "qualified_candidate_group"
+    ],
+    "own_fact_count": 5,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_0b8266dfd2040b5f86aa",
+    "label": "Unclassified Numeric & Rihand Reference Isolation Boundary (016535_04, 016614_02, 019676_03, 14DR/14ND)",
+    "classes": [
+      "reference_isolation_boundary"
+    ],
+    "own_fact_count": 7,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_d579582e7c7aeb0243cb",
+    "label": "Tag Alias & Prefix Non-Merge Decision Register (AT/ILMS, QB/MD, EAT/BW, EBE-TT/TT, RE/EBE-CES)",
+    "classes": [
+      "identity_decision_register"
+    ],
+    "own_fact_count": 5,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_3e439afd87a9d3e82add",
+    "label": "Utility Reference Transfer Points SW/DW Boundary Group (UEF-2, TP-16, TP-17, TP-18)",
+    "classes": [
+      "utility_reference_boundary"
+    ],
+    "own_fact_count": 6,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_87c36f1e96e45314fc71",
+    "label": "Accepted-Pilot Thin Target Disposition Group (CV-5, CV-6, FG-15A, FG-15B)",
+    "classes": [
+      "disposition_ledger"
+    ],
+    "own_fact_count": 6,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_87c6d699fd9682b01dfb",
+    "label": "Maitree CHP Whole-Plant Coal-Flow Route Verification Index",
+    "classes": [
+      "plant_route_index"
+    ],
+    "own_fact_count": 5,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_64d1227ef85e889725c6",
+    "label": "Maitree CHP Shared Utility, Electrical & Control Backbone Index",
+    "classes": [
+      "plant_service_index"
+    ],
+    "own_fact_count": 5,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_31b28239d15adca92395",
+    "label": "Pass A Whole-Plant Tier-1 Breadth Release Certificate (v718)",
+    "classes": [
+      "release_audit_record"
+    ],
+    "own_fact_count": 5,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_ca99714b9b899e8ebd8e",
+    "label": "Pass B Priority Depth Queue Hand-Off Register",
+    "classes": [
+      "release_audit_record"
+    ],
+    "own_fact_count": 5,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_f53495eb7b4449569b6a",
+    "label": "Rack and Pinion Gate Rotary Actuator (PR3/PGH06E)",
+    "classes": [
+      "gate_actuator",
+      "electric_actuator"
+    ],
+    "own_fact_count": 8,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_15cdda188abe49b1a054",
+    "label": "Macawber Beekay Bottom Ash Handling System ETN Conveyors Conv-1..3 Reference Isolation Boundary",
+    "classes": [
+      "reference_isolation_boundary"
+    ],
     "own_fact_count": 4,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_fd244319abf64e258239",
+    "label": "00BBT03 CHP-1A Auxiliary Transformer (12.5 MVA, 11/3.45 kV)",
+    "classes": [
+      "electrical_component"
+    ],
+    "own_fact_count": 8,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_afc91319bff244b1bcbf",
+    "label": "00BBT04 CHP-1B Auxiliary Transformer (12.5 MVA, 11/3.45 kV)",
+    "classes": [
+      "electrical_component"
+    ],
+    "own_fact_count": 8,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_4d3db167d13349bd876d",
+    "label": "00BBT05 CHP-2A Auxiliary Transformer (10/12.5 MVA, 11/3.45 kV)",
+    "classes": [
+      "electrical_component"
+    ],
+    "own_fact_count": 8,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_96e539078f68436fb938",
+    "label": "00BBT06 CHP-2B Auxiliary Transformer (10/12.5 MVA, 11/3.45 kV)",
+    "classes": [
+      "electrical_component"
+    ],
+    "own_fact_count": 8,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_5ef20fb643184445a324",
+    "label": "00BBT07 CHP-3A Auxiliary Transformer (12.5/10 MVA, 11/3.45 kV)",
+    "classes": [
+      "electrical_component"
+    ],
+    "own_fact_count": 8,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_7b1b768d0adc434f95e0",
+    "label": "00BBT08 CHP-3B Auxiliary Transformer (12.5/10 MVA, 11/3.45 kV)",
+    "classes": [
+      "electrical_component"
+    ],
+    "own_fact_count": 8,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_7575aaa43e354d7ab3f0",
+    "label": "00BFT17..19 CHP MCC-1 LT Service Transformers (3 x 2.5 MVA, 11kV/433V)",
+    "classes": [
+      "electrical_component"
+    ],
+    "own_fact_count": 9,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_5107ca5d2f254717a733",
+    "label": "00BFT20..22 CHP MCC-2 LT Service Transformers (3 x 2.5 MVA, 11kV/433V)",
+    "classes": [
+      "electrical_component"
+    ],
+    "own_fact_count": 9,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_25c8b4a2dc9841b1a543",
+    "label": "00BFT23..24 CHP MCC-3 LT Service Transformers (2 x 2.5 MVA, 11kV/433V)",
+    "classes": [
+      "electrical_component"
+    ],
+    "own_fact_count": 9,
+    "disposition": "pending source review: unplaced does not mean physical asset missing",
+    "owner_batch": "B45",
+    "related_target_batches": []
+  },
+  {
+    "id": "ent_9599744a9ad74b64a99f",
+    "label": "00BFT25..27 CHP MCC-4 LT Service Transformers (3 x 2.0 MVA, 11kV/433V)",
+    "classes": [
+      "electrical_component"
+    ],
+    "own_fact_count": 9,
     "disposition": "pending source review: unplaced does not mean physical asset missing",
     "owner_batch": "B45",
     "related_target_batches": []

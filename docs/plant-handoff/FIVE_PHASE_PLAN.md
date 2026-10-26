@@ -48,15 +48,12 @@ Per batch: fresh integrity/FK (`chp.verify`), Node scene tests, pilot audits whe
 2. **P2:** maintainable auxiliaries operators actually service (lube/hydraulic circuits, brakes, take-ups, cleaners, sprays, dust collectors), electrical feeder/starter detail.
 3. **P3:** vendor BOM rows, spare-part level groups, revision reconciliation, accepted-pilot thin targets (CV-5/6, FG-15A/B, etc.).
 
-## Current position (v628, 3 October 2026)
+## Current position (v1114, 24 October 2026)
 
-- **Accepted with qualifications:** B00, B01 and B30–B36 (EAC-1A/B and TP1 pilot; Yard1 pilot; silo B30/B31; crusher B32–B35; conveyor18/TP13 B36). Do not replay their enrichment migrations.
-- **B02 (in progress, Pass A):** the DFDS station front ends, receivers, filters, pumps, pump controls and compressor qualifications are already beyond Tier 1. **Only one Tier-1 item remains:** connect the existing common air/water outlet headers to the TP1 local mains and the TP13 inlet via UEE-3 (B02 exit check: two TPs trace to one common source). Compressor internals/protection-table reconciliation, model-to-unit mapping and source 180055 are moved to the depth queue.
-- **22 of the 30 main conveyors still need Tier-1 work:** EAC-2A/B, 3A/B, 4A/B, 5A/B, 9, 11, 13; EBA-6A/B, 10, 12, 14, 15A/B, 16A/B, 19A/B.
-- **Ten other in-scope transfer points need Tier-1 local detail:** UEF-3 through UEF-12. UEF-2 and TP16–18 are source-qualified utility reference boundaries from B00.
-- **Major remaining assemblies:** three ship unloaders; primary screening; distribution dividers/fixed trippers; Yards 2–4; reclaim transfer; both sampling packages; conveyor19/four travelling trippers; two bunker bays/twelve bunkers; common utilities, power/control, fire/HVAC/access and final integration.
-- At v628 the projection has **645 non-reference records outside the nine process areas** and **10 documented electrical edges**. These are review diagnostics, not completeness measures.
-- **Accepted-package depth checks** (CV-5/CV-6, FG-15A/FG-15B thin targets) are Pass B P3 items; see [the follow-up queue](current/accepted-followups.json).
+- **Pass A is complete:** all 47 batches are breadth-complete or accepted with qualifications. The current inventory is [CURRENT_STATUS.md](current/CURRENT_STATUS.md); do not use the frozen v510 index as live state.
+- **Pass B is complete with one parked evidence gap:** 63 of 64 depth items are done. DQ-B02-002 remains open because the compressor model-to-unit mapping and motor source 180055 have not been located. Do not promote unsupported compressor details.
+- **Latest accepted work:** Pass 17 completed v1008–v1099; Pass 18 completed v1100–v1108 (9 proposals, 990 operations); Pass 19 completed v1109–v1114 (6 proposals, 573 operations across six source documents). Pass 19 covers ship-unloader shuttles, stacker trippers, belt weighers, PSH reject bins, TP-4 feeders and SLD switchboards. See [the Pass 19 checkpoint](../../output/plant-enrichment/pass19/checkpoint.md). Do not replay accepted deltas against the current database.
+- **No implementation batch remains.** Revisit DQ-B02-002 only when the unit mapping and source 180055 are available; the current release/package action is recorded in [phase-progress.json](phase-progress.json).
 
 ## Phase overview
 

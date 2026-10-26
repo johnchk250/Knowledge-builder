@@ -79,15 +79,33 @@ class Service:
             path.write_text(dumps(self.config),'utf-8'); path.chmod(0o600); path.replace(self.config_path)
         return self.settings()
 
+    def proposal(self, workspace, pid):
+        store=self.store(workspace)
+        rows=store.rows('SELECT * FROM proposals WHERE id=?',(pid,))
+        if not rows: raise ValueError('Proposal not found')
+        p=rows[0]
+        return {**p,'body':json.loads(p['body']),'findings':json.loads(p['findings'])}
+
     def state(self, workspace):
         store=self.store(workspace)
         intakes={}
         for row in store.rows("SELECT run_id,json_extract(response,'$.intake_assessment') assessment FROM run_steps WHERE stage='propose' AND json_type(response,'$.intake_assessment')='object'"):
             intakes.setdefault(row['run_id'],[]).append(json.loads(row['assessment']))
-        return {'workspace':workspace,'model':store.model(),'understanding':understanding.state(store),'events':operating_model.events(store), 'intake_policy':usage_intake.POLICY,'intakes':intakes,
+        model=store.model()
+        raw_proposals=store.rows('SELECT * FROM proposals ORDER BY created DESC')
+        proposals=[]
+        for idx,p in enumerate(raw_proposals):
+            body=json.loads(p['body'])
+            findings=json.loads(p['findings'])
+            ops=body.get('operations') or []
+            if p['status']=='pending' or idx<25:
+                proposals.append({**p,'body':body,'operation_count':len(ops),'findings':findings})
+            else:
+                proposals.append({**p,'body':{'summary':body.get('summary',''),'operations':[]},'operation_count':len(ops),'trimmed':True,'findings':findings})
+        return {'workspace':workspace,'model':model,'understanding':understanding.state(store),'events':operating_model.events(store,model=model), 'intake_policy':usage_intake.POLICY,'intakes':intakes,
                 'evidence_index':store.rows('SELECT id,document_id,page,locator FROM evidence ORDER BY document_id,page'),
                 'documents':store.rows('SELECT d.*,(SELECT count(*) FROM evidence e WHERE e.document_id=d.id) evidence_count FROM documents d ORDER BY created DESC'),
-                'proposals':[{**p,'body':json.loads(p['body']),'findings':json.loads(p['findings'])} for p in store.rows('SELECT * FROM proposals ORDER BY created DESC')],
+                'proposals':proposals,
                 'runs':store.rows('SELECT * FROM runs ORDER BY created DESC'),
                 'versions':store.rows('SELECT version,proposal_id,created,summary,hash FROM versions ORDER BY version DESC')}
 

@@ -4,7 +4,7 @@ Status: Pass A 100% breadth-complete, v718, 47/47 batches. Pass B depth work onl
 Passes 1-5 complete live (v789), Passes 6-10 closeout applied live (v882, 2026-10-18,
 including the returned Pass 11 silo-reference restructure) via the single top-model
 package round (§2b): package `output/plant-enrichment/pass06-10-top-model.zip`, applied back with
-`tools/apply_pass06_10_delta.py`. Passes 12-15 applied live on 2026-10-19 (v883-v999).
+`tools/apply_pass06_10_delta.py`. Passes 12-15 applied live on 2026-10-19 (v883-v999), Pass 16 applied on 2026-10-20 (v1000-v1007), and Pass 17 (split-brain elimination + full 266 originals scrape completion) applied live on 2026-10-23 (v1008-v1099; 5,346 active canonical entities, 35,635 active assertions, 0 conflicts).
 Source of truth: `docs/plant-handoff/FIVE_PHASE_PLAN.md` (Pass B priority),
 `docs/plant-handoff/phase-progress.json` (resume pointer),
 `docs/plant-handoff/current/depth-queue.json` (64 items; 62 done, 1 open, 1 evidence_gap as of 2026-10-19).

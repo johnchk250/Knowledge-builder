@@ -203,7 +203,8 @@ class HTTPTests(unittest.TestCase):
             self.assertEqual(json.load(response)['evidence_index'],[])
 
     def test_pdf_detail_is_bounded_workspace_scoped_and_does_not_mutate_sources(self):
-        import fitz
+        try: import fitz
+        except ImportError: self.skipTest('Optional PyMuPDF not installed')
         from PIL import Image
         with fitz.open() as pdf:
             page=pdf.new_page(width=600,height=800)
@@ -227,6 +228,28 @@ class HTTPTests(unittest.TestCase):
         self.assertEqual(failure.exception.code,400)
         self.assertEqual(store.model(),before)
         self.assertEqual((store.root/'originals'/uploaded['document']['sha256']).read_bytes(),original)
+
+    def test_original_download_is_streamed_and_attachment_flagged(self):
+        store=self.service.store('plant')
+        uploaded=ingest(store,'download-source.txt',b'Original download bytes')
+        doc_id=uploaded['document']['id']
+        with self.request('/api/original/'+doc_id) as response:
+            self.assertEqual(response.status,200)
+            self.assertTrue(response.headers['Content-Disposition'].startswith('inline'))
+            self.assertEqual(response.read(),b'Original download bytes')
+        with self.request('/api/original/'+doc_id+'?download=1') as response:
+            self.assertEqual(response.status,200)
+            self.assertTrue(response.headers['Content-Disposition'].startswith('attachment'))
+            self.assertEqual(response.read(),b'Original download bytes')
+        head=urllib.request.Request(f'http://127.0.0.1:{self.port}/api/original/'+doc_id+'?download=1',method='HEAD')
+        with urllib.request.urlopen(head,timeout=5) as response:
+            self.assertEqual(response.status,200)
+            self.assertEqual(response.headers['Content-Length'],str(len(b'Original download bytes')))
+            self.assertEqual(response.read(),b'')
+        (store.root/'originals'/uploaded['document']['sha256']).write_bytes(b'')
+        with self.assertRaises(urllib.error.HTTPError) as failure:
+            self.request('/api/original/'+doc_id+'?download=1')
+        self.assertEqual(failure.exception.code,400)
 
 
     def test_client_refresh_cancels_pending_shutdown(self):

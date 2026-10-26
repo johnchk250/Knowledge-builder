@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
-  "updated_date": "2026-10-20",
+  "updated_date": "2026-10-24",
   "baseline_version": 593,
-  "latest_verified_version": 1007,
-  "status": "pass_a_breadth_complete",
+  "latest_verified_version": 1114,
+  "status": "complete",
   "execution_mode": "breadth_first",
   "pass": "B",
   "breadth_policy": "docs/plant-handoff/FIVE_PHASE_PLAN.md#execution-mode-breadth-first-from-v628",
   "depth_queue": "docs/plant-handoff/current/depth-queue.json",
   "active_phase": "phase-5",
-  "next_batch": "B46",
-  "next_action": "Pass 16 plantwide visual-inspection delta applied live v999 -> v1007 (8 proposals, 1669 ops: 1026 assert + 643 retire) via tools/apply_pass06_10_delta.py; live chain v1000-v1007 identical to the rehearsal, 0 repairs, 0 problems. The delta was authored against a re-applied v999 working-model snapshot whose Pass 15 facts carry 1943 regenerated assertion IDs; the new tools/remap_delta_ids_from_snapshot.py repaired 346 stale retire references by unique active-content match and 1 stale entity reference by unique exact label (ent_6975828880204debb085 -> ent_f53495eb7b4449569b6a 'Rack and Pinion Gate Rotary Actuator (PR3/PGH06E)'); no other reference was touched. 12 assert operations repeat existing EBA-17A/B idler supports chains with a reworded basis and were applied as returned (recorded redundancy). Verified: chp.verify 0 errors (266 docs / 5196 evidence / 1007 versions), Node 53/53, unittest 76 OK (4 skipped: optional openpyxl absent plus 3 triple_model_session workspace skips), preservation 0 lost assertions/entities/aliases/merges and 643 new retirements exactly equal to the retire ops, +1026 assertions / +1026 assertion_contexts (exact op accounting), visual sweep 21/21 steps + 5/5 source journeys, 0 console errors (desktop-1440 + mobile-480). Depth queue unchanged: 62/64 done, DQ-B02-002 parked evidence_gap, DQ-B46-001 open (local exhaustive per-claim verification); the 10 residual field/commissioning questions remain open and are not addressed by design documents. Checkpoint: output/plant-enrichment/pass16/checkpoint.md. Next: local exhaustive DQ-B46-001 verification and any user-directed follow-up rounds.",
+  "next_batch": null,
+  "next_action": "Pass 19 plant-wide subassembly and schematic completion accepted live v1109 -> v1114 (6 source-scoped proposals, 573 operations: 110 entity, 463 assert) after Pass 18 v1100 -> v1108 (9 proposals, 990 operations). Pass B remains complete with 63/64 depth items done; DQ-B02-002 is the sole parked evidence_gap (compressor model-to-unit mapping and motor source 180055). No implementation batch remains. See output/plant-enrichment/pass19/checkpoint.md.",
   "plan": "docs/plant-handoff/FIVE_PHASE_PLAN.md",
   "current_inventory": "docs/plant-handoff/current/CURRENT_STATUS.md",
   "last_completed_work": {
@@ -1053,12 +1053,22 @@
       ],
       "status": "applied",
       "note": "8 proposals chained v1000->v1007 (1669 operations: 1026 assert + 643 retire) from pass16_plantwide_visual_inspection_delta.json (base 999). The delta was authored against a re-applied v999 working-model snapshot whose Pass 15 facts carry 1943 regenerated assertion IDs; tools/remap_delta_ids_from_snapshot.py repaired 346 stale retire references by unique active-content match and 1 stale entity reference by unique exact label (ent_6975828880204debb085 -> ent_f53495eb7b4449569b6a 'Rack and Pinion Gate Rotary Actuator (PR3/PGH06E)'); no other reference touched. Rehearsal chain identical to live; 0 repairs, 0 problems. 12 assert operations repeat existing EBA-17A/B idler supports chains with a reworded basis and were applied as returned (recorded redundancy). Verified: chp.verify 0 errors (266 docs / 5196 evidence / 1007 versions), Node 53/53, unittest 76 OK (4 skipped: optional openpyxl absent plus 3 triple_model_session workspace skips), preservation 0 lost assertions/entities/aliases/merges and 643 new retirements exactly equal to the retire ops, +1026 assertions / +1026 assertion_contexts (exact op accounting), visual sweep 21/21 steps + 5/5 source journeys, 0 console errors (desktop-1440 + mobile-480). Checkpoint: output/plant-enrichment/pass16/checkpoint.md."
+    },
+    {
+      "date": "2026-10-23",
+      "batch": "Pass 17 split-brain elimination and originals completion",
+      "versions": [
+        1008,
+        1099
+      ],
+      "status": "applied",
+      "note": "92 proposals chained v1008->v1099 (6670 operations: 949 entity, 5705 assert, 12 source_note, 4 retire) from pass17_split_brain_and_originals_completion_delta.json (base 1007). Eliminated split-brain between store.model() and Service.state()/PlantExplorerModel.build(), materialized all 929 virtual subcomponent entities and 5,085 virtual assertions into plant.sqlite3, and ingested newly scraped engineering data across all remaining low/zero-assertion original PDFs (SLD 00BBT03..08/00BFT17..27 & 3.3kV motors, Tripper ICRC-2 rail clamp, Stacker MAHA luffing cylinder & Xuzhou Rothe Erde slew ring, Reclaimer TAKRAF storm anchor & MQP, Belt feeders KF-1..4, Flow dividers KB-FD-1..8 4-20mA table, Flap gates Type-1..5, Tripper BBL MB13S6G5 geared motor, PG test guarantees, Painting DFT systems, KKS HVAC/fans 00SAC04..14, DE ZT55 compressor & PUA-decoded Summits SI 030 DA air dryer, BEML mobile fleet, VAC-2100/75 vacuum, Elevator memo, Leader valves, and Macawber Beekay ETN Bottom Ash conveyor isolation boundary). Verified: chp.verify 0 errors (266 docs / 5196 evidence / 1099 versions), Node tests pass, unittest pass, pilot audits pass with 0 conflicts."
     }
   ],
   "accepted_followup_queue": "docs/plant-handoff/current/accepted-followups.json",
   "last_accepted_work": {
-    "scope": "Pass 16 plantwide visual inspection accepted v1000-v1007: 8 proposals, 1669 operations; 1026 new classification/assembly/topology assertions and 643 retirements of false sibling, cross-branch and duplicate-owner links across stackers, reclaimers, ship unloaders, stockpile water systems, dry-fog dust suppression, conveyors, transfer houses, screenhouse, crushers, silos and bunkers. The returned delta required a snapshot-grounded repair of 346 stale retire references and 1 stale entity reference before acceptance; 12 redundant idler supports asserts were retained as returned. Pass A and the depth queue state are unchanged (62/64 done, DQ-B02-002 evidence_gap, DQ-B46-001 open).",
-    "version": 1007,
-    "checkpoint": "output/plant-enrichment/pass16/checkpoint.md"
+    "scope": "Pass 17 split-brain elimination and originals scrape completion accepted v1008-v1099: 92 proposals, 6670 operations across 87 documents. Total active canonical entities: 5,346; active assertions: 35,635; formal conflicts: 0.",
+    "version": 1099,
+    "checkpoint": "output/plant-enrichment/pass17/checkpoint.md"
   }
 }

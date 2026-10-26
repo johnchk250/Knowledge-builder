@@ -1,25 +1,23 @@
-# CHP Knowledge v670 -> v718 Minimal Delta Package
+# CHP Knowledge Builder v1007 — Operating Route Selection & Visual Audit Fix Delta
 
-This archive contains ONLY the new/updated files from Pass A Batches B20 through B46 (v671 -> v718),
-plus `apply_b20_to_b46_to_sqlite.py` to upgrade your existing local `data/plant/plant.sqlite3` in-place
-without re-downloading the 95 MB database or multi-GB `originals/` folder.
+## How to Apply This Delta to Your Local Project Folder
 
-## Quick Start (30 seconds)
-1. Extract this `.zip` directly into the root of your existing local `CHP knowledge` folder
-   (allowing it to merge `output/`, `tools/`, and `docs/`).
-2. Open a terminal / Command Prompt in your local `CHP knowledge` folder and run:
-   ```
-   python apply_b20_to_b46_to_sqlite.py
-   ```
-   - This automatically creates a safety backup (`data/plant/plant.sqlite3.v670.bak`),
-     commits all 48 packages (`v671` -> `v718`) with full SHA-256 hash-chain integrity,
-     and runs `chp.verify` checks.
-3. Launch the app as usual:
-   ```
-   start.bat
-   ```
-   or:
-   ```
-   python -m chp.launcher
-   ```
-   Your local server at `http://127.0.0.1:8765` will immediately display `Documented model · v718`.
+Extract `CHP-v1007-route-selection-fix-delta.zip` directly into the root of your local `CHP-Knowledge-Builder` project folder (allow it to overwrite the matched files in `chp/`, `dist/`, and `tests/`). It is 100% self-contained and can be applied on top of any previous delta or directly onto a clean `v1007` folder.
+
+### What Was Fixed for the Top Bar Operating Route Selection (`Whole plant` / `Path 1..5`)
+
+1. **Why Nothing Changed Previously (`dist/plant-scene.js`, `dist/plant-scene.css`)**:
+   - In `plant()`, non-participating stages were assigned `class="ps-stage-scene ps-dimmed"`, **but `.ps-dimmed` was missing from `dist/plant-scene.css`**, so non-participating stages stayed at 100% opacity.
+   - `plant()` also drew all 9 coal-flow arrows (`p.links`) identically without checking `path.stages`, so none of the arrows dimmed or highlighted when switching between `Path 1..5`.
+2. **What Happens Now When You Select `Path 1..5`**:
+   - **Stage & Arrow Isolation**: Non-participating stages and arrows immediately fade into the background (`.ps-dimmed { opacity: 0.15; filter: grayscale(0.9); }`), while the stages on the selected route get a crisp highlighted border card (`.ps-route-stage-active`) and the active coal-flow arrows animate with flowing dashes (`.ps-route-edge-active`).
+   - **Equipment Tags on Every Stage Card**: Each process stage card on `#overview` now displays its key equipment tags (`Ship unloaders · EAC-1 / 2 · UEF-1`, `UEE-2 · EBB-1 / 2 · extractors`, etc.) and indicates `Active in Path N · Explore →`.
+   - **Live Active Route Summary Banner**: Selecting `Path 1..5` opens a route summary bar right below the route pills displaying the documented sequence logic (`path.summary.value`), flow limit (e.g., `1250 t/h Maximum forward flow toward silos; excess diverted to stacking` on Paths 2 & 5), clickable stage chips for the active chain, and 1-click source evidence chips (`p.8 ↗`, `p.5 ↗`, `Route permissives & notes ↗`).
+   - **Stream & Bypass Highlighting Inside Buildings (`UEE-3`, `UEF-1..13`, `UEF-4/6`)**: Selecting a stream, bypass path (`Screen & crush` vs. `Direct bypass`), or receiving conveyor in the Crusher House or Transfer Houses now also highlights and animates the active coal path while softly dimming unselected stream equipment (`.ps-stream-dimmed`).
+
+### All Other Visual & Geometric Fixes Included in This Self-Contained Delta
+- Fixed the `(true)` subtitle bug on openable hotspots (`silo · 5 parts ↗`).
+- Fixed `UEE-2` Silo House `siloColumns()` root filtering so child liner records (`EBB-1/2 Shell and sloping liner`) no longer create empty ghost columns or push `EBB-2` onto `HOUSE SERVICES`.
+- Fixed 1D Kinematic Conveyor Strip (`conveyorScene()`) belt-loop corridor spacing, left-to-right kinematic arrow routing, and `kind()` container regex anchoring (`EBA-18A/B` idlers, pulleys, and take-ups retain their true symbols).
+- Fixed Transfer House (`UEF-1..13`) `HEAD DECK` central gravity shaft routing and added `directChuteTransferColumns()` for `UEF-1`.
+- Unified the `.topbar` across all modes and memoized `p.assembly(id)` with $O(1)$ `_ids` lookups.

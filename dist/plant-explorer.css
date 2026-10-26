@@ -23,3 +23,19 @@
 
 #dialog .dialog-actions{flex-wrap:wrap}#dialog .badge{white-space:normal;overflow-wrap:anywhere}#dialog .micro{overflow-wrap:anywhere}.source-basis{font-size:13px;background:#f2f7f6;padding:12px;margin:12px 0}.source-detail>a{display:block;overflow-x:auto}.source-detail img{min-width:650px}.pe-assembly-tools label{min-width:0}.pe-assembly-tools input{min-width:0}
 @media(max-width:640px){.source-detail img{min-width:0;width:100%}}
+
+/* Adaptive Equipment Information Flow Dossier Tables & Cards */
+.pe-spec-table{display:flex;flex-direction:column;border:1px solid #d8e4e2;border-radius:8px;overflow:hidden;background:#fff}
+.pe-spec-row{display:grid;grid-template-columns:minmax(180px,36%) minmax(0,64%);gap:16px;padding:10px 16px;border-bottom:1px solid #eaf0ef;align-items:center}
+.pe-spec-row:last-child{border-bottom:0}
+.pe-spec-key strong{font-weight:600;color:#274440;text-transform:capitalize;font-size:13px}
+.pe-spec-key small{display:block;font-size:11px;color:#68807c;margin-top:2px}
+.pe-spec-val{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13.5px;color:#18322f}
+.pe-anatomy-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.pe-anatomy-card{padding:14px;border-radius:8px;border:1px solid #d2e2de;background:#f8fbfa}
+.pe-anatomy-title{font-weight:650;font-size:14px;color:#165f59}
+.pe-anatomy-spec{font-size:12.5px;color:#2c4743;margin:6px 0}
+.pe-wiring-groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.pe-wiring-group h4{margin:0 0 10px;font-size:12px;text-transform:uppercase;letter-spacing:.7px;color:#526e6a}
+
+.pe-common-alias{margin:4px 0 6px;font-size:13.5px;color:#1d665b}

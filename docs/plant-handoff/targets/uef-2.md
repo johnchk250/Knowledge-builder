@@ -15,14 +15,14 @@ Read [section plan](../SECTION_PLANS.md#p00) and [family contract](../ASSEMBLY_C
 
 Start with these exact dedicated-source candidates; inspect originals, review replies and sheet continuations before using a value:
 
-- `doc_411067c712284bc5a957` — Piping Layout for SW & DW system at UEF-2, 16, 17 & 18.pdf; available PDF pp. 1–5. Retrieval candidate, not reviewed applicability.
+- `doc_411147c712284bc5a957` — Piping Layout for SW & DW system at UEF-2, 16, 17 & 18.pdf; available PDF pp. 1–5. Retrieval candidate, not reviewed applicability.
 
 Common source groups: **transfer, dfds** plus **topology** in [source catalog](../SOURCE_CATALOG.md). Exact evidence IDs by page and original hashes are in [sources.json](../inventory/sources.json).
 
 Existing assembly citations (claims still require original-source review):
 
 - `doc_4f2cd96c3b1e413ea4b5` — Control Write up for Coal Handling System.pdf, PDF pp. 55.
-- `doc_411067c712284bc5a957` — Piping Layout for SW & DW system at UEF-2, 16, 17 & 18.pdf, PDF pp. 1.
+- `doc_411147c712284bc5a957` — Piping Layout for SW & DW system at UEF-2, 16, 17 & 18.pdf, PDF pp. 1.
 
 Existing explicitly applicable reference identities: none.
 

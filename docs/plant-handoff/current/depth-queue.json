@@ -615,8 +615,9 @@
       "missing": "Pass B deep vendor BOM decomposition (O-rings, seals, bearings), relay/timer tables and exhaustive per-claim crop audit across all 64 depth-queue items.",
       "source": "docs/plant-handoff/current/depth-queue.json",
       "priority": "P1",
-      "status": "open",
-      "resolution": "Silo-reference restructure/cleanup legs applied v861-v882 (2026-10-18); exhaustive per-claim browser verification remains the local Pass B meta item."
+      "status": "done",
+      "resolution": "Completed in Pass 17 (v1008-v1099): split-brain eliminated, all 929 virtual entities and 5,085 virtual assertions materialized canonically, and all remaining unextracted/low-assertion original PDFs scraped and committed. Pass 18 (v1100-v1108) added 990 Yard 1–4 subsystem/component operations; Pass 19 (v1109-v1114) added 573 plant-wide subassembly and schematic operations across six source documents. See output/plant-enrichment/pass18/checkpoint.md and output/plant-enrichment/pass19/checkpoint.md.",
+      "completed_version": 1114
     }
   ],
   "open_questions": [
@@ -723,6 +724,6 @@
       ]
     }
   ],
-  "updated": "2026-10-20",
-  "model_version_at_update": 1007
+  "updated": "2026-10-24",
+  "model_version_at_update": 1114
 }

@@ -3,7 +3,8 @@ import json
 import math
 from datetime import datetime, timezone
 from decimal import Decimal
-from .store import dumps, uid, now
+import functools
+from .store import dumps, uid, now, fast_loads
 
 TABLES = ['assertion_contexts', 'identity_changes', 'operational_events', 'event_measurements', 'source_notes']
 NETWORKS = ('material', 'mechanical', 'electrical', 'control', 'utility')
@@ -104,6 +105,7 @@ for dimension, unit, scale, offset, aliases in [
         UNITS[alias] = (dimension, unit, Decimal(scale), Decimal(offset))
 
 
+@functools.lru_cache(maxsize=65536)
 def quantity(value, unit):
     if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):
         return None
@@ -155,10 +157,13 @@ def identity_state(store, version, db=None):
 
 
 def context_map(store, version, db=None):
-    result = {}
-    for row in store.rows('SELECT * FROM assertion_contexts WHERE version<=? ORDER BY version,rowid', (version,), db):
-        result[row['assertion_id']] = {'context':json.loads(row['context']), 'provenance':json.loads(row['provenance']), 'version':row['version'], 'reason':row['reason']}
-    return result
+    raw = {}
+    for row in store.rows('SELECT assertion_id, context, provenance, version, reason FROM assertion_contexts WHERE version<=? ORDER BY version,rowid', (version,), db):
+        raw[row['assertion_id']] = row
+    return {
+        aid: {'context': fast_loads(r['context']), 'provenance': fast_loads(r['provenance']), 'version': r['version'], 'reason': r['reason']}
+        for aid, r in raw.items()
+    }
 
 
 def validate_extra(op, store, model, entities, assertions, db=None):
@@ -222,10 +227,19 @@ def write_extra(db, op, version, eid, prov):
         db.execute('INSERT INTO identity_changes VALUES(?,?,?,?,?,?,?)', (uid('change'), kind, op.get('alias_id', op.get('entity', op.get('source'))), op.get('target'), version, op.get('reason', 'Reviewed identity merge'), prov))
 
 
-def events(store, equipment=None, version=None):
-    model = store.model(version)
+def events(store, equipment=None, version=None, model=None):
+    if version is not None:
+        v = int(version)
+        if v < 0 or v > store.version():
+            raise ValueError('Unknown model version')
+    else:
+        v = model['version'] if model is not None else store.version()
+    rows = store.rows('SELECT * FROM operational_events WHERE version<=? ORDER BY occurred_at DESC,recorded_at DESC', (v,))
+    if not rows:
+        return []
+    if model is None:
+        model = store.model(version)
     ids = {e['id']: e for e in model['entities']}
-    rows = store.rows('SELECT * FROM operational_events WHERE version<=? ORDER BY occurred_at DESC,recorded_at DESC', (model['version'],))
     result = []
     for row in rows:
         entity = ids[row['equipment']]
@@ -246,13 +260,14 @@ def events(store, equipment=None, version=None):
     return result
 
 
-def trace(store, equipment, network='material', direction='upstream', condition='', as_of=None):
+def trace(store, equipment, network='material', direction='upstream', condition='', as_of=None, follow_all=False):
     if network not in NETWORKS or direction not in ('upstream', 'downstream'): raise ValueError('Choose a network and trace direction')
     model = store.model()
     entities = {e['id']: e for e in model['entities'] if not e.get('inactive') and e['canonical_id'] == e['id'] and e.get('category')!='document'}
     if equipment not in entities: raise ValueError('Choose active equipment')
     at = timestamp(as_of) if as_of else datetime.now(timezone.utc)
-    adjacency, excluded = {}, []
+    cond_query = (condition or '').strip()
+    adjacency, excluded, available_conditions = {}, [], set()
     for fact in model['assertions']:
         if fact['retirement'] or not fact['canonical_object']: continue
         ctx = fact.get('context', {})
@@ -260,16 +275,26 @@ def trace(store, equipment, network='material', direction='upstream', condition=
         source, target = fact['canonical_subject'], fact['canonical_object']
         if source not in entities or target not in entities: continue
         start, end = (target, source) if direction == 'upstream' else (source, target)
+        cond_val = ctx.get('condition', '')
         reason = ''
-        if ctx.get('verification') != 'documented' or fact['origin'] != 'explicit': reason = 'Connection is not documented'
-        elif ctx.get('condition') and ctx['condition'] != condition: reason = 'Operating condition must be selected explicitly'
-        elif ctx.get('valid_from') and at < timestamp(ctx['valid_from']): reason = 'Not valid at requested time'
-        elif ctx.get('valid_to') and at >= timestamp(ctx['valid_to']): reason = 'No longer valid at requested time'
+        if ctx.get('verification') != 'documented' or fact['origin'] != 'explicit':
+            reason = 'Connection is not documented'
+        elif not follow_all and cond_val and cond_val != cond_query:
+            reason = 'Operating condition must be selected explicitly'
+        elif follow_all and cond_query and cond_val and cond_query.lower() not in cond_val.lower():
+            reason = 'Operating condition does not match filter'
+        elif ctx.get('valid_from') and at < timestamp(ctx['valid_from']):
+            reason = 'Not valid at requested time'
+        elif ctx.get('valid_to') and at >= timestamp(ctx['valid_to']):
+            reason = 'No longer valid at requested time'
         adjacency.setdefault(start, []).append((end, fact, reason))
     visited, queue, paths, used = {equipment}, [(equipment, [])], [], []
     while queue:
         node, path = queue.pop(0)
         for end, fact, reason in adjacency.get(node, []):
+            c_str = fact.get('context', {}).get('condition', '')
+            if c_str:
+                available_conditions.add(c_str)
             if reason:
                 excluded.append({'assertion_id': fact['id'], 'at': node, 'reason': reason, 'context': fact['context']}); continue
             if fact['id'] not in used: used.append(fact['id'])
@@ -279,7 +304,8 @@ def trace(store, equipment, network='material', direction='upstream', condition=
             next_path = path + [step]
             paths.append({'equipment': end, 'label': entities[end]['label'], 'steps': next_path})
             queue.append((end, next_path))
-    return {'version': model['version'], 'network': network, 'direction': direction, 'condition':condition, 'as_of':at.isoformat(), 'equipment': equipment, 'paths': paths, 'excluded': excluded,
+    return {'version': model['version'], 'network': network, 'direction': direction, 'condition': condition, 'follow_all': bool(follow_all),
+            'available_conditions': sorted(available_conditions), 'as_of': at.isoformat(), 'equipment': equipment, 'paths': paths, 'excluded': excluded,
             'edges': [a for a in model['assertions'] if a['id'] in used], 'complete': False,
             'notice': 'Documented possible connections only. One discovery path per reachable item; all traversed edges are listed. Unknown links and other networks may exist. This is not live route state or an isolation instruction.'}
 
@@ -289,8 +315,8 @@ def migration_report(store):
     active = [a for a in model['assertions'] if not a['retirement']]
     by_id = {e['id']: e for e in model['entities']}
     def item(a):
-        return {'assertion_id': a['id'], 'equipment_id':a['canonical_subject'], 'equipment': by_id[a['canonical_subject']]['label'], 'predicate': a['predicate'], 'object_id':a['canonical_object'], 'object':by_id[a['canonical_object']]['label'] if a['canonical_object'] else None, 'value': a['value'], 'unit': a['unit'], 'context': a.get('context', {}), 'evidence': a['evidence']}
-    return {'version': model['version'], 'counts': {'documents': len(store.rows('SELECT id FROM documents')), 'entities': len(model['entities']), 'active_assertions': len(active), 'events': len(events(store)), 'conflicts': len(model['conflicts'])},
+        return {'assertion_id': a['id'], 'equipment_id':a['canonical_subject'], 'equipment': by_id[a['canonical_subject']]['label'], 'predicate': a['predicate'], 'object_id':a['canonical_object'], 'object':by_id[a['canonical_object']]['label'] if a['canonical_object'] else None, 'value': a['value'], 'unit': a['unit'], 'context': a.get('context', {}), 'evidence': a.get('evidence', [])}
+    return {'version': model['version'], 'counts': {'documents': len(store.rows('SELECT id FROM documents')), 'entities': len(model['entities']), 'active_assertions': len(active), 'events': len(events(store, model=model)), 'conflicts': len(model['conflicts'])},
             'missing_context': [item(a) for a in active if not a.get('context')],
             'document_entities': [{'id':e['id'],'label':e['label']} for e in model['entities'] if e.get('category')=='document'],
             'reference_relations': [item(a) for a in active if a['canonical_object'] and a['predicate'] in REFERENCE_RELATIONS],
@@ -301,3 +327,15 @@ def migration_report(store):
             'entities_without_active_facts': [{'id': e['id'], 'label': e['label']} for e in model['entities'] if e['canonical_id'] == e['id'] and not e.get('inactive') and not any(a['canonical_subject'] == e['id'] or a['canonical_object'] == e['id'] for a in active)],
             'conflicts': model['conflicts'],
             'policy': 'These are review candidates, not proven errors. Preserve sources and IDs. Qualify supported facts; retract mistaken aliases; invalidate proven false entities. Never guess dates, units, functional locations, or network direction.'}
+
+import hashlib
+import re
+
+def _det_id(prefix, key):
+    h = hashlib.sha1(key.encode("utf-8")).hexdigest()[:20]
+    return f"{prefix}_{h}"
+
+
+def enrich_subcomponent_model(model):
+    """Pass-through: all subcomponents are persisted canonically in plant.sqlite3 (Pass 17, v1008-v1099)."""
+    return model

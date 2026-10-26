@@ -223,4 +223,30 @@ class OperationsTests(unittest.TestCase):
             self.assertEqual(len(store.export()['operational_events']),1)
 
 
+
+    def test_trace_follow_all_and_condition_substring(self):
+        self.accept([
+            self.edge('BC-04','CH-04',condition='Diverter to A'),
+            self.edge('CH-04','BC-05',condition='Crusher online')
+        ])
+        strict=ops.trace(self.store,self.ids['BC-04'],direction='downstream',follow_all=False)
+        self.assertEqual(strict['paths'],[])
+        all_branches=ops.trace(self.store,self.ids['BC-04'],direction='downstream',follow_all=True)
+        self.assertEqual([p['equipment'] for p in all_branches['paths']],[self.ids['CH-04'],self.ids['BC-05']])
+        self.assertEqual(all_branches['available_conditions'],['Crusher online','Diverter to A'])
+        filtered=ops.trace(self.store,self.ids['BC-04'],direction='downstream',condition='diverter',follow_all=True)
+        self.assertEqual([p['equipment'] for p in filtered['paths']],[self.ids['CH-04']])
+
+
+
+    def test_source_search_alias_expansion(self):
+        ingest(self.store,'GA & MECH LOAD OF TP-5.txt',b'Mechanical load data for Transfer Point TP-5 and BCN-5A.')
+        ingest(self.store,'GA & MECH LOAD OF PSH.txt',b'Primary Screening House PSH vibration screen layout.')
+        self.assertGreaterEqual(usage_intake.search_sources(self.store,'UEF-5')['total'],1)
+        self.assertGreaterEqual(usage_intake.search_sources(self.store,'TP 5')['total'],1)
+        self.assertGreaterEqual(usage_intake.search_sources(self.store,'EAC-5A')['total'],1)
+        self.assertGreaterEqual(usage_intake.search_sources(self.store,'UEE-1')['total'],1)
+        self.assertGreaterEqual(usage_intake.search_sources(self.store,'PSH')['total'],1)
+
+
 if __name__=='__main__': unittest.main()

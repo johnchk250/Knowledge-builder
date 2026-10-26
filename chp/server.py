@@ -24,9 +24,10 @@ STATIC=Path(__file__).resolve().parent.parent/'dist'
 CLIENT_CLOSE_GRACE=4.0
 CLIENT_LEASE_PING=0.5
 CLIENT_STARTUP_GRACE=20.0
+FAVICON_SVG=b'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#1d665b"/><text x="16" y="21" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="12" fill="#fff">CHP</text></svg>'
 
 
-def make_handler(service,token,port,close_grace=CLIENT_CLOSE_GRACE,lease_ping=CLIENT_LEASE_PING):
+def make_handler(service,token,port,close_grace=CLIENT_CLOSE_GRACE,lease_ping=CLIENT_LEASE_PING,keep_alive=False):
     lifecycle_lock=threading.Lock()
     lifecycle={'timer':None,'clients':set()}
 
@@ -37,6 +38,7 @@ def make_handler(service,token,port,close_grace=CLIENT_CLOSE_GRACE,lease_ping=CL
             if timer: timer.cancel()
 
     def schedule_close(server,delay=close_grace):
+        if keep_alive: return
         cancel_close()
         timer=threading.Timer(delay,server.shutdown)
         timer.daemon=True
@@ -104,9 +106,10 @@ def make_handler(service,token,port,close_grace=CLIENT_CLOSE_GRACE,lease_ping=CL
             return data if raw else json.loads(data)
 
         def do_GET(self): self.dispatch(False)
+        def do_HEAD(self): self.dispatch(False,True)
         def do_POST(self): self.dispatch(True)
 
-        def dispatch(self,write):
+        def dispatch(self,write,head=False):
             try:
                 self.check(write)
                 parsed=urllib.parse.urlsplit(self.path)
@@ -117,12 +120,14 @@ def make_handler(service,token,port,close_grace=CLIENT_CLOSE_GRACE,lease_ping=CL
                 if path.startswith('/api/spatial') or path.startswith('/api/reconstruction') or path in ('/viewer3d.js','/spatial-ui.js','/reconstruction.html','/reconstruction.js','/reconstruction.css'):
                     return self.send(410, {'error':'3D is paused in the operations-focused app. Historical assets remain in full backups.'})
                 if not write:
+                    if path=='/favicon.ico': return self.send(200,FAVICON_SVG,'image/svg+xml')
                     if path=='/api/bootstrap': return self.send(200,{'token':token,'settings':service.settings()})
                     if path=='/api/state': return self.send(200,service.state(workspace))
+                    if path=='/api/proposal': return self.send(200,service.proposal(workspace,query.get('id',[''])[0]))
                     if path=='/api/search': return self.send(200,usage_intake.search_sources(store,query.get('q',[''])[0]))
                     if path=='/api/events': return self.send(200,operating_model.events(store,query.get('equipment',[None])[0],query.get('version',[None])[0]))
                     if path=='/api/migration': return self.send(200,operating_model.migration_report(store))
-                    if path=='/api/network': return self.send(200,operating_model.trace(store,query.get('equipment',[''])[0],query.get('network',['material'])[0],query.get('direction',['upstream'])[0],query.get('condition',[''])[0],query.get('as_of',[None])[0]))
+                    if path=='/api/network': return self.send(200,operating_model.trace(store,query.get('equipment',[''])[0],query.get('network',['material'])[0],query.get('direction',['upstream'])[0],query.get('condition',[''])[0],query.get('as_of',[None])[0],query.get('follow_all',['0'])[0]=='1'))
                     if path=='/api/revision':
                         return self.send(200,{'version':store.version(),'understanding':understanding.current(store)['revision'],
                             'memory_queue':store.rows('SELECT (SELECT count(*) FROM context_suggestions) suggestions,(SELECT count(*) FROM context_decisions) decisions')[0],
@@ -163,17 +168,26 @@ def make_handler(service,token,port,close_grace=CLIENT_CLOSE_GRACE,lease_ping=CL
                         rows=store.rows('SELECT * FROM documents WHERE id=?',(path.rsplit('/',1)[1],))
                         if not rows: raise ValueError('Document not found')
                         doc=rows[0]
-                        return self.send(200,(store.root/'originals'/doc['sha256']).read_bytes(),doc['media_type'],{'Content-Disposition':"inline; filename*=UTF-8''"+urllib.parse.quote(doc['name'])})
+                        orig_path=store.root/'originals'/doc['sha256']
+                        if not orig_path.is_file(): raise ValueError('Original file is not present in this local folder')
+                        if orig_path.stat().st_size==0: raise ValueError('Original file is empty in this local folder')
+                        disposition='attachment' if query.get('download',['0'])[0]=='1' else 'inline'
+                        extra={'Content-Disposition':disposition+"; filename*=UTF-8''"+urllib.parse.quote(doc['name'])}
+                        content_type=doc['media_type'] or 'application/octet-stream'
+                        if head: return self.begin_response(200,orig_path.stat().st_size,content_type,extra)
+                        return self.send_file(orig_path,content_type,extra)
                     if path.startswith('/api/render/'):
                         rows=store.rows('SELECT image FROM evidence WHERE id=?',(path.rsplit('/',1)[1],))
                         if not rows or not rows[0]['image']: raise ValueError('Rendered evidence not found')
-                        return self.send(200,(store.root/'renders'/rows[0]['image']).read_bytes(),'image/png')
+                        render_path=store.root/'renders'/rows[0]['image']
+                        if not render_path.exists(): raise ValueError('Rendered page image is not present in this local folder')
+                        return self.send(200,render_path.read_bytes(),'image/png')
                     if path.startswith('/api/evidence-detail/'):
                         from .evidence_view import detail_png
                         return self.send(200,detail_png(store,path.rsplit('/',1)[1],query.get('region',[''])[0]),'image/png')
                     if path.startswith('/api/run/'):
                         return self.send(200,store.rows('SELECT * FROM run_steps WHERE run_id=? ORDER BY created',(path.rsplit('/',1)[1],)))
-                    if path in ('/','/index.html','/app.js','/style.css','/operations-ui.js','/plant-model.js','/plant-explorer.js','/plant-explorer.css','/plant-scene-model.js','/plant-scene.js','/plant-scene.css'):
+                    if path in ('/','/index.html','/app.js','/style.css','/operations-ui.js','/plant-model.js','/plant-explorer.js','/plant-explorer.css','/plant-scene-model.js','/plant-yard-3d.js','/plant-scene.js','/plant-scene.css'):
                         file=STATIC/('index.html' if path=='/' else path[1:])
                         return self.send(200,file.read_bytes(),mimetypes.guess_type(str(file))[0] or 'text/plain')
                 else:
@@ -236,6 +250,7 @@ def main():
     parser.add_argument('--data',default=str(Path(__file__).resolve().parent.parent/'data'))
     parser.add_argument('--port',type=int,default=8765)
     parser.add_argument('--no-browser',action='store_true')
+    parser.add_argument('--keep-alive',action='store_true',help='Keep the server running even when all browser tabs close')
     args=parser.parse_args()
     if not 1024<=args.port<=65535: parser.error('Port must be between 1024 and 65535')
     # Prevent two worker processes using the same data directory. OS releases the lock on exit.
@@ -253,7 +268,7 @@ def main():
     except OSError: parser.error('This data directory is already open in another CHP Knowledge Builder process.')
     service=Service(root)
     pid_path.write_text(str(os.getpid()),encoding='ascii')
-    handler=make_handler(service,secrets.token_urlsafe(32),args.port)
+    handler=make_handler(service,secrets.token_urlsafe(32),args.port,keep_alive=args.keep_alive)
     server=ThreadingHTTPServer(('127.0.0.1',args.port),handler)
     server.daemon_threads=True
     url=f'http://127.0.0.1:{args.port}'

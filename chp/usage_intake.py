@@ -1,6 +1,8 @@
 """One usage-focused intake contract shared by app and external reviewers."""
 import json
+import re
 from .store import dumps
+from .ingest import decode_broken_cmap_text
 
 POLICY = 'operations/1'
 BRIEF = '''Purpose: Help Coal Handling Plant (CHP) operators find applicable evidence, understand equipment connections, retain shift and breakdown history, and track follow-up actions and supported lessons.
@@ -66,22 +68,93 @@ def check_policy(store, run_id, body, db=None):
         raise ValueError('Reference intake cannot acquire structured changes through proposal editing; re-analyze with an appropriate route')
 
 
+_WORD_SYNONYMS = {
+    'psh': ('psh', 'uee-1', 'uee 1', 'primary screening house', 'primary screen house'),
+    'cbsh': ('cbsh', 'uee-2', 'uee 2', 'blending silo', 'coal blending silo house'),
+    'crh': ('crh', 'uee-3', 'uee 3', 'crusher house'),
+    'bcn': ('bcn', 'belt conveyor', 'conveyor', 'eac', 'eba'),
+    'tp': ('tp-', 'uef-', 'transfer point', 'transfer house'),
+    'uef': ('uef', 'tp-', 'transfer point', 'transfer house'),
+    'eau': ('eau-1', 'eau-2', 'csu-1', 'csu-2', 'coal sampling'),
+    'csu': ('csu-1', 'csu-2', 'eau-1', 'eau-2', 'coal sampling'),
+    'ilms': ('ilms', 'magnetic separator', 'at-1', 'at-2', 'at-3', 'at-4'),
+    'pcs': ('pcs', 'pull cord', 'pull-cord'),
+    'bss': ('bss', 'belt sway', 'belt-sway'),
+    'zss': ('zss', 'zero speed', 'zero-speed'),
+}
+
+
+def _expand_query_groups(query):
+    rest = query.casefold().strip()
+    groups = []
+
+    patterns = [
+        (r'\b(?:tp|th|uef|transfer\s*(?:point|house|tower))\s*[-#]?\s*0*([1-9]|1[0-8])\b',
+         lambda m: (f"tp-{m[1]}", f"tp {m[1]}", f"tp{m[1]}", f"uef-{m[1]}", f"uef {m[1]}", f"uef{m[1]}", f"transfer point-{m[1]}", f"transfer point {m[1]}", f"transfer house {m[1]}")),
+        (r'\b(?:uee\s*[-#]?\s*0*1|primary\s+screen(?:ing)?\s+house|psh)\b',
+         lambda m: ('psh', 'uee-1', 'uee 1', 'uee1', 'primary screening house', 'primary screen house')),
+        (r'\b(?:uee\s*[-#]?\s*0*2|(?:coal\s+)?blending\s+silo(?:\s+house)?|silo\s+house|cbsh)\b',
+         lambda m: ('cbsh', 'uee-2', 'uee 2', 'uee2', 'blending silo', 'silo house')),
+        (r'\b(?:uee\s*[-#]?\s*0*3|crusher\s+house|crushing\s+house|crh)\b',
+         lambda m: ('crh', 'uee-3', 'uee 3', 'uee3', 'crusher house')),
+        (r'\b(?:eac|eba|bcn|conveyor|belt\s+conveyor)\s*[-#]?\s*0*(1[0-9]|[1-9])\s*([ab])?\b',
+         lambda m: tuple({
+             f"eac-{m[1]}{m[2] or ''}", f"eac {m[1]}{m[2] or ''}", f"eac{m[1]}{m[2] or ''}",
+             f"eba-{m[1]}{m[2] or ''}", f"eba {m[1]}{m[2] or ''}", f"eba{m[1]}{m[2] or ''}",
+             f"bcn-{m[1]}{m[2] or ''}", f"bcn {m[1]}{m[2] or ''}", f"conveyor-{m[1]}", f"conveyor {m[1]}",
+             f"eac {m[1]}a/{m[1]}b" if m[2] else f"conveyor-{m[1]}"
+         })),
+        (r'\b(?:dh|drive\s+house|uax)\s*[-#]?\s*0*([1-4])\b',
+         lambda m: (f"dh-{m[1]}", f"dh {m[1]}", "dh-1,2,3,4", f"drive house {m[1]}", f"uax-{m[1]}", f"uax {m[1]}")),
+        (r'\b(?:tph|tail\s*(?:pulley\s*)?house)\s*[-#]?\s*0*([1-4])\b',
+         lambda m: (f"tph-{m[1]}", f"tph {m[1]}", "tph-1,2,3,4", f"tail pulley house {m[1]}", f"uax-{int(m[1])+4}", f"uax {int(m[1])+4}")),
+        (r'\buax\s*[-#]?\s*0*([5-8])\b',
+         lambda m: (f"uax-{m[1]}", f"uax {m[1]}", f"tph-{int(m[1])-4}", "tph-1,2,3,4", "dh-5" if m[1]=='5' else f"tph-{int(m[1])-4}")),
+        (r'\b(?:eau|csu)\s*[-#]?\s*0*1\b',
+         lambda m: ('eau-1', 'eau 1', 'csu-1', 'csu 1', 'sampling unit at uef-3', 'coal sampling')),
+        (r'\b(?:eau|csu)\s*[-#]?\s*0*2\b',
+         lambda m: ('eau-2', 'eau 2', 'csu-2', 'csu 2', 'sampling unit at uef-13', 'coal sampling')),
+        (r'\b(?:uba|mcc\s*(?:building|room))\s*[-#]?\s*0*([1-4])\b',
+         lambda m: (f"uba-{m[1]}", f"uba {m[1]}", f"mcc-{m[1]}", f"mcc {m[1]}", "mcc rooms")),
+        (r'\b(?:uga|dsph|(?:ds\s+)?pump\s+house)\s*[-#]?\s*0*([12])\b',
+         lambda m: (f"uga-{m[1]}", f"uga {m[1]}", f"pump house-{m[1]}", f"pump house {m[1]}")),
+    ]
+    for rx, fn in patterns:
+        def _repl(match):
+            groups.append(fn(match))
+            return ' '
+        rest = re.sub(rx, _repl, rest)
+
+    for tok in rest.split():
+        if tok in _WORD_SYNONYMS:
+            groups.append(_WORD_SYNONYMS[tok])
+        elif '-' in tok:
+            groups.append((tok, tok.replace('-', ' '), tok.replace('-', '')))
+        else:
+            groups.append((tok,))
+    return groups
+
+
 def search_sources(store, query, limit=40):
     query = query.strip()
     if not query or len(query) > 300: raise ValueError('Enter a search up to 300 characters')
-    terms = query.casefold().split()
+    groups = _expand_query_groups(query)
+    if not groups: raise ValueError('Enter a search up to 300 characters')
     results = []
     # Parameter-free corpus scan is deterministic and sufficient for the local corpus.
     # It searches source text, document names, revisions and locators, never generates answers.
     for row in store.rows('SELECT e.*,d.name,d.revision,d.authority FROM evidence e JOIN documents d ON d.id=e.document_id'):
-        haystack = ' '.join(str(row[k]) for k in ('text','name','revision','locator')).casefold()
-        if not all(t in haystack for t in terms): continue
-        at = next((row['text'].casefold().find(t) for t in terms if t in row['text'].casefold()), 0)
+        decoded_txt = decode_broken_cmap_text(row['text'])
+        haystack = ' '.join([decoded_txt, str(row['text']), str(row['name']), str(row['revision']), str(row['locator'])]).casefold()
+        if not all(any(alt in haystack for alt in g) for g in groups): continue
+        txt_lower = row['text'].casefold()
+        at = next((txt_lower.find(alt) for g in groups for alt in g if alt in txt_lower), 0)
         start = max(0, at-100)
         results.append({k:row[k] for k in ('id','document_id','page','locator','name','revision','authority','image')} | {'snippet':row['text'][start:start+650]})
     for note in store.rows('SELECT * FROM source_notes ORDER BY version DESC'):
-        if not all(t in note['text'].casefold() for t in terms): continue
+        note_lower = note['text'].casefold()
+        if not all(any(alt in note_lower for alt in g) for g in groups): continue
         for support in json.loads(note['provenance'])['evidence']:
             rows=store.rows('SELECT e.id,e.document_id,e.page,e.locator,e.image,d.name,d.revision,d.authority FROM evidence e JOIN documents d ON d.id=e.document_id WHERE e.id=?',(support['evidence_id'],))
             if rows: results.append({**rows[0],'snippet':note['text'],'support':support,'index_note_id':note['id']})
-    return {'query':query,'total':len(results),'results':results[:limit], 'notice':'Literal source search with reviewed index notes. Scanned drawing text must be indexed by a reviewed source note or supplied as a searchable export; page images remain available.'}
+    return {'query':query,'total':len(results),'results':results[:limit], 'notice':'Literal source search with reviewed index notes and plant code alias expansion. Scanned drawing text must be indexed by a reviewed source note or supplied as a searchable export; page images remain available.'}

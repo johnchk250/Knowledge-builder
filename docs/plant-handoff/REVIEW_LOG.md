@@ -39,7 +39,7 @@ Local review render paths are under `output/plant-handoff/review/`. They are ret
 | `doc_40baa8f059a0427f9567` extractor GA | Visual p1, inventory pp 1–3 | Confirmed vertical assembly, drive/lube/liner information, machine versus vessel scope and useful visual composition. |
 | `doc_ef73ffa11a1748979909` extractor philosophy | Extracted pp 1–10, focused pp 4–8 and review p10 | Source leads for dual motors/common VFD, mode-specific permissives, capacity/density bases; filename scope correction matters. Main text and review replies need revision-aware comparison. |
 | `doc_dd46f2c1532c4467a6e6` bunker sizing | Extracted p2, inventory pp 1–9 | Established design-case calculation leads; no blanket application to 12installed bunkers accepted. |
-| `doc_411067c712284bc5a957` SW/DW boundary layout | Title/page inventory and existing cited assertions/text | UEF-2/TP16/17/18 records exist; no new proof they belong to the main coal route. |
+| `doc_411147c712284bc5a957` SW/DW boundary layout | Title/page inventory and existing cited assertions/text | UEF-2/TP16/17/18 records exist; no new proof they belong to the main coal route. |
 | `doc_9c169bf7536b4ebca236` standalone coal flow | Metadata and retrieved annex text | Imported authority must be checked against original; Rihand annex context must not become Maitree equipment facts. |
 
 ## Not claimed
